@@ -23,7 +23,7 @@ return [
      */
 
     'groups' => [
-        'client_css' => [
+        'admin_css' => [
             'assets' => [
 
             ],
@@ -31,7 +31,7 @@ return [
             //'async' => true,
             'output' => 'client.css'
         ],
-        'client_js' => [
+        'admin_js' => [
             'assets' => [
 
             ],

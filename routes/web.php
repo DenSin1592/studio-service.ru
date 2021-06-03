@@ -12,6 +12,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::prefix(config('app.admin_path'))->name('cc.')->namespace('Admin')->group(function () {
+    Route::middleware('guest')->group(function () {
+        Route::get('login', 'SessionsController@create')->name('login');
+        Route::post('login', 'SessionsController@store')->name('login');
+    });
+
+    Route::middleware('auth')->group(function () {
+        Route::delete('logout', 'SessionsController@destroy')->name('logout');
+
+        require_once 'web/admin/structure.php';
+    });
+});
 
 Route::get('/', function () {
     return view('welcome');
