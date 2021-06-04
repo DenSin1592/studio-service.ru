@@ -10,8 +10,6 @@
             </span>
         </div>
 
-{{--
         @include('admin.layouts._main_menu_lvl', ['menu_lvl' => $main_menu])
---}}
     </div>
 </aside>

@@ -25,8 +25,7 @@ class ComposersServiceProvider extends ServiceProvider
                 'admin.layouts._top_nav',
                 'client.layouts._auth_menu',
             ],
-            //todo: Сделать этот композер
-            //AdminMainMenuComposer::class => 'admin.layouts._main_menu',
+            AdminMainMenuComposer::class => 'admin.layouts._main_menu',
         ]);
     }
 }

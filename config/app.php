@@ -191,6 +191,7 @@ return [
         App\Providers\FormBuilderServiceProvider::class,
         App\Providers\RepositoriesServiceProvider::class,
         App\Providers\ComposersServiceProvider::class,
+        App\Providers\Admin\MenuServiceProvider::class,
         ],
 
     /*
