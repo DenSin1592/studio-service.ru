@@ -1,13 +1,12 @@
-<?php namespace App\Providers\Admin;
+<?php
 
-use App\Http\Controllers\Admin\FeedbackController;
-use App\Http\Controllers\Admin\HomePagesController;
-use App\Http\Controllers\Admin\ProjectsController;
+namespace App\Providers\Admin;
+
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
-use App\Http\Controllers\Admin\TextPagesController;
 use App\Services\Admin\Menu\Menu;
 use App\Services\Admin\Menu\MenuElement;
+use App\Services\Admin\Menu\MenuGroup;
 use Illuminate\Support\ServiceProvider;
 
 class MenuServiceProvider extends ServiceProvider
@@ -40,6 +39,18 @@ class MenuServiceProvider extends ServiceProvider
                         [SettingsController::class]
                     )
                 );
+
+
+                $groupTech = new MenuGroup('Техническая информация', 'glyphicon-wrench');
+                $menu->addMenuGroup($groupTech);
+                $groupTech->addMenuElement(new MenuElement(
+                    'Логи (Telescope)',
+                    'glyphicon-calendar',
+                    url('telescope'),
+                    [],
+                    true
+                ));
+
 
                 return $menu;
             });
