@@ -1770,7 +1770,7 @@
                     /**
          * Get the currently authenticated user.
          *
-         * @return \App\Models\User|null 
+         * @return \App\User|null 
          * @static 
          */ 
         public static function user()
@@ -1805,7 +1805,7 @@
          * Log the given user ID into the application without sessions or cookies.
          *
          * @param mixed $id
-         * @return \App\Models\User|false 
+         * @return \App\User|false 
          * @static 
          */ 
         public static function onceUsingId($id)
@@ -1883,7 +1883,7 @@
          *
          * @param mixed $id
          * @param bool $remember
-         * @return \App\Models\User|false 
+         * @return \App\User|false 
          * @static 
          */ 
         public static function loginUsingId($id, $remember = false)
@@ -1959,7 +1959,7 @@
                     /**
          * Get the last user we attempted to authenticate.
          *
-         * @return \App\Models\User 
+         * @return \App\User 
          * @static 
          */ 
         public static function getLastAttempted()
@@ -2061,7 +2061,7 @@
                     /**
          * Return the currently cached user.
          *
-         * @return \App\Models\User|null 
+         * @return \App\User|null 
          * @static 
          */ 
         public static function getUser()
@@ -2107,7 +2107,7 @@
                     /**
          * Determine if the current user is authenticated. If not, throw an exception.
          *
-         * @return \App\Models\User 
+         * @return \App\User 
          * @throws \Illuminate\Auth\AuthenticationException
          * @static 
          */ 
@@ -15229,7 +15229,149 @@
      
 }
 
-        namespace Barryvdh\Debugbar { 
+        namespace App\Facades { 
+            /**
+     * Class Setting
+     * Facade for setting getter.
+     *
+     * @package Facade
+     */ 
+        class Setting {
+                    /**
+         * Get setting.
+         *
+         * @param string $key
+         * @return string|array 
+         * @throws NotFoundKeyException
+         * @static 
+         */ 
+        public static function get($key)
+        {
+                        /** @var \App\Services\Settings\SettingGetter $instance */
+                        return $instance->get($key);
+        }
+                    /**
+         * 
+         *
+         * @return \App\Services\Settings\SettingGroup[] 
+         * @static 
+         */ 
+        public static function groups()
+        {
+                        /** @var \App\Services\Settings\SettingGetter $instance */
+                        return $instance->groups();
+        }
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class TypeContainer {
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function addRepositoryAssociation($repositoryKey, $repositoryAssociation)
+        {
+                        /** @var \App\Services\StructureTypes\TypeContainer $instance */
+                        return $instance->addRepositoryAssociation($repositoryKey, $repositoryAssociation);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function addType($typeKey, $type)
+        {
+                        /** @var \App\Services\StructureTypes\TypeContainer $instance */
+                        return $instance->addType($typeKey, $type);
+        }
+                    /**
+         * 
+         *
+         * @return \App\Services\StructureTypes\RepositoryAssociation[] 
+         * @static 
+         */ 
+        public static function getRepositoryAssociations()
+        {
+                        /** @var \App\Services\StructureTypes\TypeContainer $instance */
+                        return $instance->getRepositoryAssociations();
+        }
+                    /**
+         * 
+         *
+         * @return \App\Services\StructureTypes\Type[] 
+         * @static 
+         */ 
+        public static function getTypeList()
+        {
+                        /** @var \App\Services\StructureTypes\TypeContainer $instance */
+                        return $instance->getTypeList();
+        }
+                    /**
+         * Get enabled types for list.
+         *
+         * @param null $nodeId
+         * @return \App\Services\StructureTypes\Type[] 
+         * @static 
+         */ 
+        public static function getEnabledTypeList($nodeId = null)
+        {
+                        /** @var \App\Services\StructureTypes\TypeContainer $instance */
+                        return $instance->getEnabledTypeList($nodeId);
+        }
+                    /**
+         * Get name of type.
+         *
+         * @param $typeKey
+         * @return string|null 
+         * @static 
+         */ 
+        public static function getTypeName($typeKey)
+        {
+                        /** @var \App\Services\StructureTypes\TypeContainer $instance */
+                        return $instance->getTypeName($typeKey);
+        }
+                    /**
+         * 
+         *
+         * @param \App\Models\Node $node
+         * @return \Eloquent|null 
+         * @static 
+         */ 
+        public static function getContentModelFor($node)
+        {
+                        /** @var \App\Services\StructureTypes\TypeContainer $instance */
+                        return $instance->getContentModelFor($node);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getContentUrl($node)
+        {
+                        /** @var \App\Services\StructureTypes\TypeContainer $instance */
+                        return $instance->getContentUrl($node);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function getClientUrl($node, $absolute = true)
+        {
+                        /** @var \App\Services\StructureTypes\TypeContainer $instance */
+                        return $instance->getClientUrl($node, $absolute);
+        }
+         
+    }
+     
+}
+
+    namespace Barryvdh\Debugbar { 
             /**
      * 
      *
@@ -15766,6 +15908,56 @@
      
 }
 
+    namespace Diol\LaravelAssets { 
+            /**
+     * Class AssetFacade
+     *
+     * @package Diol\LaravelAssets
+     */ 
+        class AssetFacade {
+                    /**
+         * Include JS tags.
+         *
+         * @param string $groupName - group name.
+         * @param null $template - template for link tag. Need to put {{file}} inside.
+         * @return string 
+         * @static 
+         */ 
+        public static function includeJS($groupName, $template = null)
+        {
+                        /** @var \Diol\LaravelAssets\Asset $instance */
+                        return $instance->includeJS($groupName, $template);
+        }
+                    /**
+         * Include CSS tags.
+         *
+         * @param string $groupName - group name.
+         * @param null $template - template for link tag. Need to put {{file}} inside.
+         * @return string 
+         * @static 
+         */ 
+        public static function includeCSS($groupName, $template = null)
+        {
+                        /** @var \Diol\LaravelAssets\Asset $instance */
+                        return $instance->includeCSS($groupName, $template);
+        }
+                    /**
+         * Get default laravel asset with timestamp.
+         *
+         * @param $file
+         * @return string 
+         * @static 
+         */ 
+        public static function timed($file)
+        {
+                        /** @var \Diol\LaravelAssets\Asset $instance */
+                        return $instance->timed($file);
+        }
+         
+    }
+     
+}
+
     namespace Facade\Ignition\Facades { 
             /**
      * Class Flare.
@@ -16052,6 +16244,1793 @@
         {
                         /** @var \Facade\FlareClient\Flare $instance */
                         return $instance->group($groupName, $properties);
+        }
+         
+    }
+     
+}
+
+    namespace Intervention\Image\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Image {
+                    /**
+         * Overrides configuration settings
+         *
+         * @param array $config
+         * @return self 
+         * @static 
+         */ 
+        public static function configure($config = [])
+        {
+                        /** @var \Intervention\Image\ImageManager $instance */
+                        return $instance->configure($config);
+        }
+                    /**
+         * Initiates an Image instance from different input types
+         *
+         * @param mixed $data
+         * @return \Intervention\Image\Image 
+         * @static 
+         */ 
+        public static function make($data)
+        {
+                        /** @var \Intervention\Image\ImageManager $instance */
+                        return $instance->make($data);
+        }
+                    /**
+         * Creates an empty image canvas
+         *
+         * @param int $width
+         * @param int $height
+         * @param mixed $background
+         * @return \Intervention\Image\Image 
+         * @static 
+         */ 
+        public static function canvas($width, $height, $background = null)
+        {
+                        /** @var \Intervention\Image\ImageManager $instance */
+                        return $instance->canvas($width, $height, $background);
+        }
+                    /**
+         * Create new cached image and run callback
+         * (requires additional package intervention/imagecache)
+         *
+         * @param \Closure $callback
+         * @param int $lifetime
+         * @param boolean $returnObj
+         * @return \Image 
+         * @static 
+         */ 
+        public static function cache($callback, $lifetime = null, $returnObj = false)
+        {
+                        /** @var \Intervention\Image\ImageManager $instance */
+                        return $instance->cache($callback, $lifetime, $returnObj);
+        }
+         
+    }
+     
+}
+
+    namespace Collective\Html { 
+            /**
+     * 
+     *
+     * @see \Collective\Html\FormBuilder
+     */ 
+        class FormFacade {
+                    /**
+         * Open up a new HTML form.
+         *
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function open($options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->open($options);
+        }
+                    /**
+         * Create a new model based form builder.
+         *
+         * @param mixed $model
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function model($model, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->model($model, $options);
+        }
+                    /**
+         * Set the model instance on the form builder.
+         *
+         * @param mixed $model
+         * @return void 
+         * @static 
+         */ 
+        public static function setModel($model)
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        $instance->setModel($model);
+        }
+                    /**
+         * Get the current model instance on the form builder.
+         *
+         * @return mixed $model
+         * @static 
+         */ 
+        public static function getModel()
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->getModel();
+        }
+                    /**
+         * Close the current form.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function close()
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->close();
+        }
+                    /**
+         * Generate a hidden field with the current CSRF token.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function token()
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->token();
+        }
+                    /**
+         * Create a form label element.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @param bool $escape_html
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function label($name, $value = null, $options = [], $escape_html = true)
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->label($name, $value, $options, $escape_html);
+        }
+                    /**
+         * Create a form input field.
+         *
+         * @param string $type
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function input($type, $name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->input($type, $name, $value, $options);
+        }
+                    /**
+         * Create a text input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function text($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->text($name, $value, $options);
+        }
+                    /**
+         * Create a password input field.
+         *
+         * @param string $name
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function password($name, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->password($name, $options);
+        }
+                    /**
+         * Create a range input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function range($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->range($name, $value, $options);
+        }
+                    /**
+         * Create a hidden input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function hidden($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->hidden($name, $value, $options);
+        }
+                    /**
+         * Create a search input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function search($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->search($name, $value, $options);
+        }
+                    /**
+         * Create an e-mail input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function email($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->email($name, $value, $options);
+        }
+                    /**
+         * Create a tel input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function tel($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->tel($name, $value, $options);
+        }
+                    /**
+         * Create a number input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function number($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->number($name, $value, $options);
+        }
+                    /**
+         * Create a date input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function date($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->date($name, $value, $options);
+        }
+                    /**
+         * Create a datetime input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function datetime($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->datetime($name, $value, $options);
+        }
+                    /**
+         * Create a datetime-local input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function datetimeLocal($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->datetimeLocal($name, $value, $options);
+        }
+                    /**
+         * Create a time input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function time($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->time($name, $value, $options);
+        }
+                    /**
+         * Create a url input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function url($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->url($name, $value, $options);
+        }
+                    /**
+         * Create a week input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function week($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->week($name, $value, $options);
+        }
+                    /**
+         * Create a file input field.
+         *
+         * @param string $name
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function file($name, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->file($name, $options);
+        }
+                    /**
+         * Create a textarea input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function textarea($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->textarea($name, $value, $options);
+        }
+                    /**
+         * Create a select box field.
+         *
+         * @param string $name
+         * @param array $list
+         * @param string|bool $selected
+         * @param array $selectAttributes
+         * @param array $optionsAttributes
+         * @param array $optgroupsAttributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function select($name, $list = [], $selected = null, $selectAttributes = [], $optionsAttributes = [], $optgroupsAttributes = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->select($name, $list, $selected, $selectAttributes, $optionsAttributes, $optgroupsAttributes);
+        }
+                    /**
+         * Create a select range field.
+         *
+         * @param string $name
+         * @param string $begin
+         * @param string $end
+         * @param string $selected
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function selectRange($name, $begin, $end, $selected = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->selectRange($name, $begin, $end, $selected, $options);
+        }
+                    /**
+         * Create a select year field.
+         *
+         * @param string $name
+         * @param string $begin
+         * @param string $end
+         * @param string $selected
+         * @param array $options
+         * @return mixed 
+         * @static 
+         */ 
+        public static function selectYear()
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->selectYear();
+        }
+                    /**
+         * Create a select month field.
+         *
+         * @param string $name
+         * @param string $selected
+         * @param array $options
+         * @param string $format
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function selectMonth($name, $selected = null, $options = [], $format = '%B')
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->selectMonth($name, $selected, $options, $format);
+        }
+                    /**
+         * Get the select option for the given value.
+         *
+         * @param string $display
+         * @param string $value
+         * @param string $selected
+         * @param array $attributes
+         * @param array $optgroupAttributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function getSelectOption($display, $value, $selected, $attributes = [], $optgroupAttributes = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->getSelectOption($display, $value, $selected, $attributes, $optgroupAttributes);
+        }
+                    /**
+         * Create a checkbox input field.
+         *
+         * @param string $name
+         * @param mixed $value
+         * @param bool $checked
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function checkbox($name, $value = 1, $checked = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->checkbox($name, $value, $checked, $options);
+        }
+                    /**
+         * Create a radio button input field.
+         *
+         * @param string $name
+         * @param mixed $value
+         * @param bool $checked
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function radio($name, $value = null, $checked = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->radio($name, $value, $checked, $options);
+        }
+                    /**
+         * Create a HTML reset input element.
+         *
+         * @param string $value
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function reset($value, $attributes = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->reset($value, $attributes);
+        }
+                    /**
+         * Create a HTML image input element.
+         *
+         * @param string $url
+         * @param string $name
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function image($url, $name = null, $attributes = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->image($url, $name, $attributes);
+        }
+                    /**
+         * Create a month input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function month($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->month($name, $value, $options);
+        }
+                    /**
+         * Create a color input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function color($name, $value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->color($name, $value, $options);
+        }
+                    /**
+         * Create a submit button element.
+         *
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function submit($value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->submit($value, $options);
+        }
+                    /**
+         * Create a button element.
+         *
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function button($value = null, $options = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->button($value, $options);
+        }
+                    /**
+         * Create a datalist box field.
+         *
+         * @param string $id
+         * @param array $list
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function datalist($id, $list = [])
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->datalist($id, $list);
+        }
+                    /**
+         * Get the ID attribute for a field name.
+         *
+         * @param string $name
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */ 
+        public static function getIdAttribute($name, $attributes)
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->getIdAttribute($name, $attributes);
+        }
+                    /**
+         * Get the value that should be assigned to the field.
+         *
+         * @param string $name
+         * @param string $value
+         * @return mixed 
+         * @static 
+         */ 
+        public static function getValueAttribute($name, $value = null)
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->getValueAttribute($name, $value);
+        }
+                    /**
+         * Take Request in fill process
+         *
+         * @param bool $consider
+         * @static 
+         */ 
+        public static function considerRequest($consider = true)
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->considerRequest($consider);
+        }
+                    /**
+         * Get a value from the session's old input.
+         *
+         * @param string $name
+         * @return mixed 
+         * @static 
+         */ 
+        public static function old($name)
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->old($name);
+        }
+                    /**
+         * Determine if the old input is empty.
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function oldInputIsEmpty()
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->oldInputIsEmpty();
+        }
+                    /**
+         * Get the session store implementation.
+         *
+         * @return \Illuminate\Contracts\Session\Session $session
+         * @static 
+         */ 
+        public static function getSessionStore()
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->getSessionStore();
+        }
+                    /**
+         * Set the session store implementation.
+         *
+         * @param \Illuminate\Contracts\Session\Session $session
+         * @return \Collective\Html\FormBuilder 
+         * @static 
+         */ 
+        public static function setSessionStore($session)
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->setSessionStore($session);
+        }
+                    /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {
+                        \Collective\Html\FormBuilder::macro($name, $macro);
+        }
+                    /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @param bool $replace
+         * @return void 
+         * @throws \ReflectionException
+         * @static 
+         */ 
+        public static function mixin($mixin, $replace = true)
+        {
+                        \Collective\Html\FormBuilder::mixin($mixin, $replace);
+        }
+                    /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {
+                        return \Collective\Html\FormBuilder::hasMacro($name);
+        }
+                    /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function macroCall($method, $parameters)
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->macroCall($method, $parameters);
+        }
+                    /**
+         * Register a custom component.
+         *
+         * @param $name
+         * @param $view
+         * @param array $signature
+         * @return void 
+         * @static 
+         */ 
+        public static function component($name, $view, $signature)
+        {
+                        \Collective\Html\FormBuilder::component($name, $view, $signature);
+        }
+                    /**
+         * Check if a component is registered.
+         *
+         * @param $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasComponent($name)
+        {
+                        return \Collective\Html\FormBuilder::hasComponent($name);
+        }
+                    /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return \Illuminate\Contracts\View\View|mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function componentCall($method, $parameters)
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->componentCall($method, $parameters);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFormWithErrors()
+         * @param \Illuminate\Support\ViewErrorBag $errors
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbFormWithErrorsOpen($errors, $options)
+        {
+                        return \Collective\Html\FormBuilder::tbFormWithErrorsOpen($errors, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbModelWithErrors()
+         * @param mixed $model
+         * @param \Illuminate\Support\ViewErrorBag $errors
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbModelWithErrors($model, $errors, $options)
+        {
+                        return \Collective\Html\FormBuilder::tbModelWithErrors($model, $errors, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbResultFormOpen()
+         * @param mixed $model
+         * @param \Illuminate\Support\ViewErrorBag $errors
+         * @param string $baseRoute
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbRestfulFormOpen($model, $errors, $baseRoute, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbRestfulFormOpen($model, $errors, $baseRoute, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param string|null $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbLabel($name, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbLabel($name, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param string|null $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbText($name, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbText($name, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbPassword($name, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbPassword($name, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param array $list
+         * @param mixed $selected
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbSelect($name, $list = [], $selected = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbSelect($name, $list, $selected, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param array $list
+         * @param mixed $selected
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbSelect2($name, $list = [], $selected = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbSelect2($name, $list, $selected, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbTextarea($name, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbTextarea($name, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbTinymceTextarea($name, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbTinymceTextarea($name, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param string $title
+         * @param mixed $checked
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbStateCheckbox($name, $title, $checked = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbStateCheckbox($name, $title, $checked, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param string|null $labelName
+         * @param mixed $value
+         * @param mixed $checked
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbStateRadioButton($name, $labelName, $value = null, $checked = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbStateRadioButton($name, $labelName, $value, $checked, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFormGroup()
+         * @param string|null $name
+         * @static 
+         */ 
+        public static function tbFormGroupOpen($name = null)
+        {
+                        return \Collective\Html\FormBuilder::tbFormGroupOpen($name);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFormGroup()
+         * @static 
+         */ 
+        public static function tbFormGroupClose()
+        {
+                        return \Collective\Html\FormBuilder::tbFormGroupClose();
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFormGroup()
+         * @param mixed $key
+         * @static 
+         */ 
+        public static function tbFormFieldError($key)
+        {
+                        return \Collective\Html\FormBuilder::tbFormFieldError($key);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param string|null $labelName
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbTextBlock($name, $labelName = null, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbTextBlock($name, $labelName, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param string|null $labelName
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbPasswordBlock($name, $labelName = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbPasswordBlock($name, $labelName, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param string|null $labelName
+         * @param mixed $checked
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbCheckboxBlock($name, $labelName = null, $checked = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbCheckboxBlock($name, $labelName, $checked, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param string|null $labelName
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbTextareaBlock($name, $labelName = null, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbTextareaBlock($name, $labelName, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param string|null $labelName
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbTinymceTextareaBlock($name, $labelName = null, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbTinymceTextareaBlock($name, $labelName, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param array $variants
+         * @param string|null $labelName
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbSelectBlock($name, $variants = [], $labelName = null, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbSelectBlock($name, $variants, $labelName, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param array $variants
+         * @param string|null $labelName
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbSelect2Block($name, $variants = [], $labelName = null, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbSelect2Block($name, $variants, $labelName, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFormHelpers()
+         * @param mixed $needles
+         * @static 
+         */ 
+        public static function errorContains($needles)
+        {
+                        return \Collective\Html\FormBuilder::errorContains($needles);
+        }
+         
+    }
+            /**
+     * 
+     *
+     * @see \Collective\Html\HtmlBuilder
+     */ 
+        class HtmlFacade {
+                    /**
+         * Convert an HTML string to entities.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function entities($value)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->entities($value);
+        }
+                    /**
+         * Convert entities to HTML characters.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function decode($value)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->decode($value);
+        }
+                    /**
+         * Generate a link to a JavaScript file.
+         *
+         * @param string $url
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function script($url, $attributes = [], $secure = null)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->script($url, $attributes, $secure);
+        }
+                    /**
+         * Generate a link to a CSS file.
+         *
+         * @param string $url
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function style($url, $attributes = [], $secure = null)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->style($url, $attributes, $secure);
+        }
+                    /**
+         * Generate an HTML image element.
+         *
+         * @param string $url
+         * @param string $alt
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function image($url, $alt = null, $attributes = [], $secure = null)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->image($url, $alt, $attributes, $secure);
+        }
+                    /**
+         * Generate a link to a Favicon file.
+         *
+         * @param string $url
+         * @param array $attributes
+         * @param bool $secure
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function favicon($url, $attributes = [], $secure = null)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->favicon($url, $attributes, $secure);
+        }
+                    /**
+         * Generate a HTML link.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @param bool $secure
+         * @param bool $escape
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function link($url, $title = null, $attributes = [], $secure = null, $escape = true)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->link($url, $title, $attributes, $secure, $escape);
+        }
+                    /**
+         * Generate a HTTPS HTML link.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @param bool $escape
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function secureLink($url, $title = null, $attributes = [], $escape = true)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->secureLink($url, $title, $attributes, $escape);
+        }
+                    /**
+         * Generate a HTML link to an asset.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @param bool $secure
+         * @param bool $escape
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function linkAsset($url, $title = null, $attributes = [], $secure = null, $escape = true)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->linkAsset($url, $title, $attributes, $secure, $escape);
+        }
+                    /**
+         * Generate a HTTPS HTML link to an asset.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @param bool $escape
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function linkSecureAsset($url, $title = null, $attributes = [], $escape = true)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->linkSecureAsset($url, $title, $attributes, $escape);
+        }
+                    /**
+         * Generate a HTML link to a named route.
+         *
+         * @param string $name
+         * @param string $title
+         * @param array $parameters
+         * @param array $attributes
+         * @param bool $secure
+         * @param bool $escape
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function linkRoute($name, $title = null, $parameters = [], $attributes = [], $secure = null, $escape = true)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->linkRoute($name, $title, $parameters, $attributes, $secure, $escape);
+        }
+                    /**
+         * Generate a HTML link to a controller action.
+         *
+         * @param string $action
+         * @param string $title
+         * @param array $parameters
+         * @param array $attributes
+         * @param bool $secure
+         * @param bool $escape
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function linkAction($action, $title = null, $parameters = [], $attributes = [], $secure = null, $escape = true)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->linkAction($action, $title, $parameters, $attributes, $secure, $escape);
+        }
+                    /**
+         * Generate a HTML link to an email address.
+         *
+         * @param string $email
+         * @param string $title
+         * @param array $attributes
+         * @param bool $escape
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function mailto($email, $title = null, $attributes = [], $escape = true)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->mailto($email, $title, $attributes, $escape);
+        }
+                    /**
+         * Obfuscate an e-mail address to prevent spam-bots from sniffing it.
+         *
+         * @param string $email
+         * @return string 
+         * @static 
+         */ 
+        public static function email($email)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->email($email);
+        }
+                    /**
+         * Generates non-breaking space entities based on number supplied.
+         *
+         * @param int $num
+         * @return string 
+         * @static 
+         */ 
+        public static function nbsp($num = 1)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->nbsp($num);
+        }
+                    /**
+         * Generate an ordered list of items.
+         *
+         * @param array $list
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString|string 
+         * @static 
+         */ 
+        public static function ol($list, $attributes = [])
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->ol($list, $attributes);
+        }
+                    /**
+         * Generate an un-ordered list of items.
+         *
+         * @param array $list
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString|string 
+         * @static 
+         */ 
+        public static function ul($list, $attributes = [])
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->ul($list, $attributes);
+        }
+                    /**
+         * Generate a description list of items.
+         *
+         * @param array $list
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function dl($list, $attributes = [])
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->dl($list, $attributes);
+        }
+                    /**
+         * Build an HTML attribute string from an array.
+         *
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */ 
+        public static function attributes($attributes)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->attributes($attributes);
+        }
+                    /**
+         * Obfuscate a string to prevent spam-bots from sniffing it.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function obfuscate($value)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->obfuscate($value);
+        }
+                    /**
+         * Generate a meta tag.
+         *
+         * @param string $name
+         * @param string $content
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function meta($name, $content, $attributes = [])
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->meta($name, $content, $attributes);
+        }
+                    /**
+         * Generate an html tag.
+         *
+         * @param string $tag
+         * @param mixed $content
+         * @param array $attributes
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function tag($tag, $content, $attributes = [])
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->tag($tag, $content, $attributes);
+        }
+                    /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {
+                        \Collective\Html\HtmlBuilder::macro($name, $macro);
+        }
+                    /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @param bool $replace
+         * @return void 
+         * @throws \ReflectionException
+         * @static 
+         */ 
+        public static function mixin($mixin, $replace = true)
+        {
+                        \Collective\Html\HtmlBuilder::mixin($mixin, $replace);
+        }
+                    /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {
+                        return \Collective\Html\HtmlBuilder::hasMacro($name);
+        }
+                    /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function macroCall($method, $parameters)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->macroCall($method, $parameters);
+        }
+                    /**
+         * Register a custom component.
+         *
+         * @param $name
+         * @param $view
+         * @param array $signature
+         * @return void 
+         * @static 
+         */ 
+        public static function component($name, $view, $signature)
+        {
+                        \Collective\Html\HtmlBuilder::component($name, $view, $signature);
+        }
+                    /**
+         * Check if a component is registered.
+         *
+         * @param $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasComponent($name)
+        {
+                        return \Collective\Html\HtmlBuilder::hasComponent($name);
+        }
+                    /**
+         * Dynamically handle calls to the class.
+         *
+         * @param string $method
+         * @param array $parameters
+         * @return \Illuminate\Contracts\View\View|mixed 
+         * @throws \BadMethodCallException
+         * @static 
+         */ 
+        public static function componentCall($method, $parameters)
+        {
+                        /** @var \Collective\Html\HtmlBuilder $instance */
+                        return $instance->componentCall($method, $parameters);
+        }
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class FormBuilder {
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFormWithErrors()
+         * @param \Illuminate\Support\ViewErrorBag $errors
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbFormWithErrorsOpen($errors, $options)
+        {
+                        return \Collective\Html\FormBuilder::tbFormWithErrorsOpen($errors, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbModelWithErrors()
+         * @param mixed $model
+         * @param \Illuminate\Support\ViewErrorBag $errors
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbModelWithErrors($model, $errors, $options)
+        {
+                        return \Collective\Html\FormBuilder::tbModelWithErrors($model, $errors, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbResultFormOpen()
+         * @param mixed $model
+         * @param \Illuminate\Support\ViewErrorBag $errors
+         * @param string $baseRoute
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbRestfulFormOpen($model, $errors, $baseRoute, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbRestfulFormOpen($model, $errors, $baseRoute, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param string|null $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbLabel($name, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbLabel($name, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param string|null $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbText($name, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbText($name, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbPassword($name, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbPassword($name, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param array $list
+         * @param mixed $selected
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbSelect($name, $list = [], $selected = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbSelect($name, $list, $selected, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param array $list
+         * @param mixed $selected
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbSelect2($name, $list = [], $selected = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbSelect2($name, $list, $selected, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbTextarea($name, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbTextarea($name, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbTinymceTextarea($name, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbTinymceTextarea($name, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param string $title
+         * @param mixed $checked
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbStateCheckbox($name, $title, $checked = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbStateCheckbox($name, $title, $checked, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFields()
+         * @param string $name
+         * @param string|null $labelName
+         * @param mixed $value
+         * @param mixed $checked
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbStateRadioButton($name, $labelName, $value = null, $checked = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbStateRadioButton($name, $labelName, $value, $checked, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFormGroup()
+         * @param string|null $name
+         * @static 
+         */ 
+        public static function tbFormGroupOpen($name = null)
+        {
+                        return \Collective\Html\FormBuilder::tbFormGroupOpen($name);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFormGroup()
+         * @static 
+         */ 
+        public static function tbFormGroupClose()
+        {
+                        return \Collective\Html\FormBuilder::tbFormGroupClose();
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initTbFormGroup()
+         * @param mixed $key
+         * @static 
+         */ 
+        public static function tbFormFieldError($key)
+        {
+                        return \Collective\Html\FormBuilder::tbFormFieldError($key);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param string|null $labelName
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbTextBlock($name, $labelName = null, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbTextBlock($name, $labelName, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param string|null $labelName
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbPasswordBlock($name, $labelName = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbPasswordBlock($name, $labelName, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param string|null $labelName
+         * @param mixed $checked
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbCheckboxBlock($name, $labelName = null, $checked = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbCheckboxBlock($name, $labelName, $checked, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param string|null $labelName
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbTextareaBlock($name, $labelName = null, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbTextareaBlock($name, $labelName, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param string|null $labelName
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbTinymceTextareaBlock($name, $labelName = null, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbTinymceTextareaBlock($name, $labelName, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param array $variants
+         * @param string|null $labelName
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbSelectBlock($name, $variants = [], $labelName = null, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbSelectBlock($name, $variants, $labelName, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFieldBlocks()
+         * @param string $name
+         * @param array $variants
+         * @param string|null $labelName
+         * @param mixed $value
+         * @param array $options
+         * @static 
+         */ 
+        public static function tbSelect2Block($name, $variants = [], $labelName = null, $value = null, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::tbSelect2Block($name, $variants, $labelName, $value, $options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\FormBuilderServiceProvider::initFormHelpers()
+         * @param mixed $needles
+         * @static 
+         */ 
+        public static function errorContains($needles)
+        {
+                        return \Collective\Html\FormBuilder::errorContains($needles);
         }
          
     }
@@ -19370,8 +21349,14 @@ namespace  {
             class URL extends \Illuminate\Support\Facades\URL {}
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
+            class Setting extends \App\Facades\Setting {}
+            class TypeContainer extends \App\Facades\TypeContainer {}
             class Debugbar extends \Barryvdh\Debugbar\Facade {}
+            class Asset extends \Diol\LaravelAssets\AssetFacade {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
+            class Image extends \Intervention\Image\Facades\Image {}
+            class Form extends \Collective\Html\FormFacade {}
+            class Html extends \Collective\Html\HtmlFacade {}
      
 }
 
