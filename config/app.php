@@ -189,7 +189,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\FormBuilderServiceProvider::class,
-    ],
+        App\Providers\RepositoriesServiceProvider::class,
+        App\Providers\ComposersServiceProvider::class,
+        ],
 
     /*
     |--------------------------------------------------------------------------

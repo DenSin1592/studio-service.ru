@@ -23,10 +23,37 @@ return [
      */
 
     'groups' => [
+        'client_css' => [
+            'assets' => [
+
+            ],
+            'filters' => ['css_min', 'embed_css', 'strip_bom', 'css_url_rebase'],
+            //'async' => true,
+            'output' => 'client.css'
+        ],
+
+        'client_js' => [
+            'assets' => [
+
+            ],
+            'filters' => ['js_min', 'end_with_semicolon'],
+            //'async' => true,
+            'output' => 'client.js'
+        ],
+
+        'client_general_js' => [
+            'assets' => [
+                'js/common/csrf.js',
+            ],
+            'filters' => ['js_min', 'end_with_semicolon'],
+            //'async' => true,
+            'output' => 'client.js'
+        ],
+
         'admin_css' => [
             'assets' => [
-                'vendor/bootstrap/css/v3/bootstrap.min.css',
-                'vendor/bootstrap/css/v3/bootstrap-theme.min.css',
+                'vendor/bootstrap/v3/css/bootstrap.min.css',
+                'vendor/bootstrap/v3/css/bootstrap-theme.min.css',
                 'vendor/font-awesome/css/font-awesome.min.css',
                 'vendor/fancybox/fancybox.jquery.min.css',
                 'vendor/datetimepicker/css/jquery.datetimepicker.css',
@@ -35,7 +62,17 @@ return [
                 'vendor/jquery.dataTables/css/dataTables.bootstrap.css',
                 'vendor/jquery.dataTables/css/fixedHeader.dataTables.min.css',
                 'css/admin/base.css',
+                'css/admin/element_list.css',
+                'css/admin/forms.css',
                 'css/admin/guest.css',
+                'css/admin/menu.css',
+                'css/admin/admin_users.css',
+                'css/admin/admin_roles.css',
+                'css/admin/node_structure.css',
+                'css/admin/settings.css',
+                'css/admin/scrollable_container.css',
+                'css/admin/select2_customisation.css',
+                'css/admin/feedback.css',
             ],
             'filters' => ['css_min', 'embed_css', 'strip_bom', 'css_url_rebase'],
             //'async' => true,
@@ -43,7 +80,30 @@ return [
         ],
         'admin_js' => [
             'assets' => [
-
+                'vendor/jquery/v2/jquery-2.1.3.min.js',
+                'vendor/jquery-ui/jquery-ui.min.js',
+                'vendor/bootstrap/v3/js/bootstrap.min.js',
+                'vendor/fancybox/fancybox.jquery.min.js',
+                'vendor/tinymce/tinymce.min.js',
+                'vendor/datetimepicker/js/jquery.datetimepicker.js',
+                'vendor/select2/select2.min.js',
+                'vendor/select2/i18n/ru.js',
+                'vendor/jquery.inputmask/jquery.inputmask.min.js',
+                'vendor/jquery.inputmask/inputmask.binding.js',
+                'vendor/js.cookie/js.cookie.js',
+                'vendor/jquery.dataTables/js/jquery.dataTables.js',
+                'vendor/jquery.dataTables/js/dataTables.bootstrap.js',
+                'vendor/jquery.dataTables/js/dataTables.fixedHeader.min.js',
+                'js/admin/settings.js',
+                'js/admin/hooks.js',
+                'js/admin/structure.js',
+                'js/admin/sortable_tree.js',
+                'js/admin/menu.js',
+                'js/admin/tinymce_init.js',
+                'js/admin/element_list.js',
+                'js/admin/datetimepicker_init.js',
+                'js/admin/multilanguage_fields.js',
+                'js/common/csrf.js',
             ],
             'filters' => ['js_min', 'end_with_semicolon'],
             //'async' => true,

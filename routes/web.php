@@ -19,7 +19,7 @@ Route::prefix(config('app.admin_path'))->name('cc.')->namespace('Admin')->group(
     });
 
     Route::middleware('auth')->group(function () {
-        Route::delete('logout', 'SessionsController@destroy')->name('logout');
+        Route::get('logout', 'SessionsController@destroy')->name('logout');
 
         require_once 'web/admin/structure.php';
     });

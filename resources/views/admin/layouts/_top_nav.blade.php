@@ -11,7 +11,7 @@
             </button>
 
             <a id="logotype" href="{{ route('cc.home') }}">
-                <img src="{{ Asset::timed('images/admin/diol.png') }}" alt="Проект">
+                <img src="{{ Asset::timed('images/admin/logo-diol.svg') }}" alt="Проект">
             </a>
         </div>
 
@@ -22,7 +22,7 @@
                     <span class="navbar-text">Ваш логин: <strong>{{ $currentAdminUser['username'] }}</strong></span>
                 </li>
                 <li>
-                    <a href="{{ route('cc.logout') }}" data-method="delete" id="cc-logout">
+                    <a href="{{ route('cc.logout') }}" id="cc-logout">
                         <span class="glyphicon glyphicon-off"></span> Выход
                     </a>
                 </li>

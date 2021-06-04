@@ -1,0 +1,250 @@
+/* Styles for sortable trees */
+
+.element-list-wrapper .header-container {
+    font-size: 12px;
+}
+
+.element-list-wrapper .element-list {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.element-list-wrapper .element-container {
+    padding: 8px 0;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.element-list-wrapper .total-count {
+    margin-right: 10px;
+    float: right;
+}
+
+.element-list-wrapper .total-count div {
+    display: inline-block;
+
+}
+
+.element-list-wrapper .element-container > div {
+    display: table-cell;
+    padding: 0 8px;
+    vertical-align: middle;
+}
+
+/* sortable handlers */
+.element-list-wrapper .element-container > .sorting {
+    padding: 0;
+    vertical-align: middle;
+    width: 13rem;
+}
+
+.element-list-wrapper .element-container > .sorting input {
+    display: inline-block;
+    font-size: 1.2rem;
+    height: 2.4rem;
+    margin-right: 0.5rem;
+    padding: 2px;
+    text-align: center;
+    width: 4.5rem;
+}
+
+.element-list-wrapper .element-container > .total-products-count,
+.element-list-wrapper .element-container > .available-products-count {
+    text-align: center;
+    width: 8rem;
+}
+
+.element-list-wrapper .element-container > .buttons {
+    padding: 0;
+    vertical-align: middle;
+    width: 62rem;
+}
+
+.element-list-wrapper .element-container > .buttons .btn {
+    width: 15rem;
+}
+
+.type-list.element-list-wrapper .element-container > .buttons .btn {
+    float: right;
+}
+
+.element-list-wrapper .header-container > div {
+    vertical-align: top !important;
+}
+
+.element-list-wrapper .element-container > .sorting .move {
+    cursor: move;
+    margin-right: 0.6em;
+}
+
+.element-list-wrapper .element-container > .sorting .up,
+.element-list-wrapper .element-container > .sorting .down {
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 0.1em;
+}
+
+.element-list-wrapper li:first-child > .element-container > .sorting .up,
+.element-list-wrapper li:last-child > .element-container > .sorting .down {
+    color: #c2c2c2;
+    cursor: default;
+}
+
+
+/* name field */
+.element-list-wrapper .element-container > .name > a {
+    display: block;
+}
+
+.element-list-wrapper .element-container > .name > a .glyphicon {
+    margin-left: 5px;
+}
+
+.element-list-wrapper .element-container > .order-number {
+    width: 10rem;
+    text-align: center;
+}
+
+.element-list-wrapper .element-container > .device-type {
+    width: 12rem;
+    text-align: center;
+}
+
+.element-list-wrapper .element-container > .phone {
+    width: 15rem;
+}
+
+.element-list-wrapper .element-container > .order-date {
+    width: 15rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .element-list-wrapper .element-container > .name {
+        width: 20rem;
+    }
+}
+
+/* alias field in list */
+.element-list-wrapper .element-container > .alias {
+    width: 15rem;
+}
+
+.element-list-wrapper .element-container > .code {
+    width: 10rem;
+}
+
+/* email field in list */
+.element-list-wrapper .element-container > .email {
+    width: 24rem;
+}
+
+.element-list-wrapper .element-container > .short {
+    width: 24rem;
+}
+
+.element-list-wrapper .element-container > .icon {
+    width: 10rem;
+    text-align: center;
+}
+
+/* controls */
+.element-list-wrapper .element-container > .control {
+    width: 8rem;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.element-list-wrapper .element-container > .control > * {
+    margin-left: 0.3rem;
+}
+
+/* flags */
+.element-list-wrapper .element-container > .publish-status,  .element-list-wrapper .element-container > .publish {
+    width: 8rem;
+}
+
+.element-list-wrapper .element-container > .show_on_home_page-status,  .element-list-wrapper .element-container > .show-on-home-page {
+    width: 8rem;
+}
+
+.element-list-wrapper .element-container > .import_disabled-status {
+    width: 13rem;
+}
+
+.element-list-wrapper .element-container > .bestseller-status {
+    width: 13rem;
+}
+
+.element-list-wrapper .element-container > .show_in_manufacturers_block_on_main-status {
+    width: 18rem;
+    text-align: center;
+}
+
+.element-list-wrapper .element-container > .position {
+    width: 7rem;
+    text-align: center;
+}
+
+.element-list-wrapper .element-container > .thumb-image {
+    width: 10rem;
+    text-align: center;
+}
+
+.element-list-wrapper .element-container > .date,
+.element-list-wrapper .element-container > .created_at {
+    width: 13rem;
+}
+
+.element-list-wrapper .element-container > .confirmed {
+    width: 16rem;
+}
+
+.element-list-wrapper .toggle-flag-container {
+    text-align: center;
+}
+
+.element-list-wrapper .toggle-flag {
+    text-decoration: none;
+}
+
+.element-list-wrapper .toggle-flag.glyphicon-ok-circle {
+    color: #419641;
+}
+
+.element-list-wrapper .toggle-flag.glyphicon-ban-circle, .control a.glyphicon-trash {
+    color: #AF294D;
+}
+
+.control span.glyphicon-trash {
+    color: gray;
+    cursor: not-allowed;
+}
+
+.element-list-wrapper li > .element-container {
+    border-top: 1px solid #DDDDDD;
+    transition: background-color 0.2s;
+}
+
+.element-list-wrapper li > .element-container:hover {
+    background-color: #F5F5F5;
+}
+
+/* Sorting controls */
+.sorting-control {
+    display: none;
+}
+
+.sorting-control.enabled {
+    display: block;
+}
+
+.sorting-control span {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 0.2rem;
+}
+
+.sorting-control {
+    margin-bottom: 0.3rem;
+}

@@ -54,6 +54,10 @@ h1 {
     padding-right: 0.5em;
 }
 
+.main-content {
+    padding-bottom: 55px;
+}
+
 @media screen and (max-width: 1366px) {
     .main-content {
         font-size: 12px;
@@ -137,12 +141,12 @@ h1 {
 
 #logotype {
     display: inline-block;
-    margin-right: 5px;
+    margin: 5px 5px 5px 0;
     padding: 2px 0;
 }
 
 #logotype img {
-    height: 46px;
+    height: 37px;
 }
 
 .breadcrumb .buttons {

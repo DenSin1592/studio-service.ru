@@ -1,0 +1,7 @@
+.feedback-list .element-container > .status {
+    width: 10rem;
+}
+
+.feedback-list .element-container > .id {
+    width: 7rem;
+}
