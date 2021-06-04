@@ -15,7 +15,7 @@ interface CreateUpdateRepositoryInterface
      * @param array $data
      * @return array
      */
-    public function create(array $data) :array;
+    public function create(array $data);
 
 
     /**
@@ -25,5 +25,5 @@ interface CreateUpdateRepositoryInterface
      * @param array $data
      * @return array|null
      */
-    public function update(mixed $instance, array $data) :?array;
+    public function update(mixed $instance, array $data);
 }

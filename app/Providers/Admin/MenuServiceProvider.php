@@ -32,14 +32,14 @@ class MenuServiceProvider extends ServiceProvider
                     )
                 );
 
-                /*$menu->addMenuElement(
+                $menu->addMenuElement(
                     new MenuElement(
                         'Константы',
                         'glyphicon-copyright-mark',
                         route('cc.settings.edit'),
                         [SettingsController::class]
                     )
-                );*/
+                );
 
                 return $menu;
             });

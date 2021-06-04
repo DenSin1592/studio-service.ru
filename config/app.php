@@ -193,7 +193,11 @@ return [
         App\Providers\ComposersServiceProvider::class,
         App\Providers\Admin\MenuServiceProvider::class,
         App\Providers\Admin\BreadcrumbsServiceProvider::class,
-        ],
+        App\Providers\StructureTypesServiceProvider::class,
+        App\Providers\SettingsServiceProvider::class,
+        App\Providers\DataProvidersServiceProvider::class,
+        App\Providers\FormProcessorsServiceProvider::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -245,6 +249,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'Setting' => App\Facades\Setting::class,
+        'TypeContainer' => App\Facades\TypeContainer::class,
     ],
 
 ];

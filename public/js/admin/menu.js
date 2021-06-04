@@ -18,10 +18,12 @@
         // Collection menu
         $('.menu-column')
             .on('click', '.close-menu', function () {
+                $(this).parents('.menu-column').eq(0).animate({width: '3em'}, 300);
                 $(this).parents('.menu-column').eq(0).addClass('closed');
             })
             .on('click', '.open-menu', function () {
-                $(this).parents('.menu-column').eq(0).removeClass('closed');
+                $(this).parents('.menu-column').eq(0).animate({width: '16em'}, 300);
+                setTimeout(() => {  $(this).parents('.menu-column').eq(0).removeClass('closed');}, 280)
             });
 
         $(document).on('click', '.element-group-wrapper .menu-element', function () {
