@@ -25,7 +25,17 @@ return [
     'groups' => [
         'admin_css' => [
             'assets' => [
-
+                'vendor/bootstrap/css/v3/bootstrap.min.css',
+                'vendor/bootstrap/css/v3/bootstrap-theme.min.css',
+                'vendor/font-awesome/css/font-awesome.min.css',
+                'vendor/fancybox/fancybox.jquery.min.css',
+                'vendor/datetimepicker/css/jquery.datetimepicker.css',
+                'vendor/select2/select2.min.css',
+                'vendor/select2/select2-bootstrap.min.css',
+                'vendor/jquery.dataTables/css/dataTables.bootstrap.css',
+                'vendor/jquery.dataTables/css/fixedHeader.dataTables.min.css',
+                'css/admin/base.css',
+                'css/admin/guest.css',
             ],
             'filters' => ['css_min', 'embed_css', 'strip_bom', 'css_url_rebase'],
             //'async' => true,

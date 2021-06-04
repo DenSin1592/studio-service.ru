@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
+use App\Services\Auth\AdminUserProvider;
+use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        \Auth::provider('admin_user', function (Application $app, array $config) {
+            return new AdminUserProvider($app['hash'], $config['model'], $config['skip_env']);
+        });
     }
 }

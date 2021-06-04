@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-    {{--{!! Form::open(array('url' => route('cc.login'))) !!}
+    {!! Form::open(array('url' => route('cc.login'))) !!}
 
         <div class="form-group {{ $incorrect ? 'has-error' : '' }}">
             {!! Form::label('username', 'Имя пользователя', ['class' => 'control-label']) !!}
@@ -31,7 +31,5 @@
             <button type="submit" class="btn btn-primary">Вход</button>
         </div>
 
-    {!! Form::close() !!}--}}
-
-    еуые
+    {!! Form::close() !!}
 @stop
