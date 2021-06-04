@@ -1,8 +1,10 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php
+
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\Features\ToggleFlags;
 use App\Http\Controllers\Controller;
-//use App\Services\Admin\Breadcrumbs\Breadcrumbs;
+use App\Services\Admin\Breadcrumbs\Breadcrumbs;
 //use App\Services\FormProcessors\Node\NodeFormProcessor;
 use App\Services\Repositories\Node\EloquentNodeRepository;
 
@@ -12,16 +14,16 @@ class StructureController extends Controller
 
     private EloquentNodeRepository $repository;
     //private NodeFormProcessor $formProcessor;
-    //private Breadcrumbs $breadcrumbs;
+    private Breadcrumbs $breadcrumbs;
 
     public function __construct(
         EloquentNodeRepository $repository,
         //NodeFormProcessor $formProcessor,
-        //Breadcrumbs $breadcrumbs
+        Breadcrumbs $breadcrumbs
     ) {
         $this->repository = $repository;
         //$this->formProcessor = $formProcessor;
-        //$this->breadcrumbs = $breadcrumbs;
+        $this->breadcrumbs = $breadcrumbs;
     }
 
 
@@ -42,7 +44,7 @@ class StructureController extends Controller
         }
     }
 
-    /*public function updatePositions()
+    public function updatePositions()
     {
         $this->repository->updatePositions(\Request::get('positions', []));
         if (\Request::ajax()) {
@@ -83,7 +85,26 @@ class StructureController extends Controller
             ->with('nodeTree', $this->repository->getCollapsedTree());
     }
 
-    public function edit($id)
+
+    /*public function store()
+    {
+        $node = $this->formProcessor->create(\Request::except('redirect_to'));
+        if (is_null($node)) {
+            return \Redirect::route('cc.structure.create')
+                ->withErrors($this->formProcessor->errors())->withInput();
+        } else {
+            if (\Request::get('redirect_to') == 'index') {
+                $redirect = \Redirect::route('cc.structure.index');
+            } else {
+                $redirect = \Redirect::route('cc.structure.edit', [$node->id]);
+            }
+
+            return $redirect->with('alert_success', trans('Страница создана'));
+        }
+    }*/
+
+
+    /*public function edit($id)
     {
         $node = $this->repository->findById($id);
         if (is_null($node)) {
@@ -99,23 +120,6 @@ class StructureController extends Controller
             ->with('nodeTree', $this->repository->getCollapsedTree($node));
     }
 
-
-    public function store()
-    {
-        $node = $this->formProcessor->create(\Request::except('redirect_to'));
-        if (is_null($node)) {
-            return \Redirect::route('cc.structure.create')
-                ->withErrors($this->formProcessor->errors())->withInput();
-        } else {
-            if (\Request::get('redirect_to') == 'index') {
-                $redirect = \Redirect::route('cc.structure.index');
-            } else {
-                $redirect = \Redirect::route('cc.structure.edit', [$node->id]);
-            }
-
-            return $redirect->with('alert_success', trans('Страница создана'));
-        }
-    }
 
     public function update($id)
     {
@@ -136,7 +140,8 @@ class StructureController extends Controller
 
             return $redirect->with('alert_success', trans('Страница обновлена'));
         }
-    }
+    }*/
+
 
     public function destroy($id)
     {
@@ -147,5 +152,5 @@ class StructureController extends Controller
         $this->repository->delete($node);
 
         return \Redirect::route('cc.structure.index')->with('alert_success', 'Страница удалена');
-    }*/
+    }
 }

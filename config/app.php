@@ -192,6 +192,7 @@ return [
         App\Providers\RepositoriesServiceProvider::class,
         App\Providers\ComposersServiceProvider::class,
         App\Providers\Admin\MenuServiceProvider::class,
+        App\Providers\Admin\BreadcrumbsServiceProvider::class,
         ],
 
     /*
