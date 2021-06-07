@@ -5,6 +5,9 @@
     box-shadow: inset -10px 0 50px #ebebeb;
     border-right: 2px solid #cfcfcf;
 }
+.menu-column.closed {
+    width: 3em;
+}
 
 .menu-column.closed > .menu-wrapper {
     margin-left: -13em;

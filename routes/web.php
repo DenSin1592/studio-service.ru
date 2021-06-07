@@ -21,8 +21,9 @@ Route::prefix(config('app.admin_path'))->name('cc.')->namespace('Admin')->group(
     Route::middleware('auth')->group(function () {
         Route::get('logout', 'SessionsController@destroy')->name('logout');
 
-        require_once 'web/admin/structure.php';
+        require_once 'web/admin/access_control.php';
         require_once 'web/admin/settings.php';
+        require_once 'web/admin/structure.php';
     });
 });
 

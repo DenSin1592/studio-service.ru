@@ -27,6 +27,9 @@ class CreateAdminUsers extends Migration
                 $table->json('allowed_ips')->nullable();
                 $table->boolean('super')->default(false);
 
+                $table->unsignedInteger('parent_id')->nullable();
+                $table->foreign('parent_id', 'admin_user_parent')->references('id')->on('admin_users');
+
             }
         );
     }

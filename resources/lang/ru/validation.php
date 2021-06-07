@@ -198,57 +198,14 @@ return [
         'import_description' => 'Описание, полученное при импорте',
         'admin_description' => 'Описание от администратора',
         'sorting' => 'Сортировка',
-
-        'catalog_type' => 'Тип каталога',
-        'category_id' => 'Категория',
-        'price' => 'Цена',
-        'old_price' => 'Старая цена',
-        'article' => 'Артикул',
-        'new_article' => 'Новый артикул',
-
-        'attribute_type' => 'Тип параметра',
-        'units' => 'Единицы измерения',
-        'decimal_scale' => 'Количество знаков после запятой',
-        'value' => 'Значение',
-        'allowed_values' => 'Разрешённые значения',
-        'use_in_filter' => 'Использовать в фильтре',
-
-
         'url' => 'Ссылка',
-        'imported' => 'Импортирован',
-        'import_disabled' => 'Не импортировать',
-        'total_products_count' => 'Всего товаров',
-        'available_products_count' => 'Товаров в наличии',
-        'icon_file' => 'Иконка',
-        'manufacturer_id' => 'Производитель',
-
-        'video_url' => 'Ссылка на видео',
-        'cover' => 'Обложка',
-        'date' => 'Дата',
 
         'device_type' => 'Тип устройства',
         'user_agent' => 'Заголовок браузера',
 
-        'show_in_manufacturers_block_on_main' => 'Показывать в блоке производителей на главной',
-        'bestseller' => 'Самый продаваемый',
-        'for_admin_filter' => 'Для фильтра администратора',
-        'filter_name' => 'Название для фильтра',
-        'filter_url_priority' => 'Приоритет для URL ЧПУ-фильтра',
-        'filter_text_name' => 'Название для формирования текстов',
-        'filter_text_value' => 'Значение для формирования текстов',
-        'filter_text_position' => 'Позиция в формируемом тексте',
-        'filter_text_replace_category' => 'Заменяет название категории',
-        'filter_relink' => 'Использовать параметр в перелинковке фильтра',
-        'filter_relink_name' => 'Название параметра в перелинковке',
-        'filter_descriptions' => 'Варианты для генерации описания в фильтре',
-
-        'show_in_list' => 'Отображать для товаров в списках',
-
-        'on_home_page' => 'Показывать на главной странице',
-        'keep_review_date' => 'Не перестраивать дату отзыва',
-        'review_date' => 'Дата отзыва',
-        'review_id' => 'id отзыва',
-        'review_name' => 'Имя',
-        'review_content' => 'Текст отзыва'
+        'admin_role_id' => 'Роль',
+        'abilities' => 'Возможности',
+        'creator' => 'Создатель',
+        'seo' => 'SEO',
     ],
 ];

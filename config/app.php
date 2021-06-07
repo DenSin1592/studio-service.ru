@@ -184,6 +184,7 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
+        App\Providers\Admin\AclServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
@@ -197,6 +198,8 @@ return [
         App\Providers\SettingsServiceProvider::class,
         App\Providers\DataProvidersServiceProvider::class,
         App\Providers\FormProcessorsServiceProvider::class,
+        App\Providers\HtmlBuilderServiceProvider::class,
+        App\Providers\ValidationServiceProvider::class,
     ],
 
     /*

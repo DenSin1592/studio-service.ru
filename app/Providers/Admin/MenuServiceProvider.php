@@ -2,6 +2,8 @@
 
 namespace App\Providers\Admin;
 
+use App\Http\Controllers\Admin\AdminRolesController;
+use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
 use App\Services\Admin\Menu\Menu;
@@ -37,6 +39,26 @@ class MenuServiceProvider extends ServiceProvider
                         'glyphicon-copyright-mark',
                         route('cc.settings.edit'),
                         [SettingsController::class]
+                    )
+                );
+
+                $groupPermissions = new MenuGroup('Управление доступом', 'glyphicon-tower');
+                $menu->addMenuGroup($groupPermissions);
+                $groupPermissions->addMenuElement(
+                    new MenuElement(
+                        'Администраторы',
+                        'glyphicon-user',
+                        route('cc.admin-users.index'),
+                        [AdminUsersController::class]
+                    )
+                );
+
+                $groupPermissions->addMenuElement(
+                    new MenuElement(
+                        'Роли администраторов',
+                        'glyphicon-check',
+                        route('cc.admin-roles.index'),
+                        [AdminRolesController::class]
                     )
                 );
 
