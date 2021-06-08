@@ -23,32 +23,28 @@ return [
      */
 
     'groups' => [
-        'client_css' => [
-            'assets' => [
 
+        'client_layout_css' => [
+            'assets' => [
+                'css/client/auth_menu.css',
             ],
             'filters' => ['css_min', 'embed_css', 'strip_bom', 'css_url_rebase'],
             //'async' => true,
             'output' => 'client.css'
         ],
 
-        'client_js' => [
+        'client_layout_js' => [
             'assets' => [
-
-            ],
-            'filters' => ['js_min', 'end_with_semicolon'],
-            //'async' => true,
-            'output' => 'client.js'
-        ],
-
-        'client_general_js' => [
-            'assets' => [
+                'vendor/jquery/v2/jquery-2.1.3.min.js',
                 'js/common/csrf.js',
+                'js/client/auth_menu.js',
             ],
             'filters' => ['js_min', 'end_with_semicolon'],
             //'async' => true,
             'output' => 'client.js'
         ],
+
+
 
         'admin_css' => [
             'assets' => [

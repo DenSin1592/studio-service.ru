@@ -27,7 +27,6 @@ Route::prefix(config('app.admin_path'))->name('cc.')->namespace('Admin')->group(
     });
 });
 
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::namespace('Client')->group(function () {
+    Route::get('/', 'HomePageController@show')->name('home');
+});
