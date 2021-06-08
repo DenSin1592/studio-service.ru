@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Services\FormProcessors\AdminRole\AdminRoleFormProcessor;
 use App\Services\FormProcessors\AdminUser\AdminUserFormProcessor;
+use App\Services\FormProcessors\Node\NodeFormProcessor;
 use App\Services\FormProcessors\Settings\SettingsFormProcessor;
 use App\Services\Repositories\AdminRole\CreateUpdateWrapper as AdminRoleCreateUpdateWrapper;
 use App\Services\Repositories\AdminUser\CreateUpdateWrapper as AdminUserCreateUpdateWrapper;
@@ -12,6 +13,7 @@ use App\Services\Repositories\Setting\EloquentSettingRepository;
 use App\Services\Settings\SettingContainer;
 use App\Services\Validation\AdminRole\AdminRoleValidator;
 use App\Services\Validation\AdminUser\AdminUserLaravelValidator;
+use App\Services\Validation\Node\NodeLaravelValidator;
 use App\Services\Validation\Setting\SettingsLaravelValidator;
 use Illuminate\Support\ServiceProvider;
 
@@ -49,15 +51,16 @@ class FormProcessorsServiceProvider extends ServiceProvider
                 return $formProcessor;
             }
         );
-        /*$this->app->bind(
+
+        $this->app->bind(
             NodeFormProcessor::class,
             function () {
                 return new NodeFormProcessor(
                     new NodeLaravelValidator($this->app['validator'], $this->app['structure_types.types']),
-                    $this->app->make(NodeCreateUpdateWrapper::class)
+                    $this->app->make(\App\Services\Repositories\Node\CreateUpdateWrapper::class)
                 );
             }
-        );*/
+        );
 
         $this->app->bind(
             SettingsFormProcessor::class,

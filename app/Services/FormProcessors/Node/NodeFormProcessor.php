@@ -1,4 +1,6 @@
-<?php namespace App\Services\FormProcessors\Node;
+<?php
+
+namespace App\Services\FormProcessors\Node;
 
 use App\Models\Node;
 use App\Services\FormProcessors\CreateUpdateFormProcessor;

@@ -5,7 +5,7 @@
                 @include('admin.shared.resource_list.sorting._list_controls', ['model' => $node])
                 <div class="name">
                     <a href="{{ TypeContainer::getContentUrl($node) }}"
-                       style="margin-left: {{ $lvl * 0.5 }}em;">{{ $node->name_ru }}</a>
+                       style="margin-left: {{ $lvl * 0.5 }}em;">{{ $node->name }}</a>
                 </div>
                 @include('admin.shared._list_flag', ['element' => $node, 'action' => route('cc.structure.toggle-attribute', [$node->id, 'publish']), 'attribute' => 'publish'])
                 @include('admin.shared._list_flag', ['element' => $node, 'action' => route('cc.structure.toggle-attribute', [$node->id, 'menu_top']), 'attribute' => 'menu_top'])

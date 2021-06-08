@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\Features\ToggleFlags;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
-//use App\Services\FormProcessors\Node\NodeFormProcessor;
+use App\Services\FormProcessors\Node\NodeFormProcessor;
 use App\Services\Repositories\Node\EloquentNodeRepository;
 
 class StructureController extends Controller
@@ -13,16 +13,16 @@ class StructureController extends Controller
     use ToggleFlags;
 
     private EloquentNodeRepository $repository;
-    //private NodeFormProcessor $formProcessor;
+    private NodeFormProcessor $formProcessor;
     private Breadcrumbs $breadcrumbs;
 
     public function __construct(
         EloquentNodeRepository $repository,
-        //NodeFormProcessor $formProcessor,
+        NodeFormProcessor $formProcessor,
         Breadcrumbs $breadcrumbs
     ) {
         $this->repository = $repository;
-        //$this->formProcessor = $formProcessor;
+        $this->formProcessor = $formProcessor;
         $this->breadcrumbs = $breadcrumbs;
     }
 
@@ -86,7 +86,7 @@ class StructureController extends Controller
     }
 
 
-    /*public function store()
+    public function store()
     {
         $node = $this->formProcessor->create(\Request::except('redirect_to'));
         if (is_null($node)) {
@@ -101,10 +101,10 @@ class StructureController extends Controller
 
             return $redirect->with('alert_success', trans('Страница создана'));
         }
-    }*/
+    }
 
 
-    /*public function edit($id)
+    public function edit($id)
     {
         $node = $this->repository->findById($id);
         if (is_null($node)) {
@@ -140,7 +140,7 @@ class StructureController extends Controller
 
             return $redirect->with('alert_success', trans('Страница обновлена'));
         }
-    }*/
+    }
 
 
     public function destroy($id)

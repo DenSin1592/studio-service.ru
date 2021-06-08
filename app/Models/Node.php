@@ -44,9 +44,7 @@ class Node extends \Eloquent
     protected $fillable = [
         'parent_id',
         'alias',
-        'name_ru',
-        'name_uk',
-        'name_en',
+        'name',
         'publish',
         'position',
         'type',
@@ -67,6 +65,11 @@ class Node extends \Eloquent
     public function children()
     {
         return $this->hasMany(get_called_class(), 'parent_id');
+    }
+
+    public function homePage()
+    {
+        return $this->hasOne(HomePage::class);
     }
 
     /**
@@ -97,8 +100,8 @@ class Node extends \Eloquent
         parent::boot();
 
         static::deleting(function (self $node) {
-            // delete children
             DeleteHelpers::deleteRelatedAll($node->children());
+            DeleteHelpers::deleteRelatedFirst($node->homePage());
         });
     }
 }

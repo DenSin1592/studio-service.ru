@@ -4,6 +4,7 @@ namespace App\Providers\Admin;
 
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
+use App\Http\Controllers\Admin\HomePagesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
 use App\Services\Admin\Menu\Menu;
@@ -27,8 +28,7 @@ class MenuServiceProvider extends ServiceProvider
                         route('cc.structure.index'),
                         [
                             StructureController::class,
-                            //HomePagesController::class,
-                            //TextPagesController::class,
+                            HomePagesController::class,
                         ]
                     )
                 );
