@@ -200,6 +200,7 @@ return [
         App\Providers\FormProcessorsServiceProvider::class,
         App\Providers\HtmlBuilderServiceProvider::class,
         App\Providers\ValidationServiceProvider::class,
+        App\Providers\SeoServiceProvider::class,
     ],
 
     /*
