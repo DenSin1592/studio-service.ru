@@ -17723,6 +17723,27 @@
                         /** @var \Collective\Html\HtmlBuilder $instance */
                         return $instance->componentCall($method, $parameters);
         }
+                    /**
+         * 
+         *
+         * @see \App\Providers\HtmlBuilderServiceProvider::boot()
+         * @param array $options
+         * @static 
+         */ 
+        public static function additionalMenuOpen($options)
+        {
+                        return \Collective\Html\HtmlBuilder::additionalMenuOpen($options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\HtmlBuilderServiceProvider::boot()
+         * @static 
+         */ 
+        public static function additionalMenuClose()
+        {
+                        return \Collective\Html\HtmlBuilder::additionalMenuClose();
+        }
          
     }
             /**
@@ -18031,6 +18052,34 @@
         public static function errorContains($needles)
         {
                         return \Collective\Html\FormBuilder::errorContains($needles);
+        }
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class HtmlBuilder {
+                    /**
+         * 
+         *
+         * @see \App\Providers\HtmlBuilderServiceProvider::boot()
+         * @param array $options
+         * @static 
+         */ 
+        public static function additionalMenuOpen($options)
+        {
+                        return \Collective\Html\HtmlBuilder::additionalMenuOpen($options);
+        }
+                    /**
+         * 
+         *
+         * @see \App\Providers\HtmlBuilderServiceProvider::boot()
+         * @static 
+         */ 
+        public static function additionalMenuClose()
+        {
+                        return \Collective\Html\HtmlBuilder::additionalMenuClose();
         }
          
     }

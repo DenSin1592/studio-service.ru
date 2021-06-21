@@ -38,8 +38,9 @@ class Node extends \Eloquent
     use AutoPublish;
     use TreeParentPath;
 
-    const TYPE_HOME_PAGE = 'home_page';
-    const TYPE_TEXT_PAGE = 'text_page';
+    public const TYPE_HOME_PAGE = 'home_page';
+    public const TYPE_TARGET_AUDIENCE_PAGE = 'target_audience_page';
+    //const TYPE_TEXT_PAGE = 'text_page';
 
     protected $fillable = [
         'parent_id',
@@ -57,45 +58,27 @@ class Node extends \Eloquent
         'menu_top' => 'boolean',
     ];
 
-    public function parent()
+    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(get_called_class(), 'parent_id');
     }
 
-    public function children()
+    public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(get_called_class(), 'parent_id');
     }
 
-    public function homePage()
+    public function homePage(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(HomePage::class);
     }
 
-    /**
-     * Get path of aliases for node.
-     *
-     * @return array
-     */
-    public function getAliasPath()
+    public function targetAudiencePage(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        $nodeList = [];
-        $element = $this;
-        do {
-            $nodeList[] = $element;
-        } while (null !== $element = $element->parent);
-
-        $aliasPath = array_map(
-            function (self $node) {
-                return $node->alias;
-            },
-            array_reverse($nodeList)
-        );
-
-        return $aliasPath;
+        return $this->hasOne(TargetAudiencePage::class);
     }
 
-    protected static function boot()
+    protected static function boot() :void
     {
         parent::boot();
 

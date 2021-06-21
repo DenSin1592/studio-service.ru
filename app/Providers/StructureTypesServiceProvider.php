@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Node;
 use App\Services\Repositories\HomePage\EloquentHomePageRepository;
 use App\Services\Repositories\Node\EloquentNodeRepository;
+use App\Services\Repositories\TargetAudiencePage\EloquentTargetAudiencePageRepository;
 use App\Services\StructureTypes\RepositoryAssociation;
 use App\Services\StructureTypes\Type;
 use App\Services\StructureTypes\TypeContainer;
@@ -13,6 +14,7 @@ use Illuminate\Support\ServiceProvider;
 class StructureTypesServiceProvider extends ServiceProvider
 {
     const REPO_HOME_PAGE = 'home_page_repo';
+    const REPO_TARGET_AUDIENCE_PAGE = 'target_audience_page_repo';
 
     public function register(): void
     {
@@ -23,6 +25,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                     $this->app->make(EloquentNodeRepository::class)
                 );
 
+
                  $typeContainer->addRepositoryAssociation(
                      self::REPO_HOME_PAGE,
                      new RepositoryAssociation(
@@ -32,6 +35,17 @@ class StructureTypesServiceProvider extends ServiceProvider
                          }
                      )
                  );
+
+                $typeContainer->addRepositoryAssociation(
+                    self::REPO_TARGET_AUDIENCE_PAGE,
+                    new RepositoryAssociation(
+                        $this->app->make(EloquentTargetAudiencePageRepository::class),
+                        function (Node $node) {
+                            return route('cc.target-audience-pages.edit', [$node->id]);
+                        }
+                    )
+                );
+
 
                $typeContainer->addType(
                     Node::TYPE_HOME_PAGE,
@@ -44,6 +58,20 @@ class StructureTypesServiceProvider extends ServiceProvider
                         }
                     )
                 );
+
+                $typeContainer->addType(
+                    Node::TYPE_TARGET_AUDIENCE_PAGE,
+                    new Type(
+                        'Целевая аудитория',
+                        true,
+                        self::REPO_TARGET_AUDIENCE_PAGE,
+                        function () {
+                            return route('target-audience');
+                        }
+                    )
+                );
+
+
                 return $typeContainer;
             }
         );

@@ -13,11 +13,6 @@
 
         @include('admin.shared._header_meta_field')
 
-        {!! Form::tbFormGroupOpen('content') !!}
-            {!! Form::tbLabel('content', trans('validation.attributes.content')) !!}
-            {!! Form::tbTinymceTextarea('content') !!}
-        {!! Form::tbFormGroupClose() !!}
-
         @include('admin.shared._form_meta_fields')
 
         @include('admin.shared._model_timestamps', ['model' => $homePage])

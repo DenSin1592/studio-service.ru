@@ -29,4 +29,5 @@ Route::prefix(config('app.admin_path'))->name('cc.')->namespace('Admin')->group(
 
 Route::namespace('Client')->group(function () {
     Route::get('/', 'HomePageController@show')->name('home');
+    Route::get('/dlya-kogo', 'TargetAudiencePageController@show')->name('target-audience');
 });
