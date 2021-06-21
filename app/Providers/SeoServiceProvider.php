@@ -46,7 +46,8 @@ class SeoServiceProvider extends ServiceProvider
                 }
 
                 if (empty($metaData['meta_keywords'])) {
-                    $metaData['meta_keywords'] = $name . ', studio-service';
+
+                    $metaData['meta_keywords'] = mb_strtolower($name) . ', studio-service';
                 }
 
                 return $metaData;

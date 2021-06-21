@@ -1,7 +1,8 @@
-<?php namespace App\Http\Controllers\Client;
+<?php
+
+namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use App\Models\HomePage;
 use App\Models\Node;
 use App\Services\Repositories\Node\EloquentNodeRepository;
 use App\Services\Seo\MetaHelper;
