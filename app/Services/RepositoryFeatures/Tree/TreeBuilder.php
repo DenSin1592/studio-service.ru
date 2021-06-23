@@ -126,11 +126,12 @@ class TreeBuilder implements TreeBuilderInterface
         $parentId = null,
         callable $filterCallback = null,
         int $namePadding = 0,
-        string $namePrefix = ''
+        string $namePrefix = '',
+        int $maxLvl = 999999
     ) {
         $tree = $this->getTree($modelTemplate, $parentId, $filterCallback);
         $lvlModelList = [];
-        $flatten = function ($tree, $lvl = 0) use ($currentId, &$flatten, &$lvlModelList) {
+        $flatten = function ($tree, $lvl = 0) use ($currentId, &$flatten, &$lvlModelList, $maxLvl) {
             foreach ($tree as $treeElement) {
                 if ($currentId == $treeElement->id) {
                     continue;
@@ -140,7 +141,7 @@ class TreeBuilder implements TreeBuilderInterface
                 $piece->lvl = $lvl;
                 $lvlModelList[] = $piece;
 
-                if (isset($treeElement->children)) {
+                if (isset($treeElement->children) && ($lvl < $maxLvl)) {
                     $flatten($treeElement->children, $lvl + 1);
                 }
             }

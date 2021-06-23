@@ -53,7 +53,8 @@ interface TreeBuilderInterface
         $parentId = null,
         callable $filterCallback = null,
         int $namePadding = 0,
-        string $namePrefix = ''
+        string $namePrefix = '',
+        int $maxLvl = 999999
     );
 
     /**

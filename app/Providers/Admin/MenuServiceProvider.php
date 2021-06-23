@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\HomePagesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
+use App\Http\Controllers\Admin\TargetAudiencesController;
 use App\Services\Admin\Menu\Menu;
 use App\Services\Admin\Menu\MenuElement;
 use App\Services\Admin\Menu\MenuGroup;
@@ -30,6 +31,17 @@ class MenuServiceProvider extends ServiceProvider
                             StructureController::class,
                             HomePagesController::class,
                         ]
+                    )
+                );
+
+                $groupCatalogs = new MenuGroup('Каталоги', 'glyphicon-book');
+                $menu->addMenuGroup($groupCatalogs);
+                $groupCatalogs->addMenuElement(
+                    new MenuElement(
+                        'ЦА',
+                        'glyphicon-user',
+                        route('cc.target-audiences.index'),
+                        [TargetAudiencesController::class]
                     )
                 );
 

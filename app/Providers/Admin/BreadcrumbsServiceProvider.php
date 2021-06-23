@@ -3,6 +3,7 @@
 namespace App\Providers\Admin;
 
 use App\Models\Node;
+use App\Models\TargetAudience;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
 use App\Services\Admin\Breadcrumbs\Path;
 use Illuminate\Support\ServiceProvider;
@@ -44,7 +45,18 @@ class BreadcrumbsServiceProvider extends ServiceProvider
                 return $path;
             }
         );
+
+        $breadcrumbs->addBuilder(
+            'target_audience.create',
+            function (TargetAudience $model) {
+                $path = new Path();
+                $path->add('Каталог ЦА', route('cc.target-audiences.index'));
+                $path->add('Создание ЦА');
+                return $path;
+            }
+        );
     }
+
 
     private function createNodeParentPath(Node $node): Path
     {
