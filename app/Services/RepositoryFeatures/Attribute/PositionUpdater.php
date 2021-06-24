@@ -1,4 +1,6 @@
-<?php namespace App\Services\RepositoryFeatures\Attribute;
+<?php
+
+namespace App\Services\RepositoryFeatures\Attribute;
 
 /**
  * Class PositionUpdater
@@ -8,9 +10,6 @@ class PositionUpdater
 {
     /**
      * Update positions according to array.
-     *
-     * @param \Eloquent $modelTemplate
-     * @param array $positionArray
      */
     public function updatePositions(\Eloquent $modelTemplate, array $positionArray)
     {

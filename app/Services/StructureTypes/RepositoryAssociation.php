@@ -1,30 +1,28 @@
-<?php namespace App\Services\StructureTypes;
+<?php
+
+namespace App\Services\StructureTypes;
 
 use App\Services\Repositories\Node\NodeContentRepositoryInterface;
 
 class RepositoryAssociation
 {
-    private $nodeContentRepository;
     private $urlCreator;
 
-    public function __construct(NodeContentRepositoryInterface $nodeContentRepository, callable $urlCreator)
+    public function __construct(
+        private NodeContentRepositoryInterface $nodeContentRepository,
+        callable $urlCreator)
     {
-        $this->nodeContentRepository = $nodeContentRepository;
         $this->urlCreator = $urlCreator;
     }
 
-    /**
-     * @return callable
-     */
-    public function getUrlCreator()
+
+    public function getUrlCreator(): callable
     {
         return $this->urlCreator;
     }
 
-    /**
-     * @return NodeContentRepositoryInterface
-     */
-    public function getNodeContentRepository()
+
+    public function getNodeContentRepository(): NodeContentRepositoryInterface
     {
         return $this->nodeContentRepository;
     }

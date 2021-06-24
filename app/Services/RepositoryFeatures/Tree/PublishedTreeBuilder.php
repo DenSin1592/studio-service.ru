@@ -1,16 +1,11 @@
-<?php namespace App\Services\RepositoryFeatures\Tree;
+<?php
 
-/**
- * Class PublishedTreeBuilder
- * @package App\Services\RepositoryFeatures\Tree
- */
+namespace App\Services\RepositoryFeatures\Tree;
+
 class PublishedTreeBuilder extends TreeBuilder implements PublishedTreeBuilderInterface
 {
 
-    /**
-     * @inheritDoc
-     */
-    public function getPublishedIds(\Eloquent $modelTemplate, $rootId = null)
+    public function getPublishedIds(\Eloquent $modelTemplate, $rootId = null): array
     {
         $idsList = [];
 
@@ -44,9 +39,7 @@ class PublishedTreeBuilder extends TreeBuilder implements PublishedTreeBuilderIn
         return $idsList;
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function scopePublishedInTree(\Eloquent $modelTemplate, $query)
     {
         $ids = $this->getPublishedIds($modelTemplate);
@@ -57,9 +50,7 @@ class PublishedTreeBuilder extends TreeBuilder implements PublishedTreeBuilderIn
         $query->whereIn('id', $ids);
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function getPublishedChildren(\Eloquent $modelTemplate, $id)
     {
         $query = $modelTemplate->where('parent_id', $id);
@@ -69,9 +60,7 @@ class PublishedTreeBuilder extends TreeBuilder implements PublishedTreeBuilderIn
         return $query->get();
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function scopePublishedInLvl($query)
     {
         return $query->where('publish', true);

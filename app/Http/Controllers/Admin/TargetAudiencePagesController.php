@@ -9,32 +9,25 @@ use App\Services\Repositories\Node\EloquentNodeRepository;
 
 class TargetAudiencePagesController extends Controller
 {
-    private EloquentNodeRepository $nodeRepository;
-    private Breadcrumbs $breadcrumbs;
-
     public function __construct(
-        EloquentNodeRepository $nodeRepository,
-        Breadcrumbs $breadcrumbs
-    ) {
-        $this->nodeRepository = $nodeRepository;
-        $this->breadcrumbs = $breadcrumbs;
-    }
+        private EloquentNodeRepository $nodeRepository,
+        private Breadcrumbs $breadcrumbs,
+    ){}
 
 
-    public function edit($nodeId): \Illuminate\Contracts\View\View
+    public function edit($nodeId)
     {
         $page = $this->getPage($nodeId);
         $breadcrumbs = $this->breadcrumbs->getFor('structure_page.edit', $page->node);
 
         return view('admin.pages.target_audience_pages.edit')
             ->with('breadcrumbs', $breadcrumbs)
-            ->with('homePage', $page)
-            ->with('node', $page->node)
-            ->with('nodeTree', $this->nodeRepository->getCollapsedTree($page->node));
+            ->with('page', $page)
+            ->with('node', $page->node);
     }
 
 
-    public function update($nodeId): \Illuminate\Http\RedirectResponse
+    public function update($nodeId)
     {
         $page = $this->getPage($nodeId);
         $page->fill(\Request::all());
@@ -52,14 +45,13 @@ class TargetAudiencePagesController extends Controller
     private function getPage($nodeId): TargetAudiencePage
     {
         $node = $this->nodeRepository->findById($nodeId);
+
         if (is_null($node))
             \App::abort(404, 'Node not found');
 
         $page = \TypeContainer::getContentModelFor($node);
         if ($page instanceof TargetAudiencePage === false)
             \App::abort(404, 'Page not found');
-
-
 
         return $page;
     }

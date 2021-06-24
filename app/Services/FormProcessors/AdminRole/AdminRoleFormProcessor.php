@@ -3,11 +3,11 @@
 namespace App\Services\FormProcessors\AdminRole;
 
 use App\Services\FormProcessors\CreateUpdateFormProcessor;
+use App\Services\FormProcessors\SubProcessor;
 
 class AdminRoleFormProcessor extends CreateUpdateFormProcessor
 {
     private array $subProcessorList = [];
-
 
     public function addSubProcessor(SubProcessor $subProcessor)
     {
@@ -23,6 +23,7 @@ class AdminRoleFormProcessor extends CreateUpdateFormProcessor
 
         return $data;
     }
+
 
     protected function afterSuccess($instance, array $data)
     {

@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Node;
-use App\Services\Repositories\HomePage\EloquentHomePageRepository;
+use App\Services\Repositories\Pages\HomePage\EloquentHomePageRepository;
 use App\Services\Repositories\Node\EloquentNodeRepository;
-use App\Services\Repositories\TargetAudiencePage\EloquentTargetAudiencePageRepository;
+use App\Services\Repositories\Pages\TargetAudiencePage\EloquentTargetAudiencePageRepository;
 use App\Services\StructureTypes\RepositoryAssociation;
 use App\Services\StructureTypes\Type;
 use App\Services\StructureTypes\TypeContainer;

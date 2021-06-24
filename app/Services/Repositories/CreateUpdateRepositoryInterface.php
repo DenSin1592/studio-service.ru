@@ -21,9 +21,9 @@ interface CreateUpdateRepositoryInterface
     /**
      * Update object with data.
      *
-     * @param mixed $instance
+     * @param \Eloquent $instance
      * @param array $data
      * @return array|null
      */
-    public function update(mixed $instance, array $data);
+    public function update(\Eloquent $instance, array $data);
 }

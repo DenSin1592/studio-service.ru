@@ -1,16 +1,14 @@
-<?php namespace App\Policies;
+<?php
+
+namespace App\Policies;
 
 use App\Services\Admin\Acl\AclUser;
 use App\Services\Admin\Acl\Helpers\CheckHelper;
 
 class AdminUrlPolicy
 {
-    private CheckHelper $checkHelper;
-
-    public function __construct(CheckHelper $checkHelper)
-    {
-        $this->checkHelper = $checkHelper;
-    }
+    public function __construct(private CheckHelper $checkHelper)
+    {}
 
     public function before(AclUser $user, $ability)
     {

@@ -2,6 +2,7 @@
 
 namespace App\Providers\Admin;
 
+use App\Models\HomePage;
 use App\Models\Node;
 use App\Models\TargetAudience;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
@@ -16,13 +17,12 @@ class BreadcrumbsServiceProvider extends ServiceProvider
             Breadcrumbs::class,
             function () {
                 $breadcrumbs = new Breadcrumbs();
-
                 $this->addStructureBuilders($breadcrumbs);
-
                 return $breadcrumbs;
             }
         );
     }
+
 
     private function addStructureBuilders(Breadcrumbs $breadcrumbs)
     {
@@ -66,17 +66,16 @@ class BreadcrumbsServiceProvider extends ServiceProvider
 
         foreach ($node->extractParentPath() as $nodeInPath) {
             $url = route('cc.structure.edit', $nodeInPath->id);
-            /*$page = \TypeContainer::getContentModelFor($nodeInPath);
+            $page = \TypeContainer::getContentModelFor($nodeInPath);
 
             if (null !== $page && $page->exists) {
-                if ($page instanceof TextPage) {
+                /*if ($page instanceof TextPage) {
                     $url = route('cc.text-pages.edit', $nodeInPath->id);
 
-                } elseif ($page instanceof HomePage) {
+                } else*/if ($page instanceof HomePage) {
                     $url = route('cc.home-pages.edit', $nodeInPath->id);
-
                 }
-            }*/
+            }
 
             $path->add($nodeInPath->name, $url);
         }

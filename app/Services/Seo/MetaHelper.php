@@ -2,47 +2,28 @@
 
 namespace App\Services\Seo;
 
-/**
- * Class MetaHelper
- * @package App\Services\Seo
- */
 class MetaHelper
 {
-    /**
-     * @var MetaRule[]
-     */
-    private $ruleList = [];
+    private array $ruleList = [];
 
-    /**
-     * Add rule.
-     *
-     * @param callable $rule
-     * @param string $ruleKey
-     */
-    public function addRule(callable $rule, $ruleKey = 'default'): void
+
+    public function addRule(callable $rule, string $ruleKey = 'default'): void
     {
         $this->ruleList[$ruleKey] = new MetaRule($rule);
     }
 
 
-    /**
-     * Get rule.
-     *
-     * @param string $ruleKey
-     * @return MetaRule
-     */
-    public function getRule($ruleKey = 'default'): MetaRule
+    public function getRule(string $ruleKey = 'default'): MetaRule
     {
-        if (isset($this->ruleList[$ruleKey])) {
-            $rule = $this->ruleList[$ruleKey];
-        } else {
-            $rule = new MetaRule(
-                function ($metaData) {
-                    return $metaData;
-                }
-            );
-        }
+        if (isset($this->ruleList[$ruleKey]))
+            return $this->ruleList[$ruleKey];
 
-        return $rule;
+        return new MetaRule(
+            function ($metaData) {
+                return $metaData;
+            }
+        );
+
+
     }
 }

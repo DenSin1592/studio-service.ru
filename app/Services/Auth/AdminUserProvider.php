@@ -1,4 +1,6 @@
-<?php namespace App\Services\Auth;
+<?php
+
+namespace App\Services\Auth;
 
 use App\Models\AdminUser;
 use Illuminate\Auth\EloquentUserProvider;
@@ -11,8 +13,7 @@ use Illuminate\Contracts\Hashing\Hasher as HasherContract;
  */
 class AdminUserProvider extends EloquentUserProvider
 {
-    private $ipDisableRestriction;
-
+    private array $ipDisableRestriction;
 
     public function __construct(HasherContract $hasher, $model, array $ipDisableRestriction = [])
     {

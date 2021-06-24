@@ -15,169 +15,88 @@ class SettingValue
     const TYPE_TEXTAREA = 'textarea';
     const TYPE_CHECKBOX = 'checkbox';
     const TYPE_TEXTAREA_TINYMCE = 'textarea_tinymce';
-    /**
-     * @var string
-     */
-    private $key;
 
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var string|array
-     */
     private $value;
-
-    /**
-     * @var string
-     */
-    private $description;
-
-    /**
-     * @var string
-     */
-    private $type;
-
-    /**
-     * @var string
-     */
-    private $defaultValue;
-
-    /**
-     * @var array
-     */
-    private $rules = [];
-
-
-    /**
-     * @var SettingGroup
-     */
     private $settingGroup;
 
-    /**
-     * @param $key
-     * @param $name
-     * @param string $defaultValue
-     * @param string $description
-     * @param string $type
-     * @param array $rules
-     *
-     * @throws IllegalDefaultValue
-     */
     public function __construct(
-        $key,
-        $name,
-        $defaultValue = '',
-        $description = '',
-        $type = self::TYPE_TEXT,
-        array $rules = []
+        private string $key,
+        private string $name,
+        private string $defaultValue = '',
+        private string $description = '',
+        private string $type = self::TYPE_TEXT,
+        private array $rules = []
     ) {
-        if (Validator::make(['defaultValue' => $defaultValue], ['defaultValue' => $this->getRules()])->fails()) {
-            throw new IllegalDefaultValue(
-                "Illegal default value '{$this->defaultValue}' for setting with '{$key}' key."
-            );
-        }
-
-        $this->key = $key;
-        $this->name = $name;
-        $this->defaultValue = $defaultValue;
-        $this->description = $description;
-        $this->type = $type;
-        $this->rules = $rules;
+        if (Validator::make(['defaultValue' => $defaultValue], ['defaultValue' => $this->getRules()])->fails())
+            throw new IllegalDefaultValue("Illegal default value '{$this->defaultValue}' for setting with '{$key}' key.");
     }
 
-    /**
-     * Prepare key.
-     *
-     * @param $key
-     * @return mixed
-     */
-    public static function prepareKey($key)
+
+    public static function prepareKey(string $key)
     {
         return str_replace('.', '|', $key);
     }
 
-    /**
-     * Original key.
-     *
-     * @param $preparedKey
-     * @return mixed
-     */
-    public static function originalKeyFor($preparedKey)
+
+    public static function originalKeyFor(string $preparedKey)
     {
         return str_replace('|', '.', $preparedKey);
     }
 
-    /**
-     * @return string
-     */
+
     public function getKey(): string
     {
         return $this->key;
     }
 
-    /**
-     * @return string
-     */
+
     public function getPreparedKey(): string
     {
         return self::prepareKey($this->key);
     }
 
-    /**
-     * @return string
-     */
+
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string
-     */
+
     public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @return string
-     */
+
     public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @return string
-     */
+
     public function getDefaultValue(): ?string
     {
         return $this->defaultValue;
     }
 
-    /**
-     * @param array|string $value
-     */
-    public function setValue($value): void
+
+    public function setValue(array|string|null $value): void
     {
         $this->value = $value;
     }
 
-    /**
-     * @return string|array
-     */
-    public function getValue()
+
+    public function getValue(): array|string
     {
         return $this->value ?? $this->defaultValue;
     }
+
 
     public function getRules(): array
     {
         return $this->rules;
     }
+
 
     public function setSettingGroup(SettingGroup $settingGroup): void
     {

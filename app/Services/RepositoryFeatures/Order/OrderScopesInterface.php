@@ -1,4 +1,6 @@
-<?php namespace App\Services\RepositoryFeatures\Order;
+<?php
+
+namespace App\Services\RepositoryFeatures\Order;
 
 /**
  * Interface OrderScopesInterface

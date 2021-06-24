@@ -1,4 +1,6 @@
-<?php namespace App\Services\Admin\Acl\Helpers;
+<?php
+
+namespace App\Services\Admin\Acl\Helpers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;

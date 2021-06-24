@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::prefix(config('app.admin_path'))->name('cc.')->namespace('Admin')->group(function () {
+
     Route::middleware('guest')->group(function () {
         Route::get('login', 'SessionsController@create')->name('login');
         Route::post('login', 'SessionsController@store')->name('login');
@@ -26,9 +27,14 @@ Route::prefix(config('app.admin_path'))->name('cc.')->namespace('Admin')->group(
         require_once 'web/admin/settings.php';
         require_once 'web/admin/structure.php';
     });
+
 });
 
 Route::namespace('Client')->group(function () {
-    Route::get('/', 'HomePageController@show')->name('home');
-    Route::get('/dlya-kogo', 'TargetAudiencePageController@show')->name('target-audience');
+
+    Route::namespace('PageControllers')->group(function () {
+        Route::get('/', 'HomePageController@show')->name('home');
+        Route::get('/dlya-kogo', 'TargetAudiencePageController@show')->name('target-audience');
+    });
+
 });

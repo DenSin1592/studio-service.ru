@@ -1,4 +1,6 @@
-<?php namespace App\Providers;
+<?php
+
+namespace App\Providers;
 
 use Arr;
 use App\Services\FormBuilder\Helpers;
@@ -11,13 +13,10 @@ class FormBuilderServiceProvider extends ServiceProvider
 {
     /**
      * Ext form data cache.
-     * @var array
      */
-    private $extFormData = [];
+    private array $extFormData = [];
 
-    /**
-     * @inheritDoc
-     */
+
     public function register()
     {
         $this->app->singleton(Helpers::class);
@@ -370,11 +369,9 @@ class FormBuilderServiceProvider extends ServiceProvider
 
             $errors = app(Helpers::class)->getErrors();
             if ($errors) {
-                $contains = count(
-                    array_filter(array_keys($errors->getMessages()), function ($v) use ($needles) {
-                        return Str::contains($v, $needles);
-                    })
-                ) > 0;
+                $contains = count(array_filter(
+                            array_keys($errors->getMessages()), fn($v) => Str::contains($v, $needles))
+                    ) > 0;
             }
 
             return $contains;

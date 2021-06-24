@@ -1,28 +1,21 @@
-<?php namespace App\Services\Validation\Setting;
+<?php
+
+namespace App\Services\Validation\Setting;
 
 use App\Services\Settings\SettingContainer;
-use App\Services\Settings\SettingValue;
 use App\Services\Validation\AbstractLaravelValidator;
-use Arr;
 use Illuminate\Validation\Factory as ValidatorFactory;
 
-/**
- * Class SettingsLaravelValidator
- * @package App\Services\Validation\Setting
- */
 class SettingsLaravelValidator extends AbstractLaravelValidator
 {
-    private $settingContainer;
-
     public function __construct(
         ValidatorFactory $validatorFactory,
-        SettingContainer $settingContainer
-    ) {
+        private SettingContainer $settingContainer)
+    {
         parent::__construct($validatorFactory);
-        $this->settingContainer = $settingContainer;
     }
 
-    private function getSettingLaravelValidator($settingKey, $value)
+    private function getSettingLaravelValidator($settingKey, $value): \Illuminate\Validation\Validator
     {
         $validator = $this->validatorFactory->make(
             [$settingKey => $value],
@@ -35,32 +28,28 @@ class SettingsLaravelValidator extends AbstractLaravelValidator
         return $validator;
     }
 
-    public function passes()
+    public function passes(): bool
     {
         return $this->passesSettings();
     }
 
-    public function passesSettings()
+    public function passesSettings(): bool
     {
         $settings = \Arr::get($this->data, 'setting', []);
 
-        if (is_array($settings)) {
-            $allPasses = true;
-            foreach ($settings as $settingKey => $value) {
-                $settingLaravelValidator = $this->getSettingLaravelValidator($settingKey, $value);
-                $passes = $settingLaravelValidator->passes();
+        if (!is_array($settings))
+            return false;
 
-                if (!$passes) {
-                    $messagesList = $settingLaravelValidator->messages()->toArray();
+        $allPasses = true;
+        foreach ($settings as $settingKey => $value) {
+            $settingLaravelValidator = $this->getSettingLaravelValidator($settingKey, $value);
+            $passes = $settingLaravelValidator->passes();
 
-                    $this->errors["setting.{$settingKey}"] = $messagesList[$settingKey];
-
-                }
-
-                $allPasses = $allPasses && $passes;
+            if (!$passes) {
+                $messagesList = $settingLaravelValidator->messages()->toArray();
+                $this->errors["setting.{$settingKey}"] = $messagesList[$settingKey];
             }
-        } else {
-            $allPasses = false;
+            $allPasses = $allPasses && $passes;
         }
 
         return $allPasses;

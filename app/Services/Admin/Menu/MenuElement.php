@@ -1,4 +1,6 @@
-<?php namespace App\Services\Admin\Menu;
+<?php
+
+namespace App\Services\Admin\Menu;
 
 use App\Services\Admin\Menu\Exception\ActionNotFound;
 use Illuminate\Http\Request;
@@ -11,15 +13,9 @@ use Illuminate\Routing\Route;
  */
 class MenuElement
 {
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var string
-     */
-    private $icon;
+    private string $name;
+    private string $icon;
+    private bool $openLinkInNewTab;
 
     /**
      * @var callable
@@ -31,26 +27,16 @@ class MenuElement
      */
     private $activeResolver;
 
-    /**
-     * @var bool
-     */
-    private $openLinkInNewTab;
 
     /**
      * Create menu element.
-     *
-     * @param string $name
-     * @param string $icon
-     * @param callable|string $url
-     * @param callable|array|string $activeResolver
-     * @param boolean $targetBlank
      */
     public function __construct(
-        $name,
-        $icon,
-        $url,
-        $activeResolver,
-        $targetBlank = false
+        string $name,
+        string $icon,
+        callable|string $url,
+        callable|array|string $activeResolver,
+        bool $targetBlank = false
     ) {
         $this->name = $name;
         $this->icon = $icon;
@@ -61,30 +47,24 @@ class MenuElement
 
     /**
      * Get menu element link.
-     *
-     * @return string
      */
-    public function getUrl()
+    public function getUrl(): callable|string
     {
         return $this->url;
     }
 
     /**
      * Get menu element icon.
-     *
-     * @return string
      */
-    public function getIcon()
+    public function getIcon(): string
     {
         return $this->icon;
     }
 
     /**
      * Get menu element list.
-     *
-     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -117,9 +97,7 @@ class MenuElement
         return $active;
     }
 
-    /**
-     * @return bool
-     */
+
     public function getOpenLinkInNewTab(): bool
     {
         return $this->openLinkInNewTab;

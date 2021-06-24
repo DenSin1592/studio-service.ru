@@ -1,40 +1,18 @@
-<?php namespace App\Services\Repositories\Setting;
+<?php
 
-use App\Models\Setting;
+namespace App\Services\Repositories\Setting;
+
+use App\Services\Repositories\BaseRepository;
+use App\Services\Repositories\CreateUpdateRepositoryInterface;
 
 /**
  * Class EloquentSettingRepository
  * @package  App\Services\Repositories\Setting
  */
-class EloquentSettingRepository
+class EloquentSettingRepository extends BaseRepository implements CreateUpdateRepositoryInterface
 {
-    public function create(array $data)
-    {
-        return Setting::create($data);
-    }
-
-    public function update(Setting $setting, array $data)
-    {
-        return $setting->update($data);
-    }
-
-    public function findById($id)
-    {
-        return Setting::find($id);
-    }
-
     public function findByKey($key)
     {
-        return Setting::where('key', $key)->first();
-    }
-
-    public function newInstance(array $data = [])
-    {
-        return new Setting($data);
-    }
-
-    public function all()
-    {
-        return Setting::all();
+        return $this->getModel()->where('key', $key)->first();
     }
 }

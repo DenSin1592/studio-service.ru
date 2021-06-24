@@ -1,4 +1,6 @@
-<?php namespace App\Services\Admin\Acl\Helpers;
+<?php
+
+namespace App\Services\Admin\Acl\Helpers;
 
 use App\Services\Admin\Acl\Acl;
 use App\Services\Admin\Acl\AclUser;

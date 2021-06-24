@@ -1,9 +1,7 @@
-<?php namespace App\Services\Composers;
+<?php
 
-/**
- * Class AdminAlertComposer
- * @package App\Services\Composers
- */
+namespace App\Services\Composers;
+
 class AdminAlertComposer
 {
     public function compose($view)

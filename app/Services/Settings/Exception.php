@@ -1,4 +1,6 @@
-<?php namespace App\Services\Settings;
+<?php
+
+namespace App\Services\Settings;
 
 use RuntimeException;
 

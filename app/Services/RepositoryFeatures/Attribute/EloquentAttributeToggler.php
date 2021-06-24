@@ -1,28 +1,22 @@
-<?php namespace App\Services\RepositoryFeatures\Attribute;
+<?php
+
+namespace App\Services\RepositoryFeatures\Attribute;
 
 /**
- * Class EloquentAttributeToggler
  * Helper to toggle eloquent model attributes.
- *
- * @package App\Services\Repositories\RepositoryHelpers
  */
 class EloquentAttributeToggler
 {
     /**
      * Toggle attribute in model and save it.
-     *
-     * @param \Eloquent $model
-     * @param $attribute
-     * @return null
      */
-    public function toggleAttribute($model, $attribute)
+    public function toggleAttribute(\Eloquent $model, $attribute): ?\Eloquent
     {
-        if (is_null($model)) {
+        if (is_null($model))
             return null;
-        } else {
-            $model->{$attribute} = !$model->{$attribute};
-            $model->save();
-            return $model;
-        }
+
+        $model->{$attribute} = !$model->{$attribute};
+        $model->save();
+        return $model;
     }
 }

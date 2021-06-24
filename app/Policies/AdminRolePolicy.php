@@ -1,17 +1,15 @@
-<?php namespace App\Policies;
+<?php
+
+namespace App\Policies;
 
 use App\Models\AdminRole;
 use App\Models\AdminUser;
-use App\Services\Repositories\AdminRole\AdminRoleRepository;
+use App\Services\Repositories\AdminRole\EloquentAdminRoleRepository;
 
 class AdminRolePolicy
 {
-    private AdminRoleRepository $adminRoleRepository;
-
-    public function __construct(AdminRoleRepository $adminRoleRepository)
-    {
-        $this->adminRoleRepository = $adminRoleRepository;
-    }
+    public function __construct(private EloquentAdminRoleRepository $adminRoleRepository)
+    {}
 
     public function change(AdminUser $authUser, AdminRole $roleToCheck): bool
     {

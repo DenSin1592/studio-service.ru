@@ -8,11 +8,6 @@ use App\Services\Settings\SettingGroup;
 use App\Services\Settings\SettingValue;
 use App\Services\Settings\SettingGetter;
 
-/**
- * Class ServiceProvider
- * Service provider for settings.
- * @package App\Service\Settings
- */
 class SettingsServiceProvider extends ServiceProvider
 {
 
@@ -144,11 +139,7 @@ class SettingsServiceProvider extends ServiceProvider
             }
         );
 
-        $this->app->singleton(
-            'setting',
-            function () {
-                return $this->app->make(SettingGetter::class);
-            }
-        );
+        $this->app->singleton('setting', fn () => $this->app->make(SettingGetter::class));
+
     }
 }

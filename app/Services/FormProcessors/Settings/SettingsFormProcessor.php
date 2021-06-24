@@ -17,20 +17,18 @@ use Arr;
 class SettingsFormProcessor extends CreateUpdateFormProcessor
 {
     private SettingContainer $settingContainer;
-    private EloquentSettingRepository $settingRepository;
 
     public function __construct(
         ValidableInterface $validator,
-        CreateUpdateRepositoryInterface $repository,
         EloquentSettingRepository $settingRepository,
         SettingContainer $settingContainer
     ) {
-        parent::__construct($validator, $repository);
-        $this->settingRepository = $settingRepository;
+        parent::__construct($validator, $settingRepository);
         $this->settingContainer = $settingContainer;
     }
 
-    protected function prepareInputData(array $data)
+
+    protected function prepareInputData(array $data): array
     {
         $settingList = Arr::get($data, 'setting');
         if (!is_array($settingList)) {
@@ -43,15 +41,14 @@ class SettingsFormProcessor extends CreateUpdateFormProcessor
             if (in_array('email_list', $rules, true)) {
                 $settingList[$settingKey] = implode(',', array_filter(array_map('trim', explode(',', $value))));
             }
-
-            $settingType = $this->settingContainer->getTypeBy($settingKey);
         }
         Arr::set($data, 'setting', $settingList);
 
         return $data;
     }
 
-    public function updateAll(array $data = [])
+
+    public function updateAll(array $data = []): void
     {
         $data = $this->prepareInputData($data);
         if ($this->validator->with($data)->passes()) {
@@ -61,12 +58,10 @@ class SettingsFormProcessor extends CreateUpdateFormProcessor
                 foreach ($settings as $settingKey => $value) {
                     $originalKey = SettingValue::originalKeyFor($settingKey);
 
-                    $setting = $this->settingRepository->findByKey($originalKey);
+                    $setting = $this->repository->findByKey($originalKey);
                     if (null === $setting) {
                         $setting = $this->repository->create(['key' => $originalKey]);
                     }
-
-                    $settingType = $this->settingContainer->getTypeBy($originalKey);
 
                     $this->repository->update($setting, ['value' => $value]);
                 }

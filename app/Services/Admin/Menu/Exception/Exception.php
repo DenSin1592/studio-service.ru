@@ -1,9 +1,7 @@
-<?php namespace App\Services\Admin\Menu\Exception;
+<?php
 
-/**
- * Class Exception
- * @package App\Services\Admin\Menu\Exception
- */
+namespace App\Services\Admin\Menu\Exception;
+
 class Exception extends \RuntimeException
 {
 

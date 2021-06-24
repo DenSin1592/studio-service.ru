@@ -6,37 +6,26 @@ use App\Http\Controllers\Controller;
 use App\Services\DataProviders\SettingsForm\SettingsForm;
 use App\Services\FormProcessors\Settings\SettingsFormProcessor;
 
-/**
- * Controller to manage settings.
- */
 class SettingsController extends Controller
 {
-    private SettingsFormProcessor $settingsFormProcessor;
-    private SettingsForm $settingsForm;
-
     public function __construct(
-        SettingsFormProcessor $formProcessor,
-        SettingsForm $settingsForm
-    ) {
-        $this->settingsFormProcessor = $formProcessor;
-        $this->settingsForm = $settingsForm;
-    }
+        private SettingsFormProcessor $formProcessor,
+        private SettingsForm $settingsForm
+    ){}
 
     public function edit()
     {
-        return view('admin.settings.edit')->with('formData', $this->settingsForm->provideData());
+        return \View('admin.settings.edit')->with('formData', $this->settingsForm->provideData());
     }
 
     public function update()
     {
-        $this->settingsFormProcessor->updateAll(\Request::all());
-        $errors = $this->settingsFormProcessor->errors();
+        $this->formProcessor->updateAll(\Request::all());
+        $errors = $this->formProcessor->errors();
 
-        if (count($errors) > 0) {
+        if (count($errors) > 0)
             return \Redirect::route('cc.settings.edit')->withErrors($errors)->withInput();
 
-        } else {
-            return \Redirect::route('cc.settings.edit')->with('alert_success', 'Изменения сохранены');
-        }
+        return \Redirect::route('cc.settings.edit')->with('alert_success', 'Изменения сохранены');
     }
 }

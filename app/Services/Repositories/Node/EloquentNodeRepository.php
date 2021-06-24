@@ -1,6 +1,10 @@
-<?php namespace App\Services\Repositories\Node;
+<?php
+
+namespace App\Services\Repositories\Node;
 
 use App\Models\Node;
+use App\Services\Repositories\BaseRepository;
+use App\Services\Repositories\CreateUpdateRepositoryInterface;
 use App\Services\RepositoryFeatures\Attribute\EloquentAttributeToggler;
 use App\Services\RepositoryFeatures\Attribute\PositionUpdater;
 use App\Services\RepositoryFeatures\Order\OrderScopesInterface;
@@ -11,63 +15,26 @@ use Illuminate\Database\Eloquent\Collection;
  * Class EloquentNodeRepository
  * @package App\Services\Repositories\Node
  */
-class EloquentNodeRepository
+class EloquentNodeRepository extends BaseRepository implements CreateUpdateRepositoryInterface
 {
     const POSITION_STEP = 10;
 
-    /**
-     * @var EloquentAttributeToggler
-     */
-    private $attributeToggler;
-    /**
-     * @var OrderScopesInterface
-     */
-    private $orderScope;
-    /**
-     * @var TreeBuilderInterface
-     */
-    private $treeBuilder;
-    /**
-     * @var PositionUpdater
-     */
-    private $positionUpdater;
-
-    /**
-     * @param OrderScopesInterface $orderScope
-     * @param TreeBuilderInterface $treeBuilder
-     * @param EloquentAttributeToggler $attributeToggler
-     * @param PositionUpdater $positionUpdater
-     */
     public function __construct(
-        OrderScopesInterface $orderScope,
-        TreeBuilderInterface $treeBuilder,
-        EloquentAttributeToggler $attributeToggler,
-        PositionUpdater $positionUpdater
-    ) {
-        $this->orderScope = $orderScope;
-        $this->treeBuilder = $treeBuilder;
-        $this->attributeToggler = $attributeToggler;
-        $this->positionUpdater = $positionUpdater;
-    }
-
-
-    public function newInstance(array $data = [])
-    {
-        return new Node($data);
-    }
-
-
-    public function findById($id)
-    {
-        return Node::find($id);
+        private OrderScopesInterface $orderScope,
+        private TreeBuilderInterface $treeBuilder,
+        private EloquentAttributeToggler $attributeToggler,
+        private PositionUpdater $positionUpdater,
+        protected $model
+    ){
+        parent::__construct($model);
     }
 
 
     public function findByType($type, $published = false): ?Node
     {
-        $query = Node::where('type', $type);
+        $query = $this->getModel()->where('type', $type);
         if ($published) {
-            $query->treePublished();
+            $query->where('publish', true);
         }
 
         return $query->first();
@@ -76,51 +43,39 @@ class EloquentNodeRepository
 
     public function allByType($type)
     {
-        return Node::where('type', $type)->get();
-    }
-
-
-    public function delete(Node $node)
-    {
-        return $node->delete();
+        return $this->getModel()->where('type', $type)->get();
     }
 
 
     public function create(array $data)
     {
         if (empty($data['position'])) {
-            $maxPosition = Node::where('parent_id', $data['parent_id'])->max('position');
+            $maxPosition = $this->getModel()->where('parent_id', $data['parent_id'])->max('position');
             if (is_null($maxPosition)) {
                 $maxPosition = 0;
             }
             $data['position'] = $maxPosition + self::POSITION_STEP;
         }
 
-        return Node::create($data);
-    }
-
-
-    public function update(Node $node, array $data)
-    {
-        return $node->update($data);
+        return $this->getModel()->create($data);
     }
 
 
     public function getTreePath(Node $node)
     {
-        return $this->treeBuilder->getTreePath(new Node(), $node->id);
+        return $this->treeBuilder->getTreePath($this->getModel(), $node->id);
     }
 
 
     public function getTree()
     {
-        return $this->treeBuilder->getTree(new Node());
+        return $this->treeBuilder->getTree($this->getModel());
     }
 
 
     public function getPublishedTree()
     {
-        return $this->treeBuilder->getTree(new Node(), null, function ($query) {
+        return $this->treeBuilder->getTree($this->getModel(), null, function ($query) {
             $query->where('publish', true);
         });
     }
@@ -128,19 +83,19 @@ class EloquentNodeRepository
 
     public function getCollapsedTree(Node $node = null)
     {
-        return $this->treeBuilder->getCollapsedTree(new Node(), is_null($node) ? null : $node->id);
+        return $this->treeBuilder->getCollapsedTree($this->getModel(), is_null($node) ? null : $node->id);
     }
 
 
     public function getParentVariants(Node $node = null, $rootName = null)
     {
-        return $this->treeBuilder->getTreeVariants(new Node(), is_null($node) ? null : $node->id, $rootName);
+        return $this->treeBuilder->getTreeVariants($this->getModel(), is_null($node) ? null : $node->id, $rootName);
     }
 
 
     public function updatePositions(array $positions)
     {
-        $this->positionUpdater->updatePositions(new Node(), $positions);
+        $this->positionUpdater->updatePositions($this->getModel(), $positions);
     }
 
 
@@ -152,28 +107,21 @@ class EloquentNodeRepository
     }
 
 
-    public function getTotal()
-    {
-        return Node::count();
-    }
-
-
     public function treePublishedTopMenu()
     {
-        $query = Node::where('menu_top', true);
+        $query = $this->getModel()->where('menu_top', true);
         $this->orderScope->scopeOrdered($query);
-        $query->treePublished();
+        $query->where('publish', true);
 
         return $query->get();
     }
 
     public function treePublishedWithAliases($aliases)
     {
-        if (count($aliases) === 0) {
+        if (count($aliases) === 0)
             return Collection::make([]);
-        } else {
-            return Node::query()->treePublished()->whereIn('alias', $aliases)->get();
-        }
+
+        return $this->getModel()->query()->where('publish', true)->whereIn('alias', $aliases)->get();
     }
 
 
@@ -182,9 +130,9 @@ class EloquentNodeRepository
         if (!is_null($node)) {
             $query = $node->children();
         } else {
-            $query = Node::where('parent_id', null);
+            $query = $this->getModel()->where('parent_id', null);
         }
-        $query->treePublished();
+        $query->where('publish', true);
         $this->orderScope->scopeOrdered($query);
         $children = $query->get();
 
@@ -193,11 +141,5 @@ class EloquentNodeRepository
         }
 
         return $children;
-    }
-
-
-    public function treePublished()
-    {
-        return Node::treePublished()->orderBy('position')->get();
     }
 }

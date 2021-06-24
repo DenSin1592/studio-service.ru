@@ -191,6 +191,7 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\FormBuilderServiceProvider::class,
         App\Providers\RepositoriesServiceProvider::class,
+        App\Providers\RepositoryFeaturesServiceProvider::class,
         App\Providers\ComposersServiceProvider::class,
         App\Providers\Admin\MenuServiceProvider::class,
         App\Providers\Admin\BreadcrumbsServiceProvider::class,

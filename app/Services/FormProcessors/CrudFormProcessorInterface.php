@@ -1,28 +1,21 @@
-<?php namespace App\Services\FormProcessors;
+<?php
+
+namespace App\Services\FormProcessors;
 
 interface CrudFormProcessorInterface
 {
     /**
      * Create an element.
-     *
-     * @param array $data
-     * @return \Illuminate\Database\Eloquent\Model|null
      */
-    public function create(array $data = []);
+    public function create(array $data = []): ?\Eloquent;
 
     /**
      * Update an element.
-     *
-     * @param \Eloquent $model
-     * @param array $data
-     * @return \Illuminate\Database\Eloquent\Model|null
      */
-    public function update($model, array $data = []);
+    public function update(\Eloquent $model, array $data = []): bool;
 
     /**
      * Get errors.
-     *
-     * @return array
      */
-    public function errors();
+    public function errors(): array;
 }

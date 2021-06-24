@@ -1,4 +1,6 @@
-<?php namespace App\Services\Settings\Exception;
+<?php
+
+namespace App\Services\Settings\Exception;
 
 use App\Services\Settings\Exception;
 

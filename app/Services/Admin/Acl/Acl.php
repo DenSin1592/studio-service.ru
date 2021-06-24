@@ -1,30 +1,23 @@
-<?php namespace App\Services\Admin\Acl;
+<?php
+
+namespace App\Services\Admin\Acl;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Support\Collection;
 
 class Acl
 {
-    private GateContract $gate;
-
-    /**
-     * @var Ability[]
-     */
     private array $abilities = [];
 
-    public function __construct(GateContract $gate)
-    {
-        $this->gate = $gate;
-    }
+    public function __construct(private GateContract $gate)
+    {}
 
     public function define(string $ability, array $controllers, string $outName): void
     {
         $this->abilities[$ability] = new Ability($ability, $outName, $controllers);
     }
 
-    /**
-     * @return Collection|Ability[]
-     */
+
     public function abilities(): Collection
     {
         return collect($this->abilities);
@@ -32,14 +25,12 @@ class Acl
 
     public function checkRoute(string $url, string $method = 'GET'): bool
     {
-        if (count($this->abilities) === 0) {
+        if (count($this->abilities) === 0)
             return false;
-        }
 
         foreach ($this->abilities()->keys() as $ability) {
-            if ($this->gate->check($ability, [$url, $method])) {
+            if ($this->gate->check($ability, [$url, $method]))
                 return true;
-            }
         }
 
         return false;

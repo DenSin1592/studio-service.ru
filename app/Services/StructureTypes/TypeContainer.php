@@ -1,75 +1,53 @@
 <?php
+
 namespace App\Services\StructureTypes;
 
 use App\Models\Node;
 use App\Services\Repositories\Node\EloquentNodeRepository;
 
 /**
- * Class TypeContainer
  * Container to manage types of App\Model\Node.
- * @package App\Services\StructureTypes
  */
 class TypeContainer
 {
-    /**
-     * @var EloquentNodeRepository
-     */
-    private $nodeRepository;
-
-    /**
-     * @var RepositoryAssociation[]
-     */
-    private $repositoryAssociations = [];
-
-    /**
-     * @var Type[]
-     */
-    private $typeList = [];
+    private EloquentNodeRepository $nodeRepository;
+    private array $repositoryAssociations = [];
+    private array $typeList = [];
 
     public function __construct(EloquentNodeRepository $nodeRepository)
     {
         $this->nodeRepository = $nodeRepository;
     }
 
-    public function addRepositoryAssociation($repositoryKey, RepositoryAssociation $repositoryAssociation)
+
+    public function addRepositoryAssociation(string $repositoryKey, RepositoryAssociation $repositoryAssociation): void
     {
         $this->repositoryAssociations[$repositoryKey] = $repositoryAssociation;
     }
 
 
-    public function addType($typeKey, Type $type)
+    public function addType(string $typeKey, Type $type): void
     {
-        if (!isset($this->repositoryAssociations[$type->getRepoKey()])) {
+        if (!isset($this->repositoryAssociations[$type->getRepoKey()]))
             throw new \InvalidArgumentException("Add repository with key {$type->getRepoKey()} first");
-        }
+
         $this->typeList[$typeKey] = $type;
     }
 
 
-    /**
-     * @return RepositoryAssociation[]
-     */
-    public function getRepositoryAssociations()
+    public function getRepositoryAssociations(): array
     {
         return $this->repositoryAssociations;
     }
 
 
-    /**
-     * @return Type[]
-     */
-    public function getTypeList()
+    public function getTypeList(): array
     {
         return $this->typeList;
     }
 
-    /**
-     * Get enabled types for list.
-     *
-     * @param null $nodeId
-     * @return Type[]
-     */
-    public function getEnabledTypeList($nodeId = null)
+
+    public function getEnabledTypeList(int $nodeId = null): array
     {
         $result = [];
         foreach ($this->typeList as $typeKey => $type) {
@@ -95,65 +73,51 @@ class TypeContainer
         return $result;
     }
 
-    /**
-     * Get name of type.
-     *
-     * @param $typeKey
-     * @return string|null
-     */
-    public function getTypeName($typeKey)
-    {
-        if (isset($this->typeList[$typeKey])) {
-            $typeName = $this->typeList[$typeKey]->getName();
-        } else {
-            $typeName = null;
-        }
 
-        return $typeName;
+    public function getTypeName(string $typeKey): ?string
+    {
+        if (isset($this->typeList[$typeKey]))
+            return $this->typeList[$typeKey]->getName();
+        return null;
     }
 
 
-    /**
-     * @param Node $node
-     * @return \Eloquent|null
-     */
-    public function getContentModelFor(Node $node)
+    public function getContentModelFor(Node $node): ?\Eloquent
     {
-        if (!isset($this->typeList[$node->type])) {
+        if (!isset($this->typeList[$node->type]))
             return null;
-        } else {
-            $repoKey = $this->typeList[$node->type]->getRepoKey();
-            $type = $this->repositoryAssociations[$repoKey];
-        }
 
+        $repoKey = $this->typeList[$node->type]->getRepoKey();
+        $type = $this->repositoryAssociations[$repoKey];
         return $type->getNodeContentRepository()->findForNodeOrNew($node);
     }
 
-    public function getContentUrl(Node $node)
+
+    public function getContentUrl(Node $node): ?string
     {
-        if (isset($this->typeList[$node->type])) {
-            $type = $this->typeList[$node->type];
-            $repoAssociation = $this->repositoryAssociations[$type->getRepoKey()];
-            $urlCreator = $repoAssociation->getUrlCreator();
-            return $urlCreator($node);
-        } else {
+        if (!isset($this->typeList[$node->type]))
             return null;
-        }
+
+        $type = $this->typeList[$node->type];
+        $repoAssociation = $this->repositoryAssociations[$type->getRepoKey()];
+        $urlCreator = $repoAssociation->getUrlCreator();
+
+        return $urlCreator($node);
+
     }
 
-    public function getClientUrl(Node $node, $absolute = true)
+    public function getClientUrl(Node $node, bool $absolute = true): ?string
     {
-        if (isset($this->typeList[$node->type])) {
-            $clientUrlCreator = $this->typeList[$node->type]->getClientUrlCreator();
-            $clientUrl = $clientUrlCreator($node);
-
-            if (!$absolute) {
-                $clientUrl = '/' . ltrim(str_replace(\Request::getSchemeAndHttpHost(), '', $clientUrl), '/');
-            }
-
-            return $clientUrl;
-        } else {
+        if (!isset($this->typeList[$node->type]))
             return null;
+
+        $clientUrlCreator = $this->typeList[$node->type]->getClientUrlCreator();
+        $clientUrl = $clientUrlCreator($node);
+
+        if (!$absolute) {
+            $clientUrl = '/' . ltrim(str_replace(\Request::getSchemeAndHttpHost(), '', $clientUrl), '/');
         }
+
+        return $clientUrl;
     }
 }

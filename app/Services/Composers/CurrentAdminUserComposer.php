@@ -1,9 +1,7 @@
-<?php namespace App\Services\Composers;
+<?php
 
-/**
- * Class CurrentAdminUserComposer
- * @package App\Services\Composers
- */
+namespace App\Services\Composers;
+
 class CurrentAdminUserComposer
 {
     public function compose($view)

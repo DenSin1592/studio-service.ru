@@ -1,4 +1,6 @@
-<?php namespace App\Facades;
+<?php
+
+namespace App\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -9,7 +11,7 @@ use Illuminate\Support\Facades\Facade;
  */
 class Setting extends Facade
 {
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
         return 'setting';
     }

@@ -15,10 +15,6 @@ class MetaRule
     private $rule;
 
 
-    /**
-     * MetaRule constructor.
-     * @param callable $rule
-     */
     public function __construct(callable $rule)
     {
         $this->rule = $rule;
@@ -27,13 +23,8 @@ class MetaRule
 
     /**
      * Get data for object.
-     *
-     * @param $object
-     * @param null $name - alternative name
-     * @param array $additionalData
-     * @return array
      */
-    public function metaForObject($object, $name = null, array $additionalData = [])
+    public function metaForObject(\Eloquent $object, string $name = null, array $additionalData = []): array
     {
         if (!empty($object->header)) {
             $h1 = $object->header;
@@ -45,23 +36,9 @@ class MetaRule
             $h1 = '';
         }
 
-        if (!empty($object->meta_title)) {
-            $metaTitle = $object->meta_title;
-        } else {
-            $metaTitle = '';
-        }
-
-        if (!empty($object->meta_keywords)) {
-            $metaKeywords = $object->meta_keywords;
-        } else {
-            $metaKeywords = '';
-        }
-
-        if (!empty($object->meta_description)) {
-            $metaDescription = $object->meta_description;
-        } else {
-            $metaDescription = '';
-        }
+        $metaTitle = !empty($object->meta_title) ? $object->meta_title : '';
+        $metaKeywords = !empty($object->meta_keywords) ? $object->meta_keywords : '';
+        $metaDescription = !empty($object->meta_description) ? $object->meta_description : '';
 
         $metaData = [
             'h1' => $h1,
@@ -83,12 +60,8 @@ class MetaRule
 
     /**
      * Get meta data for name.
-     *
-     * @param $name
-     * @param array $additionalData
-     * @return array
      */
-    public function metaForName($name, array $additionalData = [])
+    public function metaForName(string $name, array $additionalData = []): array
     {
         $metaData = [
             'h1' => $name,

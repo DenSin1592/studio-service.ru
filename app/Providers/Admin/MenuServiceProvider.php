@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\HomePagesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
+use App\Http\Controllers\Admin\TargetAudiencePagesController;
 use App\Http\Controllers\Admin\TargetAudiencesController;
 use App\Services\Admin\Menu\Menu;
 use App\Services\Admin\Menu\MenuElement;
@@ -30,6 +31,7 @@ class MenuServiceProvider extends ServiceProvider
                         [
                             StructureController::class,
                             HomePagesController::class,
+                            TargetAudiencePagesController::class,
                         ]
                     )
                 );

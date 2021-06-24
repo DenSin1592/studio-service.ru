@@ -26,8 +26,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        \Auth::provider('admin_user', function (Application $app, array $config) {
-            return new AdminUserProvider($app['hash'], $config['model'], $config['skip_env']);
-        });
+        \Auth::provider(
+            'admin_user',
+            fn(Application $app, array $config) => new AdminUserProvider($app['hash'], $config['model'], $config['skip_env'])
+        );
     }
 }

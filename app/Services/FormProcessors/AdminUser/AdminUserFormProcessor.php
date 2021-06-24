@@ -1,21 +1,15 @@
-<?php namespace App\Services\FormProcessors\AdminUser;
+<?php
+
+namespace App\Services\FormProcessors\AdminUser;
 
 use App\Services\FormProcessors\CreateUpdateFormProcessor;
+use App\Services\FormProcessors\SubProcessor;
 
-/**
- * Class AdminUserFormProcessor
- * @package App\Services\FormProcessors
- */
+
 class AdminUserFormProcessor extends CreateUpdateFormProcessor
 {
-    /** @var SubProcessor[] */
     private array $subProcessorList = [];
 
-    /**
-     * Add sub processor.
-     *
-     * @param SubProcessor $subProcessor
-     */
     public function addSubProcessor(SubProcessor $subProcessor)
     {
         $this->subProcessorList[] = $subProcessor;
@@ -43,7 +37,7 @@ class AdminUserFormProcessor extends CreateUpdateFormProcessor
         return $data;
     }
 
-    public function update($user, array $data = [])
+    public function update($user, array $data = []): bool
     {
         if (\Auth::user()->id === $user->id) {
             unset($data['active'], $data['admin_role_id']);

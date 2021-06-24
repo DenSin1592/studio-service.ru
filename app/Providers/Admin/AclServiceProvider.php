@@ -1,4 +1,6 @@
-<?php namespace App\Providers\Admin;
+<?php
+
+namespace App\Providers\Admin;
 
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
@@ -24,19 +26,17 @@ class AclServiceProvider extends ServiceProvider
         $this->bootGates();
     }
 
+
     public function register(): void
     {
         $this->registerAcl();
         $this->registerHelpers();
     }
 
+
     private function bootGates(): void
     {
-        Gate::before(function (AdminUser $user) {
-            if ($user->isSuper()) {
-                return true;
-            }
-        });
+        Gate::before(fn(AdminUser $user) => $user->isSuper());
 
         foreach ($this->app['acl']->abilities()->keys() as $ability) {
             Gate::define($ability, AdminUrlPolicy::class . '@change');
@@ -45,6 +45,7 @@ class AclServiceProvider extends ServiceProvider
         Gate::define('change-admin-user', AdminUserPolicy::class . '@change');
         Gate::define('change-admin-role', AdminRolePolicy::class . '@change');
     }
+
 
     private function registerAcl(): void
     {
@@ -72,18 +73,17 @@ class AclServiceProvider extends ServiceProvider
         $this->app->alias(Acl::class, 'acl');
     }
 
+
     private function registerHelpers(): void
     {
-        $this->app->singleton(RouteHelper::class, function () {
-            return new RouteHelper($this->app['router']);
-        });
+        $this->app->singleton(RouteHelper::class, fn() => new RouteHelper($this->app['router']));
 
-        $this->app->singleton(CheckHelper::class, function () {
-            return new CheckHelper(
+        $this->app->singleton(CheckHelper::class,
+            fn() => new CheckHelper(
                 $this->app->make(Acl::class),
                 $this->app->make(RouteHelper::class),
                 $this->app->make('url')
-            );
-        });
+            )
+        );
     }
 }

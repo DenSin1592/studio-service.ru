@@ -24,41 +24,37 @@ class AdminUser extends User
         return (bool)$this->super;
     }
 
-    public function role()
+    public function role(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(AdminRole::class, 'admin_role_id');
     }
 
-    public function parent()
+    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(AdminUser::class);
     }
 
-    public function children()
+    public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(AdminUser::class, 'parent_id');
     }
 
     public function getAbilities(): array
     {
-        /** @var AdminRole $role */
         $role = $this->role()->first();
-        if ($role === null) {
-            $abilities = [];
-        } else {
-            $abilities = $role->abilities;
-        }
+        if ($role === null)
+            return [];
 
-        return $abilities;
+        return $role->abilities;
     }
 
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 
-        self::deleting(function (self $user) {
-            AdminUser::where('parent_id', $user->id)->update(['parent_id' => null]);
-            AdminRole::where('parent_id', $user->id)->update(['parent_id' => optional(\Auth::user())->id]);
+        self::deleting(function (self $model) {
+            AdminUser::where('parent_id', $model->id)->update(['parent_id' => null]);
+            AdminRole::where('parent_id', $model->id)->update(['parent_id' => optional(\Auth::user())->id]);
         });
     }
 }

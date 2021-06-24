@@ -1,12 +1,11 @@
-<?php namespace App\Services\DataProviders\AdminUserForm;
+<?php
+
+namespace App\Services\DataProviders\AdminUserForm;
 
 use App\Models\AdminUser;
 
 class AdminUserForm
 {
-    /**
-     * @var array|AdminUserSubForm[]
-     */
     private array $subFormList = [];
 
     public function provideDataFor(AdminUser $user, array $oldInput): array

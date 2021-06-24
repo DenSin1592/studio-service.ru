@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers\Admin\Features;
+<?php
+
+namespace App\Http\Controllers\Admin\Features;
 
 trait ToggleFlags
 {
@@ -10,19 +12,18 @@ trait ToggleFlags
      * @param $attribute
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
-    protected function toggleFlagResponse($action, $modelInstance, $attribute)
+    protected function toggleFlagResponse($action, $modelInstance, $attribute): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
     {
-        if (\Request::ajax()) {
-            $view = 'admin.shared._list_flag';
-            $newFlagView = view($view)
-                ->with('element', $modelInstance)
-                ->with('action', $action)
-                ->with('attribute', $attribute)
-                ->render();
-
-            return \Response::json(['new_icon' => $newFlagView]);
-        } else {
+        if (!\Request::ajax())
             return \Redirect::back();
-        }
+
+        $view = 'admin.shared._list_flag';
+        $newFlagView = view($view)
+            ->with('element', $modelInstance)
+            ->with('action', $action)
+            ->with('attribute', $attribute)
+            ->render();
+
+        return \Response::json(['new_icon' => $newFlagView]);
     }
 }

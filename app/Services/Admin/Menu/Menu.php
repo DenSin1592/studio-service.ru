@@ -1,4 +1,6 @@
-<?php namespace App\Services\Admin\Menu;
+<?php
+
+namespace App\Services\Admin\Menu;
 
 /**
  * Class Menu
@@ -7,48 +9,37 @@
  */
 class Menu
 {
-    /**
-     * @var array
-     */
-    private $menuItems = [];
+    private array $menuItems = [];
 
 
     /**
      * Add menu element.
-     *
-     * @param MenuElement $menuElement
      */
-    public function addMenuElement(MenuElement $menuElement)
+    public function addMenuElement(MenuElement $menuElement): void
     {
         $this->menuItems[] = $menuElement;
     }
 
     /**
      * Add group of menu elements.
-     *
-     * @param MenuGroup $menuGroup
      */
-    public function addMenuGroup(MenuGroup $menuGroup)
+    public function addMenuGroup(MenuGroup $menuGroup): void
     {
         $this->menuItems[] = $menuGroup;
     }
 
     /**
      * Get list of menu elements and groups of elements.
-     *
-     * @return array
      */
-    public function getMenuItems()
+    public function getMenuItems(): array
     {
         return $this->menuItems;
     }
 
     /**
      * Get flatten menu.
-     *
-     * @return array
      */
-    public function getFlattenMenu()
+    public function getFlattenMenu(): array
     {
         $flattenMenu = [];
         foreach ($this->menuItems as $menuItem) {
@@ -65,10 +56,8 @@ class Menu
 
     /**
      * Get first available menu element for current user.
-     *
-     * @return string|null
      */
-    public function getFirstAvailableAction()
+    public function getFirstAvailableAction(): ?string
     {
         return $this->getFlattenMenu()[0];
     }

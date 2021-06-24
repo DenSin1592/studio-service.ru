@@ -1,12 +1,11 @@
-<?php namespace App\Services\DataProviders\AdminRoleForm;
+<?php
+
+namespace App\Services\DataProviders\AdminRoleForm;
 
 use App\Models\AdminRole;
 
 class AdminRoleForm
 {
-    /**
-     * @var array|AdminRoleSubForm[]
-     */
     private array $subFormList = [];
 
     public function provideDataFor(AdminRole $role, array $oldInput): array

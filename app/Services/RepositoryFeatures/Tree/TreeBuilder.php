@@ -1,4 +1,6 @@
-<?php namespace App\Services\RepositoryFeatures\Tree;
+<?php
+
+namespace App\Services\RepositoryFeatures\Tree;
 
 use App\Services\RepositoryFeatures\Order\OrderScopesInterface;
 
@@ -8,23 +10,13 @@ use App\Services\RepositoryFeatures\Order\OrderScopesInterface;
  */
 class TreeBuilder implements TreeBuilderInterface
 {
-    /**
-     * @var OrderScopesInterface
-     */
-    protected $orderScopes;
 
-    /**
-     * @inheritDoc
-     */
-    public function __construct(OrderScopesInterface $orderScopes)
-    {
-        $this->orderScopes = $orderScopes;
-    }
+    public function __construct(
+        protected OrderScopesInterface $orderScopes
+    ){}
 
-    /**
-     * @inheritDoc
-     */
-    public function getTree(\Eloquent $modelTemplate, $parentId = null, callable $filterCallback = null)
+
+    public function getTree(\Eloquent $modelTemplate, $parentId = null, ?callable $filterCallback = null)
     {
         if (is_null($filterCallback)) {
             $filterCallback = function ($query) {
@@ -54,9 +46,7 @@ class TreeBuilder implements TreeBuilderInterface
         return $rootQuery->get();
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function getTreePath(\Eloquent $modelTemplate, $id)
     {
         $elementList = [];
@@ -71,9 +61,7 @@ class TreeBuilder implements TreeBuilderInterface
         return $elementList;
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function getCollapsedTree(\Eloquent $modelTemplate, $id = null)
     {
         $path = $this->getTreePath($modelTemplate, $id);
@@ -88,9 +76,7 @@ class TreeBuilder implements TreeBuilderInterface
         return $this->getTreeLvl($modelTemplate, $query, $pathIdList);
     }
 
-    /**
-     * @inheritDoc
-     */
+
     private function getTreeLvl(\Eloquent $modelTemplate, $query, array $pathIdList)
     {
         $this->orderScopes->scopeOrdered($query);
@@ -116,15 +102,13 @@ class TreeBuilder implements TreeBuilderInterface
         return $lvl;
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function getTreeVariants(
         \Eloquent $modelTemplate,
-        $currentId,
-        $root = null,
-        $parentId = null,
-        callable $filterCallback = null,
+        ?int $currentId,
+        ?string $root = null,
+        ?int $parentId = null,
+        ?callable $filterCallback = null,
         int $namePadding = 0,
         string $namePrefix = '',
         int $maxLvl = 999999
@@ -171,26 +155,20 @@ class TreeBuilder implements TreeBuilderInterface
         return $variantsArray;
     }
 
-    /**
-     * @inheritDoc
-     */
+
     public function scopeRooted($query)
     {
         return $query->whereNull('parent_id');
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function scopeChildOf($query, $id)
+
+    public function scopeChildOf($query, int $id)
     {
         return $query->where('parent_id', $id);
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getChildIds(\Eloquent $modelTemplate, $rootId = null)
+
+    public function getChildIds(\Eloquent $modelTemplate, ?int $rootId = null)
     {
         $idsList = [];
 
@@ -221,7 +199,7 @@ class TreeBuilder implements TreeBuilderInterface
         return $idsList;
     }
 
-    private function getParentAttributes(\Eloquent $modelTemplate, $id, $attribute)
+    private function getParentAttributes(\Eloquent $modelTemplate, int $id, $attribute)
     {
         $attributes = [];
 
@@ -239,18 +217,14 @@ class TreeBuilder implements TreeBuilderInterface
         return $attributes;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getParentIds(\Eloquent $modelTemplate, $id)
+
+    public function getParentIds(\Eloquent $modelTemplate, int $id)
     {
         return $this->getParentAttributes($modelTemplate, $id, 'id');
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getRoot(\Eloquent $modelTemplate, $id)
+
+    public function getRoot(\Eloquent $modelTemplate, int $id)
     {
         $ids = $this->getParentIds($modelTemplate, $id);
         $rootId = count($ids) > 0 ? $ids[0] : $id;

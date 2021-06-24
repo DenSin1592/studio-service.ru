@@ -5,15 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>@yield('title', $meta_title ?? 'studio-service.ru')</title>
-    @if (isset($meta_description))
-        <meta name="description" content="{{ $meta_description }}"/>
+    <title>{{$metaData['meta_title'] ?? 'studio-service.ru'}}</title>
+    @if (isset($metaData['meta_description']))
+        <meta name="description" content="{{ $metaData['meta_description'] }}"/>
     @endif
-    @if (isset($meta_keywords))
-        <meta name="keywords" content="{{ $meta_keywords }}"/>
-    @endif
-    @if (isset($canonicalUrl))
-        <link rel="canonical" href="{{ $canonicalUrl }}"/>
+    @if (isset($metaData['meta_keywords']))
+        <meta name="keywords" content="{{ $metaData['meta_keywords'] }}"/>
     @endif
 
     @include('client.layouts._favicon')

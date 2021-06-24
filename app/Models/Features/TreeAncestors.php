@@ -1,10 +1,11 @@
-<?php namespace App\Models\Features;
+<?php
+
+namespace App\Models\Features;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
- * Trait TreeAncestors
  * Trait adds functionality to the model to work with ancestors and descendants.
  *
  *
@@ -34,8 +35,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  *
  * Rows in created table will be automatically rebuild on model save/delete.
  * To rebuild all the data in table call static method self::rebuildElementAncestors.
- *
- * @package App\Models\Features
  */
 trait TreeAncestors
 {
@@ -44,7 +43,7 @@ trait TreeAncestors
      *
      * @return BelongsToMany
      */
-    public function ancestors()
+    public function ancestors(): BelongsToMany
     {
         return $this->belongsToMany(
             get_called_class(),
@@ -60,7 +59,7 @@ trait TreeAncestors
      *
      * @return BelongsToMany
      */
-    public function descendants()
+    public function descendants(): BelongsToMany
     {
         return $this->belongsToMany(
             get_called_class(),

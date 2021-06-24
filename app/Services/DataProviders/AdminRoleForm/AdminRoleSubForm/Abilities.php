@@ -1,18 +1,16 @@
-<?php namespace App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm;
+<?php
+
+namespace App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm;
 
 use App\Models\AdminRole;
-use App\Models\AdminUser;
 use App\Services\Admin\Acl\Acl;
 use App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm;
 
 class Abilities implements AdminRoleSubForm
 {
-    private Acl $acl;
-
-    public function __construct(Acl $acl)
-    {
-        $this->acl = $acl;
-    }
+    public function __construct(
+        private Acl $acl
+    ){}
 
     public function provideDataFor(AdminRole $adminRole, array $oldInput): array
     {

@@ -1,4 +1,6 @@
-<?php namespace App\Services\DataProviders\AdminUserForm;
+<?php
+
+namespace App\Services\DataProviders\AdminUserForm;
 
 use App\Models\AdminUser;
 

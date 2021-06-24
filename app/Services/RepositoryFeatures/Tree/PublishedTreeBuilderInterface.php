@@ -1,4 +1,6 @@
-<?php namespace App\Services\RepositoryFeatures\Tree;
+<?php
+
+namespace App\Services\RepositoryFeatures\Tree;
 
 /**
  * Interface PublishedTreeBuilderInterface
@@ -15,7 +17,7 @@ interface PublishedTreeBuilderInterface extends TreeBuilderInterface
      * @param null $rootId
      * @return array
      */
-    public function getPublishedIds(\Eloquent $modelTemplate, $rootId = null);
+    public function getPublishedIds(\Eloquent $modelTemplate, $rootId = null): array;
 
     /**
      * Modify query to select published elements in lvl.

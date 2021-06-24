@@ -4,13 +4,9 @@ namespace App\Services\Validation\AdminUser;
 
 use App\Services\Validation\AbstractLaravelValidator;
 
-/**
- * Class AdminUserLaravelValidator
- * @package App\Services\Validation\AdminUser
- */
 class AdminUserLaravelValidator extends AbstractLaravelValidator
 {
-    protected function getRules()
+    protected function getRules(): array
     {
         $rules = [];
         $rules['username'] = ['required', "unique:admin_users,username,{$this->currentId}"];
@@ -25,17 +21,17 @@ class AdminUserLaravelValidator extends AbstractLaravelValidator
     }
 
 
-    protected function getAttributeNames()
+    protected function getAttributeNames(): array
     {
         return [
             'allowed_ips.*' => trans('validation.attributes.allowed_ips'),
         ];
     }
 
-    protected function getMessages()
+    protected function getMessages(): array
     {
         return [
-            'username.unique' => trans('Выбранное значение для :attribute ошибочно.')
+            'username.unique' => trans('Выбранное значение для :attribute уже существует.')
         ];
     }
 }

@@ -2,31 +2,27 @@
 
 namespace App\Services\Admin\Breadcrumbs;
 
-/**
- * Class CrumbsPath
- * @package App\Services\Admin\Breadcrumbs
- */
 class Path implements \Countable
 {
-    private $path = [];
+    private array $path = [];
 
-    public function add($name, $url = null)
+    public function add($name, $url = null): void
     {
         $this->path[] = ['name' => $name, 'url' => $url];
     }
 
-    public function merge(Path $other)
+    public function merge(Path $other): Path
     {
         $this->path = array_merge($this->path, $other->path);
         return $this;
     }
 
-    public function get()
+    public function get(): array
     {
         return $this->path;
     }
 
-    public function count()
+    public function count(): int
     {
         return count($this->path);
     }

@@ -1,26 +1,16 @@
-<?php namespace App\Services\DataProviders\SettingsForm;
+<?php
+
+namespace App\Services\DataProviders\SettingsForm;
 
 use App\Services\Settings\SettingGetter;
 
-
-/**
- * Class SettingsForm
- * @package App\Services\DataProviders\SettingsForm
- */
 class SettingsForm
 {
-    /**
-     * @var SettingGetter
-     */
-    private $settingGetter;
-
     public function __construct(
-        SettingGetter $settingGetter
-    ) {
-        $this->settingGetter = $settingGetter;
-    }
+        private SettingGetter $settingGetter
+    ){}
 
-    public function provideData()
+    public function provideData(): array
     {
         return [
             'group_list' => $this->settingGetter->groups(),

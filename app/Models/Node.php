@@ -1,7 +1,8 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use App\Models\Features\AutoPublish;
-use App\Models\Features\InTreePublish;
 use App\Models\Features\TreeParentPath;
 use App\Models\Helpers\DeleteHelpers;
 
@@ -18,7 +19,6 @@ use App\Models\Helpers\DeleteHelpers;
  * @property string $type
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property boolean $in_tree_publish
  * @property-read Node $parent
  * @property-read \Illuminate\Database\Eloquent\Collection|Node[] $children
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Node whereId($value)
@@ -34,7 +34,6 @@ use App\Models\Helpers\DeleteHelpers;
  */
 class Node extends \Eloquent
 {
-    use InTreePublish;
     use AutoPublish;
     use TreeParentPath;
 
@@ -56,6 +55,7 @@ class Node extends \Eloquent
     protected $casts = [
         'publish' => 'boolean',
         'menu_top' => 'boolean',
+        'menu_bottom' => 'boolean',
     ];
 
     public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -78,13 +78,14 @@ class Node extends \Eloquent
         return $this->hasOne(TargetAudiencePage::class);
     }
 
-    protected static function boot() :void
+    protected static function boot(): void
     {
         parent::boot();
 
-        static::deleting(function (self $node) {
-            DeleteHelpers::deleteRelatedAll($node->children());
-            DeleteHelpers::deleteRelatedFirst($node->homePage());
+        static::deleting(function (self $model) {
+            DeleteHelpers::deleteRelatedAll($model->children());
+            DeleteHelpers::deleteRelatedFirst($model->homePage());
+            DeleteHelpers::deleteRelatedFirst($model->targetAudiencePage());
         });
     }
 }

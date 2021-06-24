@@ -22,9 +22,7 @@ class File
 
         $customAttributeKey = collect($validator->customAttributes)
             ->keys()
-            ->first(function ($customAttribute) use ($attribute) {
-                return fnmatch($customAttribute, $attribute);
-            });
+            ->first(fn($customAttribute) => fnmatch($customAttribute, $attribute));
 
         if ($customAttributeKey) {
             $attributeName = Arr::get($validator->customAttributes, $customAttributeKey);

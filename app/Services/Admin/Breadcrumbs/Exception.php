@@ -1,9 +1,7 @@
-<?php namespace App\Services\Admin\Breadcrumbs;
+<?php
 
-/**
- * Class Exception
- * @package App\Services\Admin\Breadcrumbs\Exception
- */
+namespace App\Services\Admin\Breadcrumbs;
+
 class Exception extends \RuntimeException
 {
 

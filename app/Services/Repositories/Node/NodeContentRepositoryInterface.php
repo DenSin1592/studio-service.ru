@@ -1,4 +1,6 @@
-<?php namespace App\Services\Repositories\Node;
+<?php
+
+namespace App\Services\Repositories\Node;
 
 use App\Models\Node;
 

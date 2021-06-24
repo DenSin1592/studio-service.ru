@@ -1,12 +1,9 @@
-<?php namespace App\Models\Features;
+<?php
+
+namespace App\Models\Features;
 
 use Illuminate\Database\Eloquent\Collection;
 
-/**
- * Trait TreeParentPath
- *
- * @package App\Models\Features
- */
 trait TreeParentPath
 {
     /**
@@ -17,13 +14,9 @@ trait TreeParentPath
     protected $parentPath;
 
 
-    /**
-     * Extract parent path.
-     *
-     * @return array
-     */
-    public function extractParentPath()
+    public function extractParentPath(): array
     {
+
         if (is_null($this->parentPath)) {
             $element = $this;
             $path = [];
@@ -41,10 +34,8 @@ trait TreeParentPath
 
     /**
      * Set parents for elements in collection.
-     *
-     * @param $elements
      */
-    public static function setParents($elements)
+    public static function setParents($elements): void
     {
         $elementsDict = [];
         foreach ($elements as $element) {
@@ -61,11 +52,8 @@ trait TreeParentPath
 
     /**
      * Make tree flat.
-     *
-     * @param $tree
-     * @return Collection
      */
-    public static function flattenTree($tree)
+    public static function flattenTree($tree): Collection
     {
         $elements = Collection::make([]);
         foreach ($tree as $element) {

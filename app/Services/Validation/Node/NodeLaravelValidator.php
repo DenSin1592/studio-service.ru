@@ -1,4 +1,6 @@
-<?php namespace App\Services\Validation\Node;
+<?php
+
+namespace App\Services\Validation\Node;
 
 use App\Services\StructureTypes\TypeContainer;
 use App\Services\Validation\AbstractLaravelValidator;
@@ -7,19 +9,15 @@ use Illuminate\Validation\Validator;
 
 class NodeLaravelValidator extends AbstractLaravelValidator
 {
-    /**
-     * @var TypeContainer
-     */
-    private $typeContainer;
-
-    public function __construct(ValidatorFactory $validatorFactory, TypeContainer $typeContainer)
+    public function __construct(
+        ValidatorFactory $validatorFactory,
+        private TypeContainer $typeContainer)
     {
         parent::__construct($validatorFactory);
-        $this->typeContainer = $typeContainer;
     }
 
 
-    protected function getRules()
+    protected function getRules(): array
     {
         $parentId = \Arr::get($this->data, 'parent_id');
         if (is_null($parentId)) {
@@ -38,7 +36,7 @@ class NodeLaravelValidator extends AbstractLaravelValidator
     }
 
 
-    protected function configValidator(Validator $validator)
+    protected function configValidator(Validator $validator): bool
     {
         // alias should be required if it's unique page type
         $notUniqueTypeIdList = [];
@@ -52,9 +50,7 @@ class NodeLaravelValidator extends AbstractLaravelValidator
         $validator->sometimes(
             'alias',
             'required',
-            function ($input) use ($notUniqueTypeIdList) {
-                return in_array($input->type, $notUniqueTypeIdList);
-            }
+            fn ($input) => in_array($input->type, $notUniqueTypeIdList)
         );
     }
 }

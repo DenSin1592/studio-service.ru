@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Services\FormProcessors\AdminUser\SubProcessor;
 
 use App\Models\AdminUser;
-use App\Services\FormProcessors\AdminUser\SubProcessor;
+use App\Services\FormProcessors\SubProcessor;
+
 
 class Creator implements SubProcessor
 {
@@ -11,7 +13,7 @@ class Creator implements SubProcessor
         return $data;
     }
 
-    public function save(AdminUser $user, array $data)
+    public function save(\Eloquent $user, array $data)
     {
         $creator = \Auth::user();
         if ($creator !== null && $user->parent === null && !$user->is($creator)) {

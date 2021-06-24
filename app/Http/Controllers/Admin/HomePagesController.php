@@ -9,19 +9,13 @@ use App\Services\Repositories\Node\EloquentNodeRepository;
 
 class HomePagesController extends Controller
 {
-    private EloquentNodeRepository $nodeRepository;
-    private Breadcrumbs $breadcrumbs;
-
     public function __construct(
-        EloquentNodeRepository $nodeRepository,
-        Breadcrumbs $breadcrumbs
-    ) {
-        $this->nodeRepository = $nodeRepository;
-        $this->breadcrumbs = $breadcrumbs;
-    }
+        private EloquentNodeRepository $nodeRepository,
+        private Breadcrumbs $breadcrumbs,
+    ){}
 
 
-    public function edit($nodeId): \Illuminate\Contracts\View\View
+    public function edit($nodeId)
     {
         $page = $this->getPage($nodeId);
         $breadcrumbs = $this->breadcrumbs->getFor('structure_page.edit', $page->node);
@@ -34,7 +28,7 @@ class HomePagesController extends Controller
     }
 
 
-    public function update($nodeId): \Illuminate\Http\RedirectResponse
+    public function update($nodeId)
     {
         $page = $this->getPage($nodeId);
         $page->fill(\Request::all());
@@ -52,14 +46,12 @@ class HomePagesController extends Controller
     private function getPage($nodeId): HomePage
     {
         $node = $this->nodeRepository->findById($nodeId);
-        if (is_null($node)) {
+        if (is_null($node))
             \App::abort(404, 'Node not found');
-        }
 
         $page = \TypeContainer::getContentModelFor($node);
-        if ($page instanceof HomePage === false) {
+        if ($page instanceof HomePage === false)
             \App::abort(404, 'Home page not found');
-        }
 
         return $page;
     }

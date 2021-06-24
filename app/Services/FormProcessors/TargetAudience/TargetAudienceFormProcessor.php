@@ -19,7 +19,7 @@ class TargetAudienceFormProcessor extends CreateUpdateFormProcessor
     }
 
 
-    protected function prepareInputData(array $data)
+    protected function prepareInputData(array $data): array
     {
         $data = $this->setAutoAlias($data);
         return $data;

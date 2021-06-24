@@ -1,4 +1,6 @@
-<?php namespace App\Services\RepositoryFeatures\Tree;
+<?php
+
+namespace App\Services\RepositoryFeatures\Tree;
 
 /**
  * Interface TreeBuilderInterface
@@ -8,96 +10,81 @@
  */
 interface TreeBuilderInterface
 {
+
     /**
      * Get tree.
      *
-     * @param \Eloquent $modelTemplate
-     * @param $parentId
-     * @param callable $filterCallback
      * @return mixed
      */
-    public function getTree(\Eloquent $modelTemplate, $parentId = null, callable $filterCallback = null);
+    public function getTree(\Eloquent $modelTemplate, int $parentId = null, ?callable $filterCallback = null);
+
 
     /**
      * Get path to tree - list of objects.
-     * @param \Eloquent $modelTemplate
-     * @param $id
+     *
      * @return mixed
      */
-    public function getTreePath(\Eloquent $modelTemplate, $id);
+    public function getTreePath(\Eloquent $modelTemplate, int $id);
+
 
     /**
      * Get collapsed tree - useful for menu.
      *
-     * @param \Eloquent $modelTemplate
-     * @param null $id
      * @return mixed
      */
-    public function getCollapsedTree(\Eloquent $modelTemplate, $id = null);
+    public function getCollapsedTree(\Eloquent $modelTemplate, ?int $id = null);
 
     /**
      * Get hierarchical variants (for select, for example).
-     * @param \Eloquent $modelTemplate
-     * @param $currentId
-     * @param null $root
-     * @param null $parentId
-     * @param callable $filterCallback
-     * @param int $namePadding
-     * @param string $namePrefix
+     *
      * @return mixed
      */
     public function getTreeVariants(
         \Eloquent $modelTemplate,
-        $currentId,
-        $root = null,
-        $parentId = null,
-        callable $filterCallback = null,
+        int $currentId,
+        ?string $root = null,
+        ?int $parentId = null,
+        ?callable $filterCallback = null,
         int $namePadding = 0,
         string $namePrefix = '',
         int $maxLvl = 999999
     );
 
+
     /**
      * Change query to select rooted element.
      *
-     * @param $query
      * @return mixed
      */
     public function scopeRooted($query);
 
+
     /**
      * Change query to select elements inside of some element.
      *
-     * @param $query
-     * @param $id
      * @return mixed
      */
-    public function scopeChildOf($query, $id);
+    public function scopeChildOf($query, int $id);
+
 
     /**
      * List of ids inside of this model.
      *
-     * @param \Eloquent $modelTemplate
-     * @param null $rootId
      * @return array
      */
-    public function getChildIds(\Eloquent $modelTemplate, $rootId = null);
+    public function getChildIds(\Eloquent $modelTemplate, ?int $rootId = null);
 
     /**
      * List of parent ids for this model.
      *
-     * @param \Eloquent $modelTemplate
-     * @param $id
      * @return mixed
      */
-    public function getParentIds(\Eloquent $modelTemplate, $id);
+    public function getParentIds(\Eloquent $modelTemplate, int $id);
 
     /**
      * Get root for model.
      *
-     * @param \Eloquent $modelTemplate
-     * @param $id
      * @return \Eloquent
      */
-    public function getRoot(\Eloquent $modelTemplate, $id);
+    public function getRoot(\Eloquent $modelTemplate, int $id);
 }

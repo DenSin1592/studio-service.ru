@@ -20,7 +20,7 @@
             @include('admin.structure._delete_node', ['node' => $node])
             <a href="{{ TypeContainer::getContentUrl($node) }}" class="btn btn-default">{{ trans('interactions.edit') }}</a>
             <a href="{{ route('cc.structure.index') }}" class="btn btn-default">{{ trans('interactions.back_to_list') }}</a>
-            @if ($node->in_tree_publish)
+            @if ($node->publish)
                 @include('admin.shared._show_on_site_button', ['url' => TypeContainer::getClientUrl($node)])
             @endif
         </div>
@@ -28,7 +28,7 @@
     {!! Form::close() !!}
 @stop
 
-@if ($node->in_tree_publish)
+@if ($node->publish)
     @section('go_to_site_link')
         @include('admin.shared._go_to_site_button', ['url' => TypeContainer::getClientUrl($node)])
     @stop

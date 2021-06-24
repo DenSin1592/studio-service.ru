@@ -1,19 +1,13 @@
-<?php namespace App\Models\Helpers;
+<?php
 
-/**
- * Class DeleteHelpers
- * Class with delete helpers.
- *
- * @package App\Models\Features
- */
+namespace App\Models\Helpers;
+
 class DeleteHelpers
 {
     /**
      * Delete all related models for relation.
-     *
-     * @param $associationQueryBuilder
      */
-    public static function deleteRelatedAll($associationQueryBuilder)
+    public static function deleteRelatedAll($associationQueryBuilder): void
     {
         foreach ($associationQueryBuilder->get() as $subModel) {
             $subModel->delete();
@@ -22,10 +16,8 @@ class DeleteHelpers
 
     /**
      * Delete first related model for relation.
-     *
-     * @param $associationQueryBuilder
      */
-    public static function deleteRelatedFirst($associationQueryBuilder)
+    public static function deleteRelatedFirst($associationQueryBuilder): void
     {
         $model = $associationQueryBuilder->first();
         if (!is_null($model)) {

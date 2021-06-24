@@ -1,4 +1,6 @@
-<?php namespace App\Services\FormBuilder;
+<?php
+
+namespace App\Services\FormBuilder;
 
 use Illuminate\Support\ViewErrorBag;
 use Symfony\Component\Yaml\Exception\ParseException;
@@ -11,22 +13,15 @@ use Symfony\Component\Yaml\Parser;
  */
 class Helpers
 {
-    /**
-     * @var ViewErrorBag|null
-     */
-    private $errors;
+    private ?ViewErrorBag $errors;
     /** @var array|null */
     private $hintsCache;
 
 
     /**
      * Get name for label.
-     *
-     * @param $name
-     * @param null $labelName
-     * @return array|\Illuminate\Contracts\Translation\Translator|string|null
      */
-    public function getLabelName($name, $labelName = null)
+    public function getLabelName($name, $labelName = null): array|string|\Illuminate\Contracts\Translation\Translator|null
     {
         if (is_null($labelName)) {
             $labelName = trans("validation.attributes.{$name}");
@@ -38,11 +33,8 @@ class Helpers
 
     /**
      * Build options for form.
-     *
-     * @param $options
-     * @return mixed
      */
-    public function buildFormOptions($options)
+    public function buildFormOptions($options): mixed
     {
         if (\Arr::get($options, 'scrollable', true)) {
             unset($options['scrollable']);
@@ -55,10 +47,6 @@ class Helpers
 
     /**
      * Get block with field description for field.
-     *
-     * @param string|null $hint
-     * @param string $fieldTitle
-     * @return string
      */
     public function getFieldHintBlock(?string $hint, string $fieldTitle): string
     {
@@ -82,18 +70,13 @@ class Helpers
 
     /**
      * Get hint for field by title.
-     *
-     * @param string $fieldTitle
-     * @return string
      */
     private function getFieldHint(string $fieldTitle): ?string
     {
         if (is_null($this->hintsCache)) {
             try {
                 $ymlParser = new Parser();
-                //todo:сделать
-                //$fieldDescriptions = $ymlParser->parse(\Setting::get('admin.field_descriptions'));
-                $fieldDescriptions = [];
+                $fieldDescriptions = $ymlParser->parse(\Setting::get('admin.field_descriptions'));
             } catch (ParseException $e) {
                 $fieldDescriptions = [];
             }
@@ -107,12 +90,8 @@ class Helpers
 
     /**
      * Add css class to options.
-     *
-     * @param array $options
-     * @param $className
-     * @return array
      */
-    public function addClass(array $options, $className)
+    public function addClass(array $options, string $className): array
     {
         if (isset($options['class'])) {
             $options['class'] = $className . ' ' . $options['class'];

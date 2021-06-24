@@ -33,12 +33,12 @@ class TargetAudience extends \Eloquent
         return $this->hasMany(get_called_class(), 'parent_id');
     }
 
-    protected static function boot() :void
+    protected static function boot(): void
     {
         parent::boot();
 
-        static::deleting(function (self $node) {
-            DeleteHelpers::deleteRelatedAll($node->children());
+        static::deleting(function (self $model) {
+            DeleteHelpers::deleteRelatedAll($model->children());
         });
     }
 }

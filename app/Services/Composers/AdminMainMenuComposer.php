@@ -1,21 +1,17 @@
-<?php namespace App\Services\Composers;
+<?php
+
+namespace App\Services\Composers;
 
 use App\Services\Admin\Menu\Menu;
 use App\Services\Admin\Menu\MenuElement;
 use App\Services\Admin\Menu\MenuGroup;
 
-/**
- * Class AdminMainMenuComposer
- * @package App\Services\Composers
- */
 class AdminMainMenuComposer
 {
     /**
      * Menu object.
-     *
-     * @var Menu
      */
-    private $mainMenu;
+    private Menu $mainMenu;
 
     public function __construct()
     {
@@ -58,11 +54,8 @@ class AdminMainMenuComposer
 
     /**
      * Get menu element data for view.
-     *
-     * @param MenuElement $menuElement
-     * @return array
      */
-    private function getMenuElementData(MenuElement $menuElement)
+    private function getMenuElementData(MenuElement $menuElement): array
     {
         return [
             'name' => $menuElement->getName(),

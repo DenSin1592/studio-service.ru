@@ -5,38 +5,20 @@ namespace App\Services\Settings;
 use App\Services\Repositories\Setting\EloquentSettingRepository;
 use App\Services\Settings\Exception\NotFoundKeyException;
 
-/**
- * Class Setting
- * @package Settings
- */
+
 class SettingGetter
 {
-    /**
-     * @var SettingContainer
-     */
-    private $settingContainer;
+    private array $settings = [];
 
-    /**
-     * @var EloquentSettingRepository
-     */
-    private $settingRepository;
-
-    /**
-     * @var SettingValue[]
-     */
-    private $settings = [];
-
-    public function __construct(SettingContainer $settingContainer, EloquentSettingRepository $settingRepository)
-    {
-        $this->settingContainer = $settingContainer;
-        $this->settingRepository = $settingRepository;
-
+    public function __construct(
+        private SettingContainer $settingContainer,
+        private EloquentSettingRepository $settingRepository
+    ){
         $this->fill();
     }
 
     /**
      * Fill settings values.
-     *
      */
     private function fill(): void
     {
@@ -54,23 +36,17 @@ class SettingGetter
 
     /**
      * Get setting.
-     *
-     * @param string $key
-     * @return string|array
-     * @throws NotFoundKeyException
      */
-    public function get(string $key)
+    public function get(string $key): array|string
     {
-        if (!array_key_exists($key, $this->settings)) {
+        if (!array_key_exists($key, $this->settings))
             throw new NotFoundKeyException("Key {$key} is not found.");
-        }
+
 
         return $this->settings[$key]->getValue();
     }
 
-    /**
-     * @return SettingGroup[]
-     */
+
     public function groups(): array
     {
         return $this->settingContainer->getSettingGroupList();

@@ -1,6 +1,6 @@
-<?php namespace App\Services\FormProcessors\AdminRole;
+<?php
 
-use App\Models\AdminRole;
+namespace App\Services\FormProcessors;
 
 /**
  * Interface SubProcessor
@@ -12,17 +12,11 @@ interface SubProcessor
 {
     /**
      * Prepare input data for sub processor.
-     *
-     * @param array $data
-     * @return array
      */
     public function prepareInputData(array $data): array;
 
     /**
      * Save data for form processor.
-     *
-     * @param AdminRole $adminUser
-     * @param array $data
      */
-    public function save(AdminRole $adminUser, array $data);
+    public function save(\Eloquent $adminUser, array $data);
 }

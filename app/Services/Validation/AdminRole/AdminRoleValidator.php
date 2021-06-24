@@ -1,4 +1,6 @@
-<?php namespace App\Services\Validation\AdminRole;
+<?php
+
+namespace App\Services\Validation\AdminRole;
 
 use App\Services\Admin\Acl\Acl;
 use App\Services\Validation\AbstractLaravelValidator;
@@ -6,15 +8,17 @@ use Illuminate\Validation\Factory as ValidatorFactory;
 
 class AdminRoleValidator extends AbstractLaravelValidator
 {
-    private Acl $acl;
 
-    public function __construct(ValidatorFactory $validatorFactory, Acl $acl)
+    public function __construct(
+        ValidatorFactory $validatorFactory,
+        private Acl $acl
+    )
     {
         parent::__construct($validatorFactory);
-        $this->acl = $acl;
     }
 
-    protected function getRules()
+
+    protected function getRules(): array
     {
         return [
             'name' => ['required', "unique:admin_roles,name,{$this->currentId}"],
@@ -23,10 +27,10 @@ class AdminRoleValidator extends AbstractLaravelValidator
         ];
     }
 
-    protected function getMessages()
+    protected function getMessages(): array
     {
         return [
-            'name.unique' => trans('Выбранное значение для :attribute ошибочно.')
+            'name.unique' => trans('Выбранное значение для :attribute уже существует.')
         ];
     }
 }

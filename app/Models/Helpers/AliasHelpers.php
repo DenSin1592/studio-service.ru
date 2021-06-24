@@ -11,10 +11,6 @@ class AliasHelpers
 
     /**
      * Set alias for model.
-     *
-     * @param \Eloquent $model
-     * @param string $field
-     * @param callable|null $aliasFilter
      */
     public static function setAlias(\Eloquent $model, string $field = 'name', ?callable $aliasFilter = null): void
     {
@@ -50,12 +46,6 @@ class AliasHelpers
     }
 
 
-    /**
-     * Generate alias.
-     *
-     * @param string|null $str
-     * @return string
-     */
     public static function generateAlias(?string $str): string
     {
         if (is_null(self::$transliterator)) {

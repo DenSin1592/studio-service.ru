@@ -6,37 +6,27 @@ use App\Http\Controllers\Admin\Features\ToggleFlags;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
 use App\Services\FormProcessors\TargetAudience\TargetAudienceFormProcessor;
-use App\Services\Repositories\TargetAudienceRepository\EloquentTargetAudienceRepository;
+use App\Services\Repositories\TargetAudience\EloquentTargetAudienceRepository;
 
 
 class TargetAudiencesController extends Controller
 {
-
     use ToggleFlags;
 
-    private EloquentTargetAudienceRepository $repository;
-    private TargetAudienceFormProcessor $formProcessor;
-    private Breadcrumbs $breadcrumbs;
-
     public function __construct(
-        EloquentTargetAudienceRepository $repository,
-        TargetAudienceFormProcessor $formProcessor,
-        Breadcrumbs $breadcrumbs
-    )
-    {
-        $this->repository = $repository;
-        $this->formProcessor = $formProcessor;
-        $this->breadcrumbs = $breadcrumbs;
-    }
+        private EloquentTargetAudienceRepository $repository,
+        private TargetAudienceFormProcessor $formProcessor,
+        private Breadcrumbs $breadcrumbs,
+    ){}
 
-    public function index(): \Illuminate\Contracts\View\View
+    public function index()
     {
         $modelTree = $this->repository->getTree();
         if (!\Request::ajax())
             return view('admin.target_audience.index')
                 ->with('modelTree', $modelTree);
 
-
+        //todo:разобраться, похоже что не надо
         /*$content = view('admin.target_audience._list')
             ->with('modelTree', $modelTree)
             ->with('lvl', 0)
@@ -46,7 +36,7 @@ class TargetAudiencesController extends Controller
     }
 
 
-    public function create(): \Illuminate\Contracts\View\View
+    public function create()
     {
         $model = $this->repository->newInstance();
         $breadcrumbs = $this->breadcrumbs->getFor('target_audience.create', $model);
@@ -58,7 +48,7 @@ class TargetAudiencesController extends Controller
     }
 
 
-    public function store(): \Illuminate\Http\RedirectResponse
+    public function store()
     {
         $model = $this->formProcessor->create(\Request::except('redirect_to'));
         if (is_null($model))
@@ -91,19 +81,19 @@ class TargetAudiencesController extends Controller
         dd(__METHOD__);
     }
 
-    public function updatePositions(): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+    public function updatePositions()
     {
-      /*  $this->repository->updatePositions(\Request::get('positions', []));
-        if (\Request::ajax()) {
+        $this->repository->updatePositions(\Request::get('positions', []));
+        if (\Request::ajax())
             return \Response::json(['status' => 'alert_success']);
-        } else {
-            return \Redirect::route('cc.structure.index');
-        }*/
+
+        return \Redirect::route('cc.target-audiences.index');
+
     }
 
-    public function toggleAttribute($id, $attribute): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+    public function toggleAttribute($id, $attribute)
     {
-       /* if (!in_array($attribute, ['publish'])) {
+        if (!in_array($attribute, ['publish'])) {
             \App::abort(404, "Not allowed to toggle this attribute");
         }
         $node = $this->repository->findById($id);
@@ -113,9 +103,9 @@ class TargetAudiencesController extends Controller
         $this->repository->toggleAttribute($node, $attribute);
 
         return $this->toggleFlagResponse(
-            route('cc.structure.toggle-attribute', [$id, $attribute]),
+            route('cc.target-audiences.toggle-attribute', [$id, $attribute]),
             $node,
             $attribute
-        );*/
+        );
     }
 }

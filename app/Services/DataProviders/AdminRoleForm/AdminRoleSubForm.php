@@ -1,4 +1,6 @@
-<?php namespace App\Services\DataProviders\AdminRoleForm;
+<?php
+
+namespace App\Services\DataProviders\AdminRoleForm;
 
 use App\Models\AdminRole;
 

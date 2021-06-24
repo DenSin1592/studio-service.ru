@@ -18,7 +18,6 @@ class DataProvidersServiceProvider extends ServiceProvider
             function (Application $app) {
                 $form = new AdminRoleForm();
                 $form->addSubForm($app->make(Abilities::class));
-
                 return $form;
             }
         );
@@ -28,7 +27,6 @@ class DataProvidersServiceProvider extends ServiceProvider
             function (Application $app) {
                 $form = new AdminUserForm();
                 $form->addSubForm($app->make(Roles::class));
-
                 return $form;
             }
         );

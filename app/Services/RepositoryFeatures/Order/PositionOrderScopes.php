@@ -1,4 +1,6 @@
-<?php namespace App\Services\RepositoryFeatures\Order;
+<?php
+
+namespace App\Services\RepositoryFeatures\Order;
 
 /**
  * Class PositionOrderScopes
@@ -6,9 +8,6 @@
  */
 class PositionOrderScopes implements OrderScopesInterface
 {
-    /**
-     * @inheritDoc
-     */
     public function scopeOrdered($query)
     {
         return $query->orderBy('position');

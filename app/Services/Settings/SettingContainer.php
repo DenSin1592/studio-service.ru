@@ -15,28 +15,20 @@ class SettingContainer
     /**
      * @var SettingGroup[]
      */
-    private $settingGroupList = [];
+    private array $settingGroupList = [];
 
-    /**
-     * Add group of settings.
-     * @param SettingGroup $settingGroup
-     * @throws NotUniqueKeyException
-     */
+
     public function addSettingGroup(SettingGroup $settingGroup): void
     {
-        if ($this->checkKeyAreUnique($settingGroup)) {
-            $settingGroup->setKey(count($this->settingGroupList));
-            $this->settingGroupList[] = $settingGroup;
-        } else {
+        if (!$this->checkKeyAreUnique($settingGroup))
             throw new NotUniqueKeyException;
-        }
+
+        $settingGroup->setKey(count($this->settingGroupList));
+        $this->settingGroupList[] = $settingGroup;
+
     }
 
-    /**
-     * Check if adding keys are unique.
-     * @param SettingGroup $settingGroup
-     * @return bool
-     */
+
     private function checkKeyAreUnique(SettingGroup $settingGroup): bool
     {
         $unique = true;
@@ -52,19 +44,13 @@ class SettingContainer
         return $unique;
     }
 
-    /**
-     * Get group of settings.
-     * @return SettingGroup[]
-     */
+
     public function getSettingGroupList(): array
     {
         return $this->settingGroupList;
     }
 
-    /**
-     * Get array of keys.
-     * @return array
-     */
+
     public function getKeyArray(): array
     {
         $keyList = [];
@@ -77,10 +63,7 @@ class SettingContainer
         return $keyList;
     }
 
-    /**
-     * Get array of settings.
-     * @return SettingValue[]
-     */
+
     public function getSettingList(): array
     {
         $settingList = [];
@@ -96,10 +79,6 @@ class SettingContainer
 
     /**
      * Get rules for setting value by key.
-     *
-     * @param $key
-     * @return array
-     * @throws NotFoundKeyException
      */
     public function getRulesBy($key): array
     {
@@ -109,10 +88,6 @@ class SettingContainer
 
     /**
      * Get type for setting value by key.
-     *
-     * @param $key
-     * @return string
-     * @throws NotFoundKeyException
      */
     public function getTypeBy($key): string
     {
@@ -121,10 +96,6 @@ class SettingContainer
 
     /**
      * Find setting by key.
-     *
-     * @param $key
-     * @return SettingValue
-     * @throws NotFoundKeyException
      */
     private function findSettingBy($key): SettingValue
     {
