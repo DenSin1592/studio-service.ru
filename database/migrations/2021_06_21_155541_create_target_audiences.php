@@ -21,6 +21,7 @@ class CreateTargetAudiences extends Migration
                 $table->foreign('parent_id')->references('id')->on('target_audiences');
                 $table->string('alias')->nullable()->unique();
                 $table->string('name')->nullable();
+                $table->string('icon')->nullable();
                 $table->boolean('publish')->default(false);
                 $table->integer('position')->default(0);
                 $table->timestamps();

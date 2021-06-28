@@ -5,9 +5,13 @@ namespace App\Models;
 use App\Models\Features\AutoPublish;
 use App\Models\Features\TreeParentPath;
 use App\Models\Helpers\DeleteHelpers;
+use Diol\Fileclip\UploaderIntegrator;
+use Diol\Fileclip\Version\BoxVersion;
+use Diol\FileclipExif\Glue;
 
 class TargetAudience extends \Eloquent
 {
+    use Glue;
     use AutoPublish;
     use TreeParentPath;
 
@@ -17,6 +21,8 @@ class TargetAudience extends \Eloquent
         'name',
         'publish',
         'position',
+        'icon_file',
+        'icon_remove'
     ];
 
     protected $casts = [
@@ -25,12 +31,12 @@ class TargetAudience extends \Eloquent
 
     public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(get_called_class(), 'parent_id');
+        return $this->belongsTo(self::class, 'parent_id');
     }
 
     public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(get_called_class(), 'parent_id');
+        return $this->hasMany(self::class, 'parent_id');
     }
 
     protected static function boot(): void
@@ -40,5 +46,14 @@ class TargetAudience extends \Eloquent
         static::deleting(function (self $model) {
             DeleteHelpers::deleteRelatedAll($model->children());
         });
+
+        self::mountUploader(
+            'icon',
+            UploaderIntegrator::getUploader(
+                'uploads/target-audience/images', [
+                    'thumb' => new BoxVersion(85, 85, ['quality' => 100])
+                ], true
+            )
+        );
     }
 }

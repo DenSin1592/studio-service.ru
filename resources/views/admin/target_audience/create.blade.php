@@ -6,7 +6,7 @@
 
     @include('admin.layouts._breadcrumbs')
 
-    {!! Form::tbModelWithErrors($model, $errors, ['url' => route('cc.target-audiences.store'), 'method' => 'post']) !!}
+    {!! Form::tbModelWithErrors($model, $errors, ['url' => route('cc.target-audiences.store'), 'method' => 'post', 'enctype' => "multipart/form-data"]) !!}
 
         @include('admin.target_audience._form_fields')
 
