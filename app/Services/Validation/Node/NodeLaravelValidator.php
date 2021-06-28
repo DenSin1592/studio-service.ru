@@ -36,7 +36,7 @@ class NodeLaravelValidator extends AbstractLaravelValidator
     }
 
 
-    protected function configValidator(Validator $validator): bool
+    protected function configValidator(Validator $validator): void
     {
         // alias should be required if it's unique page type
         $notUniqueTypeIdList = [];

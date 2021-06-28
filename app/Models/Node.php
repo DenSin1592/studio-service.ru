@@ -60,12 +60,12 @@ class Node extends \Eloquent
 
     public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(get_called_class(), 'parent_id');
+        return $this->belongsTo(self::class, 'parent_id');
     }
 
     public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(get_called_class(), 'parent_id');
+        return $this->hasMany(self::class, 'parent_id');
     }
 
     public function homePage(): \Illuminate\Database\Eloquent\Relations\HasOne

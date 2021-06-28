@@ -26,15 +26,15 @@ class StructureTypesServiceProvider extends ServiceProvider
                 );
 
 
-                 $typeContainer->addRepositoryAssociation(
-                     self::REPO_HOME_PAGE,
-                     new RepositoryAssociation(
-                         $this->app->make(EloquentHomePageRepository::class),
-                         function (Node $node) {
-                             return route('cc.home-pages.edit', [$node->id]);
-                         }
-                     )
-                 );
+                $typeContainer->addRepositoryAssociation(
+                    self::REPO_HOME_PAGE,
+                    new RepositoryAssociation(
+                        $this->app->make(EloquentHomePageRepository::class),
+                        function (Node $node) {
+                            return route('cc.home-pages.edit', [$node->id]);
+                        }
+                    )
+                );
 
                 $typeContainer->addRepositoryAssociation(
                     self::REPO_TARGET_AUDIENCE_PAGE,
@@ -47,7 +47,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                 );
 
 
-               $typeContainer->addType(
+                $typeContainer->addType(
                     Node::TYPE_HOME_PAGE,
                     new Type(
                         'Главная страница',
