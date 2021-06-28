@@ -13,8 +13,8 @@ use Illuminate\Support\ServiceProvider;
 
 class StructureTypesServiceProvider extends ServiceProvider
 {
-    const REPO_HOME_PAGE = 'home_page_repo';
-    const REPO_TARGET_AUDIENCE_PAGE = 'target_audience_page_repo';
+    public const REPO_HOME_PAGE = 'home_page_repo';
+    public const REPO_TARGET_AUDIENCE_PAGE = 'target_audience_page_repo';
 
     public function register(): void
     {
