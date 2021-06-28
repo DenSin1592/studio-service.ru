@@ -10,6 +10,13 @@ use Illuminate\Database\Eloquent\Collection;
 
 class AdminUsersController extends Controller
 {
+    public const  ROUTE_INDEX = 'cc.admin-users.index';
+    public const  ROUTE_CREATE = 'cc.admin-users.create';
+    public const  ROUTE_STORE = 'cc.admin-users.store';
+    public const  ROUTE_EDIT = 'cc.admin-users.edit';
+    public const  ROUTE_UPDATE = 'cc.admin-users.update';
+    public const  ROUTE_DESTROY = 'cc.admin-users.destroy';
+
     public function __construct(
         private EloquentAdminUserRepository $adminUserRepository,
         private AdminUserFormProcessor $adminUserFormProcessor,
@@ -35,12 +42,12 @@ class AdminUsersController extends Controller
     {
         $createdUser = $this->adminUserFormProcessor->create(request()->except('redirect_to'));
         if ($createdUser === null)
-            return \Redirect::route('cc.admin-users.create')->withErrors($this->adminUserFormProcessor->errors())->withInput();
+            return \Redirect::route(self::ROUTE_CREATE)->withErrors($this->adminUserFormProcessor->errors())->withInput();
 
         if (request()->get('redirect_to') === 'index') {
-            $redirect = \Redirect::route('cc.admin-users.index');
+            $redirect = \Redirect::route(self::ROUTE_INDEX);
         } else {
-            $redirect = \Redirect::route('cc.admin-users.edit', [$createdUser->id]);
+            $redirect = \Redirect::route(self::ROUTE_EDIT, [$createdUser->id]);
         }
 
         return $redirect->with('alert_success', "Администратор {$createdUser->username} создан");
@@ -75,12 +82,12 @@ class AdminUsersController extends Controller
 
         $updateSuccess = $this->adminUserFormProcessor->update($user, request()->except('redirect_to'));
         if (!$updateSuccess)
-            return \Redirect::route('cc.admin-users.edit', [$id])->withErrors($this->adminUserFormProcessor->errors())->withInput();
+            return \Redirect::route(self::ROUTE_EDIT, [$id])->withErrors($this->adminUserFormProcessor->errors())->withInput();
 
         if (request()->get('redirect_to') === 'index') {
-            $redirect = \Redirect::route('cc.admin-users.index');
+            $redirect = \Redirect::route(self::ROUTE_INDEX);
         } else {
-            $redirect = \Redirect::route('cc.admin-users.edit', [$id]);
+            $redirect = \Redirect::route(self::ROUTE_EDIT, [$id]);
         }
 
         return $redirect->with('alert_success', "Администратор {$user->username} обновлён");
@@ -99,7 +106,7 @@ class AdminUsersController extends Controller
         $this->authorize('change-admin-user', $user);
 
         $this->adminUserRepository->delete($user);
-        return \Redirect::route('cc.admin-users.index')
+        return \Redirect::route(self::ROUTE_INDEX)
             ->with('alert_success', "Администратор {$user->username} удалён");
     }
 

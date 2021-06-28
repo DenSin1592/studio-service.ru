@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Admin\HomePagesController;
+use App\Http\Controllers\Admin\TargetAudiencePagesController;
 use App\Models\Node;
 use App\Services\Repositories\Pages\HomePage\EloquentHomePageRepository;
 use App\Services\Repositories\Node\EloquentNodeRepository;
@@ -31,7 +33,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                     new RepositoryAssociation(
                         $this->app->make(EloquentHomePageRepository::class),
                         function (Node $node) {
-                            return route('cc.home-pages.edit', [$node->id]);
+                            return route(HomePagesController::ROUTE_EDIT, [$node->id]);
                         }
                     )
                 );
@@ -41,7 +43,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                     new RepositoryAssociation(
                         $this->app->make(EloquentTargetAudiencePageRepository::class),
                         function (Node $node) {
-                            return route('cc.target-audience-pages.edit', [$node->id]);
+                            return route(TargetAudiencePagesController::ROUTE_EDIT, [$node->id]);
                         }
                     )
                 );
@@ -53,9 +55,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                         'Главная страница',
                         true,
                         self::REPO_HOME_PAGE,
-                        function () {
-                            return route('home');
-                        }
+                        fn() => route('home')
                     )
                 );
 
@@ -65,9 +65,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                         'Целевая аудитория',
                         true,
                         self::REPO_TARGET_AUDIENCE_PAGE,
-                        function () {
-                            return route('target-audience');
-                        }
+                        fn() => route('target-audience')
                     )
                 );
 

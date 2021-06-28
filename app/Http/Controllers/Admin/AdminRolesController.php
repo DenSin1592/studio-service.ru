@@ -10,6 +10,14 @@ use Illuminate\Database\Eloquent\Collection;
 
 class AdminRolesController extends Controller
 {
+
+    public const  ROUTE_INDEX = 'cc.admin-roles.index';
+    public const  ROUTE_CREATE = 'cc.admin-roles.create';
+    public const  ROUTE_STORE = 'cc.admin-roles.store';
+    public const  ROUTE_EDIT = 'cc.admin-roles.edit';
+    public const  ROUTE_UPDATE = 'cc.admin-roles.update';
+    public const  ROUTE_DESTROY = 'cc.admin-roles.destroy';
+
     public function __construct(
         private EloquentAdminRoleRepository $adminRoleRepository,
         private AdminRoleFormProcessor $adminRoleFormProcessor,
@@ -35,12 +43,12 @@ class AdminRolesController extends Controller
     {
         $createdRole = $this->adminRoleFormProcessor->create(request()->except('redirect_to'));
         if ($createdRole === null)
-            return redirect()->route('cc.admin-roles.create')->withErrors($this->adminRoleFormProcessor->errors())->withInput();
+            return redirect()->route(self::ROUTE_CREATE)->withErrors($this->adminRoleFormProcessor->errors())->withInput();
 
         if (request()->get('redirect_to') === 'index') {
-            $redirect = redirect()->route('cc.admin-roles.index');
+            $redirect = redirect()->route(self::ROUTE_INDEX);
         } else {
-            $redirect = redirect()->route('cc.admin-roles.edit', [$createdRole->id]);
+            $redirect = redirect()->route(self::ROUTE_EDIT, [$createdRole->id]);
         }
 
         return $redirect->with('alert_success', "Роль {$createdRole->name} создана");
@@ -71,12 +79,12 @@ class AdminRolesController extends Controller
 
         $updateSuccess = $this->adminRoleFormProcessor->update($role, request()->except('redirect_to'));
         if (!$updateSuccess)
-            return \Redirect::route('cc.admin-roles.edit', [$id])->withErrors($this->adminRoleFormProcessor->errors())->withInput();
+            return \Redirect::route(self::ROUTE_EDIT, [$id])->withErrors($this->adminRoleFormProcessor->errors())->withInput();
 
         if (request()->get('redirect_to') === 'index') {
-            $redirect = redirect()->route('cc.admin-roles.index');
+            $redirect = redirect()->route(self::ROUTE_INDEX);
         } else {
-            $redirect = redirect()->route('cc.admin-roles.edit', [$id]);
+            $redirect = redirect()->route(self::ROUTE_EDIT, [$id]);
         }
 
         return $redirect->with('alert_success', "Роль администратора {$role->name} обновлена");
@@ -91,7 +99,7 @@ class AdminRolesController extends Controller
         $this->authorize('change-admin-role', $role);
 
         $this->adminRoleRepository->delete($role);
-        return \Redirect::route('cc.admin-roles.index')
+        return \Redirect::route(self::ROUTE_INDEX)
             ->with('alert_success', "Роль администратора {$role->name} удалена");
     }
 

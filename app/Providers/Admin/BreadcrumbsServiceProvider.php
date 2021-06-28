@@ -2,6 +2,8 @@
 
 namespace App\Providers\Admin;
 
+use App\Http\Controllers\Admin\HomePagesController;
+use App\Http\Controllers\Admin\StructureController;
 use App\Http\Controllers\Admin\TargetAudiencesController;
 use App\Models\HomePage;
 use App\Models\Node;
@@ -63,7 +65,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
     {
         $path = new Path();
 
-        $path->add('Структура сайта', route('cc.structure.index'));
+        $path->add('Структура сайта', route(StructureController::ROUTE_INDEX));
 
         foreach ($node->extractParentPath() as $nodeInPath) {
             $url = route('cc.structure.edit', $nodeInPath->id);
@@ -74,7 +76,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
                     $url = route('cc.text-pages.edit', $nodeInPath->id);
 
                 } else*/if ($page instanceof HomePage) {
-                    $url = route('cc.home-pages.edit', $nodeInPath->id);
+                    $url = route(HomePagesController::ROUTE_EDIT, $nodeInPath->id);
                 }
             }
 

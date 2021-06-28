@@ -7,9 +7,9 @@
                     <a href="{{ TypeContainer::getContentUrl($node) }}"
                        style="margin-left: {{ $lvl * 0.5 }}em;">{{ $node->name }}</a>
                 </div>
-                @include('admin.shared._list_flag', ['element' => $node, 'action' => route('cc.structure.toggle-attribute', [$node->id, 'publish']), 'attribute' => 'publish'])
-                @include('admin.shared._list_flag', ['element' => $node, 'action' => route('cc.structure.toggle-attribute', [$node->id, 'menu_top']), 'attribute' => 'menu_top'])
-                @include('admin.shared._list_flag', ['element' => $node, 'action' => route('cc.structure.toggle-attribute', [$node->id, 'menu_bottom']), 'attribute' => 'menu_bottom'])
+                @include('admin.shared._list_flag', ['element' => $node, 'action' => route(\App\Http\Controllers\Admin\StructureController::ROUTE_TOGGLE_ATTRIBUTE, [$node->id, 'publish']), 'attribute' => 'publish'])
+                @include('admin.shared._list_flag', ['element' => $node, 'action' => route(\App\Http\Controllers\Admin\StructureController::ROUTE_TOGGLE_ATTRIBUTE, [$node->id, 'menu_top']), 'attribute' => 'menu_top'])
+                @include('admin.shared._list_flag', ['element' => $node, 'action' => route(\App\Http\Controllers\Admin\StructureController::ROUTE_TOGGLE_ATTRIBUTE, [$node->id, 'menu_bottom']), 'attribute' => 'menu_bottom'])
 
                 <div class="alias">
                     <a href="{{ TypeContainer::getClientUrl($node, true) }}" target="_blank">

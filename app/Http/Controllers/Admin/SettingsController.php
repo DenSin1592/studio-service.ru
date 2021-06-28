@@ -8,15 +8,20 @@ use App\Services\FormProcessors\Settings\SettingsFormProcessor;
 
 class SettingsController extends Controller
 {
+    public const  ROUTE_EDIT = 'cc.settings.edit';
+    public const  ROUTE_UPDATE = 'cc.settings.update';
+
     public function __construct(
         private SettingsFormProcessor $formProcessor,
         private SettingsForm $settingsForm
     ){}
 
+
     public function edit()
     {
         return \View('admin.settings.edit')->with('formData', $this->settingsForm->provideData());
     }
+
 
     public function update()
     {
@@ -24,8 +29,7 @@ class SettingsController extends Controller
         $errors = $this->formProcessor->errors();
 
         if (count($errors) > 0)
-            return \Redirect::route('cc.settings.edit')->withErrors($errors)->withInput();
-
-        return \Redirect::route('cc.settings.edit')->with('alert_success', 'Изменения сохранены');
+            return \Redirect::route(self::ROUTE_EDIT)->withErrors($errors)->withInput();
+        return \Redirect::route(self::ROUTE_EDIT)->with('alert_success', 'Изменения сохранены');
     }
 }

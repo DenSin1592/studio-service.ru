@@ -7,7 +7,7 @@
     {!! Html::additionalMenuOpen(['resize' => 'admin-roles']) !!}
         <div class="menu-wrapper">
             <div class="menu-header">
-                <a href="{{ route('cc.admin-roles.index') }}">Роли администраторов</a>
+                <a href="{{ route(\App\Http\Controllers\Admin\AdminRolesController::ROUTE_INDEX) }}">Роли администраторов</a>
             </div>
 
             <ul class="scrollable-container">
@@ -15,7 +15,7 @@
                     <li>
                         <div class="menu-element {{ $role->id == $r->id ? 'active' : '' }}">
                             <div class="name">
-                                <a href="{{ route('cc.admin-roles.edit', [$r->id]) }}"
+                                <a href="{{ route(\App\Http\Controllers\Admin\AdminRolesController::ROUTE_EDIT, [$r->id]) }}"
                                    title="{{ $r->name }}">{{ $r->name }}</a>
                             </div>
                             <div class="control">
@@ -27,7 +27,7 @@
             </ul>
 
             <div class="menu-footer">
-                <a href="{{ route('cc.admin-roles.create') }}" class="btn btn-success btn-xs">Добавить роль</a>
+                <a href="{{ route(\App\Http\Controllers\Admin\AdminRolesController::ROUTE_CREATE) }}" class="btn btn-success btn-xs">Добавить роль</a>
             </div>
         </div>
     {!! Html::additionalMenuClose() !!}

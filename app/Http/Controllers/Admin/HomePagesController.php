@@ -9,6 +9,9 @@ use App\Services\Repositories\Node\EloquentNodeRepository;
 
 class HomePagesController extends Controller
 {
+    public const  ROUTE_EDIT = 'cc.home-pages.edit';
+    public const  ROUTE_UPDATE = 'cc.home-pages.update';
+
     public function __construct(
         private EloquentNodeRepository $nodeRepository,
         private Breadcrumbs $breadcrumbs,
@@ -34,10 +37,10 @@ class HomePagesController extends Controller
         $page->fill(\Request::all());
         $page->save();
 
-        if (\Request::get('redirect_to') == 'index') {
+        if (\Request::get('redirect_to') === 'index') {
             $redirect = \Redirect::route('cc.structure.index');
         } else {
-            $redirect = \Redirect::route('cc.home-pages.edit', [$nodeId]);
+            $redirect = \Redirect::route(self::ROUTE_EDIT, [$nodeId]);
         }
         return $redirect->with('alert_success', 'Страница обновлена');
     }

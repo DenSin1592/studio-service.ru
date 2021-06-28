@@ -7,7 +7,7 @@
     {!! Html::additionalMenuOpen(['resize' => 'admin-users']) !!}
         <div class="menu-wrapper">
             <div class="menu-header">
-                <a href="{{ route('cc.admin-users.index') }}">Администраторы</a>
+                <a href="{{ route(\App\Http\Controllers\Admin\AdminUsersController::ROUTE_INDEX) }}">Администраторы</a>
             </div>
 
             <ul class="scrollable-container">
@@ -15,7 +15,7 @@
                     <li>
                         <div class="menu-element {{ $user->id == $u->id ? 'active' : '' }}">
                             <div class="name">
-                                <a href="{{ route('cc.admin-users.edit', [$u->id]) }}"
+                                <a href="{{ route(\App\Http\Controllers\Admin\AdminUsersController::ROUTE_EDIT, [$u->id]) }}"
                                    title="{{ $u->username }}">{{ $u->username }}</a>
                             </div>
                             <div class="control">
@@ -27,7 +27,7 @@
             </ul>
 
             <div class="menu-footer">
-                <a href="{{ route('cc.admin-users.create') }}" class="btn btn-success btn-xs">Добавить администратора</a>
+                <a href="{{ route(\App\Http\Controllers\Admin\AdminUsersController::ROUTE_CREATE) }}" class="btn btn-success btn-xs">Добавить администратора</a>
             </div>
         </div>
     {!! Html::additionalMenuClose() !!}
@@ -52,7 +52,7 @@
             {!! Form::tbPassword('password_confirmation') !!}
         {!! Form::tbFormGroupClose() !!}
 
-        @if (Auth::user()->id != $user->id)
+        @if (Auth::user()->super)
             {!! Form::tbFormGroupOpen('active') !!}
                 <input type="hidden" name="active" value="0"/>
                 <label class="checkbox-inline">

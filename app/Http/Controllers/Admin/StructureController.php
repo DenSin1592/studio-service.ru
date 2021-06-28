@@ -12,6 +12,15 @@ class StructureController extends Controller
 {
     use ToggleFlags;
 
+    public const  ROUTE_INDEX = 'cc.structure.index';
+    public const  ROUTE_CREATE = 'cc.structure.create';
+    public const  ROUTE_STORE = 'cc.structure.store';
+    public const  ROUTE_EDIT = 'cc.structure.edit';
+    public const  ROUTE_UPDATE = 'cc.structure.update';
+    public const  ROUTE_DESTROY = 'cc.structure.destroy';
+    public const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.structure.toggle-attribute';
+    public const  ROUTE_UPDATE_POSITIONS = 'cc.structure.update-positions';
+
     public function __construct(
         private EloquentNodeRepository $repository,
         private NodeFormProcessor $formProcessor,
@@ -22,17 +31,8 @@ class StructureController extends Controller
     public function index()
     {
         $nodeTree = $this->repository->getTree();
-        if (!\Request::ajax())
-            return view('admin.structure.index')
-                ->with('nodeTree', $nodeTree);
-
-        //todo:разобраться, похоже что не надо
-       /* $content = view('admin.structure._node_list')
-            ->with('nodeTree', $nodeTree)
-            ->with('lvl', 0)
-            ->render();
-
-        return \Response::json(['element_list' => $content]);*/
+        return view('admin.structure.index')
+            ->with('nodeTree', $nodeTree);
     }
 
 
@@ -52,12 +52,12 @@ class StructureController extends Controller
     {
         $node = $this->formProcessor->create(\Request::except('redirect_to'));
         if (is_null($node))
-            return \Redirect::route('cc.structure.create')->withErrors($this->formProcessor->errors())->withInput();
+            return \Redirect::route(self::ROUTE_CREATE)->withErrors($this->formProcessor->errors())->withInput();
 
-        if (\Request::get('redirect_to') == 'index') {
-            $redirect = \Redirect::route('cc.structure.index');
+        if (\Request::get('redirect_to') === 'index') {
+            $redirect = \Redirect::route(self::ROUTE_INDEX);
         } else {
-            $redirect = \Redirect::route('cc.structure.edit', [$node->id]);
+            $redirect = \Redirect::route(self::ROUTE_EDIT, [$node->id]);
         }
 
         return $redirect->with('alert_success', trans('Страница создана'));
@@ -75,8 +75,7 @@ class StructureController extends Controller
         return view('admin.structure.edit')
             ->with('breadcrumbs', $breadcrumbs)
             ->with('node', $node)
-            ->with('parentVariants', $this->repository->getParentVariants($node, '[Корень]'))
-            ->with('nodeTree', $this->repository->getCollapsedTree($node));
+            ->with('parentVariants', $this->repository->getParentVariants($node, '[Корень]'));
     }
 
 
@@ -88,12 +87,12 @@ class StructureController extends Controller
 
         $success = $this->formProcessor->update($node, \Request::except('redirect_to'));
         if (!$success)
-            return \Redirect::route('cc.structure.edit', [$id])->withErrors($this->formProcessor->errors())->withInput();
+            return \Redirect::route(self::ROUTE_EDIT, [$id])->withErrors($this->formProcessor->errors())->withInput();
 
-        if (\Request::get('redirect_to') == 'index') {
-            $redirect = \Redirect::route('cc.structure.index');
+        if (\Request::get('redirect_to') === 'index') {
+            $redirect = \Redirect::route(self::ROUTE_INDEX);
         } else {
-            $redirect = \Redirect::route('cc.structure.edit', [$id]);
+            $redirect = \Redirect::route(self::ROUTE_EDIT, [$id]);
         }
 
         return $redirect->with('alert_success', trans('Страница обновлена'));
@@ -107,7 +106,7 @@ class StructureController extends Controller
             \App::abort(404, 'Node not found');
 
         $this->repository->delete($node);
-        return \Redirect::route('cc.structure.index')->with('alert_success', 'Страница удалена');
+        return \Redirect::route(self::ROUTE_INDEX)->with('alert_success', 'Страница удалена');
     }
 
 
@@ -116,7 +115,7 @@ class StructureController extends Controller
         $this->repository->updatePositions(\Request::get('positions', []));
         if (\Request::ajax())
             return \Response::json(['status' => 'alert_success']);
-        return \Redirect::route('cc.structure.index');
+        return \Redirect::route(self::ROUTE_INDEX);
     }
 
 
@@ -131,7 +130,7 @@ class StructureController extends Controller
 
         $this->repository->toggleAttribute($node, $attribute);
         return $this->toggleFlagResponse(
-            route('cc.structure.toggle-attribute', [$id, $attribute]),
+            route(self::ROUTE_TOGGLE_ATTRIBUTE, [$id, $attribute]),
             $node,
             $attribute
         );

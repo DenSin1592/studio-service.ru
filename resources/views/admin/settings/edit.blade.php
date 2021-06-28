@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-    {!! Form::tbModelWithErrors([], $errors, ['url' => route('cc.settings.update'), 'method' => 'put', 'scrollable' => false]) !!}
+    {!! Form::tbModelWithErrors([], $errors, ['url' => route(\App\Http\Controllers\Admin\SettingsController::ROUTE_UPDATE), 'method' => 'put', 'scrollable' => false]) !!}
     <table class="table settings-table">
         <thead>
         <tr>

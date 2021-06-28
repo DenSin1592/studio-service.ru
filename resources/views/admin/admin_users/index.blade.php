@@ -20,7 +20,7 @@
                 <li>
                     <div class="element-container">
                         <div class="name">
-                            <a href="{{ route('cc.admin-users.edit', [$user->id]) }}">
+                            <a href="{{ route(\App\Http\Controllers\Admin\AdminUsersController::ROUTE_EDIT, [$user->id]) }}">
                                 {{ $user->username }}
                             </a>
                         </div>
@@ -39,7 +39,7 @@
                         <div class="creator">
                             @if ($user->parent)
                                 @can('change-admin-user', $user->parent)
-                                    <a href="{{ route('cc.admin-users.edit', [$user->parent->id]) }}">
+                                    <a href="{{ route(\App\Http\Controllers\Admin\AdminUsersController::ROUTE_EDIT, [$user->parent->id]) }}">
                                         {{ $user->parent->username }}
                                     </a>
                                 @else
@@ -50,7 +50,7 @@
                         <div class="role">
                             @if ($user->role)
                                 @can('change-admin-role', $user->role)
-                                    <a href="{{ route('cc.admin-roles.edit', [$user->role->id]) }}">
+                                    <a href="{{ route(\App\Http\Controllers\Admin\AdminRolesController::ROUTE_EDIT, [$user->role->id]) }}">
                                         {{ $user->role->name }}
                                     </a>
                                 @else
@@ -67,7 +67,7 @@
         </ul>
 
         <div>
-            <a href="{{ route('cc.admin-users.create') }}" class="btn btn-success btn-xs">Добавить администратора</a>
+            <a href="{{ route(\App\Http\Controllers\Admin\AdminUsersController::ROUTE_CREATE) }}" class="btn btn-success btn-xs">Добавить администратора</a>
         </div>
     </div>
 @stop

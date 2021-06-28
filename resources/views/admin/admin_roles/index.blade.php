@@ -17,14 +17,14 @@
                 <li>
                     <div class="element-container">
                         <div class="name">
-                            <a href="{{ route('cc.admin-roles.edit', [$role->id]) }}">
+                            <a href="{{ route(\App\Http\Controllers\Admin\AdminRolesController::ROUTE_EDIT, [$role->id]) }}">
                                 {{ $role->name }}
                             </a>
                         </div>
                         <div class="creator">
                             @if ($role->parent)
                                 @can('change-admin-user', $role->parent)
-                                    <a href="{{ route('cc.admin-users.edit', [$role->parent->id]) }}">
+                                    <a href="{{ route(\App\Http\Controllers\Admin\AdminUsersController::ROUTE_EDIT, [$role->parent->id]) }}">
                                         {{ $role->parent->username }}
                                     </a>
                                 @else
@@ -41,7 +41,7 @@
         </ul>
 
         <div>
-            <a href="{{ route('cc.admin-roles.create') }}" class="btn btn-success btn-xs">Добавить роль</a>
+            <a href="{{ route(\App\Http\Controllers\Admin\AdminRolesController::ROUTE_CREATE) }}" class="btn btn-success btn-xs">Добавить роль</a>
         </div>
     </div>
 @stop

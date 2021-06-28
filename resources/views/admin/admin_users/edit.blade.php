@@ -7,5 +7,5 @@
 @section('submit_block')
     <button type="submit" class="btn btn-success">{{ trans('interactions.save') }}</button>
     <button type="submit" class="btn btn-primary" name="redirect_to" value="index">{{ trans('interactions.save_and_back_to_list') }}</button>
-    <a href="{{ route('cc.admin-users.index') }}" class="btn btn-default">{{ trans('interactions.back_to_list') }}</a>
+    <a href="{{ route(\App\Http\Controllers\Admin\AdminUsersController::ROUTE_INDEX) }}" class="btn btn-default">{{ trans('interactions.back_to_list') }}</a>
 @stop
