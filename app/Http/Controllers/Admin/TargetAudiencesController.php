@@ -13,6 +13,15 @@ class TargetAudiencesController extends Controller
 {
     use ToggleFlags;
 
+    public const  ROUTE_INDEX = 'cc.target-audience.index';
+    public const  ROUTE_CREATE = 'cc.target-audience.create';
+    public const  ROUTE_STORE = 'cc.target-audience.store';
+    public const  ROUTE_EDIT = 'cc.target-audience.edit';
+    public const  ROUTE_UPDATE = 'cc.target-audience.update';
+    public const  ROUTE_DESTROY = 'cc.target-audience.destroy';
+    public const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.target-audience.toggle-attribute';
+    public const  ROUTE_UPDATE_POSITIONS = 'cc.target-audience.update-positions';
+
     public function __construct(
         private EloquentTargetAudienceRepository $repository,
         private TargetAudienceFormProcessor $formProcessor,
@@ -26,13 +35,6 @@ class TargetAudiencesController extends Controller
             return view('admin.target_audience.index')
                 ->with('modelTree', $modelTree);
 
-        //todo:разобраться, похоже что не надо
-        /*$content = view('admin.target_audience._list')
-            ->with('modelTree', $modelTree)
-            ->with('lvl', 0)
-            ->render();
-
-        return \Response::json(['element_list' => $content]);*/
     }
 
 
@@ -52,13 +54,13 @@ class TargetAudiencesController extends Controller
     {
         $model = $this->formProcessor->create(\Request::except('redirect_to'));
         if (is_null($model))
-            return \Redirect::route('cc.target-audiences.create')
+            return \Redirect::route(self::ROUTE_CREATE)
                 ->withErrors($this->formProcessor->errors())->withInput();
 
-        if (\Request::get('redirect_to') == 'index') {
-            $redirect = \Redirect::route('cc.target-audiences.index');
+        if (\Request::get('redirect_to') === 'index') {
+            $redirect = \Redirect::route(self::ROUTE_INDEX);
         } else {
-            $redirect = \Redirect::route('cc.target-audiences.index', [$model->id]);
+            $redirect = \Redirect::route(self::ROUTE_EDIT, [$model->id]);
         }
         return $redirect->with('alert_success', trans('Страница создана'));
     }
@@ -78,7 +80,13 @@ class TargetAudiencesController extends Controller
 
     public function destroy($id)
     {
-        dd(__METHOD__);
+        $model = $this->repository->find($id);
+        if (is_null($model))
+            \App::abort(404, 'Node not found');
+
+        $this->repository->delete($model);
+
+        return \Redirect::route(self::ROUTE_INDEX)->with('alert_success', 'ЦА удалена');
     }
 
     public function updatePositions()
@@ -87,24 +95,24 @@ class TargetAudiencesController extends Controller
         if (\Request::ajax())
             return \Response::json(['status' => 'alert_success']);
 
-        return \Redirect::route('cc.target-audiences.index');
+        return \Redirect::route(self::ROUTE_INDEX);
 
     }
 
     public function toggleAttribute($id, $attribute)
     {
-        if (!in_array($attribute, ['publish'])) {
+        if ($attribute !== 'publish')
             \App::abort(404, "Not allowed to toggle this attribute");
-        }
-        $node = $this->repository->findById($id);
-        if (is_null($node)) {
+
+        $model = $this->repository->findById($id);
+        if (is_null($model))
             \App::abort(404, 'Node not found');
-        }
-        $this->repository->toggleAttribute($node, $attribute);
+
+        $this->repository->toggleAttribute($model, $attribute);
 
         return $this->toggleFlagResponse(
-            route('cc.target-audiences.toggle-attribute', [$id, $attribute]),
-            $node,
+            route(self::ROUTE_TOGGLE_ATTRIBUTE, [$id, $attribute]),
+            $model,
             $attribute
         );
     }

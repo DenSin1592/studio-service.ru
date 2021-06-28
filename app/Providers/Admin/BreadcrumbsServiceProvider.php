@@ -2,6 +2,7 @@
 
 namespace App\Providers\Admin;
 
+use App\Http\Controllers\Admin\TargetAudiencesController;
 use App\Models\HomePage;
 use App\Models\Node;
 use App\Models\TargetAudience;
@@ -50,7 +51,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
             'target_audience.create',
             function (TargetAudience $model) {
                 $path = new Path();
-                $path->add('Каталог ЦА', route('cc.target-audiences.index'));
+                $path->add('Каталог ЦА', route(TargetAudiencesController::ROUTE_INDEX));
                 $path->add('Создание ЦА');
                 return $path;
             }

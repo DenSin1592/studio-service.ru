@@ -6,11 +6,11 @@
                 @include('admin.shared.resource_list.sorting._list_controls', ['model' => $model])
 
                 <div class="name">
-                    <a href="{{ route('cc.target-audiences.edit', [$model->id]) }}"
+                    <a href="{{ route(\App\Http\Controllers\Admin\TargetAudiencesController::ROUTE_EDIT, [$model->id]) }}"
                        style="margin-left: {{ $lvl * 0.5 }}em;">{{ $model->name }}</a>
                 </div>
 
-                @include('admin.shared._list_flag', ['element' => $model, 'action' => route('cc.target-audiences.toggle-attribute', [$model->id, 'publish']), 'attribute' => 'publish'])
+                @include('admin.shared._list_flag', ['element' => $model, 'action' => route(\App\Http\Controllers\Admin\TargetAudiencesController::ROUTE_TOGGLE_ATTRIBUTE, [$model->id, 'publish']), 'attribute' => 'publish'])
 
                 <div class="control">
                     @include('admin.target_audience._control_block', ['model' => $model])

@@ -42,7 +42,7 @@ class MenuServiceProvider extends ServiceProvider
                     new MenuElement(
                         'ЦА',
                         'glyphicon-user',
-                        route('cc.target-audiences.index'),
+                        route(TargetAudiencesController::ROUTE_INDEX),
                         [TargetAudiencesController::class]
                     )
                 );

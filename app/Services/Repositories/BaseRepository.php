@@ -51,9 +51,9 @@ abstract class BaseRepository
     }
 
 
-    public function delete($role)
+    public function delete($model)
     {
-        return $role->delete();
+        return $model->delete();
     }
 
 
