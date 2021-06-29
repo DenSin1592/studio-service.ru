@@ -13,14 +13,14 @@ class TargetAudiencesController extends Controller
 {
     use ToggleFlags;
 
-    public const  ROUTE_INDEX = 'cc.target-audience.index';
-    public const  ROUTE_CREATE = 'cc.target-audience.create';
-    public const  ROUTE_STORE = 'cc.target-audience.store';
-    public const  ROUTE_EDIT = 'cc.target-audience.edit';
-    public const  ROUTE_UPDATE = 'cc.target-audience.update';
-    public const  ROUTE_DESTROY = 'cc.target-audience.destroy';
-    public const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.target-audience.toggle-attribute';
-    public const  ROUTE_UPDATE_POSITIONS = 'cc.target-audience.update-positions';
+    public const  ROUTE_INDEX = 'cc.target-audiences.index';
+    public const  ROUTE_CREATE = 'cc.target-audiences.create';
+    public const  ROUTE_STORE = 'cc.target-audiences.store';
+    public const  ROUTE_EDIT = 'cc.target-audiences.edit';
+    public const  ROUTE_UPDATE = 'cc.target-audiences.update';
+    public const  ROUTE_DESTROY = 'cc.target-audiences.destroy';
+    public const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.target-audiences.toggle-attribute';
+    public const  ROUTE_UPDATE_POSITIONS = 'cc.target-audiences.update-positions';
 
     public function __construct(
         private EloquentTargetAudienceRepository $repository,
