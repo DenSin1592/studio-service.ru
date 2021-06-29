@@ -4,10 +4,10 @@ namespace App\Providers\Admin;
 
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
-use App\Http\Controllers\Admin\HomePagesController;
+use App\Http\Controllers\Admin\PageControllers\HomePageController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
-use App\Http\Controllers\Admin\TargetAudiencePagesController;
+use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
 use App\Models\AdminUser;
 use App\Policies\AdminUrlPolicy;
 use App\Policies\AdminRolePolicy;
@@ -54,8 +54,8 @@ class AclServiceProvider extends ServiceProvider
 
             $acl->define('change-site-structure', [
                 StructureController::class,
-                HomePagesController::class,
-                TargetAudiencePagesController::class,
+                HomePageController::class,
+                TargetAudiencePageController::class,
             ], 'Структура сайта');
 
             $acl->define('change-settings', [

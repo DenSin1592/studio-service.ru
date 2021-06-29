@@ -2,12 +2,14 @@
 
 namespace App\Providers\Admin;
 
-use App\Http\Controllers\Admin\HomePagesController;
+use App\Http\Controllers\Admin\PageControllers\HomePageController;
 use App\Http\Controllers\Admin\StructureController;
+use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
 use App\Http\Controllers\Admin\TargetAudiencesController;
 use App\Models\HomePage;
 use App\Models\Node;
 use App\Models\TargetAudience;
+use App\Models\TargetAudiencePage;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
 use App\Services\Admin\Breadcrumbs\Path;
 use Illuminate\Support\ServiceProvider;
@@ -34,7 +36,6 @@ class BreadcrumbsServiceProvider extends ServiceProvider
             function (Node $node) {
                 $path = $this->createNodeParentPath($node);
                 $path->add('Создание страницы');
-
                 return $path;
             }
         );
@@ -44,7 +45,6 @@ class BreadcrumbsServiceProvider extends ServiceProvider
             function (Node $node) {
                 $path = $this->createNodeParentPath($node);
                 $path->add($node->name);
-
                 return $path;
             }
         );
@@ -64,20 +64,17 @@ class BreadcrumbsServiceProvider extends ServiceProvider
     private function createNodeParentPath(Node $node): Path
     {
         $path = new Path();
-
         $path->add('Структура сайта', route(StructureController::ROUTE_INDEX));
 
         foreach ($node->extractParentPath() as $nodeInPath) {
             $url = route('cc.structure.edit', $nodeInPath->id);
             $page = \TypeContainer::getContentModelFor($nodeInPath);
 
-            if (null !== $page && $page->exists) {
-                /*if ($page instanceof TextPage) {
-                    $url = route('cc.text-pages.edit', $nodeInPath->id);
-
-                } else*/if ($page instanceof HomePage) {
-                    $url = route(HomePagesController::ROUTE_EDIT, $nodeInPath->id);
-                }
+            if ($page instanceof HomePage) {
+                $url = route(HomePageController::ROUTE_EDIT, $nodeInPath->id);
+            }
+            if ($page instanceof TargetAudiencePage) {
+                $url = route(TargetAudiencePageController::ROUTE_EDIT, $nodeInPath->id);
             }
 
             $path->add($nodeInPath->name, $url);

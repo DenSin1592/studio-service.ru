@@ -7,5 +7,8 @@ Route::prefix('structure')->name('structure.')->group(function () {
 
 Route::get('/', 'StructureController@index')->name('home');
 Route::resource('structure', 'StructureController')->except(['show']);
-Route::resource('home-pages', 'HomePagesController')->only(['edit', 'update']);
-Route::resource('target-audience-pages', 'TargetAudiencePagesController')->only(['edit', 'update']);
+
+Route::namespace('PageControllers')->group(function () {
+    Route::resource('home-pages', 'HomePageController')->only(['edit', 'update']);
+    Route::resource('target-audience-pages', 'TargetAudiencePageController')->only(['edit', 'update']);
+});

@@ -63,19 +63,34 @@ class TargetAudiencesController extends Controller
         } else {
             $redirect = \Redirect::route(self::ROUTE_EDIT, [$model->id]);
         }
-        return $redirect->with('alert_success', trans('Страница создана'));
+        return $redirect->with('alert_success', trans('ЦА создана'));
     }
 
 
     public function edit($id)
     {
-        dd(__METHOD__);
+        $model = $this->repository->find($id);
+
+        return view('admin.target_audience.edit')
+            ->with('model', $model)
+            ->with('parentVariants', $this->repository->getParentVariants(null, '[Корень]'));
     }
 
 
     public function update($id)
     {
-        dd(__METHOD__);
+        $model = $this->repository->find($id);
+        $success = $this->formProcessor->update($model ,\Request::except('redirect_to'));
+        if (!$success)
+             return \Redirect::route(self::ROUTE_EDIT, [$model->id])
+                 ->withErrors($this->formProcessor->errors())->withInput();
+
+        if (\Request::get('redirect_to') === 'index') {
+            $redirect = \Redirect::route(self::ROUTE_INDEX);
+        } else {
+            $redirect = \Redirect::route(self::ROUTE_EDIT, [$model->id]);
+        }
+        return $redirect->with('alert_success', trans('ЦА обновлена'));
     }
 
 

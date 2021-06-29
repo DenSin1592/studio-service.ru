@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\Admin\HomePagesController;
-use App\Http\Controllers\Admin\TargetAudiencePagesController;
+use App\Http\Controllers\Admin\PageControllers\HomePageController;
+use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
 use App\Models\Node;
 use App\Services\Repositories\Pages\HomePage\EloquentHomePageRepository;
 use App\Services\Repositories\Node\EloquentNodeRepository;
@@ -33,7 +33,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                     new RepositoryAssociation(
                         $this->app->make(EloquentHomePageRepository::class),
                         function (Node $node) {
-                            return route(HomePagesController::ROUTE_EDIT, [$node->id]);
+                            return route(HomePageController::ROUTE_EDIT, [$node->id]);
                         }
                     )
                 );
@@ -43,7 +43,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                     new RepositoryAssociation(
                         $this->app->make(EloquentTargetAudiencePageRepository::class),
                         function (Node $node) {
-                            return route(TargetAudiencePagesController::ROUTE_EDIT, [$node->id]);
+                            return route(TargetAudiencePageController::ROUTE_EDIT, [$node->id]);
                         }
                     )
                 );

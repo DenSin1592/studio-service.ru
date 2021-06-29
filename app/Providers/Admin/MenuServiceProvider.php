@@ -4,10 +4,10 @@ namespace App\Providers\Admin;
 
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
-use App\Http\Controllers\Admin\HomePagesController;
+use App\Http\Controllers\Admin\PageControllers\HomePageController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
-use App\Http\Controllers\Admin\TargetAudiencePagesController;
+use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
 use App\Http\Controllers\Admin\TargetAudiencesController;
 use App\Services\Admin\Menu\Menu;
 use App\Services\Admin\Menu\MenuElement;
@@ -30,8 +30,8 @@ class MenuServiceProvider extends ServiceProvider
                         route('cc.structure.index'),
                         [
                             StructureController::class,
-                            HomePagesController::class,
-                            TargetAudiencePagesController::class,
+                            HomePageController::class,
+                            TargetAudiencePageController::class,
                         ]
                     )
                 );

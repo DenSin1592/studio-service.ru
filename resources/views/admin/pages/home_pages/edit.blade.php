@@ -9,7 +9,7 @@
 
     @include('admin.layouts._breadcrumbs', ['breadcrumbs' => $breadcrumbs])
 
-    {!! Form::tbModelWithErrors($page, $errors, ['url' => route(\App\Http\Controllers\Admin\HomePagesController::ROUTE_UPDATE, [$node->id]), 'method' => 'put', 'files' => true]) !!}
+    {!! Form::tbModelWithErrors($page, $errors, ['url' => route(\App\Http\Controllers\Admin\PageControllers\HomePageController::ROUTE_UPDATE, [$node->id]), 'method' => 'put', 'files' => true]) !!}
 
         @include('admin.shared._header_meta_field')
 

@@ -6,7 +6,7 @@
 
     @include('admin.layouts._breadcrumbs')
 
-    {!! Form::tbModelWithErrors($model, $errors, ['url' => route(\App\Http\Controllers\Admin\TargetAudiencesController::ROUTE_STORE), 'method' => 'post', 'enctype' => "multipart/form-data"]) !!}
+    {!! Form::tbModelWithErrors($model, $errors, ['url' => route(\App\Http\Controllers\Admin\TargetAudiencesController::ROUTE_STORE), 'method' => 'post', 'files' => true, 'autocomplete' => 'off']) !!}
 
         @include('admin.target_audience._form_fields')
 

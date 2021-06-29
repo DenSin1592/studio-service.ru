@@ -7,15 +7,6 @@ use App\Models\Node;
 
 final class HomePageController extends PageController
 {
-
-    protected function getTypePage(): string
-    {
-        return Node::TYPE_HOME_PAGE;
-    }
-
-
-    protected function getView(): string
-    {
-        return 'client.home_page.show';
-    }
+    protected const TYPE_PAGE = Node::TYPE_HOME_PAGE;
+    protected const VIEW_FOR_SHOW = 'client.home_page.show';
 }
