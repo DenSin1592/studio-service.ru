@@ -7,7 +7,7 @@ use App\Services\Validation\AbstractLaravelValidator;
 use Illuminate\Validation\Factory as ValidatorFactory;
 use Illuminate\Validation\Validator;
 
-class NodeLaravelValidator extends AbstractLaravelValidator
+class NodeValidator extends AbstractLaravelValidator
 {
     public function __construct(
         ValidatorFactory $validatorFactory,

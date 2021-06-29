@@ -4,6 +4,7 @@ namespace App\Services\Repositories;
 
 abstract class BaseRepository
 {
+    protected const POSITION_STEP = 10;
 
     public function __construct(
         protected $model

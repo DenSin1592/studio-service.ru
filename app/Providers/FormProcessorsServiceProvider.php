@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Services\FormProcessors\AdminRole\AdminRoleFormProcessor;
 use App\Services\FormProcessors\AdminUser\AdminUserFormProcessor;
+use App\Services\FormProcessors\Competence\CompetenceFormProcessor;
 use App\Services\FormProcessors\Node\NodeFormProcessor;
 use App\Services\FormProcessors\Settings\SettingsFormProcessor;
 use App\Services\FormProcessors\TargetAudience\TargetAudienceFormProcessor;
@@ -14,9 +15,10 @@ use App\Services\Repositories\Setting\SettingRepository;
 use App\Services\Settings\SettingContainer;
 use App\Services\Validation\AdminRole\AdminRoleValidator;
 use App\Services\Validation\AdminUser\AdminUserLaravelValidator;
-use App\Services\Validation\Node\NodeLaravelValidator;
-use App\Services\Validation\Setting\SettingsLaravelValidator;
-use App\Services\Validation\TargetAudience\TargetAudienceLaravelValidator;
+use App\Services\Validation\Competence\CompetenceValidator;
+use App\Services\Validation\Node\NodeValidator;
+use App\Services\Validation\Settings\SettingsValidator;
+use App\Services\Validation\TargetAudience\TargetAudienceValidator;
 use Illuminate\Support\ServiceProvider;
 
 class FormProcessorsServiceProvider extends ServiceProvider
@@ -51,9 +53,20 @@ class FormProcessorsServiceProvider extends ServiceProvider
 
 
         $this->app->bind(
+        CompetenceFormProcessor::class,
+        function () {
+            return new CompetenceFormProcessor(
+                new CompetenceValidator($this->app['validator']),
+                $this->app->make(\App\Services\Repositories\Competencies\CompetenciesRepository::class)
+            );
+        }
+    );
+
+
+        $this->app->bind(
             NodeFormProcessor::class,
             fn() => new NodeFormProcessor(
-                new NodeLaravelValidator($this->app['validator'], $this->app['structure_types.types']),
+                new NodeValidator($this->app['validator'], $this->app['structure_types.types']),
                 $this->app->make(NodeRepository::class)
             )
         );
@@ -63,7 +76,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
             TargetAudienceFormProcessor::class,
             function () {
                 return new TargetAudienceFormProcessor(
-                    new TargetAudienceLaravelValidator($this->app['validator']),
+                    new TargetAudienceValidator($this->app['validator']),
                     $this->app->make(\App\Services\Repositories\TargetAudience\TargetAudienceRepository::class)
                 );
             }
@@ -73,7 +86,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
         $this->app->bind(
             SettingsFormProcessor::class,
             fn() => new SettingsFormProcessor(
-                $this->app->make(SettingsLaravelValidator::class),
+                $this->app->make(SettingsValidator::class),
                 $this->app->make(SettingRepository::class),
                 $this->app->make(SettingContainer::class)
             )

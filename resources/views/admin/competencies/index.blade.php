@@ -1,7 +1,7 @@
 @extends('admin.layouts.default')
 
 @section('title')
-    {{ 'Каталог целевых аудиторий' }}
+    {{ 'Каталог компетенций' }}
 @stop
 
 @section('content')
@@ -14,13 +14,13 @@
         </div>
 
         <div data-sortable-container="">
-            @include('admin.target_audience._list', ['modelTree' => $modelTree, 'lvl' => 0])
+            @include('admin.competencies._list')
         </div>
 
-        @include('admin.shared.resource_list.sorting._commit', ['updateUrl' => route(\App\Http\Controllers\Admin\TargetAudiencesController::ROUTE_UPDATE_POSITIONS), 'reloadUrl' => route(\App\Http\Controllers\Admin\TargetAudiencesController::ROUTE_INDEX)])
+        @include('admin.shared.resource_list.sorting._commit', ['updateUrl' => route(\App\Http\Controllers\Admin\CompetenciesController::ROUTE_UPDATE_POSITIONS), 'reloadUrl' => route(\App\Http\Controllers\Admin\CompetenciesController::ROUTE_INDEX)])
 
         <div>
-            <a href="{{ route(\App\Http\Controllers\Admin\TargetAudiencesController::ROUTE_CREATE) }}" class="btn btn-success btn-xs">Добавить ЦА</a>
+            <a href="{{ route(\App\Http\Controllers\Admin\CompetenciesController::ROUTE_CREATE) }}" class="btn btn-success btn-xs">Добавить компетенцию</a>
         </div>
     </div>
 @stop

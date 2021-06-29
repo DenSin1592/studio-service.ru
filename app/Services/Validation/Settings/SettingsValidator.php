@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Services\Validation\Setting;
+namespace App\Services\Validation\Settings;
 
 use App\Services\Settings\SettingContainer;
 use App\Services\Validation\AbstractLaravelValidator;
 use Illuminate\Validation\Factory as ValidatorFactory;
 
-class SettingsLaravelValidator extends AbstractLaravelValidator
+class SettingsValidator extends AbstractLaravelValidator
 {
     public function __construct(
         ValidatorFactory $validatorFactory,

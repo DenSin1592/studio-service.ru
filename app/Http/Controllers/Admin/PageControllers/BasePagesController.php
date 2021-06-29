@@ -22,7 +22,7 @@ abstract class BasePagesController extends Controller
     public function edit($nodeId)
     {
         $page = $this->getPage($nodeId);
-        $breadcrumbs = $this->breadcrumbs->getFor('structure_page.edit', $page->node);
+        $breadcrumbs = $this->breadcrumbs->getFor('structure.edit', $page->node);
 
         return view(static::VIEW_FOR_EDIT)
             ->with('breadcrumbs', $breadcrumbs)

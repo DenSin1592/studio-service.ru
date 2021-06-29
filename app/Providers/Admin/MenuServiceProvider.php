@@ -4,6 +4,7 @@ namespace App\Providers\Admin;
 
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
+use App\Http\Controllers\Admin\CompetenciesController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
@@ -38,6 +39,25 @@ class MenuServiceProvider extends ServiceProvider
 
                 $groupCatalogs = new MenuGroup('Каталоги', 'glyphicon-book');
                 $menu->addMenuGroup($groupCatalogs);
+
+                $groupCatalogs->addMenuElement(
+                    new MenuElement(
+                        'Компетенции',
+                        'glyphicon-list-alt',
+                        route(CompetenciesController::ROUTE_INDEX),
+                        [CompetenciesController::class]
+                    )
+                );
+
+                /*$groupCatalogs->addMenuElement(
+                    new MenuElement(
+                        'Услуги',
+                        'glyphicon-ok',
+                        //route(CompetenciesController::ROUTE_INDEX),
+                        //[CompetenciesController::class]
+                    )
+                );*/
+
                 $groupCatalogs->addMenuElement(
                     new MenuElement(
                         'ЦА',

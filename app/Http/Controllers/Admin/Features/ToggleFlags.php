@@ -4,14 +4,25 @@ namespace App\Http\Controllers\Admin\Features;
 
 trait ToggleFlags
 {
-    /**
-     * Response for toggling a flag.
-     *
-     * @param $action
-     * @param $modelInstance
-     * @param $attribute
-     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
-     */
+
+    public function toggleAttribute($id, $attribute)
+    {
+        if (!in_array($attribute, ['publish', 'menu_top', 'menu_bottom']))
+            \App::abort(404, "Not allowed to toggle this attribute");
+
+        $node = $this->repository->findById($id);
+        if (is_null($node))
+            \App::abort(404, 'Model not found');
+
+        $this->repository->toggleAttribute($node, $attribute);
+        return $this->toggleFlagResponse(
+            route(self::ROUTE_TOGGLE_ATTRIBUTE, [$id, $attribute]),
+            $node,
+            $attribute
+        );
+    }
+
+
     protected function toggleFlagResponse($action, $modelInstance, $attribute): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
     {
         if (!\Request::ajax())

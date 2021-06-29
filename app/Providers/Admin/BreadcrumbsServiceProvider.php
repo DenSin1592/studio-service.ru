@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PageControllers\HomePageController;
 use App\Http\Controllers\Admin\StructureController;
 use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
 use App\Http\Controllers\Admin\TargetAudiencesController;
+use App\Models\Competence;
 use App\Models\HomePage;
 use App\Models\Node;
 use App\Models\TargetAudience;
@@ -32,16 +33,15 @@ class BreadcrumbsServiceProvider extends ServiceProvider
     private function addStructureBuilders(Breadcrumbs $breadcrumbs)
     {
         $breadcrumbs->addBuilder(
-            'structure_page.create',
+            'structure.create',
             function (Node $node) {
                 $path = $this->createNodeParentPath($node);
                 $path->add('Создание страницы');
                 return $path;
             }
         );
-
         $breadcrumbs->addBuilder(
-            'structure_page.edit',
+            'structure.edit',
             function (Node $node) {
                 $path = $this->createNodeParentPath($node);
                 $path->add($node->name);
@@ -49,12 +49,42 @@ class BreadcrumbsServiceProvider extends ServiceProvider
             }
         );
 
+
         $breadcrumbs->addBuilder(
-            'target_audience.create',
+            'target_audiences.create',
             function (TargetAudience $model) {
                 $path = new Path();
                 $path->add('Каталог ЦА', route(TargetAudiencesController::ROUTE_INDEX));
                 $path->add('Создание ЦА');
+                return $path;
+            }
+        );
+        $breadcrumbs->addBuilder(
+            'target_audiences.edit',
+            function (TargetAudience $model) {
+                $path = new Path();
+                $path->add('Каталог ЦА', route(TargetAudiencesController::ROUTE_INDEX));
+                $path->add('Редактирование ЦА');
+                return $path;
+            }
+        );
+
+
+        $breadcrumbs->addBuilder(
+            'competences.create',
+            function (Competence $model) {
+                $path = new Path();
+                $path->add('Каталог Компетенций', route(TargetAudiencesController::ROUTE_INDEX));
+                $path->add('Создание Компетенции');
+                return $path;
+            }
+        );
+        $breadcrumbs->addBuilder(
+            'competences.edit',
+            function (Competence $model) {
+                $path = new Path();
+                $path->add('Каталог Компетенций', route(TargetAudiencesController::ROUTE_INDEX));
+                $path->add('Редактирование Компетенции');
                 return $path;
             }
         );

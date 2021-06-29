@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\Features\ToggleFlags;
+use App\Http\Controllers\Admin\Features\UpdatePositions;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
 use App\Services\FormProcessors\Node\NodeFormProcessor;
@@ -11,6 +12,7 @@ use App\Services\Repositories\Node\NodeRepository;
 class StructureController extends Controller
 {
     use ToggleFlags;
+    use UpdatePositions;
 
     public const  ROUTE_INDEX = 'cc.structure.index';
     public const  ROUTE_CREATE = 'cc.structure.create';
@@ -39,7 +41,7 @@ class StructureController extends Controller
     public function create()
     {
         $node = $this->repository->newInstance();
-        $breadcrumbs = $this->breadcrumbs->getFor('structure_page.create', $node);
+        $breadcrumbs = $this->breadcrumbs->getFor('structure.create', $node);
 
         return view('admin.structure.create')
             ->with('breadcrumbs', $breadcrumbs)
@@ -70,7 +72,7 @@ class StructureController extends Controller
         if (is_null($node))
             \App::abort(404, 'Node not found');
 
-        $breadcrumbs = $this->breadcrumbs->getFor('structure_page.edit', $node);
+        $breadcrumbs = $this->breadcrumbs->getFor('structure.edit', $node);
 
         return view('admin.structure.edit')
             ->with('breadcrumbs', $breadcrumbs)
@@ -107,32 +109,5 @@ class StructureController extends Controller
 
         $this->repository->delete($node);
         return \Redirect::route(self::ROUTE_INDEX)->with('alert_success', 'Страница удалена');
-    }
-
-
-    public function updatePositions()
-    {
-        $this->repository->updatePositions(\Request::get('positions', []));
-        if (\Request::ajax())
-            return \Response::json(['status' => 'alert_success']);
-        return \Redirect::route(self::ROUTE_INDEX);
-    }
-
-
-    public function toggleAttribute($id, $attribute)
-    {
-        if (!in_array($attribute, ['publish', 'menu_top', 'menu_bottom']))
-            \App::abort(404, "Not allowed to toggle this attribute");
-
-        $node = $this->repository->findById($id);
-        if (is_null($node))
-            \App::abort(404, 'Node not found');
-
-        $this->repository->toggleAttribute($node, $attribute);
-        return $this->toggleFlagResponse(
-            route(self::ROUTE_TOGGLE_ATTRIBUTE, [$id, $attribute]),
-            $node,
-            $attribute
-        );
     }
 }

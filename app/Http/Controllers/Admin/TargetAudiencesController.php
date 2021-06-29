@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\Features\ToggleFlags;
+use App\Http\Controllers\Admin\Features\UpdatePositions;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
 use App\Services\FormProcessors\TargetAudience\TargetAudienceFormProcessor;
@@ -12,6 +13,7 @@ use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
 class TargetAudiencesController extends Controller
 {
     use ToggleFlags;
+    use UpdatePositions;
 
     public const  ROUTE_INDEX = 'cc.target-audiences.index';
     public const  ROUTE_CREATE = 'cc.target-audiences.create';
@@ -42,7 +44,7 @@ class TargetAudiencesController extends Controller
     public function create()
     {
         $model = $this->repository->newInstance();
-        $breadcrumbs = $this->breadcrumbs->getFor('target_audience.create', $model);
+        $breadcrumbs = $this->breadcrumbs->getFor('target_audiences.create', $model);
 
         return view('admin.target_audience.create')
             ->with('breadcrumbs', $breadcrumbs)
@@ -70,8 +72,10 @@ class TargetAudiencesController extends Controller
     public function edit($id)
     {
         $model = $this->repository->find($id);
+        $breadcrumbs = $this->breadcrumbs->getFor('target_audiences.edit', $model);
 
         return view('admin.target_audience.edit')
+            ->with('breadcrumbs', $breadcrumbs)
             ->with('model', $model)
             ->with('parentVariants', $this->repository->getParentVariants(null, '[Корень]'));
     }
@@ -103,33 +107,5 @@ class TargetAudiencesController extends Controller
         $this->repository->delete($model);
 
         return \Redirect::route(self::ROUTE_INDEX)->with('alert_success', 'ЦА удалена');
-    }
-
-    public function updatePositions()
-    {
-        $this->repository->updatePositions(\Request::get('positions', []));
-        if (\Request::ajax())
-            return \Response::json(['status' => 'alert_success']);
-
-        return \Redirect::route(self::ROUTE_INDEX);
-
-    }
-
-    public function toggleAttribute($id, $attribute)
-    {
-        if ($attribute !== 'publish')
-            \App::abort(404, "Not allowed to toggle this attribute");
-
-        $model = $this->repository->findById($id);
-        if (is_null($model))
-            \App::abort(404, 'Model not found');
-
-        $this->repository->toggleAttribute($model, $attribute);
-
-        return $this->toggleFlagResponse(
-            route(self::ROUTE_TOGGLE_ATTRIBUTE, [$id, $attribute]),
-            $model,
-            $attribute
-        );
     }
 }

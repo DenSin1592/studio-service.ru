@@ -7,16 +7,12 @@ use App\Services\Repositories\BaseRepository;
 use App\Services\Repositories\CreateUpdateRepositoryInterface;
 use App\Services\RepositoryFeatures\Attribute\EloquentAttributeToggler;
 use App\Services\RepositoryFeatures\Attribute\PositionUpdater;
-use App\Services\RepositoryFeatures\Order\OrderScopesInterface;
 use App\Services\RepositoryFeatures\Tree\TreeBuilderInterface;
 use Illuminate\Database\Eloquent\Collection;
 
 class TargetAudienceRepository extends BaseRepository implements CreateUpdateRepositoryInterface
 {
-    private const POSITION_STEP = 10;
-
     public function __construct(
-        private OrderScopesInterface $orderScope,
         private TreeBuilderInterface $treeBuilder,
         private EloquentAttributeToggler $attributeToggler,
         private PositionUpdater $positionUpdater,
@@ -98,8 +94,8 @@ class TargetAudienceRepository extends BaseRepository implements CreateUpdateRep
         } else {
             $query = $this->getModel()->where('parent_id', null);
         }
-        $query->where('publish', true);
-        $this->orderScope->scopeOrdered($query);
+        $query->where('publish', true)
+            ->orderBy('position');
         $children = $query->get();
 
         foreach ($children as $child) {

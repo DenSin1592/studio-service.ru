@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\AdminRole;
 use App\Models\AdminUser;
+use App\Models\Competence;
 use App\Models\HomePage;
 use App\Models\Node;
 use App\Models\Setting;
@@ -12,6 +13,7 @@ use App\Models\TargetAudiencePage;
 use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use App\Services\Repositories\AdminUser\AdminUserRepository;
 use App\Services\Repositories\BaseRepository;
+use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Node\NodeRepository;
 use App\Services\Repositories\Pages\HomePage\HomePageRepository;
 use App\Services\Repositories\Pages\TargetAudiencePage\TargetAudiencePageRepository;
@@ -41,13 +43,11 @@ class RepositoriesServiceProvider extends ServiceProvider
         );
 
 
-        $this->app->singleton(NodeRepository::class,
-            fn() => new NodeRepository(
-                \App(OrderScopesInterface::class),
-                \App(TreeBuilderInterface::class),
+        $this->app->singleton(CompetenciesRepository::class,
+            fn() => new CompetenciesRepository(
                 new EloquentAttributeToggler(),
                 new PositionUpdater(),
-                new Node()
+                new Competence()
             )
         );
 
@@ -58,9 +58,13 @@ class RepositoriesServiceProvider extends ServiceProvider
         );
 
 
-        $this->app->singleton(
-            SettingRepository::class,
-            fn() => new SettingRepository(new Setting())
+        $this->app->singleton(NodeRepository::class,
+            fn() => new NodeRepository(
+                \App(TreeBuilderInterface::class),
+                new EloquentAttributeToggler(),
+                new PositionUpdater(),
+                new Node()
+            )
         );
 
 
@@ -73,12 +77,17 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->app->singleton(
             TargetAudienceRepository::class,
             fn() => new TargetAudienceRepository(
-                \App(OrderScopesInterface::class),
                 \App(TreeBuilderInterface::class),
                 new EloquentAttributeToggler(),
                 new PositionUpdater(),
                 new TargetAudience()
             )
+        );
+
+
+        $this->app->singleton(
+            SettingRepository::class,
+            fn() => new SettingRepository(new Setting())
         );
 
     }
