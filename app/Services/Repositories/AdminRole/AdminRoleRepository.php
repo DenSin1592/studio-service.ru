@@ -7,7 +7,7 @@ use App\Services\Repositories\BaseRepository;
 use App\Services\Repositories\CreateUpdateRepositoryInterface;
 
 
-class EloquentAdminRoleRepository extends BaseRepository implements CreateUpdateRepositoryInterface
+class AdminRoleRepository extends BaseRepository implements CreateUpdateRepositoryInterface
 {
 
     public function allForUser(AdminUser $user)

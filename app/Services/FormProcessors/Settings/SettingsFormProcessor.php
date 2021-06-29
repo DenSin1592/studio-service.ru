@@ -4,7 +4,7 @@ namespace App\Services\FormProcessors\Settings;
 
 use App\Services\FormProcessors\CreateUpdateFormProcessor;
 use App\Services\Repositories\CreateUpdateRepositoryInterface;
-use App\Services\Repositories\Setting\EloquentSettingRepository;
+use App\Services\Repositories\Setting\SettingRepository;
 use App\Services\Settings\SettingContainer;
 use App\Services\Settings\SettingValue;
 use App\Services\Validation\ValidableInterface;
@@ -20,7 +20,7 @@ class SettingsFormProcessor extends CreateUpdateFormProcessor
 
     public function __construct(
         ValidableInterface $validator,
-        EloquentSettingRepository $settingRepository,
+        SettingRepository $settingRepository,
         SettingContainer $settingContainer
     ) {
         parent::__construct($validator, $settingRepository);

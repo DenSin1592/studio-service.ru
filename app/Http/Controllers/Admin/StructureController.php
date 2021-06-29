@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\Features\ToggleFlags;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
 use App\Services\FormProcessors\Node\NodeFormProcessor;
-use App\Services\Repositories\Node\EloquentNodeRepository;
+use App\Services\Repositories\Node\NodeRepository;
 
 class StructureController extends Controller
 {
@@ -22,7 +22,7 @@ class StructureController extends Controller
     public const  ROUTE_UPDATE_POSITIONS = 'cc.structure.update-positions';
 
     public function __construct(
-        private EloquentNodeRepository $repository,
+        private NodeRepository $repository,
         private NodeFormProcessor $formProcessor,
         private Breadcrumbs $breadcrumbs,
     ){}

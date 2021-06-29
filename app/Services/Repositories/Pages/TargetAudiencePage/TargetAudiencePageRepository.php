@@ -7,7 +7,7 @@ use App\Models\Node;
 use App\Services\Repositories\BaseRepository;
 use App\Services\Repositories\Node\NodeContentRepositoryInterface;
 
-class EloquentTargetAudiencePageRepository extends BaseRepository implements NodeContentRepositoryInterface
+class TargetAudiencePageRepository extends BaseRepository implements NodeContentRepositoryInterface
 {
     public function findForNodeOrNew(Node $node) : TargetAudiencePage
     {

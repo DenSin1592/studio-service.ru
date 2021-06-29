@@ -8,10 +8,10 @@ use App\Services\Repositories\CreateUpdateRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Class EloquentAdminUserRepository
+ * Class AdminUserRepository
  * @package App\Services\Repositories\AdminUser
  */
-class EloquentAdminUserRepository extends BaseRepository implements CreateUpdateRepositoryInterface
+class AdminUserRepository extends BaseRepository implements CreateUpdateRepositoryInterface
 {
 
     public function allWithoutSuper()

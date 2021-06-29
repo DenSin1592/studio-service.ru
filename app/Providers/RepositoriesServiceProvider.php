@@ -9,17 +9,19 @@ use App\Models\Node;
 use App\Models\Setting;
 use App\Models\TargetAudience;
 use App\Models\TargetAudiencePage;
-use App\Services\Repositories\AdminRole\EloquentAdminRoleRepository;
-use App\Services\Repositories\AdminUser\EloquentAdminUserRepository;
-use App\Services\Repositories\Node\EloquentNodeRepository;
-use App\Services\Repositories\Pages\HomePage\EloquentHomePageRepository;
-use App\Services\Repositories\Pages\TargetAudiencePage\EloquentTargetAudiencePageRepository;
-use App\Services\Repositories\Setting\EloquentSettingRepository;
-use App\Services\Repositories\TargetAudience\EloquentTargetAudienceRepository;
+use App\Services\Repositories\AdminRole\AdminRoleRepository;
+use App\Services\Repositories\AdminUser\AdminUserRepository;
+use App\Services\Repositories\BaseRepository;
+use App\Services\Repositories\Node\NodeRepository;
+use App\Services\Repositories\Pages\HomePage\HomePageRepository;
+use App\Services\Repositories\Pages\TargetAudiencePage\TargetAudiencePageRepository;
+use App\Services\Repositories\Setting\SettingRepository;
+use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
 use App\Services\RepositoryFeatures\Attribute\EloquentAttributeToggler;
 use App\Services\RepositoryFeatures\Attribute\PositionUpdater;
 use App\Services\RepositoryFeatures\Order\OrderScopesInterface;
 use App\Services\RepositoryFeatures\Tree\TreeBuilderInterface;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoriesServiceProvider extends ServiceProvider
@@ -28,19 +30,19 @@ class RepositoriesServiceProvider extends ServiceProvider
     {
 
         $this->app->singleton(
-            EloquentAdminRoleRepository::class,
-            fn() => new EloquentAdminRoleRepository(new AdminRole())
+            AdminRoleRepository::class,
+            fn() => new AdminRoleRepository(new AdminRole())
         );
 
 
         $this->app->singleton(
-            EloquentAdminUserRepository::class,
-            fn() => new EloquentAdminUserRepository(new AdminUser())
+            AdminUserRepository::class,
+            fn() => new AdminUserRepository(new AdminUser())
         );
 
 
-        $this->app->singleton(EloquentNodeRepository::class,
-            fn() => new EloquentNodeRepository(
+        $this->app->singleton(NodeRepository::class,
+            fn() => new NodeRepository(
                 \App(OrderScopesInterface::class),
                 \App(TreeBuilderInterface::class),
                 new EloquentAttributeToggler(),
@@ -51,26 +53,26 @@ class RepositoriesServiceProvider extends ServiceProvider
 
 
         $this->app->singleton(
-            EloquentHomePageRepository::class,
-            fn() =>  new EloquentHomePageRepository(new HomePage())
+            HomePageRepository::class,
+            fn() =>  new HomePageRepository(new HomePage())
         );
 
 
         $this->app->singleton(
-            EloquentTargetAudiencePageRepository::class,
-            fn() =>  new EloquentTargetAudiencePageRepository(new TargetAudiencePage())
+            SettingRepository::class,
+            fn() => new SettingRepository(new Setting())
         );
 
 
-        $this->app-> singleton(
-            EloquentSettingRepository::class,
-            fn() => new EloquentSettingRepository(new Setting())
+        $this->app->singleton(
+            TargetAudiencePageRepository::class,
+            fn() =>  new TargetAudiencePageRepository(new TargetAudiencePage())
         );
 
 
-        $this->app-> singleton(
-            EloquentTargetAudienceRepository::class,
-            fn() => new EloquentTargetAudienceRepository(
+        $this->app->singleton(
+            TargetAudienceRepository::class,
+            fn() => new TargetAudienceRepository(
                 \App(OrderScopesInterface::class),
                 \App(TreeBuilderInterface::class),
                 new EloquentAttributeToggler(),

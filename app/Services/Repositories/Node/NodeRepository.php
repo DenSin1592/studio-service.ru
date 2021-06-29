@@ -12,12 +12,12 @@ use App\Services\RepositoryFeatures\Tree\TreeBuilderInterface;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Class EloquentNodeRepository
+ * Class NodeRepository
  * @package App\Services\Repositories\Node
  */
-class EloquentNodeRepository extends BaseRepository implements CreateUpdateRepositoryInterface
+class NodeRepository extends BaseRepository implements CreateUpdateRepositoryInterface
 {
-    const POSITION_STEP = 10;
+    private const POSITION_STEP = 10;
 
     public function __construct(
         private OrderScopesInterface $orderScope,

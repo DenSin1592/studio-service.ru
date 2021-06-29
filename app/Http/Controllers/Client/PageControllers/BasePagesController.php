@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Client\PageControllers;
 
 use App\Http\Controllers\Controller;
-use App\Services\Repositories\Node\EloquentNodeRepository;
+use App\Services\Repositories\Node\NodeRepository;
 use App\Services\Seo\MetaHelper;
 
-abstract class PageController extends Controller
+abstract class BasePagesController extends Controller
 {
     public function __construct(
-        protected EloquentNodeRepository $repository,
+        protected NodeRepository $repository,
         protected MetaHelper $metaHelper
     ){}
 

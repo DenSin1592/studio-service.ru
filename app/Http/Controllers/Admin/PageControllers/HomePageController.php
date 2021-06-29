@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin\PageControllers;
 
 use App\Models\HomePage;
-use Illuminate\Database\Eloquent\Model;
 
-class HomePageController extends BasePageController
+final class HomePageController extends BasePagesController
 {
     public const  ROUTE_EDIT = 'cc.home-pages.edit';
     public const  ROUTE_UPDATE = 'cc.home-pages.update';

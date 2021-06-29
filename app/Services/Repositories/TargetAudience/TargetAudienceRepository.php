@@ -11,9 +11,9 @@ use App\Services\RepositoryFeatures\Order\OrderScopesInterface;
 use App\Services\RepositoryFeatures\Tree\TreeBuilderInterface;
 use Illuminate\Database\Eloquent\Collection;
 
-class EloquentTargetAudienceRepository extends BaseRepository implements CreateUpdateRepositoryInterface
+class TargetAudienceRepository extends BaseRepository implements CreateUpdateRepositoryInterface
 {
-    const POSITION_STEP = 10;
+    private const POSITION_STEP = 10;
 
     public function __construct(
         private OrderScopesInterface $orderScope,

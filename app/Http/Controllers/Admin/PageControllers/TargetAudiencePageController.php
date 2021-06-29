@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\PageControllers;
 
 use App\Models\TargetAudiencePage;
 
-class TargetAudiencePageController extends BasePageController
+final class TargetAudiencePageController extends BasePagesController
 {
     public const  ROUTE_EDIT = 'cc.target-audience-pages.edit';
     public const  ROUTE_UPDATE = 'cc.target-audience-pages.update';

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Services\DataProviders\AdminRoleForm\AdminRoleForm;
 use App\Services\FormProcessors\AdminRole\AdminRoleFormProcessor;
-use App\Services\Repositories\AdminRole\EloquentAdminRoleRepository;
+use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use Illuminate\Database\Eloquent\Collection;
 
 class AdminRolesController extends Controller
@@ -19,7 +19,7 @@ class AdminRolesController extends Controller
     public const  ROUTE_DESTROY = 'cc.admin-roles.destroy';
 
     public function __construct(
-        private EloquentAdminRoleRepository $adminRoleRepository,
+        private AdminRoleRepository $adminRoleRepository,
         private AdminRoleFormProcessor $adminRoleFormProcessor,
         private AdminRoleForm $adminRoleForm
     ){}

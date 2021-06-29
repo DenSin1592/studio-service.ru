@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Admin\PageControllers;
 
 use App\Http\Controllers\Controller;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
-use App\Services\Repositories\Node\EloquentNodeRepository;
+use App\Services\Repositories\Node\NodeRepository;
 
-abstract class BasePageController extends Controller
+abstract class BasePagesController extends Controller
 {
     protected \Eloquent $modelPage;
 
     public function __construct(
-        protected EloquentNodeRepository $nodeRepository,
+        protected NodeRepository $nodeRepository,
         private Breadcrumbs $breadcrumbs,
     ){
         $this->installModelPage();

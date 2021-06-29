@@ -7,10 +7,10 @@ use App\Services\FormProcessors\AdminUser\AdminUserFormProcessor;
 use App\Services\FormProcessors\Node\NodeFormProcessor;
 use App\Services\FormProcessors\Settings\SettingsFormProcessor;
 use App\Services\FormProcessors\TargetAudience\TargetAudienceFormProcessor;
-use App\Services\Repositories\AdminRole\EloquentAdminRoleRepository;
-use App\Services\Repositories\AdminUser\EloquentAdminUserRepository;
-use App\Services\Repositories\Node\EloquentNodeRepository;
-use App\Services\Repositories\Setting\EloquentSettingRepository;
+use App\Services\Repositories\AdminRole\AdminRoleRepository;
+use App\Services\Repositories\AdminUser\AdminUserRepository;
+use App\Services\Repositories\Node\NodeRepository;
+use App\Services\Repositories\Setting\SettingRepository;
 use App\Services\Settings\SettingContainer;
 use App\Services\Validation\AdminRole\AdminRoleValidator;
 use App\Services\Validation\AdminUser\AdminUserLaravelValidator;
@@ -29,7 +29,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
             function () {
                 $formProcessor = new AdminUserFormProcessor(
                     new AdminUserLaravelValidator($this->app['validator']),
-                    $this->app->make(EloquentAdminUserRepository::class)
+                    $this->app->make(AdminUserRepository::class)
                 );
                 $formProcessor->addSubProcessor($this->app->make(\App\Services\FormProcessors\AdminUser\SubProcessor\Creator::class));
                 return $formProcessor;
@@ -42,7 +42,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
             function () {
                 $formProcessor = new AdminRoleFormProcessor(
                     new AdminRoleValidator($this->app['validator'], $this->app['acl']),
-                    $this->app->make(EloquentAdminRoleRepository::class)
+                    $this->app->make(AdminRoleRepository::class)
                 );
                 $formProcessor->addSubProcessor($this->app->make(\App\Services\FormProcessors\AdminRole\SubProcessor\Creator::class));
                 return $formProcessor;
@@ -54,7 +54,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
             NodeFormProcessor::class,
             fn() => new NodeFormProcessor(
                 new NodeLaravelValidator($this->app['validator'], $this->app['structure_types.types']),
-                $this->app->make(EloquentNodeRepository::class)
+                $this->app->make(NodeRepository::class)
             )
         );
 
@@ -64,7 +64,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
             function () {
                 return new TargetAudienceFormProcessor(
                     new TargetAudienceLaravelValidator($this->app['validator']),
-                    $this->app->make(\App\Services\Repositories\TargetAudience\EloquentTargetAudienceRepository::class)
+                    $this->app->make(\App\Services\Repositories\TargetAudience\TargetAudienceRepository::class)
                 );
             }
         );
@@ -74,7 +74,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
             SettingsFormProcessor::class,
             fn() => new SettingsFormProcessor(
                 $this->app->make(SettingsLaravelValidator::class),
-                $this->app->make(EloquentSettingRepository::class),
+                $this->app->make(SettingRepository::class),
                 $this->app->make(SettingContainer::class)
             )
         );

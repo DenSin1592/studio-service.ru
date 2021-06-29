@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\Features\ToggleFlags;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
 use App\Services\FormProcessors\TargetAudience\TargetAudienceFormProcessor;
-use App\Services\Repositories\TargetAudience\EloquentTargetAudienceRepository;
+use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
 
 
 class TargetAudiencesController extends Controller
@@ -23,7 +23,7 @@ class TargetAudiencesController extends Controller
     public const  ROUTE_UPDATE_POSITIONS = 'cc.target-audiences.update-positions';
 
     public function __construct(
-        private EloquentTargetAudienceRepository $repository,
+        private TargetAudienceRepository $repository,
         private TargetAudienceFormProcessor $formProcessor,
         private Breadcrumbs $breadcrumbs,
     ){}
@@ -122,7 +122,7 @@ class TargetAudiencesController extends Controller
 
         $model = $this->repository->findById($id);
         if (is_null($model))
-            \App::abort(404, 'Node not found');
+            \App::abort(404, 'Model not found');
 
         $this->repository->toggleAttribute($model, $attribute);
 

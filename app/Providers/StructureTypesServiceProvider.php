@@ -5,9 +5,9 @@ namespace App\Providers;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
 use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
 use App\Models\Node;
-use App\Services\Repositories\Pages\HomePage\EloquentHomePageRepository;
-use App\Services\Repositories\Node\EloquentNodeRepository;
-use App\Services\Repositories\Pages\TargetAudiencePage\EloquentTargetAudiencePageRepository;
+use App\Services\Repositories\Pages\HomePage\HomePageRepository;
+use App\Services\Repositories\Node\NodeRepository;
+use App\Services\Repositories\Pages\TargetAudiencePage\TargetAudiencePageRepository;
 use App\Services\StructureTypes\RepositoryAssociation;
 use App\Services\StructureTypes\Type;
 use App\Services\StructureTypes\TypeContainer;
@@ -24,14 +24,14 @@ class StructureTypesServiceProvider extends ServiceProvider
             TypeContainer::class,
             function () {
                 $typeContainer = new TypeContainer(
-                    $this->app->make(EloquentNodeRepository::class)
+                    $this->app->make(NodeRepository::class)
                 );
 
 
                 $typeContainer->addRepositoryAssociation(
                     self::REPO_HOME_PAGE,
                     new RepositoryAssociation(
-                        $this->app->make(EloquentHomePageRepository::class),
+                        $this->app->make(HomePageRepository::class),
                         function (Node $node) {
                             return route(HomePageController::ROUTE_EDIT, [$node->id]);
                         }
@@ -41,7 +41,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                 $typeContainer->addRepositoryAssociation(
                     self::REPO_TARGET_AUDIENCE_PAGE,
                     new RepositoryAssociation(
-                        $this->app->make(EloquentTargetAudiencePageRepository::class),
+                        $this->app->make(TargetAudiencePageRepository::class),
                         function (Node $node) {
                             return route(TargetAudiencePageController::ROUTE_EDIT, [$node->id]);
                         }

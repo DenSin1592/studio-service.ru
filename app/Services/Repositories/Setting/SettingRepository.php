@@ -6,10 +6,10 @@ use App\Services\Repositories\BaseRepository;
 use App\Services\Repositories\CreateUpdateRepositoryInterface;
 
 /**
- * Class EloquentSettingRepository
+ * Class SettingRepository
  * @package  App\Services\Repositories\Setting
  */
-class EloquentSettingRepository extends BaseRepository implements CreateUpdateRepositoryInterface
+class SettingRepository extends BaseRepository implements CreateUpdateRepositoryInterface
 {
     public function findByKey($key)
     {

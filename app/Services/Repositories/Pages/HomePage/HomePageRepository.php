@@ -7,7 +7,7 @@ use App\Models\Node;
 use App\Services\Repositories\BaseRepository;
 use App\Services\Repositories\Node\NodeContentRepositoryInterface;
 
-class EloquentHomePageRepository extends BaseRepository implements NodeContentRepositoryInterface
+class HomePageRepository extends BaseRepository implements NodeContentRepositoryInterface
 {
     public function findForNodeOrNew(Node $node)
     {

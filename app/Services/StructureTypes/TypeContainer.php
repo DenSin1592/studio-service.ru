@@ -3,18 +3,18 @@
 namespace App\Services\StructureTypes;
 
 use App\Models\Node;
-use App\Services\Repositories\Node\EloquentNodeRepository;
+use App\Services\Repositories\Node\NodeRepository;
 
 /**
  * Container to manage types of App\Model\Node.
  */
 class TypeContainer
 {
-    private EloquentNodeRepository $nodeRepository;
+    private NodeRepository $nodeRepository;
     private array $repositoryAssociations = [];
     private array $typeList = [];
 
-    public function __construct(EloquentNodeRepository $nodeRepository)
+    public function __construct(NodeRepository $nodeRepository)
     {
         $this->nodeRepository = $nodeRepository;
     }

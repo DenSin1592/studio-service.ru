@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Services\DataProviders\AdminUserForm\AdminUserForm;
 use App\Services\FormProcessors\AdminUser\AdminUserFormProcessor;
-use App\Services\Repositories\AdminUser\EloquentAdminUserRepository;
+use App\Services\Repositories\AdminUser\AdminUserRepository;
 use Illuminate\Database\Eloquent\Collection;
 
 class AdminUsersController extends Controller
@@ -18,7 +18,7 @@ class AdminUsersController extends Controller
     public const  ROUTE_DESTROY = 'cc.admin-users.destroy';
 
     public function __construct(
-        private EloquentAdminUserRepository $adminUserRepository,
+        private AdminUserRepository $adminUserRepository,
         private AdminUserFormProcessor $adminUserFormProcessor,
         private AdminUserForm $adminUserForm,
     ){}

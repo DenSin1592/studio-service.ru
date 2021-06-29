@@ -2,7 +2,7 @@
 
 namespace App\Services\Settings;
 
-use App\Services\Repositories\Setting\EloquentSettingRepository;
+use App\Services\Repositories\Setting\SettingRepository;
 use App\Services\Settings\Exception\NotFoundKeyException;
 
 
@@ -12,7 +12,7 @@ class SettingGetter
 
     public function __construct(
         private SettingContainer $settingContainer,
-        private EloquentSettingRepository $settingRepository
+        private SettingRepository $settingRepository
     ){
         $this->fill();
     }
