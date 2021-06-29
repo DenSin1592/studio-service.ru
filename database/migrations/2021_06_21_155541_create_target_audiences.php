@@ -24,6 +24,12 @@ class CreateTargetAudiences extends Migration
                 $table->string('icon')->nullable();
                 $table->boolean('publish')->default(false);
                 $table->integer('position')->default(0);
+
+                $table->string('header')->nullable();
+                $table->string('meta_title')->nullable();
+                $table->string('meta_keywords')->nullable();
+                $table->string('meta_description')->nullable();
+
                 $table->timestamps();
             });
     }

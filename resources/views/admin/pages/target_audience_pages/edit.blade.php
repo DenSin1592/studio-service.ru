@@ -11,8 +11,6 @@
 
     {!! Form::tbModelWithErrors($page, $errors, ['url' => route(\App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController::ROUTE_UPDATE, [$node->id]), 'method' => 'put', 'files' => true]) !!}
 
-        @include('admin.shared._header_meta_field')
-
         @include('admin.shared._form_meta_fields')
 
         @include('admin.shared._model_timestamps', ['model' => $page])

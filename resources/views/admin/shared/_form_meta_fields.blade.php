@@ -1,5 +1,12 @@
 @if(resolve('acl')->checkSeo())
-    {{-- Meta fields for form --}}
+
+    <fieldset class="bordered-group">
+        <legend>Блок мета-данных</legend>
+
+    {!! Form::tbFormGroupOpen('header') !!}
+        {!! Form::tbLabel('header', trans('validation.attributes.header')) !!}
+        {!! Form::tbText('header') !!}
+    {!! Form::tbFormGroupClose() !!}
 
     {!! Form::tbFormGroupOpen('meta_title') !!}
         {!! Form::tbLabel('meta_title', trans('validation.attributes.meta_title')) !!}
@@ -15,4 +22,6 @@
         {!! Form::tbLabel('meta_keywords', trans('validation.attributes.meta_keywords')) !!}
         {!! Form::tbText('meta_keywords') !!}
     {!! Form::tbFormGroupClose() !!}
+
+    </fieldset>
 @endif

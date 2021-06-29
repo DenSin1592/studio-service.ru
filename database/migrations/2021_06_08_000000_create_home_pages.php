@@ -24,7 +24,6 @@ class CreateHomePages extends Migration
                 $table->string('meta_title')->nullable();
                 $table->string('meta_keywords')->nullable();
                 $table->string('meta_description')->nullable();
-                $table->text('content')->nullable();
 
                 $table->timestamps();
             }

@@ -22,7 +22,11 @@ class TargetAudience extends \Eloquent
         'publish',
         'position',
         'icon_file',
-        'icon_remove'
+        'icon_remove',
+        'header',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
     ];
 
     protected $casts = [

@@ -20,7 +20,11 @@ class Competence extends \Eloquent
         'publish',
         'position',
         'preview_image_file',
-        'preview_image_remove'
+        'preview_image_remove',
+        'header',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
     ];
 
     protected $casts = [

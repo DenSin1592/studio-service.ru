@@ -19,4 +19,6 @@
 
 @include('admin.shared._model_image_field', ['model' => $model, 'field' => 'icon'])
 
+@include('admin.shared._form_meta_fields')
+
 @include('admin.shared._model_timestamps', ['model' => $model])
