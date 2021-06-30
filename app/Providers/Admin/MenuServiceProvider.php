@@ -20,9 +20,9 @@ class MenuServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(
-            'admin.main_menu',
+            Menu::class,
             function () {
-                $menu = new Menu();
+                $menu = new Menu($this->app['acl']);
 
                 $menu->addMenuElement(
                     new MenuElement(
@@ -37,9 +37,9 @@ class MenuServiceProvider extends ServiceProvider
                     )
                 );
 
+
                 $groupCatalogs = new MenuGroup('Каталоги', 'glyphicon-book');
                 $menu->addMenuGroup($groupCatalogs);
-
                 $groupCatalogs->addMenuElement(
                     new MenuElement(
                         'Компетенции',
@@ -48,7 +48,6 @@ class MenuServiceProvider extends ServiceProvider
                         [CompetenciesController::class]
                     )
                 );
-
                 /*$groupCatalogs->addMenuElement(
                     new MenuElement(
                         'Услуги',
@@ -57,7 +56,6 @@ class MenuServiceProvider extends ServiceProvider
                         //[CompetenciesController::class]
                     )
                 );*/
-
                 $groupCatalogs->addMenuElement(
                     new MenuElement(
                         'ЦА',
@@ -67,6 +65,7 @@ class MenuServiceProvider extends ServiceProvider
                     )
                 );
 
+
                 $menu->addMenuElement(
                     new MenuElement(
                         'Константы',
@@ -75,6 +74,7 @@ class MenuServiceProvider extends ServiceProvider
                         [SettingsController::class]
                     )
                 );
+
 
                 $groupPermissions = new MenuGroup('Управление доступом', 'glyphicon-tower');
                 $menu->addMenuGroup($groupPermissions);
@@ -86,7 +86,6 @@ class MenuServiceProvider extends ServiceProvider
                         [AdminUsersController::class]
                     )
                 );
-
                 $groupPermissions->addMenuElement(
                     new MenuElement(
                         'Роли администраторов',

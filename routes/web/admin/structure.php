@@ -5,7 +5,7 @@ Route::prefix('structure')->name('structure.')->group(function () {
     Route::put('update-positions', 'StructureController@updatePositions')->name('update-positions');
 });
 
-Route::get('/', 'StructureController@index')->name('home');
+
 Route::resource('structure', 'StructureController')->except(['show']);
 
 Route::namespace('PageControllers')->group(function () {

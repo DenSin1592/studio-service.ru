@@ -2,20 +2,17 @@
 
 namespace App\Services\Composers;
 
+use App\Services\Admin\Acl\Acl;
 use App\Services\Admin\Menu\Menu;
 use App\Services\Admin\Menu\MenuElement;
 use App\Services\Admin\Menu\MenuGroup;
 
 class AdminMainMenuComposer
 {
-    /**
-     * Menu object.
-     */
-    private Menu $mainMenu;
-
-    public function __construct()
+    public function __construct(
+        private Menu $mainMenu,
+        private Acl $acl)
     {
-        $this->mainMenu = \App::make('admin.main_menu');
     }
 
     public function compose($view)
@@ -52,11 +49,12 @@ class AdminMainMenuComposer
         $view->with('main_menu', $menuData);
     }
 
-    /**
-     * Get menu element data for view.
-     */
-    private function getMenuElementData(MenuElement $menuElement): array
+
+    private function getMenuElementData(MenuElement $menuElement): ?array
     {
+        if (!$this->acl->checkRoute($menuElement->getUrl()))
+            return null;
+
         return [
             'name' => $menuElement->getName(),
             'icon' => $menuElement->getIcon(),

@@ -4,10 +4,12 @@ namespace App\Providers\Admin;
 
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
+use App\Http\Controllers\Admin\CompetenciesController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
 use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
+use App\Http\Controllers\Admin\TargetAudiencesController;
 use App\Models\AdminUser;
 use App\Policies\AdminUrlPolicy;
 use App\Policies\AdminRolePolicy;
@@ -36,7 +38,11 @@ class AclServiceProvider extends ServiceProvider
 
     private function bootGates(): void
     {
-        Gate::before(fn(AdminUser $user) => $user->isSuper());
+        Gate::before(function (AdminUser $user) {
+            if ($user->isSuper()) {
+                return true;
+            }
+        });
 
         foreach ($this->app['acl']->abilities()->keys() as $ability) {
             Gate::define($ability, AdminUrlPolicy::class . '@change');
@@ -57,6 +63,11 @@ class AclServiceProvider extends ServiceProvider
                 HomePageController::class,
                 TargetAudiencePageController::class,
             ], 'Структура сайта');
+
+            $acl->define('change-catalog', [
+                CompetenciesController::class,
+                TargetAudiencesController::class
+            ], 'Каталоги');
 
             $acl->define('change-settings', [
                 SettingsController::class,
