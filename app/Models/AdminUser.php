@@ -4,10 +4,10 @@ namespace App\Models;
 
 use App\Models\Features\PasswordSetter;
 use App\Models\Features\TreeAncestors;
-use App\Services\Admin\Acl\AclUser;
+use App\Services\Admin\Acl\AclUserInterface;
 use Illuminate\Foundation\Auth\User;
 
-class AdminUser extends User implements AclUser
+class AdminUser extends User implements AclUserInterface
 {
     use PasswordSetter;
     use TreeAncestors;

@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Services\Admin\Acl\AclUser;
+use App\Services\Admin\Acl\AclUserInterface;
 use App\Services\Admin\Acl\Helpers\CheckHelper;
 
 class AdminUrlPolicy
@@ -10,12 +10,12 @@ class AdminUrlPolicy
     public function __construct(private CheckHelper $checkHelper)
     {}
 
-    public function before(AclUser $user, $ability)
+    public function before(AclUserInterface $user, $ability)
     {
         $this->checkHelper->setAbility($ability);
     }
 
-    public function change(AclUser $user, string $url = null, string $method = 'GET'): bool
+    public function change(AclUserInterface $user, string $url = null, string $method = 'GET'): bool
     {
         return $this->checkHelper->checkAbility($user) && $this->checkHelper->checkUrl($url, $method);
     }

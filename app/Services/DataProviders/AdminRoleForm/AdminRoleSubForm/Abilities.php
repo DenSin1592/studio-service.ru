@@ -4,9 +4,9 @@ namespace App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm;
 
 use App\Models\AdminRole;
 use App\Services\Admin\Acl\Acl;
-use App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm;
+use App\Services\DataProviders\AdminRoleForm\AdminRoleSubFormInterface;
 
-class Abilities implements AdminRoleSubForm
+class Abilities implements AdminRoleSubFormInterface
 {
     public function __construct(
         private Acl $acl

@@ -2,7 +2,7 @@
 
 namespace App\Services\Admin\Acl;
 
-interface AclUser
+interface AclUserInterface
 {
     /**
      *  Check that user is super.

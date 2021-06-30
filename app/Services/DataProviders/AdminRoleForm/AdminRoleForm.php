@@ -22,7 +22,7 @@ class AdminRoleForm
         return $data;
     }
 
-    public function addSubForm(AdminRoleSubForm $subForm): void
+    public function addSubForm(AdminRoleSubFormInterface $subForm): void
     {
         $this->subFormList[] = $subForm;
     }

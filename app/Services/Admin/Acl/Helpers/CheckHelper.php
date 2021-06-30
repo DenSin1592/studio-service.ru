@@ -3,7 +3,7 @@
 namespace App\Services\Admin\Acl\Helpers;
 
 use App\Services\Admin\Acl\Acl;
-use App\Services\Admin\Acl\AclUser;
+use App\Services\Admin\Acl\AclUserInterface;
 use Illuminate\Routing\UrlGenerator;
 use Str;
 
@@ -26,7 +26,7 @@ class CheckHelper
         $this->ability = $ability;
     }
 
-    public function checkAbility(AclUser $user): bool
+    public function checkAbility(AclUserInterface $user): bool
     {
         return collect($user->getAbilities())->contains($this->ability);
     }

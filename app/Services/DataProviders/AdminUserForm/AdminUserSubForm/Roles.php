@@ -3,10 +3,10 @@
 namespace App\Services\DataProviders\AdminUserForm\AdminUserSubForm;
 
 use App\Models\AdminUser;
-use App\Services\DataProviders\AdminUserForm\AdminUserSubForm;
+use App\Services\DataProviders\AdminUserForm\AdminUserSubFormInterface;
 use App\Services\Repositories\AdminRole\AdminRoleRepository;
 
-class Roles implements AdminUserSubForm
+class Roles implements AdminUserSubFormInterface
 {
     public function __construct(
         private AdminRoleRepository $adminRoleRepository
