@@ -4,7 +4,7 @@ namespace App\Services\Validation\AdminUser;
 
 use App\Services\Validation\AbstractLaravelValidator;
 
-class AdminUserLaravelValidator extends AbstractLaravelValidator
+class AdminUserValidator extends AbstractLaravelValidator
 {
     protected function getRules(): array
     {

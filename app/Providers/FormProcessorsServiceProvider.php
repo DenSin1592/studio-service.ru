@@ -14,7 +14,7 @@ use App\Services\Repositories\Node\NodeRepository;
 use App\Services\Repositories\Setting\SettingRepository;
 use App\Services\Settings\SettingContainer;
 use App\Services\Validation\AdminRole\AdminRoleValidator;
-use App\Services\Validation\AdminUser\AdminUserLaravelValidator;
+use App\Services\Validation\AdminUser\AdminUserValidator;
 use App\Services\Validation\Competence\CompetenceValidator;
 use App\Services\Validation\Node\NodeValidator;
 use App\Services\Validation\Settings\SettingsValidator;
@@ -30,7 +30,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
             AdminUserFormProcessor::class,
             function () {
                 $formProcessor = new AdminUserFormProcessor(
-                    new AdminUserLaravelValidator($this->app['validator']),
+                    new AdminUserValidator($this->app['validator']),
                     $this->app->make(AdminUserRepository::class)
                 );
                 $formProcessor->addSubProcessor($this->app->make(\App\Services\FormProcessors\AdminUser\SubProcessor\Creator::class));
