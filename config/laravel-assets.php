@@ -30,7 +30,7 @@ return [
             ],
             'filters' => ['css_min', 'embed_css', 'strip_bom', 'css_url_rebase'],
             //'async' => true,
-            'output' => 'client.css'
+            'output' => 'css/compiled/client_layout.css'
         ],
 
         'client_layout_js' => [
@@ -41,7 +41,7 @@ return [
             ],
             'filters' => ['js_min', 'end_with_semicolon'],
             //'async' => true,
-            'output' => 'client.js'
+            'output' => 'js/compiled/client_layout.js'
         ],
 
 
@@ -71,7 +71,7 @@ return [
             ],
             'filters' => ['css_min', 'embed_css', 'strip_bom', 'css_url_rebase'],
             //'async' => true,
-            'output' => 'client.css'
+            'output' => 'css/compiled/admin.css'
         ],
         'admin_js' => [
             'assets' => [
@@ -100,7 +100,7 @@ return [
             ],
             'filters' => ['js_min', 'end_with_semicolon'],
             //'async' => true,
-            'output' => 'client.js'
+            'output' => 'js/compiled/admin.js'
         ],
     ],
     /*
