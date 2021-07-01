@@ -54,7 +54,7 @@ class TargetAudience extends \Eloquent
         self::mountUploader(
             'icon',
             UploaderIntegrator::getUploader(
-                'uploads/target-audience/images', [
+                'uploads/target-audience/icons', [
                     'thumb' => new BoxVersion(85, 85, ['quality' => 100])
                 ], true
             )
