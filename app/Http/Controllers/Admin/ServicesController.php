@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\Features\ToggleFlags;
 use App\Http\Controllers\Admin\Features\UpdatePositions;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
+use App\Services\FormProcessors\Service\ServiceFormProcessor;
 use App\Services\Repositories\Services\ServicesRepository;
 
 class ServicesController
@@ -25,7 +26,7 @@ class ServicesController
 
     public function __construct(
         private ServicesRepository $repository,
-        //private CompetenceFormProcessor $formProcessor,
+        private ServiceFormProcessor $formProcessor,
         private Breadcrumbs $breadcrumbs,
     ){}
 
@@ -53,8 +54,8 @@ class ServicesController
 
     public function store()
     {
-        dd(__METHOD__);
-        /*$model = $this->formProcessor->create(\Request::except('redirect_to'));
+
+        $model = $this->formProcessor->create(\Request::except('redirect_to'));
         if (is_null($model))
             return \Redirect::route(self::ROUTE_CREATE)
                 ->withErrors($this->formProcessor->errors())->withInput();
@@ -64,26 +65,24 @@ class ServicesController
         } else {
             $redirect = \Redirect::route(self::ROUTE_EDIT, [$model->id]);
         }
-        return $redirect->with('alert_success', trans('Компетенция создана'));*/
+        return $redirect->with('alert_success', trans('Услуга создана'));
     }
 
 
     public function edit($id)
     {
-        dd(__METHOD__);
-        /*$model = $this->repository->find($id);
+        $model = $this->repository->find($id);
         $breadcrumbs = $this->breadcrumbs->getFor('competences.edit', $model);
 
-        return view('admin.competencies.edit')
+        return view('admin.services.edit')
             ->with('model', $model)
-            ->with('breadcrumbs', $breadcrumbs);*/
+            ->with('breadcrumbs', $breadcrumbs);
     }
 
 
     public function update($id)
     {
-        dd(__METHOD__);
-        /*$model = $this->repository->find($id);
+        $model = $this->repository->find($id);
         $success = $this->formProcessor->update($model ,\Request::except('redirect_to'));
         if (!$success)
             return \Redirect::route(self::ROUTE_EDIT, [$model->id])
@@ -94,16 +93,15 @@ class ServicesController
         } else {
             $redirect = \Redirect::route(self::ROUTE_EDIT, [$model->id]);
         }
-        return $redirect->with('alert_success', trans('Компетенция обновлена'));*/
+        return $redirect->with('alert_success', trans('Услуга обновлена'));
     }
 
 
     public function destroy($id)
     {
-        dd(__METHOD__);
-        /*$model = $this->repository->find($id);
+        $model = $this->repository->find($id);
         $this->repository->delete($model);
 
-        return \Redirect::route(self::ROUTE_INDEX)->with('alert_success', 'Компетенция удалена');*/
+        return \Redirect::route(self::ROUTE_INDEX)->with('alert_success', 'Услуга удалена');
     }
 }
