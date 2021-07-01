@@ -1,4 +1,4 @@
-@extends('admin.structure.inner')
+@extends('admin.layouts.inner')
 {{-- Edit home pages --}}
 
 @section('title')

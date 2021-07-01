@@ -2,7 +2,9 @@
 
 namespace App\Providers\Admin;
 
+use App\Http\Controllers\Admin\CompetenciesController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
+use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\StructureController;
 use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
 use App\Http\Controllers\Admin\TargetAudiencesController;
@@ -52,7 +54,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
 
         $breadcrumbs->addBuilder(
             'target_audiences.create',
-            function (TargetAudience $model) {
+            function () {
                 $path = new Path();
                 $path->add('Каталог ЦА', route(TargetAudiencesController::ROUTE_INDEX));
                 $path->add('Создание ЦА');
@@ -61,7 +63,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
         );
         $breadcrumbs->addBuilder(
             'target_audiences.edit',
-            function (TargetAudience $model) {
+            function () {
                 $path = new Path();
                 $path->add('Каталог ЦА', route(TargetAudiencesController::ROUTE_INDEX));
                 $path->add('Редактирование ЦА');
@@ -72,19 +74,39 @@ class BreadcrumbsServiceProvider extends ServiceProvider
 
         $breadcrumbs->addBuilder(
             'competences.create',
-            function (Competence $model) {
+            function () {
                 $path = new Path();
-                $path->add('Каталог Компетенций', route(TargetAudiencesController::ROUTE_INDEX));
+                $path->add('Каталог Компетенций', route(CompetenciesController::ROUTE_INDEX));
                 $path->add('Создание Компетенции');
                 return $path;
             }
         );
         $breadcrumbs->addBuilder(
             'competences.edit',
-            function (Competence $model) {
+            function () {
                 $path = new Path();
-                $path->add('Каталог Компетенций', route(TargetAudiencesController::ROUTE_INDEX));
+                $path->add('Каталог Компетенций', route(CompetenciesController::ROUTE_INDEX));
                 $path->add('Редактирование Компетенции');
+                return $path;
+            }
+        );
+
+
+        $breadcrumbs->addBuilder(
+            'services.create',
+            function () {
+                $path = new Path();
+                $path->add('Каталог услуг', route(ServicesController::ROUTE_INDEX));
+                $path->add('Создание услуги');
+                return $path;
+            }
+        );
+        $breadcrumbs->addBuilder(
+            'services.edit',
+            function () {
+                $path = new Path();
+                $path->add('Каталог услуг', route(ServicesController::ROUTE_INDEX));
+                $path->add('Редактирование услуги');
                 return $path;
             }
         );

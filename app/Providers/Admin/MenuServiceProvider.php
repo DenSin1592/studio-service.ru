@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\CompetenciesController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
+use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
 use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
@@ -48,14 +49,14 @@ class MenuServiceProvider extends ServiceProvider
                         [CompetenciesController::class]
                     )
                 );
-                /*$groupCatalogs->addMenuElement(
+                $groupCatalogs->addMenuElement(
                     new MenuElement(
                         'Услуги',
                         'glyphicon-ok',
-                        //route(CompetenciesController::ROUTE_INDEX),
-                        //[CompetenciesController::class]
+                        route(ServicesController::ROUTE_INDEX),
+                        [ServicesController::class]
                     )
-                );*/
+                );
                 $groupCatalogs->addMenuElement(
                     new MenuElement(
                         'ЦА',

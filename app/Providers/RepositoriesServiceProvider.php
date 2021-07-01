@@ -7,6 +7,7 @@ use App\Models\AdminUser;
 use App\Models\Competence;
 use App\Models\HomePage;
 use App\Models\Node;
+use App\Models\Service;
 use App\Models\Setting;
 use App\Models\TargetAudience;
 use App\Models\TargetAudiencePage;
@@ -17,6 +18,7 @@ use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Node\NodeRepository;
 use App\Services\Repositories\Pages\HomePage\HomePageRepository;
 use App\Services\Repositories\Pages\TargetAudiencePage\TargetAudiencePageRepository;
+use App\Services\Repositories\Services\ServicesRepository;
 use App\Services\Repositories\Setting\SettingRepository;
 use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
 use App\Services\RepositoryFeatures\Attribute\EloquentAttributeToggler;
@@ -67,6 +69,20 @@ class RepositoriesServiceProvider extends ServiceProvider
             )
         );
 
+        $this->app->singleton(ServicesRepository::class,
+            fn() => new ServicesRepository(
+                new EloquentAttributeToggler(),
+                new PositionUpdater(),
+                new Service()
+            )
+        );
+
+
+        $this->app->singleton(
+            SettingRepository::class,
+            fn() => new SettingRepository(new Setting())
+        );
+
 
         $this->app->singleton(
             TargetAudiencePageRepository::class,
@@ -83,12 +99,5 @@ class RepositoriesServiceProvider extends ServiceProvider
                 new TargetAudience()
             )
         );
-
-
-        $this->app->singleton(
-            SettingRepository::class,
-            fn() => new SettingRepository(new Setting())
-        );
-
     }
 }

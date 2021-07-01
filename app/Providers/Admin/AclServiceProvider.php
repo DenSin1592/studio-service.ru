@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\CompetenciesController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
+use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
 use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
@@ -66,7 +67,8 @@ class AclServiceProvider extends ServiceProvider
 
             $acl->define('change-catalog', [
                 CompetenciesController::class,
-                TargetAudiencesController::class
+                ServicesController::class,
+                TargetAudiencesController::class,
             ], 'Каталоги');
 
             $acl->define('change-settings', [

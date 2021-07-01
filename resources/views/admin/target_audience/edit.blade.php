@@ -1,4 +1,4 @@
-@extends('admin.target_audience.inner')
+@extends('admin.layouts.inner')
 
 @section('title')
     {{ $model->name }} - редактирование ЦА
