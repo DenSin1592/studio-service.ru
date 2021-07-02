@@ -176,6 +176,8 @@ return [
         /*
          * Package Service Providers...
          */
+        Diol\LaravelErrorSender\ServiceProvider::class,
+        Diol\LaravelMailer\ServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Elfinder\ElfinderServiceProvider::class,
 
