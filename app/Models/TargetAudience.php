@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Features\AutoPublish;
 use App\Models\Features\TreeParentPath;
+use App\Models\Helpers\AliasHelpers;
 use App\Models\Helpers\DeleteHelpers;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\BoxVersion;
@@ -59,5 +60,9 @@ class TargetAudience extends \Eloquent
                 ], true
             )
         );
+
+        self::saving(function (self $model) {
+            AliasHelpers::setAlias($model);
+        });
     }
 }

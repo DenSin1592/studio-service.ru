@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Features\AutoPublish;
+use App\Models\Helpers\AliasHelpers;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\BoxVersion;
 use Diol\FileclipExif\Glue;
@@ -42,5 +43,9 @@ class Service extends \Eloquent
             ], true
             )
         );
+
+        self::saving(function (self $model) {
+            AliasHelpers::setAlias($model);
+        });
     }
 }

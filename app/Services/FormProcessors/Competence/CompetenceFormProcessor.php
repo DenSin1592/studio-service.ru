@@ -9,19 +9,4 @@ use App\Services\Validation\ValidableInterface;
 
 class CompetenceFormProcessor extends CreateUpdateFormProcessor
 {
-    use AutoAlias;
-
-    public function __construct(
-        ValidableInterface $validator,
-        CreateUpdateRepositoryInterface $repository
-    ) {
-        parent::__construct($validator, $repository);
-    }
-
-
-    protected function prepareInputData(array $data): array
-    {
-        $data = $this->setAutoAlias($data);
-        return $data;
-    }
 }

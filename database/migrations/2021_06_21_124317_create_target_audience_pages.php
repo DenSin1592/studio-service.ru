@@ -14,7 +14,7 @@ class CreateTargetAudiencePages extends Migration
     public function up()
     {
         Schema::create('target_audience_pages', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->unsignedInteger('node_id');
             $table->foreign('node_id')->references('id')->on('nodes');
 
