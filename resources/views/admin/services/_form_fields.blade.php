@@ -13,6 +13,8 @@
 
 @include('admin.shared._model_image_field', ['model' => $model, 'field' => 'preview_image'])
 
+@include('admin.services._competencies._block', ['models' => []])
+
 @include('admin.shared._form_meta_fields')
 
 @include('admin.shared._model_timestamps', ['model' => $model])
