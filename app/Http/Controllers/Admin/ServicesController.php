@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Http\Controllers\Admin;
-
 
 use App\Http\Controllers\Admin\Features\ToggleFlags;
 use App\Http\Controllers\Admin\Features\UpdatePositions;
@@ -44,7 +42,7 @@ class ServicesController
     {
         $model = $this->repository->newInstance();
         $formData = $this->formDataProvider->provideData($model, old());
-        $breadcrumbs = $this->breadcrumbs->getFor('competences.create', $model);
+        $breadcrumbs = $this->breadcrumbs->getFor('services.create', $model);
 
         return view('admin.services.create')
             ->with('formData', $formData)
@@ -75,7 +73,7 @@ class ServicesController
             App::abort(404, 'Service is not found');
 
         $formData = $this->formDataProvider->provideData($model, old());
-        $breadcrumbs = $this->breadcrumbs->getFor('competences.edit', $model);
+        $breadcrumbs = $this->breadcrumbs->getFor('services.edit', $model);
 
         return view('admin.services.edit')
             ->with('formData', $formData)

@@ -6,6 +6,8 @@
 
 @section('content')
 
+    @include('admin.layouts._breadcrumbs')
+
     {!! Form::tbModelWithErrors($model, $errors, ['url' => route(\App\Http\Controllers\Admin\CompetenciesController::ROUTE_UPDATE, [$model->id]), 'method' => 'put', 'files' => true, 'autocomplete' => 'off']) !!}
 
         @include('admin.competencies._form_fields')
