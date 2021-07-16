@@ -30,6 +30,11 @@ class Service extends \Eloquent
         'publish' => 'boolean',
     ];
 
+    public function competencies()
+    {
+        return $this->belongsToMany(Competence::class)->withPivot('position');
+    }
+
     protected static function boot(): void
     {
         parent::boot();
@@ -43,6 +48,10 @@ class Service extends \Eloquent
             ], true
             )
         );
+
+        static::deleting(function (self $model) {
+            $model->competencies()->detach();
+        });
 
         self::saving(function (self $model) {
             AliasHelpers::setAlias($model);

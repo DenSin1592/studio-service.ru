@@ -12,10 +12,8 @@ class NodeFormProcessor extends CreateUpdateFormProcessor
 {
     use AutoAlias;
 
-
     protected function prepareInputData(array $data): array
     {
-
         if (isset($data['type']) && $data['type'] == Node::TYPE_HOME_PAGE) {
             $data['alias'] = null;
         }else{

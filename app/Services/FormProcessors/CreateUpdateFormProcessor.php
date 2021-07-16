@@ -7,10 +7,28 @@ use App\Services\Validation\ValidableInterface;
 
 abstract class CreateUpdateFormProcessor implements CrudFormProcessorInterface
 {
+    private array $subProcessorList = [];
+
     public function __construct(
         protected ValidableInterface $validator,
         protected CreateUpdateRepositoryInterface $repository
     ){}
+
+
+    public function addSubProcessor(SubProcessor $subProcessor)
+    {
+        $this->subProcessorList[] = $subProcessor;
+    }
+
+
+    protected function prepareInputData(array $data)
+    {
+        foreach ($this->subProcessorList as $subProcessor) {
+            $data = $subProcessor->prepareInputData($data);
+        }
+
+        return $data;
+    }
 
 
     public function create(array $data = []): ?\Eloquent
@@ -23,8 +41,6 @@ abstract class CreateUpdateFormProcessor implements CrudFormProcessorInterface
         $this->afterSuccess($instance, $data);
 
         return $instance;
-
-
     }
 
     /**
@@ -40,7 +56,6 @@ abstract class CreateUpdateFormProcessor implements CrudFormProcessorInterface
         $this->repository->update($instance, $data);
         $this->afterSuccess($instance, $data);
         return true;
-
     }
 
     /**
@@ -52,18 +67,12 @@ abstract class CreateUpdateFormProcessor implements CrudFormProcessorInterface
     }
 
     /**
-     * Prepare input data before validation and creating/updating.
-     */
-    protected function prepareInputData(array $data): array
-    {
-        return $data;
-    }
-
-    /**
      * Do something after instance.
      */
     protected function afterSuccess($instance, array $data)
     {
-        // rewrite this method if needed
+        foreach ($this->subProcessorList as $subProcessor) {
+            $subProcessor->save($instance, $data);
+        }
     }
 }

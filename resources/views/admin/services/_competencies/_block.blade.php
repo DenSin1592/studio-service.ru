@@ -6,15 +6,14 @@
     </div>
 
     <div id="modal-competencies-current">
-        @include('admin.services._competencies._current' /*['types' => $formData['types']]*/)
+        @include('admin.services._competencies._current', ['models' => $formData['competencies']])
     </div>
 
     <div class="form-group">
         <button type="button" class="btn btn-success"
                 data-source="#modal-competencies-current"
                 data-toggle="modal" data-target="#modal-competencies-editor">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            Выбрать
+            Редактировать
         </button>
     </div>
 

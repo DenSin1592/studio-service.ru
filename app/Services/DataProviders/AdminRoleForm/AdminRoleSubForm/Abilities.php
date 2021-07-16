@@ -2,20 +2,20 @@
 
 namespace App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm;
 
-use App\Models\AdminRole;
 use App\Services\Admin\Acl\Acl;
-use App\Services\DataProviders\AdminRoleForm\AdminRoleSubFormInterface;
+use App\Services\DataProviders\BaseSubForm;
 
-class Abilities implements AdminRoleSubFormInterface
+class Abilities extends BaseSubForm
 {
     public function __construct(
         private Acl $acl
     ){}
 
-    public function provideDataFor(AdminRole $adminRole, array $oldInput): array
+    public function provideData( \Eloquent $model = null, array $oldInput = null): array
     {
         return ['abilities' => $this->getAbilitiesVariants()];
     }
+
 
     private function getAbilitiesVariants(): array
     {

@@ -33,7 +33,7 @@ class AdminUsersController extends Controller
     public function create()
     {
         return \View('admin.admin_users.create')
-            ->with($this->adminUserForm->provideDataFor($this->adminUserRepository->newInstance(), request()->old()))
+            ->with($this->adminUserForm->provideData($this->adminUserRepository->newInstance(), request()->old()))
             ->with('user_list', $this->getUserList());
     }
 
@@ -67,7 +67,7 @@ class AdminUsersController extends Controller
             \App::abort(403, 'Super user can be edited only by super user');
 
         return \View('admin.admin_users.edit')
-            ->with($this->adminUserForm->provideDataFor($user, request()->old()))
+            ->with($this->adminUserForm->provideData($user, request()->old()))
             ->with('user_list', $this->getUserList());
     }
 

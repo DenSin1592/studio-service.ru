@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\Features\ToggleFlags;
 use App\Http\Controllers\Admin\Features\UpdatePositions;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
+use App\Services\DataProviders\ServiceForm\ServiceForm;
 use App\Services\FormProcessors\Service\ServiceFormProcessor;
 use App\Services\Repositories\Services\ServicesRepository;
 
@@ -27,34 +28,32 @@ class ServicesController
     public function __construct(
         private ServicesRepository $repository,
         private ServiceFormProcessor $formProcessor,
+        private ServiceForm $formDataProvider,
         private Breadcrumbs $breadcrumbs,
     ){}
 
 
     public function index()
     {
-
-        $models = $this->repository->all();
-
         return view('admin.services.index')
-            ->with('models', $models);
+            ->with('models', $this->repository->all());
     }
 
 
     public function create()
     {
         $model = $this->repository->newInstance();
+        $formData = $this->formDataProvider->provideData($model, old());
         $breadcrumbs = $this->breadcrumbs->getFor('competences.create', $model);
 
         return view('admin.services.create')
-            ->with('model', $model)
+            ->with('formData', $formData)
             ->with('breadcrumbs', $breadcrumbs);
     }
 
 
     public function store()
     {
-
         $model = $this->formProcessor->create(\Request::except('redirect_to'));
         if (is_null($model))
             return \Redirect::route(self::ROUTE_CREATE)
@@ -72,10 +71,14 @@ class ServicesController
     public function edit($id)
     {
         $model = $this->repository->find($id);
+        if (null === $model)
+            App::abort(404, 'Service is not found');
+
+        $formData = $this->formDataProvider->provideData($model, old());
         $breadcrumbs = $this->breadcrumbs->getFor('competences.edit', $model);
 
         return view('admin.services.edit')
-            ->with('model', $model)
+            ->with('formData', $formData)
             ->with('breadcrumbs', $breadcrumbs);
     }
 

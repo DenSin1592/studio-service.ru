@@ -6,7 +6,7 @@
 
     @include('admin.layouts._breadcrumbs')
 
-    {!! Form::tbModelWithErrors($model, $errors, ['url' => route(\App\Http\Controllers\Admin\ServicesController::ROUTE_STORE), 'method' => 'post', 'files' => true, 'autocomplete' => 'off']) !!}
+    {!! Form::tbModelWithErrors($formData['service'], $errors, ['url' => route(\App\Http\Controllers\Admin\ServicesController::ROUTE_STORE), 'method' => 'post', 'files' => true, 'autocomplete' => 'off']) !!}
 
         @include('admin.services._form_fields')
 

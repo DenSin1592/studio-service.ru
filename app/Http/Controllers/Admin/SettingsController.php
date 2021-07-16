@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use App\Services\DataProviders\SettingsForm\SettingsForm;
 use App\Services\FormProcessors\Settings\SettingsFormProcessor;
 

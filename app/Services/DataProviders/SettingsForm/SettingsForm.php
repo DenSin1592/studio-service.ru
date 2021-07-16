@@ -2,18 +2,16 @@
 
 namespace App\Services\DataProviders\SettingsForm;
 
+use App\Services\DataProviders\BaseDataProvider;
 use App\Services\Settings\SettingGetter;
 
-class SettingsForm
+class SettingsForm extends BaseDataProvider
 {
-    public function __construct(
-        private SettingGetter $settingGetter
-    ){}
-
-    public function provideData(): array
+    public function provideData(\Eloquent $model = null, array $oldInput = null): array
     {
+        $settingGetter = \App(SettingGetter::class);
         return [
-            'group_list' => $this->settingGetter->groups(),
+            'group_list' => $settingGetter->groups(),
         ];
     }
 }

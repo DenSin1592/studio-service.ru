@@ -34,7 +34,7 @@ class AdminRolesController extends Controller
     public function create()
     {
         return \View('admin.admin_roles.create')
-            ->with($this->adminRoleForm->provideDataFor($this->adminRoleRepository->newInstance(), request()->old()))
+            ->with($this->adminRoleForm->provideData($this->adminRoleRepository->newInstance(), request()->old()))
             ->with('role_list', $this->getRoleList());
     }
 
@@ -64,7 +64,7 @@ class AdminRolesController extends Controller
         $this->authorize('change-admin-role', $role);
 
         return \View('admin.admin_roles.edit')
-            ->with($this->adminRoleForm->provideDataFor($role, request()->old()))
+            ->with($this->adminRoleForm->provideData($role, request()->old()))
             ->with('role_list', $this->getRoleList());
     }
 

@@ -7,6 +7,7 @@ use App\Services\FormProcessors\AdminUser\AdminUserFormProcessor;
 use App\Services\FormProcessors\Competence\CompetenceFormProcessor;
 use App\Services\FormProcessors\Node\NodeFormProcessor;
 use App\Services\FormProcessors\Service\ServiceFormProcessor;
+use App\Services\FormProcessors\Service\SubProcessor\Competencies;
 use App\Services\FormProcessors\Settings\SettingsFormProcessor;
 use App\Services\FormProcessors\TargetAudience\TargetAudienceFormProcessor;
 use App\Services\Repositories\AdminRole\AdminRoleRepository;
@@ -59,8 +60,8 @@ class FormProcessorsServiceProvider extends ServiceProvider
         $this->app->bind(
         CompetenceFormProcessor::class,
          fn() => new CompetenceFormProcessor(
-                new CompetenceValidator($this->app['validator']),
-                $this->app->make(CompetenciesRepository::class)
+             $this->app->make(CompetenceValidator::class),
+             $this->app->make(CompetenciesRepository::class)
              )
         );
 
@@ -76,10 +77,14 @@ class FormProcessorsServiceProvider extends ServiceProvider
 
         $this->app->bind(
             ServiceFormProcessor::class,
-            fn() => new ServiceFormProcessor(
-                new ServiceValidator($this->app['validator']),
-                $this->app->make(ServicesRepository::class)
-            )
+             function () {
+                 $formProcessor = new ServiceFormProcessor(
+                     $this->app->make(ServiceValidator::class),
+                     $this->app->make(ServicesRepository::class)
+                 );
+                 $formProcessor->addSubProcessor(\App(Competencies::class));
+                 return $formProcessor;
+             }
         );
 
 
@@ -95,12 +100,10 @@ class FormProcessorsServiceProvider extends ServiceProvider
 
         $this->app->bind(
             TargetAudienceFormProcessor::class,
-            function () {
-                return new TargetAudienceFormProcessor(
-                    new TargetAudienceValidator($this->app['validator']),
-                    $this->app->make(\App\Services\Repositories\TargetAudience\TargetAudienceRepository::class)
-                );
-            }
+            fn() => new TargetAudienceFormProcessor(
+                $this->app->make(TargetAudienceValidator::class),
+                $this->app->make(\App\Services\Repositories\TargetAudience\TargetAudienceRepository::class)
+            )
         );
 
     }

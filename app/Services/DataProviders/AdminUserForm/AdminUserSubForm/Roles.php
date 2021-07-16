@@ -2,17 +2,16 @@
 
 namespace App\Services\DataProviders\AdminUserForm\AdminUserSubForm;
 
-use App\Models\AdminUser;
-use App\Services\DataProviders\AdminUserForm\AdminUserSubFormInterface;
+use App\Services\DataProviders\BaseSubForm;
 use App\Services\Repositories\AdminRole\AdminRoleRepository;
 
-class Roles implements AdminUserSubFormInterface
+class Roles extends BaseSubForm
 {
     public function __construct(
         private AdminRoleRepository $adminRoleRepository
     ){}
 
-    public function provideDataFor(AdminUser $adminUser, array $oldInput): array
+    public function provideData(\Eloquent $model = null, array $oldInput = null): array
     {
         $authUser = \Auth::user();
 
