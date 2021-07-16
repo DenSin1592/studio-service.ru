@@ -4,6 +4,7 @@ namespace App\Providers\Admin;
 
 use App\Http\Controllers\Admin\CompetenciesController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
+use App\Http\Controllers\Admin\ReviewsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\StructureController;
 use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
@@ -87,6 +88,26 @@ class BreadcrumbsServiceProvider extends ServiceProvider
                 $path = new Path();
                 $path->add('Каталог Компетенций', route(CompetenciesController::ROUTE_INDEX));
                 $path->add('Редактирование Компетенции');
+                return $path;
+            }
+        );
+
+
+        $breadcrumbs->addBuilder(
+            'reviews.create',
+            function () {
+                $path = new Path();
+                $path->add('Отзывы', route(ReviewsController::ROUTE_INDEX));
+                $path->add('Создание отзыва');
+                return $path;
+            }
+        );
+        $breadcrumbs->addBuilder(
+            'reviews.edit',
+            function () {
+                $path = new Path();
+                $path->add('Отзывы', route(ReviewsController::ROUTE_INDEX));
+                $path->add('Редактирование отзыва');
                 return $path;
             }
         );

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\Features\ToggleFlags;
 use App\Http\Controllers\Controller;
+use App\Services\Admin\Breadcrumbs\Breadcrumbs;
+use App\Services\DataProviders\ReviewForm\ReviewForm;
 use App\Services\Repositories\Review\ReviewRepository;
 
 class ReviewsController extends Controller
@@ -18,15 +20,11 @@ class ReviewsController extends Controller
     public const  ROUTE_DESTROY = 'cc.reviews.destroy';
     public const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.reviews.toggle-attribute';
 
-    //private EloquentProductRepository $catalogProductRepository;
-    //private AdminReviewFormProcessor $formProcessor;
-    //private ReviewForm $reviewDataProvider;
-
     public function __construct(
         private ReviewRepository $repository,
-        //EloquentProductRepository $catalogProductRepository,
-        //AdminReviewFormProcessor $formProcessor,
-        //ReviewForm $reviewDataProvider
+        //private AdminReviewFormProcessor $formProcessor,
+        private ReviewForm $reviewDataProvider,
+        private Breadcrumbs $breadcrumbs,
     ){}
 
     public function index()
@@ -35,22 +33,21 @@ class ReviewsController extends Controller
         return view('admin.review.index')->with('reviewList', $reviewList);
     }
 
-    /*public function create()
+    public function create()
     {
-        $review = $this->repository->newInstance();
-        $formData = $this->reviewDataProvider->provideDataFor($review, \Request::old());
-        $reviewList = $this->repository->paginate();
-
-        $productVariants = [];
+        $model = $this->repository->newInstance();
+        $formData = $this->reviewDataProvider->provideData($model, \Request::old());
+        $breadcrumbs = $this->breadcrumbs->getFor('reviews.create', $model);
 
         return view('admin.review.create')
-            ->with('reviewList', $reviewList)
             ->with('formData', $formData)
-            ->with('productVariants', $productVariants);
-    }*/
+            ->with('breadcrumbs', $breadcrumbs)
+            ;
+    }
 
-   /* public function store()
+    public function store()
     {
+        dd(__METHOD__);
         $review = $this->formProcessor->create(\Request::except('redirect_to'));
         if (null === $review) {
             return \Redirect::route('cc.reviews.create')
@@ -64,10 +61,11 @@ class ReviewsController extends Controller
 
             return $redirect->with('alert_success', 'Отзыв создан');
         }
-    }*/
+    }
 
-   /* public function edit($id)
+    public function edit($id)
     {
+        dd(__METHOD__);
         $review = $this->repository->findById($id);
         if (is_null($review)) {
             App::abort(404, 'Review not found');
@@ -86,10 +84,11 @@ class ReviewsController extends Controller
             ->with('product', $product)
             ->with('formData', $formData)
             ->with('productVariants', $productVariants);
-    }*/
+    }
 
-    /*public function update($id)
+    public function update($id)
     {
+        dd(__METHOD__);
         $review = $this->repository->findById($id);
         if (is_null($review)) {
             \App::abort(404, 'Review not found');
@@ -108,9 +107,9 @@ class ReviewsController extends Controller
 
             return $redirect->with('alert_success', 'Отзыв обновлен');
         }
-    }*/
+    }
 
-   /* public function destroy($id)
+    public function destroy($id)
     {
         $review = $this->repository->findById($id);
         if (is_null($review)) {
@@ -118,6 +117,6 @@ class ReviewsController extends Controller
         }
         $this->repository->delete($review);
 
-        return \Redirect::route('cc.reviews.index')->with('alert_success', 'Отзыв удален');
-    }*/
+        return \Redirect::route(self::ROUTE_INDEX)->with('alert_success', 'Отзыв удален');
+    }
 }

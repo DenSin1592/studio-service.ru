@@ -217,5 +217,6 @@ return [
         'review_score' => 'Оценка',
         'review_date' => 'Дата отзыва',
         'on_home_page' => 'На главной',
+        'email' => 'Email',
     ],
 ];

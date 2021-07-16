@@ -6,6 +6,8 @@ use App\Services\DataProviders\AdminRoleForm\AdminRoleForm;
 use App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm\Abilities;
 use App\Services\DataProviders\AdminUserForm\AdminUserForm;
 use App\Services\DataProviders\AdminUserForm\AdminUserSubForm\Roles;
+use App\Services\DataProviders\ReviewForm\ReviewForm;
+use App\Services\DataProviders\ReviewForm\ReviewSubForm\Images;
 use App\Services\DataProviders\ServiceForm\ServiceForm;
 use App\Services\DataProviders\ServiceForm\ServiceSubForm\Competencies;
 use App\Services\DataProviders\SettingsForm\SettingsForm;
@@ -29,6 +31,13 @@ class DataProvidersServiceProvider extends ServiceProvider
                 'user',
                 [
                     \App(Roles::class)
+                ]));
+
+        $this->app->bind(ReviewForm::class,
+            fn() =>  new ReviewForm(
+                'review',
+                [
+                    //\App(Images::class)
                 ]));
 
 

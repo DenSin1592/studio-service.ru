@@ -4,6 +4,7 @@ namespace App\Services\Repositories;
 
 use App\Models\Review;
 use App\Services\Pagination\FlexPaginator;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 abstract class BaseRepository
@@ -100,5 +101,31 @@ abstract class BaseRepository
             'review-pagination-page',
             'review-pagination-limit'
         );
+    }
+
+
+    public function allByIds(array $ids): Collection
+    {
+        if (count($ids) === 0)
+            return Collection::make([]);
+
+        return $this->getModel()
+            ->query()
+            ->whereIn('id', $ids)
+            ->get();
+    }
+
+
+    public function allByIdsInSequence(array $ids): array
+    {
+        $models = [];
+        $modelDict = $this->allByIds($ids)->getDictionary();
+        foreach ($ids as $id) {
+            if (isset($modelDict[$id])) {
+                $models[] = $modelDict[$id];
+            }
+        }
+
+        return $models;
     }
 }

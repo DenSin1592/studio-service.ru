@@ -7,7 +7,7 @@
     <div class="element-list-wrapper review-list">
         <div class="element-container header-container">
             <div class="id">{{ trans('validation.attributes.review_id') }}</div>
-            <div class="name">{{ trans('validation.attributes.review_name') }}</div>
+            <div class="name">{{ trans('validation.attributes.name') }}</div>
             <div class="content">{{ trans('validation.attributes.review_content') }}</div>
             <div class="review_date">{{ trans('validation.attributes.review_date') }}</div>
             <div class="publish">{{ trans('validation.attributes.publish') }}</div>
@@ -16,12 +16,12 @@
         </div>
 
         <div>
-            @include('admin.review._review_list', ['reviewList' => $reviewList])
+            @include('admin.review._list', ['reviewList' => $reviewList])
             @include('admin.shared._pagination_links', ['paginator' => $reviewList])
         </div>
 
         <div>
-            <a href="{{ route('cc.reviews.create') }}" class="btn btn-success btn-xs">Добавить отзыв</a>
+            <a href="{{ route(\App\Http\Controllers\Admin\ReviewsController::ROUTE_CREATE) }}" class="btn btn-success btn-xs">Добавить отзыв</a>
         </div>
     </div>
 @stop

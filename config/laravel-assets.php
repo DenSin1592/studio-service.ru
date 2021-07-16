@@ -50,6 +50,7 @@ return [
             'assets' => [
                 'vendor/bootstrap/v3/css/bootstrap.min.css',
                 'vendor/bootstrap/v3/css/bootstrap-theme.min.css',
+                'vendor/datetimepicker/css/jquery.datetimepicker.css',
                 'vendor/font-awesome/css/font-awesome.min.css',
                 'vendor/fancybox/fancybox.jquery.min.css',
                 'vendor/select2/select2.min.css',
@@ -79,6 +80,7 @@ return [
                 'vendor/jquery/v2/jquery-2.1.3.min.js',
                 'vendor/jquery-ui/jquery-ui.min.js',
                 'vendor/bootstrap/v3/js/bootstrap.min.js',
+                'vendor/datetimepicker/js/jquery.datetimepicker.js',
                 'vendor/fancybox/fancybox.jquery.min.js',
                 'vendor/tinymce/tinymce.min.js',
                 'vendor/select2/select2.min.js',
@@ -91,6 +93,7 @@ return [
                 'vendor/jquery.dataTables/js/dataTables.fixedHeader.min.js',
                 'js/admin/settings.js',
                 'js/admin/hooks.js',
+                'js/admin/datetimepicker_init.js',
                 'js/admin/structure.js',
                 'js/admin/sortable_tree.js',
                 'js/admin/menu.js',
