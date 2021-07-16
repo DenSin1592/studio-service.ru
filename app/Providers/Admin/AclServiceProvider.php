@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\CompetenciesController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
+use App\Http\Controllers\Admin\ReviewsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
@@ -70,6 +71,10 @@ class AclServiceProvider extends ServiceProvider
                 ServicesController::class,
                 TargetAudiencesController::class,
             ], 'Каталоги');
+
+            $acl->define('change-reviews', [
+                ReviewsController::class,
+            ], 'Отзывы');
 
             $acl->define('change-settings', [
                 SettingsController::class,

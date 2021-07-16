@@ -7,7 +7,7 @@ trait ToggleFlags
 
     public function toggleAttribute($id, $attribute)
     {
-        if (!in_array($attribute, ['publish', 'menu_top', 'menu_bottom']))
+        if (!in_array($attribute, ['publish', 'menu_top', 'menu_bottom', 'on_home_page']))
             \App::abort(404, "Not allowed to toggle this attribute");
 
         $node = $this->repository->findById($id);

@@ -192,6 +192,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\FormBuilderServiceProvider::class,
+        App\Providers\PaginationServiceProvider::class,
         App\Providers\RepositoriesServiceProvider::class,
         App\Providers\RepositoryFeaturesServiceProvider::class,
         App\Providers\ComposersServiceProvider::class,

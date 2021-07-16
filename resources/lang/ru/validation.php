@@ -209,5 +209,13 @@ return [
         'abilities' => 'Возможности',
         'creator' => 'Создатель',
         'seo' => 'SEO',
+
+        'review_id' => 'id',
+        'review_name' => 'Имя клиента',
+        'review_content' => 'Текст отзыва',
+        'review_answer' => 'Ответ на отзыв',
+        'review_score' => 'Оценка',
+        'review_date' => 'Дата отзыва',
+        'on_home_page' => 'На главной',
     ],
 ];

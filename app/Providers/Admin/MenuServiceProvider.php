@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\CompetenciesController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
+use App\Http\Controllers\Admin\ReviewsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\StructureController;
@@ -63,6 +64,16 @@ class MenuServiceProvider extends ServiceProvider
                         'glyphicon-user',
                         route(TargetAudiencesController::ROUTE_INDEX),
                         [TargetAudiencesController::class]
+                    )
+                );
+
+
+                $menu->addMenuElement(
+                    new MenuElement(
+                        'Отзывы',
+                        'glyphicon-comment',
+                        route(ReviewsController::ROUTE_INDEX),
+                        [ReviewsController::class]
                     )
                 );
 

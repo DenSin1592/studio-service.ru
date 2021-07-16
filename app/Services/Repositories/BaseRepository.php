@@ -2,13 +2,20 @@
 
 namespace App\Services\Repositories;
 
+use App\Models\Review;
+use App\Services\Pagination\FlexPaginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+
 abstract class BaseRepository
 {
     protected const POSITION_STEP = 10;
+    protected FlexPaginator $flexPaginator;
 
     public function __construct(
         protected $model
-    ){}
+    ){
+        $this->flexPaginator = \App(FlexPaginator::class);
+    }
 
 
     protected function getModel(): \Eloquent
@@ -61,5 +68,37 @@ abstract class BaseRepository
     public function getTotalCount()
     {
         return $this->getModel()->count();
+    }
+
+
+    public function allByPage($page, $limit): array
+    {
+        $query = $this->getModel()->query();
+
+        $total = $query->count();
+        $items = $query->skip($limit * ($page - 1))
+            ->take($limit)
+            ->get();
+
+        return [
+            'page' => $page,
+            'limit' => $limit,
+            'items' => $items,
+            'total' => $total,
+        ];
+    }
+
+    /**
+     * @return LengthAwarePaginator
+     */
+    public function paginate(): LengthAwarePaginator
+    {
+        return $this->flexPaginator->make(
+            function ($page, $limit) {
+                return $this->allByPage($page, $limit);
+            },
+            'review-pagination-page',
+            'review-pagination-limit'
+        );
     }
 }
