@@ -47,7 +47,8 @@ class RepositoriesServiceProvider extends ServiceProvider
         );
 
 
-        $this->app->singleton(CompetenciesRepository::class,
+        $this->app->singleton(
+            CompetenciesRepository::class,
             fn() => new CompetenciesRepository(
                 new EloquentAttributeToggler(),
                 new PositionUpdater(),
@@ -62,7 +63,8 @@ class RepositoriesServiceProvider extends ServiceProvider
         );
 
 
-        $this->app->singleton(NodeRepository::class,
+        $this->app->singleton(
+            NodeRepository::class,
             fn() => new NodeRepository(
                 \App(TreeBuilderInterface::class),
                 new EloquentAttributeToggler(),
@@ -72,7 +74,8 @@ class RepositoriesServiceProvider extends ServiceProvider
         );
 
 
-        $this->app->singleton(ReviewRepository::class,
+        $this->app->singleton(
+            ReviewRepository::class,
             fn() => new ReviewRepository(
                 new EloquentAttributeToggler(),
                 new Review()
@@ -80,7 +83,8 @@ class RepositoriesServiceProvider extends ServiceProvider
         );
 
 
-        $this->app->singleton(ServicesRepository::class,
+        $this->app->singleton(
+            ServicesRepository::class,
             fn() => new ServicesRepository(
                 new EloquentAttributeToggler(),
                 new PositionUpdater(),
