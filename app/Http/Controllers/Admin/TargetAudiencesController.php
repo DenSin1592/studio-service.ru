@@ -71,7 +71,7 @@ class TargetAudiencesController extends Controller
 
     public function edit($id)
     {
-        $model = $this->repository->find($id);
+        $model = $this->repository->findById($id);
         $breadcrumbs = $this->breadcrumbs->getFor('target_audiences.edit', $model);
 
         return view('admin.target_audience.edit')
@@ -83,7 +83,7 @@ class TargetAudiencesController extends Controller
 
     public function update($id)
     {
-        $model = $this->repository->find($id);
+        $model = $this->repository->findById($id);
         $success = $this->formProcessor->update($model ,\Request::except('redirect_to'));
         if (!$success)
              return \Redirect::route(self::ROUTE_EDIT, [$model->id])
@@ -100,7 +100,7 @@ class TargetAudiencesController extends Controller
 
     public function destroy($id)
     {
-        $model = $this->repository->find($id);
+        $model = $this->repository->findById($id);
         if (is_null($model))
             \App::abort(404, 'Node not found');
 

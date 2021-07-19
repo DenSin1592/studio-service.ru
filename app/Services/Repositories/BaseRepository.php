@@ -2,7 +2,6 @@
 
 namespace App\Services\Repositories;
 
-use App\Models\Review;
 use App\Services\Pagination\FlexPaginator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -52,11 +51,6 @@ abstract class BaseRepository
     public function all()
     {
         return $this->getModel()->all();
-    }
-
-    public function find(int $id)
-    {
-        return $this->getModel()->find($id);
     }
 
 

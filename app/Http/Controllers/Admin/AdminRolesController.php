@@ -57,7 +57,7 @@ class AdminRolesController extends Controller
 
     public function edit($id)
     {
-        $role = $this->adminRoleRepository->find($id);
+        $role = $this->adminRoleRepository->findById($id);
         if ($role === null)
             \App::abort(404, 'Resource not found');
 
@@ -71,7 +71,7 @@ class AdminRolesController extends Controller
 
     public function update($id)
     {
-        $role = $this->adminRoleRepository->find($id);
+        $role = $this->adminRoleRepository->findById($id);
         if ($role === null)
             \App::abort(404, 'Resource not found');
 
@@ -92,7 +92,7 @@ class AdminRolesController extends Controller
 
     public function destroy($id)
     {
-        $role = $this->adminRoleRepository->find($id);
+        $role = $this->adminRoleRepository->findById($id);
         if ($role === null)
             \App::abort(404, 'Resource not found');
 

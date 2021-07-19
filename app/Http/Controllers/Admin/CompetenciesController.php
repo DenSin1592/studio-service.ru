@@ -68,7 +68,7 @@ class CompetenciesController extends Controller
 
     public function edit($id)
     {
-        $model = $this->repository->find($id);
+        $model = $this->repository->findById($id);
         $breadcrumbs = $this->breadcrumbs->getFor('competences.edit', $model);
 
         return view('admin.competencies.edit')
@@ -79,7 +79,7 @@ class CompetenciesController extends Controller
 
     public function update($id)
     {
-        $model = $this->repository->find($id);
+        $model = $this->repository->findById($id);
         $success = $this->formProcessor->update($model ,\Request::except('redirect_to'));
         if (!$success)
              return \Redirect::route(self::ROUTE_EDIT, [$model->id])
@@ -96,7 +96,7 @@ class CompetenciesController extends Controller
 
     public function destroy($id)
     {
-         $model = $this->repository->find($id);
+         $model = $this->repository->findById($id);
          $this->repository->delete($model);
 
          return \Redirect::route(self::ROUTE_INDEX)->with('alert_success', 'Компетенция удалена');

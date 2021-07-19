@@ -56,7 +56,7 @@ class AdminUsersController extends Controller
 
     public function edit($id)
     {
-        $user = $this->adminUserRepository->find($id);
+        $user = $this->adminUserRepository->findById($id);
 
         $this->authorize('change-admin-user', $user);
 
@@ -74,7 +74,7 @@ class AdminUsersController extends Controller
 
     public function update($id)
     {
-        $user = $this->adminUserRepository->find($id);
+        $user = $this->adminUserRepository->findById($id);
         if ($user === null)
             \App::abort(404, 'Resource not found');
 
@@ -99,7 +99,7 @@ class AdminUsersController extends Controller
         if (\Auth::user()->id == $id)
             \App::abort(403);
 
-        $user = $this->adminUserRepository->find($id);
+        $user = $this->adminUserRepository->findById($id);
         if (is_null($user))
             \App::abort(404, 'Resource not found');
 
