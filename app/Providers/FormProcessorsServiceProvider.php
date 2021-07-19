@@ -6,6 +6,7 @@ use App\Services\FormProcessors\AdminRole\AdminRoleFormProcessor;
 use App\Services\FormProcessors\AdminUser\AdminUserFormProcessor;
 use App\Services\FormProcessors\Competence\CompetenceFormProcessor;
 use App\Services\FormProcessors\Node\NodeFormProcessor;
+use App\Services\FormProcessors\Review\ReviewFormProcessor;
 use App\Services\FormProcessors\Service\ServiceFormProcessor;
 use App\Services\FormProcessors\Service\SubProcessor\Competencies;
 use App\Services\FormProcessors\Settings\SettingsFormProcessor;
@@ -14,6 +15,7 @@ use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use App\Services\Repositories\AdminUser\AdminUserRepository;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Node\NodeRepository;
+use App\Services\Repositories\Review\ReviewRepository;
 use App\Services\Repositories\Services\ServicesRepository;
 use App\Services\Repositories\Setting\SettingRepository;
 use App\Services\Settings\SettingContainer;
@@ -21,6 +23,7 @@ use App\Services\Validation\AdminRole\AdminRoleValidator;
 use App\Services\Validation\AdminUser\AdminUserValidator;
 use App\Services\Validation\Competence\CompetenceValidator;
 use App\Services\Validation\Node\NodeValidator;
+use App\Services\Validation\Review\ReviewValidator;
 use App\Services\Validation\Service\ServiceValidator;
 use App\Services\Validation\Settings\SettingsValidator;
 use App\Services\Validation\TargetAudience\TargetAudienceValidator;
@@ -87,6 +90,17 @@ class FormProcessorsServiceProvider extends ServiceProvider
              }
         );
 
+        $this->app->bind(
+            ReviewFormProcessor::class,
+            function () {
+                $formProcessor = new ReviewFormProcessor(
+                    $this->app->make(ReviewValidator::class),
+                    $this->app->make(ReviewRepository::class)
+                );
+                //$formProcessor->addSubProcessor(\App(Competencies::class));
+                return $formProcessor;
+            }
+        );
 
         $this->app->bind(
             SettingsFormProcessor::class,

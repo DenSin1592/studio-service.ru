@@ -1,6 +1,6 @@
 @extends('admin.layouts.inner')
 
-@section('title', 'Создание Компетенции')
+@section('title', 'Создание отзыва')
 
 @section('content')
 

@@ -18,10 +18,9 @@ class CreateReviews extends Migration
             $table->string('name')->default('');
             $table->boolean('publish')->default(false);
             $table->boolean('on_home_page')->default(false);
-            $table->string('email')->default('');
+            $table->string('email')->nullable();
             $table->text('text')->nullable();
             $table->timestamp('review_date')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->string('ip')->default('');
 
             $table->timestamps();
         });

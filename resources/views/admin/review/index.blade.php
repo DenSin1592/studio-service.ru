@@ -16,8 +16,8 @@
         </div>
 
         <div>
-            @include('admin.review._list', ['reviewList' => $reviewList])
-            @include('admin.shared._pagination_links', ['paginator' => $reviewList])
+            @include('admin.review._list', ['modelList' => $modelList])
+            @include('admin.shared._pagination_links', ['paginator' => $modelList])
         </div>
 
         <div>

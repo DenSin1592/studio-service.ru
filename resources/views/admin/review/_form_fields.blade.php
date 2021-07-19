@@ -9,7 +9,6 @@
 
 {!! Form::tbTinymceTextareaBlock('text', trans('validation.attributes.review_content')) !!}
 
-{!! Form::hidden('ip') !!}
 
 {{--
 @include('admin.review.form.images._images', ['images' => $formData['images']])
