@@ -37,7 +37,7 @@ class DataProvidersServiceProvider extends ServiceProvider
             fn() =>  new ReviewForm(
                 'review',
                 [
-                    //\App(Images::class)
+                    \App(Images::class)
                 ]));
 
 

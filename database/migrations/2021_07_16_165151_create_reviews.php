@@ -31,7 +31,6 @@ class CreateReviews extends Migration
             $table->unsignedInteger('review_id');
             $table->foreign('review_id', 'fk_review_image')->references('id')->on('reviews');
 
-            $table->boolean('main')->default(false);
             $table->string('image')->nullable();
             $table->integer('position')->default(0);
             $table->boolean('publish')->default(false);

@@ -13,7 +13,8 @@ use Symfony\Component\Yaml\Parser;
  */
 class Helpers
 {
-    private ?ViewErrorBag $errors;
+    /** @var ViewErrorBag|null */
+    private $errors;
     /** @var array|null */
     private $hintsCache;
 

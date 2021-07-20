@@ -8,6 +8,7 @@ use App\Models\Competence;
 use App\Models\HomePage;
 use App\Models\Node;
 use App\Models\Review;
+use App\Models\ReviewImage;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Models\TargetAudience;
@@ -19,6 +20,7 @@ use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Node\NodeRepository;
 use App\Services\Repositories\Pages\HomePage\HomePageRepository;
 use App\Services\Repositories\Pages\TargetAudiencePage\TargetAudiencePageRepository;
+use App\Services\Repositories\Review\ReviewImage\ReviewImageRepository;
 use App\Services\Repositories\Review\ReviewRepository;
 use App\Services\Repositories\Services\ServicesRepository;
 use App\Services\Repositories\Setting\SettingRepository;
@@ -80,6 +82,12 @@ class RepositoriesServiceProvider extends ServiceProvider
                 new EloquentAttributeToggler(),
                 new Review()
             )
+        );
+
+
+        $this->app->singleton(
+            ReviewImageRepository::class,
+            fn() => new ReviewImageRepository(new ReviewImage())
         );
 
 
