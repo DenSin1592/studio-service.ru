@@ -9,7 +9,7 @@ class ServicesController extends BaseRelationsController
 {
     public const BLOCK_NAME = 'Услуги';
     public const RELATIONS_NAME = 'services';
-    public const ROUTE_EDIT = \App\Http\Controllers\Admin\ServicesController::ROUTE_EDIT;
+    public const ROUTE_EDIT = \App\Http\Controllers\Admin\EssenceControllers\ServicesController::ROUTE_EDIT;
     public const ROUTE_AVAILABLE = 'cc.reviews.services.available';
     public const ROUTE_REBUILD_CURRENT = 'cc.reviews.services.rebuild-current';
 

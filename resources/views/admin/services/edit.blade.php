@@ -1,14 +1,20 @@
 @extends('admin.layouts.inner')
 
-@section('title')
-    {{ $formData['service']->name }} - редактирование услуги
-@stop
+@section('title') {{ $formData['service']->name }} - редактирование услуги @stop
 
 @section('content')
 
     @include('admin.layouts._breadcrumbs')
 
-    {!! Form::tbModelWithErrors($formData['service'], $errors, ['url' => route(\App\Http\Controllers\Admin\ServicesController::ROUTE_UPDATE, [$formData['service']->id]), 'method' => 'put', 'files' => true, 'autocomplete' => 'off']) !!}
+    {!! Form::tbModelWithErrors(
+        $formData[\App\Services\DataProviders\ServiceForm\ServiceForm::MODEL_KEY],
+        $errors,
+        [
+            'url' => route(\App\Http\Controllers\Admin\EssenceControllers\ServicesController::ROUTE_UPDATE, [$formData[\App\Services\DataProviders\ServiceForm\ServiceForm::MODEL_KEY]->id]),
+            'method' => 'put',
+            'files' => true,
+            'autocomplete' => 'off'
+        ]) !!}
 
         @include('admin.services._form_fields')
 
@@ -19,10 +25,10 @@
             <a class="btn btn-danger"
                data-method="delete"
                data-confirm="Вы уверены, что хотите удалить данную услугу?"
-               href="{{ route(\App\Http\Controllers\Admin\ServicesController::ROUTE_DESTROY, [$formData['service']->id]) }}">{{ trans('interactions.delete') }}
+               href="{{ route(\App\Http\Controllers\Admin\EssenceControllers\ServicesController::ROUTE_DESTROY, [$formData['service']->id]) }}">{{ trans('interactions.delete') }}
             </a>
 
-            <a href="{{ route(\App\Http\Controllers\Admin\ServicesController::ROUTE_INDEX) }}" class="btn btn-default">{{ trans('interactions.back_to_list') }}</a>
+            <a href="{{ route(\App\Http\Controllers\Admin\EssenceControllers\ServicesController::ROUTE_INDEX) }}" class="btn btn-default">{{ trans('interactions.back_to_list') }}</a>
         </div>
 
     {!! Form::close() !!}

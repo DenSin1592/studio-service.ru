@@ -16,7 +16,7 @@ trait ToggleFlags
 
         $this->repository->toggleAttribute($node, $attribute);
         return $this->toggleFlagResponse(
-            route(self::ROUTE_TOGGLE_ATTRIBUTE, [$id, $attribute]),
+            route(static::ROUTE_TOGGLE_ATTRIBUTE, [$id, $attribute]),
             $node,
             $attribute
         );

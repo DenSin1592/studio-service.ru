@@ -2,8 +2,8 @@
 
 namespace App\Services\FormProcessors\Review;
 
-use App\Services\FormProcessors\CreateUpdateFormProcessor;
+use App\Services\FormProcessors\BaseFormProcessor;
 
-class ReviewFormProcessor  extends CreateUpdateFormProcessor
+class ReviewFormProcessor  extends BaseFormProcessor
 {
 }

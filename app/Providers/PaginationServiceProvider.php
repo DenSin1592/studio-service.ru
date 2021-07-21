@@ -13,8 +13,6 @@ class PaginationServiceProvider extends ServiceProvider
                 return $this->app->make('flex-paginator.available_limits');
             });
 
-        $this->app->bind('flex-paginator.available_limits', function () {
-            return [25, 50, 100, 250];
-        });
+        $this->app->bind('flex-paginator.available_limits', fn () => FlexPaginator::COUNT_ELEMENTS_ON_PAGE_VARIANTS);
     }
 }

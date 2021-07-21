@@ -20,7 +20,7 @@ class Review extends \Eloquent
     protected $fillable = [
         'name',
         'publish',
-        'on_home_page',
+        'position',
         'email',
         'ip',
         'text',
@@ -59,9 +59,5 @@ class Review extends \Eloquent
                 $model->services()->detach();
             }
         );
-
-        self::saving(function (self $model) {
-            AliasHelpers::setAlias($model);
-        });
     }
 }

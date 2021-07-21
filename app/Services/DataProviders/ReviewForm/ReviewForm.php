@@ -8,4 +8,5 @@ use App\Services\DataProviders\ServiceForm\ServiceSubForm\Competencies;
 
 class ReviewForm extends BaseDataProvider
 {
+    public const MODEL_KEY = 'review';
 }

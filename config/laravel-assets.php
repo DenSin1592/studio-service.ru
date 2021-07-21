@@ -98,6 +98,7 @@ return [
                 'js/admin/sortable_tree.js',
                 'js/admin/menu.js',
                 'js/admin/tinymce_init.js',
+                'js/admin/pagination.js',
                 'js/admin/element_list.js',
                 'js/admin/admin_users.js',
                 'js/admin/modal_associations.js',

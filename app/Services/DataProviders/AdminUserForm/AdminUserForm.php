@@ -6,4 +6,5 @@ use App\Services\DataProviders\BaseDataProvider;
 
 class AdminUserForm extends BaseDataProvider
 {
+    public const MODEL_KEY = 'user';
 }

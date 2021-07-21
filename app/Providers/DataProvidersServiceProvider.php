@@ -6,12 +6,14 @@ use App\Services\DataProviders\AdminRoleForm\AdminRoleForm;
 use App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm\Abilities;
 use App\Services\DataProviders\AdminUserForm\AdminUserForm;
 use App\Services\DataProviders\AdminUserForm\AdminUserSubForm\Roles;
+use App\Services\DataProviders\CompetenceForm\CompetenceForm;
 use App\Services\DataProviders\ReviewForm\ReviewForm;
 use App\Services\DataProviders\ReviewForm\ReviewSubForm\Images;
 use App\Services\DataProviders\ReviewForm\ReviewSubForm\Services;
 use App\Services\DataProviders\ServiceForm\ServiceForm;
 use App\Services\DataProviders\ServiceForm\ServiceSubForm\Competencies;
 use App\Services\DataProviders\SettingsForm\SettingsForm;
+use App\Services\DataProviders\TargetAudienceForm\TargetAudienceForm;
 use Illuminate\Support\ServiceProvider;
 
 class DataProvidersServiceProvider extends ServiceProvider
@@ -19,43 +21,57 @@ class DataProvidersServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(AdminRoleForm::class,
-            fn() =>  new AdminRoleForm(
-            'role',
-                [
-                    \App(Abilities::class),
-                ]));
+            static function() {
+                $form = new AdminRoleForm();
+                $form->addSubForm(\App(Abilities::class));
+                return $form;
+            });
 
 
         $this->app->bind(AdminUserForm::class,
-            fn() =>  new AdminUserForm(
-                'user',
-                [
-                    \App(Roles::class)
-                ]));
+            static function() {
+                $form = new AdminUserForm();
+                $form->addSubForm(\App(Roles::class));
+                return $form;
+            });
+
+
+        $this->app->bind(CompetenceForm::class,
+            static function() {
+                $form = new CompetenceForm();
+                return $form;
+            });
+
 
         $this->app->bind(ReviewForm::class,
-            fn() =>  new ReviewForm(
-                'review',
-                [
-                    \App(Images::class),
-                    \App(Services::class),
-                ]));
+            static function() {
+                $form = new ReviewForm();
+                $form->addSubForm(\App(Images::class));
+                $form->addSubForm(\App(Services::class));
+                return $form;
+            });
 
 
         $this->app->bind(ServiceForm::class,
-            fn() =>  new ServiceForm(
-                'service',
-                [
-                    \App(Competencies::class)
-                ]));
+            static function() {
+                $form = new ServiceForm();
+                $form->addSubForm(\App(Competencies::class));
+                return $form;
+            });
 
 
         $this->app->bind(SettingsForm::class,
-            fn() =>  new SettingsForm(
-                'settings',
-                [
+            static function() {
+                $form = new ServiceForm();
+                return $form;
+            });
 
-                ]));
+
+        $this->app->bind(TargetAudienceForm::class,
+            static function() {
+                $form = new TargetAudienceForm();
+                return $form;
+            });
 
     }
 }

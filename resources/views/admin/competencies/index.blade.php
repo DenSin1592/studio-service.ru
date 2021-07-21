@@ -1,8 +1,6 @@
 @extends('admin.layouts.default')
 
-@section('title')
-    {{ 'Каталог компетенций' }}
-@stop
+@section('title') {{ 'Каталог компетенций' }} @stop
 
 @section('content')
     <div class="node-list element-list-wrapper" data-sortable-wrapper="">
@@ -14,13 +12,17 @@
         </div>
 
         <div data-sortable-container="">
-            @include('admin.competencies._list')
+            @include('admin.competencies._list', ['lvl' => 0])
+            @include('admin.shared._pagination_links', ['paginator' => $modelList])
         </div>
 
-        @include('admin.shared.resource_list.sorting._commit', ['updateUrl' => route(\App\Http\Controllers\Admin\CompetenciesController::ROUTE_UPDATE_POSITIONS), 'reloadUrl' => route(\App\Http\Controllers\Admin\CompetenciesController::ROUTE_INDEX)])
+        @include('admin.shared.resource_list.sorting._commit', [
+            'updateUrl' => route(\App\Http\Controllers\Admin\EssenceControllers\CompetenciesController::ROUTE_UPDATE_POSITIONS),
+            'reloadUrl' => route(\App\Http\Controllers\Admin\EssenceControllers\CompetenciesController::ROUTE_INDEX)
+            ])
 
         <div>
-            <a href="{{ route(\App\Http\Controllers\Admin\CompetenciesController::ROUTE_CREATE) }}" class="btn btn-success btn-xs">Добавить компетенцию</a>
+            <a href="{{ route(\App\Http\Controllers\Admin\EssenceControllers\CompetenciesController::ROUTE_CREATE) }}" class="btn btn-success btn-xs">Добавить компетенцию</a>
         </div>
     </div>
 @stop

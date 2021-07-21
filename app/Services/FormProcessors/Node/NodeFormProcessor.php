@@ -2,7 +2,7 @@
 
 namespace App\Services\FormProcessors\Node;
 
-use App\Services\FormProcessors\CreateUpdateFormProcessor;
+use App\Services\FormProcessors\BaseFormProcessor;
 
-class NodeFormProcessor extends CreateUpdateFormProcessor
+class NodeFormProcessor extends BaseFormProcessor
 {}

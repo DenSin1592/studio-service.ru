@@ -4,15 +4,17 @@ namespace App\Services\DataProviders;
 
 abstract class BaseDataProvider
 {
-    public function __construct(
-        protected string $modelKey,
-        protected array $subFormList = []
-    ){}
+    protected array $subFormList = [];
+
+    public function addSubForm(BaseSubForm $subForm): void
+    {
+        $this->subFormList[] = $subForm;
+    }
 
     public function provideData(\Eloquent $model, array $oldInput): array
     {
         $data = [
-            $this->modelKey => $model,
+            static::MODEL_KEY => $model,
         ];
 
         foreach ($this->subFormList as $subForm) {

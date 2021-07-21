@@ -2,11 +2,11 @@
 
 namespace App\Services\FormProcessors\AdminUser;
 
-use App\Services\FormProcessors\CreateUpdateFormProcessor;
+use App\Services\FormProcessors\BaseFormProcessor;
 use App\Services\FormProcessors\SubProcessor;
 
 
-class AdminUserFormProcessor extends CreateUpdateFormProcessor
+class AdminUserFormProcessor extends BaseFormProcessor
 {
     private array $subProcessorList = [];
 

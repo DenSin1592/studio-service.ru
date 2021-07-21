@@ -1,8 +1,6 @@
 @extends('admin.layouts.default')
 
-@section('title')
-    {{ 'Структура сайта' }}
-@stop
+@section('title') {{ 'Структура сайта' }} @stop
 
 @section('content')
     <div class="node-list element-list-wrapper" data-sortable-wrapper="">
@@ -18,13 +16,16 @@
         </div>
 
         <div data-sortable-container="">
-            @include('admin.structure._node_list', ['nodeTree' => $nodeTree, 'lvl' => 0])
+            @include('admin.structure._list', ['lvl' => 0])
         </div>
 
-        @include('admin.shared.resource_list.sorting._commit', ['updateUrl' => route('cc.structure.update-positions'), 'reloadUrl' => route('cc.structure.index')])
+        @include('admin.shared.resource_list.sorting._commit', [
+            'updateUrl' => route(\App\Http\Controllers\Admin\EssenceControllers\StructureController::ROUTE_UPDATE_POSITIONS),
+            'reloadUrl' => route(\App\Http\Controllers\Admin\EssenceControllers\StructureController::ROUTE_INDEX)
+            ])
 
         <div>
-            <a href="{{ route('cc.structure.create') }}" class="btn btn-success btn-xs">Добавить страницу</a>
+            <a href="{{ route(\App\Http\Controllers\Admin\EssenceControllers\StructureController::ROUTE_CREATE) }}" class="btn btn-success btn-xs">Добавить страницу</a>
         </div>
     </div>
 @stop

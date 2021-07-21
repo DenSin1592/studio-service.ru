@@ -2,7 +2,7 @@
 
 namespace App\Services\FormProcessors\Settings;
 
-use App\Services\FormProcessors\CreateUpdateFormProcessor;
+use App\Services\FormProcessors\BaseFormProcessor;
 use App\Services\Repositories\Setting\SettingRepository;
 use App\Services\Settings\SettingContainer;
 use App\Services\Settings\SettingValue;
@@ -13,7 +13,7 @@ use Arr;
  * Class SettingsFormProcessor
  * @package App\Services\FormProcessors
  */
-class SettingsFormProcessor extends CreateUpdateFormProcessor
+class SettingsFormProcessor extends BaseFormProcessor
 {
     public function __construct(
         ValidableInterface $validator,

@@ -11,6 +11,7 @@ use Session;
  */
 class FlexPaginator
 {
+    public const COUNT_ELEMENTS_ON_PAGE_VARIANTS = [25, 50, 100, 250];
     private $availableLimits;
     private $request;
 

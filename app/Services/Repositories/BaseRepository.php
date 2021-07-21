@@ -53,6 +53,11 @@ abstract class BaseRepository
         return $this->getModel()->all();
     }
 
+    public function allOrderByPosition()
+    {
+        return $this->getModel()->orderBy('position')->all();
+    }
+
 
     public function delete($model)
     {
@@ -72,6 +77,7 @@ abstract class BaseRepository
 
         $total = $query->count();
         $items = $query->skip($limit * ($page - 1))
+            ->orderBy('position')
             ->take($limit)
             ->get();
 
@@ -89,11 +95,9 @@ abstract class BaseRepository
     public function paginate(): LengthAwarePaginator
     {
         return $this->flexPaginator->make(
-            function ($page, $limit) {
-                return $this->allByPage($page, $limit);
-            },
-            'review-pagination-page',
-            'review-pagination-limit'
+            fn ($page, $limit) => $this->allByPage($page, $limit),
+            'reviews-pagination-page',
+            'reviews-pagination-limit'
         );
     }
 
@@ -106,6 +110,7 @@ abstract class BaseRepository
         return $this->getModel()
             ->query()
             ->whereIn('id', $ids)
+            ->orderBy('position')
             ->get();
     }
 

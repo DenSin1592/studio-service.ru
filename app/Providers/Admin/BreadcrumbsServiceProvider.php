@@ -2,17 +2,15 @@
 
 namespace App\Providers\Admin;
 
-use App\Http\Controllers\Admin\CompetenciesController;
+use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
+use App\Http\Controllers\Admin\EssenceControllers\ServicesController;
+use App\Http\Controllers\Admin\EssenceControllers\StructureController;
+use App\Http\Controllers\Admin\EssenceControllers\TargetAudiencesController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
-use App\Http\Controllers\Admin\ReviewsController;
-use App\Http\Controllers\Admin\ServicesController;
-use App\Http\Controllers\Admin\StructureController;
+use App\Http\Controllers\Admin\EssenceControllers\ReviewsController;
 use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
-use App\Http\Controllers\Admin\TargetAudiencesController;
-use App\Models\Competence;
 use App\Models\HomePage;
 use App\Models\Node;
-use App\Models\TargetAudience;
 use App\Models\TargetAudiencePage;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
 use App\Services\Admin\Breadcrumbs\Path;
@@ -36,7 +34,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
     private function addStructureBuilders(Breadcrumbs $breadcrumbs)
     {
         $breadcrumbs->addBuilder(
-            'structure.create',
+            StructureController::BREADCRUMBS_CREATE,
             function (Node $node) {
                 $path = $this->createNodeParentPath($node);
                 $path->add('Создание страницы');
@@ -44,7 +42,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
             }
         );
         $breadcrumbs->addBuilder(
-            'structure.edit',
+            StructureController::BREADCRUMBS_EDIT,
             function (Node $node) {
                 $path = $this->createNodeParentPath($node);
                 $path->add($node->name);
@@ -54,7 +52,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
 
 
         $breadcrumbs->addBuilder(
-            'target_audiences.create',
+            TargetAudiencesController::BREADCRUMBS_CREATE,
             function () {
                 $path = new Path();
                 $path->add('Каталог ЦА', route(TargetAudiencesController::ROUTE_INDEX));
@@ -63,7 +61,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
             }
         );
         $breadcrumbs->addBuilder(
-            'target_audiences.edit',
+            TargetAudiencesController::BREADCRUMBS_EDIT,
             function () {
                 $path = new Path();
                 $path->add('Каталог ЦА', route(TargetAudiencesController::ROUTE_INDEX));
@@ -74,7 +72,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
 
 
         $breadcrumbs->addBuilder(
-            'competences.create',
+            CompetenciesController::BREADCRUMBS_CREATE,
             function () {
                 $path = new Path();
                 $path->add('Каталог Компетенций', route(CompetenciesController::ROUTE_INDEX));
@@ -83,7 +81,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
             }
         );
         $breadcrumbs->addBuilder(
-            'competences.edit',
+            CompetenciesController::BREADCRUMBS_EDIT,
             function () {
                 $path = new Path();
                 $path->add('Каталог Компетенций', route(CompetenciesController::ROUTE_INDEX));
@@ -94,7 +92,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
 
 
         $breadcrumbs->addBuilder(
-            'reviews.create',
+            ReviewsController::BREADCRUMBS_CREATE,
             function () {
                 $path = new Path();
                 $path->add('Отзывы', route(ReviewsController::ROUTE_INDEX));
@@ -103,7 +101,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
             }
         );
         $breadcrumbs->addBuilder(
-            'reviews.edit',
+            ReviewsController::BREADCRUMBS_EDIT,
             function () {
                 $path = new Path();
                 $path->add('Отзывы', route(ReviewsController::ROUTE_INDEX));
@@ -114,7 +112,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
 
 
         $breadcrumbs->addBuilder(
-            'services.create',
+            ServicesController::BREADCRUMBS_CREATE,
             function () {
                 $path = new Path();
                 $path->add('Каталог услуг', route(ServicesController::ROUTE_INDEX));
@@ -123,7 +121,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
             }
         );
         $breadcrumbs->addBuilder(
-            'services.edit',
+            ServicesController::BREADCRUMBS_EDIT,
             function () {
                 $path = new Path();
                 $path->add('Каталог услуг', route(ServicesController::ROUTE_INDEX));
@@ -140,7 +138,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
         $path->add('Структура сайта', route(StructureController::ROUTE_INDEX));
 
         foreach ($node->extractParentPath() as $nodeInPath) {
-            $url = route('cc.structure.edit', $nodeInPath->id);
+            $url = route(StructureController::ROUTE_EDIT, $nodeInPath->id);
             $page = \TypeContainer::getContentModelFor($nodeInPath);
 
             if ($page instanceof HomePage) {

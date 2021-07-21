@@ -7,4 +7,5 @@ use App\Services\DataProviders\BaseDataProvider;
 
 class ServiceForm extends BaseDataProvider
 {
+    public const MODEL_KEY = 'service';
 }

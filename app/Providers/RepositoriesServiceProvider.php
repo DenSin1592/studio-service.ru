@@ -80,6 +80,7 @@ class RepositoriesServiceProvider extends ServiceProvider
             ReviewRepository::class,
             fn() => new ReviewRepository(
                 new EloquentAttributeToggler(),
+                new PositionUpdater(),
                 new Review()
             )
         );
