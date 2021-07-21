@@ -2,13 +2,16 @@
 
 namespace App\Services\FormProcessors\Review\SubProcessor;
 
+use App\Http\Controllers\Admin\Relations\Reviews\ImagesController;
 use App\Models\ReviewImage;
 use App\Services\FormProcessors\SubProcessor;
 use App\Services\Repositories\Review\ReviewImage\ReviewImageRepository;
 use Arr;
 
-class ReviewImages implements SubProcessor
+class Images implements SubProcessor
 {
+    protected const SUB_FORM_NAME = ImagesController::RELATIONS_NAME;
+
     public function __construct(
         private ReviewImageRepository $repository
     ){}
@@ -20,10 +23,12 @@ class ReviewImages implements SubProcessor
 
     public function save(\Eloquent $model, array $data)
     {
-        $imagesListData = Arr::get($data, 'images',  []);
+        $relation = self::SUB_FORM_NAME;
+
+        $imagesListData = Arr::get($data, self::SUB_FORM_NAME,  []);
         $this->SelectDataWithImages($imagesListData);
 
-        $currentIds = collect($model->images)
+        $currentIds = collect($model->$relation)
             ->pluck('id')
             ->all();
 

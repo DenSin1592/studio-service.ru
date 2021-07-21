@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Reviews;
+namespace App\Http\Controllers\Admin\Relations\Reviews;
 
 use App\Http\Controllers\Controller;
 use App\Services\Repositories\Review\ReviewImage\ReviewImageRepository;
@@ -8,6 +8,8 @@ use Illuminate\Http\JsonResponse;
 
 class ImagesController extends Controller
 {
+    public const RELATIONS_NAME = 'images';
+
     public function __construct(
         private ReviewImageRepository $repository
     ){}
@@ -17,7 +19,7 @@ class ImagesController extends Controller
         $imageKey = \Request::get('key');
         $image = $this->repository->newInstance();
         $element = view(
-            'admin.review.form.images._image',
+            'admin.review.form._images._image',
             [
                 'imageKey' => $imageKey,
                 'image' => $image,

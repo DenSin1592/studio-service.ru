@@ -1,25 +1,25 @@
 <fieldset class="bordered-group">
-    <legend>Компетенции</legend>
+    <legend>{{$blockName}}</legend>
 
     <div class="field-hint-block">
         <p></p>
     </div>
 
-    <div id="modal-competencies-current">
-        @include('admin.services._competencies._current', ['models' => $formData['competencies']])
+    <div id="{{"modal-".$relationsName."-current"}}">
+        @include('admin.shared._relations._current')
     </div>
 
     <div class="form-group">
         <button type="button" class="btn btn-success"
-                data-source="#modal-competencies-current"
-                data-toggle="modal" data-target="#modal-competencies-editor">
+                data-source="#{{"modal-$relationsName-current"}}"
+                data-toggle="modal" data-target="#{{"modal-$relationsName-editor"}}">
             Редактировать
         </button>
     </div>
 
     <div class="modal fade modal-associations-editor"
          data-modal-associations="editor"
-         tabindex="-1" role="dialog" aria-hidden="true" id="modal-competencies-editor">
+         tabindex="-1" role="dialog" aria-hidden="true" id="{{"modal-$relationsName-editor"}}">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -36,7 +36,7 @@
                             <div data-editor-wait="available">Подождите...</div>
                             <div class="editor-elements-container"
                                  data-editor-container="available"
-                                 data-url="{{{ route('cc.services.competencies.available') }}}">
+                                 data-url="{{{ route($routeAvailable) }}}">
                             </div>
                         </div>
                         <div class="col-xs-6">
@@ -53,7 +53,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
                     <button type="button" class="btn btn-primary"
                             data-editor-action="save"
-                            data-url="{{{ route('cc.services.competencies.rebuild-current') }}}">Сохранить</button>
+                            data-url="{{{ route($routeRebuildCurrent) }}}">Сохранить</button>
                 </div>
             </div>
         </div>

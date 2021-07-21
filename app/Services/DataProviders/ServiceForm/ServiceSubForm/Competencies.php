@@ -2,36 +2,16 @@
 
 namespace App\Services\DataProviders\ServiceForm\ServiceSubForm;
 
-use App\Services\DataProviders\BaseSubForm;
+use App\Http\Controllers\Admin\Relations\Services\CompetenciesController;
+use App\Services\DataProviders\BaseRelationSubForm;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 
-class Competencies extends BaseSubForm
+class Competencies extends BaseRelationSubForm
 {
-    public function __construct(
-        private CompetenciesRepository $repository
-    ){}
+    protected const SUB_FORM_NAME = CompetenciesController::RELATIONS_NAME;
 
-    public function provideData(\Eloquent $model, array $oldInput): array
+    protected function setRepository()
     {
-        if (count($oldInput) === 0)
-            return ['competencies' => $model->competencies->sortBy(
-                function($query){
-                    return $query->pivot->position;
-                })
-            ];
-
-
-        $oldData = \Arr::get($oldInput, 'competencies');
-        if (!is_array($oldData)) {
-            $oldData = [];
-        }
-
-        $ids = [];
-        foreach ($oldData as $element) {
-            $ids[] = \Arr::get($element, 'id');
-        }
-        $competencies = $this->repository->allByIdsInSequence($ids);
-
-        return ['competencies' => $competencies];
+        $this->repository = \App(CompetenciesRepository::class);
     }
 }

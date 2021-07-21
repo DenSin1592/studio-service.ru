@@ -4,7 +4,7 @@
     <ul class="grouped-field-list" data-element-list="container" id="photos-elements">
         @foreach ($images as $imageKey => $image)
 
-            @include('admin.review.form.images._image')
+            @include('admin.review.form._images._image')
         @endforeach
     </ul>
 

@@ -37,7 +37,7 @@ class CreateReviews extends Migration
             $table->timestamps();
         });
 
-        Schema::create('reviews_services', function (Blueprint $table) {
+        Schema::create('review_service', function (Blueprint $table) {
             $table->increments('id');
 
             $table->unsignedInteger('review_id');
@@ -58,7 +58,7 @@ class CreateReviews extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews_services');
+        Schema::dropIfExists('review_service');
         Schema::dropIfExists('review_images');
         Schema::dropIfExists('reviews');
     }

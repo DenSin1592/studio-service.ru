@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Features\AutoPublish;
 
 use App\Models\Features\DeleteHelpers;
+use App\Models\Helpers\AliasHelpers;
 use Diol\Fileclip\Eloquent\Glue;
 use Diol\FileclipExif\FileclipExif;
 
@@ -33,6 +34,11 @@ class Review extends \Eloquent
         return $this->hasMany(ReviewImage::class);
     }
 
+    public function services()
+    {
+        return $this->belongsToMany(Service::class)->withPivot('position');
+    }
+
     public function getReviewDateFormattedAttribute() : string
     {
         $str = strtotime($this->review_date);
@@ -48,9 +54,14 @@ class Review extends \Eloquent
         parent::boot();
 
         static::deleting(
-            function (self $review) {
-                self::deleteRelatedAll($review->images());
+            function (self $model) {
+                self::deleteRelatedAll($model->images());
+                $model->services()->detach();
             }
         );
+
+        self::saving(function (self $model) {
+            AliasHelpers::setAlias($model);
+        });
     }
 }

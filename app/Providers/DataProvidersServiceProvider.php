@@ -8,10 +8,10 @@ use App\Services\DataProviders\AdminUserForm\AdminUserForm;
 use App\Services\DataProviders\AdminUserForm\AdminUserSubForm\Roles;
 use App\Services\DataProviders\ReviewForm\ReviewForm;
 use App\Services\DataProviders\ReviewForm\ReviewSubForm\Images;
+use App\Services\DataProviders\ReviewForm\ReviewSubForm\Services;
 use App\Services\DataProviders\ServiceForm\ServiceForm;
 use App\Services\DataProviders\ServiceForm\ServiceSubForm\Competencies;
 use App\Services\DataProviders\SettingsForm\SettingsForm;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
 class DataProvidersServiceProvider extends ServiceProvider
@@ -37,7 +37,8 @@ class DataProvidersServiceProvider extends ServiceProvider
             fn() =>  new ReviewForm(
                 'review',
                 [
-                    \App(Images::class)
+                    \App(Images::class),
+                    \App(Services::class),
                 ]));
 
 

@@ -35,6 +35,11 @@ class Service extends \Eloquent
         return $this->belongsToMany(Competence::class)->withPivot('position');
     }
 
+    public function reviews()
+    {
+        return $this->belongsToMany(Review::class)->withPivot('position');
+    }
+
     protected static function boot(): void
     {
         parent::boot();
@@ -51,6 +56,7 @@ class Service extends \Eloquent
 
         static::deleting(function (self $model) {
             $model->competencies()->detach();
+            $model->reviews()->detach();
         });
 
         self::saving(function (self $model) {

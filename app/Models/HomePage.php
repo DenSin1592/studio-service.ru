@@ -15,9 +15,12 @@ class HomePage extends \Eloquent
         'meta_description',
     ];
 
-
     protected static function boot() : void
     {
         parent::boot();
+
+        self::saving(function (self $model) {
+           $model->alias = null;
+        });
     }
 }

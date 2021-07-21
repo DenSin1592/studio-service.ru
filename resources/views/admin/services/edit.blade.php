@@ -1,7 +1,7 @@
 @extends('admin.layouts.inner')
 
 @section('title')
-    {{ $formData['service']->name }} - редактирование компетенции
+    {{ $formData['service']->name }} - редактирование услуги
 @stop
 
 @section('content')

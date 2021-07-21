@@ -7,7 +7,7 @@ use App\Services\FormProcessors\AdminUser\AdminUserFormProcessor;
 use App\Services\FormProcessors\Competence\CompetenceFormProcessor;
 use App\Services\FormProcessors\Node\NodeFormProcessor;
 use App\Services\FormProcessors\Review\ReviewFormProcessor;
-use App\Services\FormProcessors\Review\SubProcessor\ReviewImages;
+use App\Services\FormProcessors\Review\SubProcessor\Images;
 use App\Services\FormProcessors\Service\ServiceFormProcessor;
 use App\Services\FormProcessors\Service\SubProcessor\Competencies;
 use App\Services\FormProcessors\Settings\SettingsFormProcessor;
@@ -99,7 +99,8 @@ class FormProcessorsServiceProvider extends ServiceProvider
                     $this->app->make(ReviewValidator::class),
                     $this->app->make(ReviewRepository::class)
                 );
-                $formProcessor->addSubProcessor(\App(ReviewImages::class));
+                $formProcessor->addSubProcessor(\App(Images::class));
+                $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Review\SubProcessor\Services::class));
                 return $formProcessor;
             }
         );
