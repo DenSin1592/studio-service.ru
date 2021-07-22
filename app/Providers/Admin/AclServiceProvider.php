@@ -76,6 +76,10 @@ class AclServiceProvider extends ServiceProvider
                 ReviewsController::class,
             ], 'Отзывы');
 
+            $acl->define('change-our-works', [
+                ReviewsController::class,
+            ], 'Отзывы');
+
             $acl->define('change-settings', [
                 SettingsController::class,
             ], 'Константы');

@@ -27,6 +27,7 @@ Route::prefix(config('app.admin_path'))->name('cc.')->namespace('Admin')->group(
         Route::middleware('acl.admin')->group(function () {
             require_once 'web/admin/access_control.php';
             require_once 'web/admin/competencies.php';
+            require_once 'web/admin/our_works.php';
             require_once 'web/admin/reviews.php';
             require_once 'web/admin/services.php';
             require_once 'web/admin/settings.php';

@@ -1,6 +1,6 @@
 @extends('admin.layouts.inner')
 
-@section('title') {{ $formData['reviews']->name }} - редактирование @stop
+@section('title') {{ $formData[App\Services\DataProviders\ReviewForm\ReviewForm::MODEL_KEY]->name }} - редактирование @stop
 
 @section('content')
 
@@ -25,7 +25,7 @@
             <a class="btn btn-danger"
                data-method="delete"
                data-confirm="Вы уверены, что хотите удалить данную запись?"
-               href="{{ route(\App\Http\Controllers\Admin\EssenceControllers\ReviewsController::ROUTE_DESTROY, [$formData['reviews']->id]) }}">{{ trans('interactions.delete') }}
+               href="{{ route(\App\Http\Controllers\Admin\EssenceControllers\ReviewsController::ROUTE_DESTROY, [$formData[App\Services\DataProviders\ReviewForm\ReviewForm::MODEL_KEY]->id]) }}">{{ trans('interactions.delete') }}
             </a>
 
             <a href="{{ route(\App\Http\Controllers\Admin\EssenceControllers\ReviewsController::ROUTE_INDEX) }}" class="btn btn-default">{{ trans('interactions.back_to_list') }}</a>

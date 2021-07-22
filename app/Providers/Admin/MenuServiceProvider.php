@@ -5,6 +5,7 @@ namespace App\Providers\Admin;
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
+use App\Http\Controllers\Admin\EssenceControllers\OurWorksController;
 use App\Http\Controllers\Admin\EssenceControllers\StructureController;
 use App\Http\Controllers\Admin\EssenceControllers\TargetAudiencesController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
@@ -74,6 +75,16 @@ class MenuServiceProvider extends ServiceProvider
                         'glyphicon-comment',
                         route(ReviewsController::ROUTE_INDEX),
                         [ReviewsController::class]
+                    )
+                );
+
+
+                $menu->addMenuElement(
+                    new MenuElement(
+                        'Наши работы',
+                        'glyphicon-comment',
+                        route(OurWorksController::ROUTE_INDEX),
+                        [OurWorksController::class]
                     )
                 );
 

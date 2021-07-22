@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\DataProviders\ReviewForm\ReviewSubForm;
+namespace App\Services\DataProviders\OurWorkForm\OurWorkSubForm;
 
-use App\Http\Controllers\Admin\Relations\Reviews\ImagesController;
+use App\Http\Controllers\Admin\Relations\OurWorks\ImagesController;
 use App\Services\DataProviders\BaseSubForm;
 use App\Services\Eloquent\CollectionExtractor;
-use App\Services\Repositories\Review\ReviewImage\ReviewImageRepository;
+use App\Services\Repositories\OurWork\OurWorkImage\OurWorkImageRepository;
 
 class Images extends BaseSubForm
 {
@@ -14,7 +14,7 @@ class Images extends BaseSubForm
     protected const SUB_FORM_NAME = ImagesController::RELATIONS_NAME;
 
     public function __construct(
-        private ReviewImageRepository $repository
+        private OurWorkImageRepository $repository
     ){}
 
     public function provideData(\Eloquent $model, array $oldInput): array

@@ -33,12 +33,16 @@ abstract class BaseFormProcessor implements CrudFormProcessorInterface
 
     public function create(array $data = []): ?\Eloquent
     {
+
         $data = $this->prepareInputData($data);
         if (!$this->validator->with($data)->passes())
             return null;
 
-        $instance = $this->repository->create($data);
-        $this->afterSuccess($instance, $data);
+        $instance = null;
+        \DB::transaction(function () use (&$instance, $data) {
+            $instance = $this->repository->create($data);
+            $this->afterSuccess($instance, $data);
+        });
 
         return $instance;
     }
@@ -53,8 +57,11 @@ abstract class BaseFormProcessor implements CrudFormProcessorInterface
         if (!$this->validator->with($data)->passes())
             return false;
 
-        $this->repository->update($instance, $data);
-        $this->afterSuccess($instance, $data);
+        \DB::transaction(function () use (&$instance, $data) {
+            $this->repository->update($instance, $data);
+            $this->afterSuccess($instance, $data);
+        });
+
         return true;
     }
 

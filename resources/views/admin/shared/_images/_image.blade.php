@@ -37,8 +37,6 @@
 
     <div class="full-info">
         {!! Form::tbCheckboxBlock("images[{$imageKey}][publish]", trans('validation.attributes.publish'), $image->publish) !!}
-        {{--{!! Form::tbCheckboxBlock("images[{$imageKey}][main]", trans('validation.attributes.main'), $image->main) !!}--}}
-
     </div>
 
 <div class="controls">

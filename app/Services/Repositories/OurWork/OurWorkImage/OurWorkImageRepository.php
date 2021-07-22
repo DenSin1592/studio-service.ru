@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Services\Repositories\Review\ReviewImage;
+namespace App\Services\Repositories\OurWork\OurWorkImage;
 
-use App\Models\Review;
+use App\Models\OurWork;
 use App\Services\Repositories\BaseRepository;
 use App\Services\Repositories\CreateUpdateRepositoryInterface;
 
-class ReviewImageRepository extends BaseRepository implements CreateUpdateRepositoryInterface
+class OurWorkImageRepository extends BaseRepository implements CreateUpdateRepositoryInterface
 {
-    public function allForModel(Review $model)
+    public function allForModel(OurWork $model)
     {
         return $model->images()->get();
     }
 
     private function getRelation(\Eloquent $model){
-        return $model->review();
+        return $model->ourWork();
     }
 
     public function createOrUpdateForReview(\Eloquent $model, array $data = [])

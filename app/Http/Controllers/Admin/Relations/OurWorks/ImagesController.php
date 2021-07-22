@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Relations\Reviews;
+namespace App\Http\Controllers\Admin\Relations\OurWorks;
 
 use App\Http\Controllers\Controller;
 use App\Services\Repositories\Review\ReviewImage\ReviewImageRepository;
@@ -9,7 +9,7 @@ use Illuminate\Http\JsonResponse;
 class ImagesController extends Controller
 {
     public const RELATIONS_NAME = 'images';
-    public const ROUTE_CREATE = 'cc.reviews.reviews-images.create';
+    public const ROUTE_CREATE = 'cc.our-works.our-works-images.create';
 
     public function __construct(
         private ReviewImageRepository $repository

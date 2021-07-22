@@ -41,6 +41,11 @@ abstract class BaseRepository
         return $this->getModel()->find($id);
     }
 
+    public function findByIdOrFail(int $id)
+    {
+        return $this->getModel()->findOrFail($id);
+    }
+
 
     public function newInstance(array $data = [])
     {

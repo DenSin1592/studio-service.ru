@@ -66,9 +66,7 @@ abstract class BaseEssenceController extends Controller
 
     public function edit($id)
     {
-        $model = $this->repository->findById($id);
-        if (is_null($model))
-            \App::abort(404, 'Essence is not found');
+        $model = $this->repository->findByIdOrFail($id);
 
         $formData = $this->formDataProvider->provideData($model, old());
         $breadcrumbs = $this->breadcrumbs->getFor(static::BREADCRUMBS_EDIT, $model);
@@ -81,7 +79,7 @@ abstract class BaseEssenceController extends Controller
 
     public function update($id)
     {
-        $model = $this->repository->firstOrFail($id);
+        $model = $this->repository->findByIdOrFail($id);
         $success = $this->formProcessor->update($model ,\Request::except('redirect_to'));
         if (!$success)
             return \Redirect::route(static::ROUTE_EDIT, [$model->id])
@@ -97,7 +95,7 @@ abstract class BaseEssenceController extends Controller
 
     public function destroy($id)
     {
-        $model = $this->repository->findById($id);
+        $model = $this->repository->findByIdOrFail($id);
         if (is_null($model)) {
             \App::abort(404, 'Essence not found');
         }

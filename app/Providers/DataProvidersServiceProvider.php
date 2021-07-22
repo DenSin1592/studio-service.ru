@@ -7,6 +7,7 @@ use App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm\Abilities;
 use App\Services\DataProviders\AdminUserForm\AdminUserForm;
 use App\Services\DataProviders\AdminUserForm\AdminUserSubForm\Roles;
 use App\Services\DataProviders\CompetenceForm\CompetenceForm;
+use App\Services\DataProviders\OurWorkForm\OurWorkForm;
 use App\Services\DataProviders\ReviewForm\ReviewForm;
 use App\Services\DataProviders\ReviewForm\ReviewSubForm\Images;
 use App\Services\DataProviders\ReviewForm\ReviewSubForm\Services;
@@ -48,6 +49,15 @@ class DataProvidersServiceProvider extends ServiceProvider
                 $form = new ReviewForm();
                 $form->addSubForm(\App(Images::class));
                 $form->addSubForm(\App(Services::class));
+                return $form;
+            });
+
+
+        $this->app->bind(OurWorkForm::class,
+            static function() {
+                $form = new OurWorkForm();
+                $form->addSubForm(\App(\App\Services\DataProviders\OurWorkForm\OurWorkSubForm\Images::class));
+                $form->addSubForm(\App(\App\Services\DataProviders\OurWorkForm\OurWorkSubForm\Services::class));
                 return $form;
             });
 

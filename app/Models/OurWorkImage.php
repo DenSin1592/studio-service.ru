@@ -7,7 +7,11 @@ use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\OutBoundVersion;
 use Diol\FileclipExif\Glue;
 
-class ReviewImage extends \Eloquent
+/**
+ * Class OurWorkImage
+ * @package App\Models
+ */
+class OurWorkImage extends \Eloquent
 {
     use Glue;
     use AutoPublish;
@@ -15,23 +19,23 @@ class ReviewImage extends \Eloquent
     public const IMAGE_FILE = 'image_file';
 
     protected $fillable = [
-        self::IMAGE_FILE,
+       self::IMAGE_FILE,
         'image_remove',
         'position',
         'publish',
         'review_id',
     ];
 
-    public function review()
+    public function ourWork()
     {
-        return $this->belongsTo(Review::class);
+        return $this->belongsTo(OurWork::class);
     }
 
     protected static function boot()
     {
         parent::boot();
 
-        self::mountUploader('image', UploaderIntegrator::getUploader('uploads/reviews/images', [
+        self::mountUploader('image', UploaderIntegrator::getUploader('uploads/our-works/images', [
             'thumb' => new OutBoundVersion(85, 85),
             'mini'  => new OutBoundVersion(300, 300),
         ], false));

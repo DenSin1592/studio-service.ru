@@ -6,6 +6,7 @@ use App\Services\FormProcessors\AdminRole\AdminRoleFormProcessor;
 use App\Services\FormProcessors\AdminUser\AdminUserFormProcessor;
 use App\Services\FormProcessors\Competence\CompetenceFormProcessor;
 use App\Services\FormProcessors\Node\NodeFormProcessor;
+use App\Services\FormProcessors\OurWork\OurWorkFormProcessor;
 use App\Services\FormProcessors\Review\ReviewFormProcessor;
 use App\Services\FormProcessors\Review\SubProcessor\Images;
 use App\Services\FormProcessors\Service\ServiceFormProcessor;
@@ -16,6 +17,7 @@ use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use App\Services\Repositories\AdminUser\AdminUserRepository;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Node\NodeRepository;
+use App\Services\Repositories\OurWork\OurWorkRepository;
 use App\Services\Repositories\Review\ReviewRepository;
 use App\Services\Repositories\Services\ServicesRepository;
 use App\Services\Repositories\Setting\SettingRepository;
@@ -23,6 +25,7 @@ use App\Services\Validation\AdminRole\AdminRoleValidator;
 use App\Services\Validation\AdminUser\AdminUserValidator;
 use App\Services\Validation\Competence\CompetenceValidator;
 use App\Services\Validation\Node\NodeValidator;
+use App\Services\Validation\OurWork\OurWorkValidator;
 use App\Services\Validation\Review\ReviewValidator;
 use App\Services\Validation\Service\ServiceValidator;
 use App\Services\Validation\Settings\SettingsValidator;
@@ -99,8 +102,22 @@ class FormProcessorsServiceProvider extends ServiceProvider
                     $this->app->make(ReviewValidator::class),
                     $this->app->make(ReviewRepository::class)
                 );
-                $formProcessor->addSubProcessor(\App(Images::class));
+                $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Review\SubProcessor\Images::class));
                 $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Review\SubProcessor\Services::class));
+                return $formProcessor;
+            }
+        );
+
+
+        $this->app->bind(
+            OurWorkFormProcessor::class,
+            function () {
+                $formProcessor = new OurWorkFormProcessor(
+                    $this->app->make(OurWorkValidator::class),
+                    $this->app->make(OurWorkRepository::class)
+                );
+                $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\OurWork\SubProcessor\Images::class));
+                $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\OurWork\SubProcessor\Services::class));
                 return $formProcessor;
             }
         );

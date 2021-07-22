@@ -7,6 +7,8 @@ use App\Models\AdminUser;
 use App\Models\Competence;
 use App\Models\HomePage;
 use App\Models\Node;
+use App\Models\OurWork;
+use App\Models\OurWorkImage;
 use App\Models\Review;
 use App\Models\ReviewImage;
 use App\Models\Service;
@@ -18,6 +20,8 @@ use App\Services\Repositories\AdminUser\AdminUserRepository;
 use App\Services\Repositories\BaseRepository;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Node\NodeRepository;
+use App\Services\Repositories\OurWork\OurWorkImage\OurWorkImageRepository;
+use App\Services\Repositories\OurWork\OurWorkRepository;
 use App\Services\Repositories\Pages\HomePage\HomePageRepository;
 use App\Services\Repositories\Pages\TargetAudiencePage\TargetAudiencePageRepository;
 use App\Services\Repositories\Review\ReviewImage\ReviewImageRepository;
@@ -89,6 +93,22 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->app->singleton(
             ReviewImageRepository::class,
             fn() => new ReviewImageRepository(new ReviewImage())
+        );
+
+
+        $this->app->singleton(
+            OurWorkRepository::class,
+            fn() => new OurWorkRepository(
+                new EloquentAttributeToggler(),
+                new PositionUpdater(),
+                new OurWork()
+            )
+        );
+
+
+        $this->app->singleton(
+            OurWorkImageRepository::class,
+            fn() => new OurWorkImageRepository(new OurWorkImage())
         );
 
 
