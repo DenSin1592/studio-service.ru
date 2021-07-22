@@ -37,6 +37,12 @@ class TargetAudiencesController extends BaseEssenceController
         $this->formProcessor = \App(TargetAudienceFormProcessor::class);
     }
 
+    public function index()
+    {
+        $modelList = $this->repository->getTree();
+        return view(self::VIEW_INDEX)
+            ->with('modelList', $modelList);
+    }
 
     public function create()
     {

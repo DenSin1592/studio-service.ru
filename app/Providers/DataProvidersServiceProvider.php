@@ -72,7 +72,7 @@ class DataProvidersServiceProvider extends ServiceProvider
 
         $this->app->bind(SettingsForm::class,
             static function() {
-                $form = new ServiceForm();
+                $form = new SettingsForm();
                 return $form;
             });
 
