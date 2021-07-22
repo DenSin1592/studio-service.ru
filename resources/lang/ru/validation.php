@@ -218,5 +218,8 @@ return [
         'review_date' => 'Дата отзыва',
         'on_home_page' => 'На главной',
         'email' => 'Email',
+
+        'our_works_preview' => 'Превью',
+        'our_works_description' => "Описание",
     ],
 ];

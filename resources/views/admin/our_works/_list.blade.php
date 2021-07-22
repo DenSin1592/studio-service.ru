@@ -12,15 +12,7 @@
                         {{ $model->name }}
                     </a>
                 </div>
-
-                <div class="content">
-                    {{\Str::words(strip_tags($model->text), 15, '...')}}
-                </div>
-
-                <div class="review_date">
-                    {{{ date('d.m.Y H:i', strtotime( $model->review_date )) }}}
-                </div>
-
+                
                 <div class="publish-status">
                     @include('admin.shared._list_flag', [
                        'element' => $model,

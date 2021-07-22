@@ -3,7 +3,8 @@
 
 {!! Form::tbCheckboxBlock('publish') !!}
 
-{!! Form::tbTinymceTextareaBlock('text', trans('validation.attributes.review_content')) !!}
+{!! Form::tbTinymceTextareaBlock('preview', trans('validation.attributes.our_works_preview')) !!}
+{!! Form::tbTinymceTextareaBlock('description', trans('validation.attributes.our_works_description')) !!}
 
 @include('admin.shared._images._images', [
     'images' => $formData[\App\Http\Controllers\Admin\Relations\OurWorks\ImagesController::RELATIONS_NAME],
