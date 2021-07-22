@@ -1,0 +1,35 @@
+.gallery-block {
+    .gallery-header-typography-container {
+        margin-bottom: 15px;
+    }
+    
+    .gallery-header-controls-container {
+        margin-bottom: 15px;
+    }
+
+    .gallery-description {
+        font-size: 16px;
+        line-height: 20px;
+        @include media-breakpoint-up(lg) {
+            font-size: 17px;
+            line-height: 25px;
+        }
+        @include media-breakpoint-up(xl) {
+            font-size: 20px;
+            line-height: 25px;
+        }
+        @include media-breakpoint-up(xxl) {
+            font-size: 22px;
+            line-height: 25px;
+        }
+    }
+
+    .swiper-gallery-navigation-wrapper {
+        .swiper-button-prev,
+        .swiper-button-next {
+            position: static;
+            margin: 0;
+            transform: translate(0);
+        }
+    }
+}

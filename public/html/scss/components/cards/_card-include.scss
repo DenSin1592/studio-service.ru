@@ -1,0 +1,41 @@
+.card-include {
+    display: block;
+    width: 100%;
+    padding: 50px 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: currentColor;
+    font-size: 18px;
+    line-height: 30px;
+    text-decoration: none;
+    &:hover {
+        color: currentColor;
+        text-decoration: none;
+    }
+
+    .card-include-title,
+    .card-include-description {
+        max-width: 420px;
+    }
+
+    .card-include-title {
+        margin: 0 0 10px;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .card-include-cta {
+        margin-top: auto;
+    }
+
+    &.card-include-dark {
+        color: $c-white;
+        background-color: $c-black;
+
+        .card-include-cta {
+            color: currentColor;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+.section-projects {
+    overflow: hidden;
+    margin: 45px 0 0;
+    @include media-breakpoint-up(sm) {
+        margin: 55px 0 0;
+    }
+    @include media-breakpoint-up(md) {
+        margin: 65px 0 0;
+    }
+    @include media-breakpoint-up(lg) {
+        margin: 75px 0 0;
+    }
+    @include media-breakpoint-up(xl) {
+        margin: 95px 0 0;
+    }
+    @include media-breakpoint-up(xxl) {
+        margin: 125px 0 0;
+    }
+
+    .section-header {
+        margin-bottom: 20px;
+        @include media-breakpoint-up(sm) {
+            margin-bottom: 10px;
+        }
+        @include media-breakpoint-up(md) {
+            margin-bottom: 30px;
+        }
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 25px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.swiper-projects {
+    .swiper-projects-button-prev {
+        left: 15px;
+        @include media-breakpoint-up(xl) {
+            left: calc(50% - #{$container-xl}/2 + #{$grid-gutter-width}/2);
+        }
+        @include media-breakpoint-up(xxl) {
+            left: calc(50% - #{$container-xxl}/2 + #{$grid-gutter-width}/2);
+        }
+    }
+
+    .swiper-projects-button-next {
+        right: 15px;
+        @include media-breakpoint-up(xl) {
+            right: calc(50% - #{$container-xl}/2 + #{$grid-gutter-width}/2);
+        }
+        @include media-breakpoint-up(xxl) {
+            right: calc(50% - #{$container-xxl}/2 + #{$grid-gutter-width}/2);
+        }
+    }
+}

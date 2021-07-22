@@ -1,0 +1,25 @@
+.header-nav-list {
+    margin: 0 -12px;
+    @include media-breakpoint-up(xxl) {
+        margin: 0 -30px;
+    }
+
+    .header-nav-item {
+        margin: 0 12px;
+        @include media-breakpoint-up(xxl) {
+            margin: 0 30px;
+        }
+
+        .header-nav-link {
+            color: $c-purple;
+            border-bottom: 2px solid currentColor;
+            text-decoration: none;
+
+            &:hover {
+                border-bottom-color: transparent;
+                color: $c-purple;
+                text-decoration: none;
+            }
+        }
+    }
+}

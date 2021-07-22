@@ -1,0 +1,60 @@
+// vars
+@import 'vars';
+
+// vendors
+@import '../vendor/bootstrap-4.6.0/scss/bootstrap.scss';
+
+// general
+@import 'fonts';
+@import 'base';
+
+// components
+@import 'components/offcanvas';
+@import 'components/swiper';
+@import 'components/nav';
+@import 'components/breadcrumb';
+@import 'components/buttons';
+@import 'components/lists';
+@import 'components/gallery';
+@import 'components/twentytwenty';
+@import 'components/tooltip';
+
+// header
+@import 'layout/header/header';
+@import 'layout/header/header-logo';
+@import 'layout/header/header-nav';
+@import 'layout/header/header-social';
+@import 'layout/header/header-contact';
+
+// cards
+@import 'components/cards/card-category';
+@import 'components/cards/card-service';
+@import 'components/cards/card-expertice';
+@import 'components/cards/card-advantage';
+@import 'components/cards/card-testimonial';
+@import 'components/cards/card-project';
+@import 'components/cards/card-include';
+@import 'components/cards/card-social';
+
+// sections
+@import 'sections/section-display';
+@import 'sections/section-hero';
+@import 'sections/section-about';
+@import 'sections/section-categories';
+@import 'sections/section-services';
+@import 'sections/section-expertises';
+@import 'sections/section-advantages';
+@import 'sections/section-projects';
+@import 'sections/section-testimonials';
+@import 'sections/section-includes';
+@import 'sections/section-article';
+@import 'sections/section-social';
+
+
+// footer
+@import 'layout/footer/footer';
+@import 'layout/footer/footer-logo';
+@import 'layout/footer/footer-contact';
+@import 'layout/footer/footer-social';
+@import 'layout/footer/footer-copyright';
+@import 'layout/footer/footer-studio';

@@ -1,0 +1,41 @@
+.footer-logo-block {
+    color: $c-white;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: normal;
+    text-decoration: none;
+    @include media-breakpoint-up(xl) {
+        font-size: 30px;
+    }
+
+    .footer-logo-thumbnail {
+        flex: 0 0 50px;
+        width: 50px;
+        max-width: 50px;
+        margin-right: 15px;
+        @include media-breakpoint-up(xl) {
+            flex: 0 0 62px;
+            width: 62px;
+            max-width: 62px;
+        }
+        @include media-breakpoint-up(xxl) {
+            flex: 0 0 70px;
+            width: 70px;
+            max-width: 70px;
+            margin-right: 15px;
+        }
+
+        .footer-logo-media {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+
+    &:hover {
+        color: $c-light;
+        text-decoration: none;
+    }
+}

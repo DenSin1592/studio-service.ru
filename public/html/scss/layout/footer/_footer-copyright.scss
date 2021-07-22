@@ -1,0 +1,20 @@
+.footer-copyright-block {
+    font-size: 14px;
+    line-height: 20px;
+    @include media-breakpoint-up(xl) {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    p {
+        margin: 0 0 20px;
+    }
+}

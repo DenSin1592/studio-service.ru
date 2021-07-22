@@ -1,0 +1,29 @@
+.nav {
+    &.nav-tabs {
+        margin: 0;
+        border: none;
+
+        .nav-item {
+            margin-left: $grid-gutter-width/2;
+            margin-left: $grid-gutter-width/2;
+
+            .nav-link {
+                padding: 25px 25px;
+                border: 1px solid #35354c;
+                border-radius: 30px;
+                background: none;
+                color: #5d5d72;
+                font-size: 40px;
+                font-weight: 700;
+                line-height: 1;
+                text-decoration: none;
+
+                &.active {
+                    border-color: $c-purple-dark;
+                    background: $c-purple-dark;
+                    color: $c-white;
+                }
+            }
+        }
+    }
+}

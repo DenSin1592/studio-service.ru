@@ -1,0 +1,57 @@
+.swiper-cover {
+    position: relative;
+
+    > .swiper-container {
+        position: static;
+    }
+}
+
+
+.swiper-slide {
+    height: auto;
+}
+
+.swiper-button-sm {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(#35354c, .2);
+    transition: background-color 300ms ease;
+    @include media-breakpoint-up(xl) {
+        width: 50px;
+        height: 50px;
+    }
+
+    &:hover {
+        background: #35354c;
+    }
+}
+
+.swiper-pagination-fraction {
+    position: static;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1;
+    color: $c-black;
+}
+
+.swiper-light {
+    .swiper-button-prev,
+    .swiper-button-next {
+        background-color: rgba($c-white, .2);
+        &:hover {
+            background-color: $c-white;
+        }
+    }
+}
