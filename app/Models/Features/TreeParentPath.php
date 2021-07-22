@@ -33,6 +33,20 @@ trait TreeParentPath
 
 
     /**
+     * Extract full path - parent path with itself
+     *
+     * @return array
+     */
+    public function extractPath(): array
+    {
+        $path = $this->extractParentPath();
+        $path[] = $this;
+
+        return $path;
+    }
+
+
+    /**
      * Set parents for elements in collection.
      */
     public static function setParents($elements): void

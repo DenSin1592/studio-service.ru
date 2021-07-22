@@ -11,4 +11,7 @@ Route::resource('structure', 'EssenceControllers\StructureController')->except([
 Route::namespace('PageControllers')->group(function () {
     Route::resource('home-pages', 'HomePageController')->only(['edit', 'update']);
     Route::resource('target-audience-pages', 'TargetAudiencePageController')->only(['edit', 'update']);
+    Route::resource('service-pages', 'ServicePageController')->only(['edit', 'update']);
+    Route::resource('competence-pages', 'CompetencePageController')->only(['edit', 'update']);
+    Route::resource('text-pages', 'TextPageController')->only(['edit', 'update']);
 });

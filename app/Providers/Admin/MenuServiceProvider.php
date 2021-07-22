@@ -82,7 +82,7 @@ class MenuServiceProvider extends ServiceProvider
                 $menu->addMenuElement(
                     new MenuElement(
                         'Наши работы',
-                        'glyphicon-comment',
+                        'glyphicon-wrench',
                         route(OurWorksController::ROUTE_INDEX),
                         [OurWorksController::class]
                     )

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Features\AttachedToNode;
 
-class HomePage extends \Eloquent
+class ServicePage extends \Eloquent
 {
     use AttachedToNode;
 

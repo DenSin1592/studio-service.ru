@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Features\AttachedToNode;
 
-class HomePage extends \Eloquent
+class CompetencePage extends \Eloquent
 {
     use AttachedToNode;
 
@@ -14,4 +14,5 @@ class HomePage extends \Eloquent
         'meta_keywords',
         'meta_description',
     ];
+
 }

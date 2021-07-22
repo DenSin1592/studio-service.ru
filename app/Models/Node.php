@@ -39,7 +39,9 @@ class Node extends \Eloquent
 
     public const TYPE_HOME_PAGE = 'home_page';
     public const TYPE_TARGET_AUDIENCE_PAGE = 'target_audience_page';
-    //const TYPE_TEXT_PAGE = 'text_page';
+    public const TYPE_SERVICE_PAGE = 'service_page';
+    public const TYPE_COMPETENCE_PAGE = 'competence_page';
+    public const TYPE_TEXT_PAGE = 'text_page';
 
     protected $fillable = [
         'parent_id',
@@ -57,6 +59,20 @@ class Node extends \Eloquent
         'menu_top' => 'boolean',
         'menu_bottom' => 'boolean',
     ];
+
+
+    public function getAliasPath(): array
+    {
+        $parentPath = $this->extractPath();
+        $aliasPath = array_map(
+            function (self $node) {
+                return $node->alias;
+            },
+            $parentPath
+        );
+
+        return $aliasPath;
+    }
 
     public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
@@ -78,6 +94,21 @@ class Node extends \Eloquent
         return $this->hasOne(TargetAudiencePage::class);
     }
 
+    public function servicePage(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(ServicePage::class);
+    }
+
+    public function competencePage(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(CompetencePage::class);
+    }
+
+    public function textPage(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(TextPage::class);
+    }
+
     protected static function boot(): void
     {
         parent::boot();
@@ -86,6 +117,9 @@ class Node extends \Eloquent
             DeleteHelpers::deleteRelatedAll($model->children());
             DeleteHelpers::deleteRelatedFirst($model->homePage());
             DeleteHelpers::deleteRelatedFirst($model->targetAudiencePage());
+            DeleteHelpers::deleteRelatedFirst($model->servicePage());
+            DeleteHelpers::deleteRelatedFirst($model->competencePage());
+            DeleteHelpers::deleteRelatedAll($model->textPage());
         });
     }
 }
