@@ -44,9 +44,8 @@ Route::namespace('Client')->group(function () {
         Route::get('/', 'HomePageController@show')->name('home');
         Route::get('/dlya-kogo', 'TargetAudiencePageController@show')->name('target-audience');
         Route::get('/kompetencii', 'CompetencePageController@show')->name('competencies');
-        Route::get('/uslugi', 'CompetencePageController@show')->name('services');
-
-        Route::get('/{url}', 'DynamicPagesController@show')->name('dynamic_page')->where('url', '.*');
+        Route::get('/uslugi', 'ServicePageController@show')->name('services');
     });
 
+    Route::get('/{url}', 'DynamicPagesController@show')->name('dynamic_page')->where('url', '.*');
 });

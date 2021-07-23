@@ -22,6 +22,8 @@
 <body>
     @include('client.layouts._auth_menu')
 
+    @include('client.shared.breadcrumbs._breadcrumbs')
+
     @yield('content')
 
     {!! Asset::includeJS('client_layout_js') !!}

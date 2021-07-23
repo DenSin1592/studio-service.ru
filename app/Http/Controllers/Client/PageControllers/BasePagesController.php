@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client\PageControllers;
 
 use App\Facades\TypeContainer;
 use App\Http\Controllers\Controller;
+use App\Services\Breadcrumbs\Factory as Breadcrumbs;
 use App\Services\Repositories\Node\NodeRepository;
 use App\Services\Seo\MetaHelper;
 
@@ -11,7 +12,8 @@ abstract class BasePagesController extends Controller
 {
     public function __construct(
         protected NodeRepository $repository,
-        protected MetaHelper $metaHelper
+        protected MetaHelper $metaHelper,
+        protected Breadcrumbs $breadcrumbs,
     ){}
 
     protected function show()
@@ -24,6 +26,10 @@ abstract class BasePagesController extends Controller
         $page->node()->associate($node);
 
         $metaData = $this->metaHelper->getRule()->metaForObject($page, $node->name);
+
+        $breadcrumbs = $this->breadcrumbs->init();
+        $breadcrumbs->add($metaData['h1']);
+
         $authEditLink = TypeContainer::getContentUrl($node);
 
         return \View::make(static::VIEW_FOR_SHOW)
@@ -31,6 +37,7 @@ abstract class BasePagesController extends Controller
                 'page',
                 'metaData',
                 'authEditLink',
+                'breadcrumbs',
             ));
     }
 }
