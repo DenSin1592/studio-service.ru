@@ -10,24 +10,27 @@ use App\Services\Repositories\Competencies\CompetenciesRepository;
 class CompetenciesController extends BaseEssenceController
 {
     public const  ROUTE_INDEX = 'cc.competencies.index';
-    public const  ROUTE_CREATE = 'cc.competencies.create';
-    public const  ROUTE_STORE = 'cc.competencies.store';
+    protected const  ROUTE_CREATE = 'cc.competencies.create';
+    protected const  ROUTE_STORE = 'cc.competencies.store';
     public const  ROUTE_EDIT = 'cc.competencies.edit';
-    public const  ROUTE_UPDATE = 'cc.competencies.update';
-    public const  ROUTE_DESTROY = 'cc.competencies.destroy';
-    public const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.competencies.toggle-attribute';
-    public const  ROUTE_UPDATE_POSITIONS = 'cc.competencies.update-positions';
+    protected const  ROUTE_UPDATE = 'cc.competencies.update';
+    protected const  ROUTE_DESTROY = 'cc.competencies.destroy';
+    protected const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.competencies.toggle-attribute';
+    protected const  ROUTE_UPDATE_POSITIONS = 'cc.competencies.update-positions';
 
     public const BREADCRUMBS_CREATE = 'cc.competencies.create';
     public const BREADCRUMBS_EDIT = 'cc.competencies.edit';
 
-    protected const VIEW_INDEX = 'admin.competencies.index';
-    protected const VIEW_CREATE = 'admin.competencies.create';
-    protected const VIEW_EDIT = 'admin.competencies.edit';
+    protected const VIEW_LIST = 'admin.essence.competencies._list';
+    protected const VIEW_FORM_FIELDS = 'admin.essence.competencies._form_fields';
+
+    protected const INDEX_TITLE = 'Каталог компетенций';
 
     protected const CREATE_MESSAGE = 'Компетенция создана';
     protected const EDIT_MESSAGE = 'Компетенция обновлена';
     protected const DESTROY_MESSAGE = 'Компетенция удалена';
+
+    public const ESSENCE_NAME = 'competence';
 
     protected function setDependencies(): void
     {
@@ -35,4 +38,6 @@ class CompetenciesController extends BaseEssenceController
         $this->formDataProvider = \App(CompetenceForm::class);
         $this->formProcessor = \App(CompetenceFormProcessor::class);
     }
+
+
 }

@@ -3,10 +3,10 @@
 
 namespace App\Services\DataProviders\ReviewForm;
 
+use App\Http\Controllers\Admin\EssenceControllers\ReviewsController;
 use App\Services\DataProviders\BaseDataProvider;
-use App\Services\DataProviders\ServiceForm\ServiceSubForm\Competencies;
 
 class ReviewForm extends BaseDataProvider
 {
-    public const MODEL_KEY = 'review';
+    public const MODEL_KEY = ReviewsController::ESSENCE_NAME;
 }

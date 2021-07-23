@@ -15,6 +15,10 @@ abstract class BaseEssenceController extends Controller
     use ToggleFlags;
     use UpdatePositions;
 
+    protected const VIEW_INDEX = 'admin.essence.index';
+    protected const VIEW_CREATE = 'admin.essence.create';
+    protected const VIEW_EDIT = 'admin.essence.edit';
+
     protected BaseRepository $repository;
     protected BaseDataProvider $formDataProvider;
     protected BaseFormProcessor $formProcessor;
@@ -32,7 +36,12 @@ abstract class BaseEssenceController extends Controller
     public function index()
     {
         $modelList = $this->repository->paginate();
-        return view(static::VIEW_INDEX)->with('modelList', $modelList);
+        return view(self::VIEW_INDEX)
+            ->with('modelList', $modelList)
+            ->with('title', static::INDEX_TITLE)
+            ->with('viewListName', static::VIEW_LIST)
+            ->with($this->getRoutePaths())
+            ;
     }
 
 
@@ -42,9 +51,13 @@ abstract class BaseEssenceController extends Controller
         $formData = $this->formDataProvider->provideData($model, \Request::old());
         $breadcrumbs = $this->breadcrumbs->getFor(static::BREADCRUMBS_CREATE, $model);
 
-        return \View(static::VIEW_CREATE)
+        return \View(self::VIEW_CREATE)
             ->with('formData', $formData)
-            ->with('breadcrumbs', $breadcrumbs);
+            ->with('essenceName', static::ESSENCE_NAME)
+            ->with('breadcrumbs', $breadcrumbs)
+            ->with('viewFormFieldsName', static::VIEW_FORM_FIELDS)
+            ->with($this->getRoutePaths())
+            ;
     }
 
 
@@ -71,9 +84,13 @@ abstract class BaseEssenceController extends Controller
         $formData = $this->formDataProvider->provideData($model, old());
         $breadcrumbs = $this->breadcrumbs->getFor(static::BREADCRUMBS_EDIT, $model);
 
-        return \View(static::VIEW_EDIT)
+        return \View(self::VIEW_EDIT)
             ->with('formData', $formData)
-            ->with('breadcrumbs', $breadcrumbs);
+            ->with('essenceName', static::ESSENCE_NAME)
+            ->with('breadcrumbs', $breadcrumbs)
+            ->with('viewFormFieldsName', static::VIEW_FORM_FIELDS)
+            ->with($this->getRoutePaths())
+            ;
     }
 
 
@@ -102,6 +119,21 @@ abstract class BaseEssenceController extends Controller
         $this->repository->delete($model);
 
         return \Redirect::route(static::ROUTE_INDEX)->with('alert_success', static::DESTROY_MESSAGE);
+    }
+
+
+    protected function getRoutePaths(): array
+    {
+        return[
+            'routeIndex' => static::ROUTE_INDEX,
+            'routeCreate' => static::ROUTE_CREATE,
+            'routeStore' => static::ROUTE_STORE,
+            'routeEdit' => static::ROUTE_EDIT,
+            'routeUpdate' => static::ROUTE_UPDATE,
+            'routeDestroy' => static::ROUTE_DESTROY,
+            'routeUpdatePosition' => static::ROUTE_UPDATE_POSITIONS,
+            'routeToggleAttribute' => static::ROUTE_TOGGLE_ATTRIBUTE,
+        ];
     }
 
 }

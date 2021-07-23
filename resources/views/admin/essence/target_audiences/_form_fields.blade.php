@@ -17,8 +17,8 @@
 
 {!! Form::tbCheckboxBlock('publish') !!}
 
-@include('admin.shared._model_image_field', ['model' => $formData[App\Services\DataProviders\TargetAudienceForm\TargetAudienceForm::MODEL_KEY], 'field' => 'icon'])
+@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'icon'])
 
 @include('admin.shared._form_meta_fields')
 
-@include('admin.shared._model_timestamps', ['model' => $formData[App\Services\DataProviders\TargetAudienceForm\TargetAudienceForm::MODEL_KEY]])
+@include('admin.shared._model_timestamps', ['model' => $formData[$essenceName]])

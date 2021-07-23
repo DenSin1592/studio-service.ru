@@ -9,8 +9,8 @@
 {!! Form::tbFormGroupOpen('type') !!}
     {!! Form::tbLabel('type', trans('validation.attributes.type')) !!}
     <select id="type" name="type" class="form-control half" data-node-type>
-        @foreach (TypeContainer::getEnabledTypeList($formData[\App\Services\DataProviders\NodeForm\NodeForm::MODEL_KEY]->id) as $typeKey => $type)
-            <option value="{{ $typeKey }}" data-home-page="{{ $typeKey === \App\Models\Node::TYPE_HOME_PAGE ? '1' : '' }}" {!! old('type', $formData[\App\Services\DataProviders\NodeForm\NodeForm::MODEL_KEY]->type) == $typeKey ? 'selected="selected"' : '' !!}>{!! $type->getName() !!}</option>
+        @foreach (TypeContainer::getEnabledTypeList($formData[$essenceName]->id) as $typeKey => $type)
+            <option value="{{ $typeKey }}" data-home-page="{{ $typeKey === \App\Models\Node::TYPE_HOME_PAGE ? '1' : '' }}" {!! old('type', $formData[$essenceName]->type) == $typeKey ? 'selected="selected"' : '' !!}>{!! $type->getName() !!}</option>
         @endforeach
     </select>
 {!! Form::tbFormGroupClose() !!}
@@ -29,4 +29,4 @@
 {!! Form::tbCheckboxBlock('menu_top') !!}
 {!! Form::tbCheckboxBlock('menu_bottom') !!}
 
-@include('admin.shared._model_timestamps', ['model' => $formData[\App\Services\DataProviders\NodeForm\NodeForm::MODEL_KEY]])
+@include('admin.shared._model_timestamps', ['model' => $formData[$essenceName]])

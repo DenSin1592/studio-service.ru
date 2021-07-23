@@ -10,25 +10,27 @@ use App\Services\Repositories\Node\NodeRepository;
 class StructureController extends BaseEssenceController
 {
     public const  ROUTE_INDEX = 'cc.structure.index';
-    public const  ROUTE_CREATE = 'cc.structure.create';
-    public const  ROUTE_STORE = 'cc.structure.store';
-    public const  ROUTE_EDIT = 'cc.structure.edit';
-    public const  ROUTE_UPDATE = 'cc.structure.update';
-    public const  ROUTE_DESTROY = 'cc.structure.destroy';
-    public const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.structure.toggle-attribute';
-    public const  ROUTE_UPDATE_POSITIONS = 'cc.structure.update-positions';
+    protected const  ROUTE_CREATE = 'cc.structure.create';
+    protected const  ROUTE_STORE = 'cc.structure.store';
+    protected const  ROUTE_EDIT = 'cc.structure.edit';
+    protected const  ROUTE_UPDATE = 'cc.structure.update';
+    protected const  ROUTE_DESTROY = 'cc.structure.destroy';
+    protected const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.structure.toggle-attribute';
+    protected const  ROUTE_UPDATE_POSITIONS = 'cc.structure.update-positions';
 
     public const BREADCRUMBS_CREATE = 'cc.structure.create';
     public const BREADCRUMBS_EDIT = 'cc.structure.edit';
 
-    protected const VIEW_INDEX = 'admin.structure.index';
-    protected const VIEW_CREATE = 'admin.structure.create';
-    protected const VIEW_EDIT = 'admin.structure.edit';
+    protected const VIEW_LIST = 'admin.essence.structure._list';
+    protected const VIEW_FORM_FIELDS = 'admin.essence.structure._form_fields';
+
+    protected const INDEX_TITLE = 'Структура сайта';
 
     protected const CREATE_MESSAGE = 'Страница создана';
     protected const EDIT_MESSAGE = 'Страница обновлена';
     protected const DESTROY_MESSAGE = 'Страница удалена';
 
+    public const ESSENCE_NAME = 'structure';
 
     protected function setDependencies(): void
     {
@@ -39,9 +41,13 @@ class StructureController extends BaseEssenceController
 
     public function index()
     {
-        $nodeTree = $this->repository->getTree();
+        $modelList = $this->repository->getTree();
         return view(self::VIEW_INDEX)
-            ->with('nodeTree', $nodeTree);
+            ->with('modelList', $modelList)
+            ->with('title', self::INDEX_TITLE)
+            ->with('viewListName', self::VIEW_LIST)
+            ->with($this->getRoutePaths())
+            ;
     }
 
 

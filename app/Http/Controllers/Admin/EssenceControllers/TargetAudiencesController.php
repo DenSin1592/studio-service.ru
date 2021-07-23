@@ -11,24 +11,27 @@ use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
 class TargetAudiencesController extends BaseEssenceController
 {
     public const  ROUTE_INDEX = 'cc.target-audiences.index';
-    public const  ROUTE_CREATE = 'cc.target-audiences.create';
-    public const  ROUTE_STORE = 'cc.target-audiences.store';
-    public const  ROUTE_EDIT = 'cc.target-audiences.edit';
-    public const  ROUTE_UPDATE = 'cc.target-audiences.update';
-    public const  ROUTE_DESTROY = 'cc.target-audiences.destroy';
-    public const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.target-audiences.toggle-attribute';
-    public const  ROUTE_UPDATE_POSITIONS = 'cc.target-audiences.update-positions';
+    protected const  ROUTE_CREATE = 'cc.target-audiences.create';
+    protected const  ROUTE_STORE = 'cc.target-audiences.store';
+    protected const  ROUTE_EDIT = 'cc.target-audiences.edit';
+    protected const  ROUTE_UPDATE = 'cc.target-audiences.update';
+    protected const  ROUTE_DESTROY = 'cc.target-audiences.destroy';
+    protected const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.target-audiences.toggle-attribute';
+    protected const  ROUTE_UPDATE_POSITIONS = 'cc.target-audiences.update-positions';
 
     public const BREADCRUMBS_CREATE = 'cc.target-audiences.create';
     public const BREADCRUMBS_EDIT = 'cc.target-audiences.edit';
 
-    protected const VIEW_INDEX = 'admin.target_audiences.index';
-    protected const VIEW_CREATE = 'admin.target_audiences.create';
-    protected const VIEW_EDIT = 'admin.target_audiences.edit';
+    protected const VIEW_LIST = 'admin.essence.target_audiences._list';
+    protected const VIEW_FORM_FIELDS = 'admin.essence.target_audiences._form_fields';
+
+    protected const INDEX_TITLE = 'Каталог ЦА';
 
     protected const CREATE_MESSAGE = 'ЦА создана';
     protected const EDIT_MESSAGE = 'ЦА обновлена';
     protected const DESTROY_MESSAGE = 'ЦА удалена';
+
+    public const ESSENCE_NAME = 'target_audience';
 
     protected function setDependencies(): void
     {
@@ -41,7 +44,11 @@ class TargetAudiencesController extends BaseEssenceController
     {
         $modelList = $this->repository->getTree();
         return view(self::VIEW_INDEX)
-            ->with('modelList', $modelList);
+            ->with('modelList', $modelList)
+            ->with('title', self::INDEX_TITLE)
+            ->with('viewListName', self::VIEW_LIST)
+            ->with($this->getRoutePaths())
+            ;
     }
 
     public function create()

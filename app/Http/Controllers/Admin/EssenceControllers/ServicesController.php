@@ -10,24 +10,27 @@ use App\Services\Repositories\Services\ServicesRepository;
 class ServicesController extends BaseEssenceController
 {
     public const  ROUTE_INDEX = 'cc.services.index';
-    public const  ROUTE_CREATE = 'cc.services.create';
-    public const  ROUTE_STORE = 'cc.services.store';
+    protected const  ROUTE_CREATE = 'cc.services.create';
+    protected const  ROUTE_STORE = 'cc.services.store';
     public const  ROUTE_EDIT = 'cc.services.edit';
-    public const  ROUTE_UPDATE = 'cc.services.update';
-    public const  ROUTE_DESTROY = 'cc.services.destroy';
-    public const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.services.toggle-attribute';
-    public const  ROUTE_UPDATE_POSITIONS = 'cc.services.update-positions';
+    protected const  ROUTE_UPDATE = 'cc.services.update';
+    protected const  ROUTE_DESTROY = 'cc.services.destroy';
+    protected const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.services.toggle-attribute';
+    protected const  ROUTE_UPDATE_POSITIONS = 'cc.services.update-positions';
 
     public const BREADCRUMBS_CREATE = 'cc.services.create';
     public const BREADCRUMBS_EDIT = 'cc.services.edit';
 
-    protected const VIEW_INDEX = 'admin.services.index';
-    protected const VIEW_CREATE = 'admin.services.create';
-    protected const VIEW_EDIT = 'admin.services.edit';
+    protected const VIEW_LIST = 'admin.essence.services._list';
+    protected const VIEW_FORM_FIELDS = 'admin.essence.services._form_fields';
+
+    protected const INDEX_TITLE = 'Каталог Услуг';
 
     protected const CREATE_MESSAGE = 'Услуга создан';
     protected const EDIT_MESSAGE = 'Услуга обновлена';
     protected const DESTROY_MESSAGE = 'Услуга удалена';
+
+    public const ESSENCE_NAME = 'service';
 
     protected function setDependencies(): void
     {

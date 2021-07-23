@@ -18,6 +18,15 @@
     )
 )
 
-@include('admin.reviews._date_field', ['formData' => $formData])
+{!!  Form::tbFormGroupOpen('review_date') !!}
+    {!! Form::tbLabel('review_date', trans('validation.attributes.review_date')) !!}
+    {!! Form::tbText(
+        'review_date',
+        !empty($formData[$essenceName]->review_date) ? date( "d.m.Y H:i:s" , strtotime($formData[$essenceName]->review_date)) : '',
+        ['data-datetimepicker' => json_encode(['format' => "d.m.Y H:i:s"])]
+    )
+    !!}
 
-@include('admin.shared._model_timestamps', ['model' => $formData[App\Services\DataProviders\ReviewForm\ReviewForm::MODEL_KEY]])
+{!! Form::tbFormGroupClose() !!}
+
+@include('admin.shared._model_timestamps', ['model' => $formData[$essenceName]])

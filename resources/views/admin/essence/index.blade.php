@@ -1,6 +1,7 @@
+
 @extends('admin.layouts.default')
 
-@section('title') {{ 'Каталог услуг' }} @stop
+@section('title') {{ $title }} @stop
 
 @section('content')
     <div class="node-list element-list-wrapper" data-sortable-wrapper="">
@@ -12,16 +13,19 @@
         </div>
 
         <div data-sortable-container="">
-            @include('admin.services._list', ['lvl' => 0])
+
+            @include($viewListName, ['lvl' => 0])
+
             @include('admin.shared._pagination_links', ['paginator' => $modelList])
         </div>
 
         @include('admin.shared.resource_list.sorting._commit', [
-            'updateUrl' => route(\App\Http\Controllers\Admin\EssenceControllers\ServicesController::ROUTE_UPDATE_POSITIONS),
-            'reloadUrl' => route(\App\Http\Controllers\Admin\EssenceControllers\CompetenciesController::ROUTE_INDEX)])
+            'updateUrl' => route($routeUpdatePosition),
+            'reloadUrl' => route($routeIndex)
+            ])
 
         <div>
-            <a href="{{ route(\App\Http\Controllers\Admin\EssenceControllers\ServicesController::ROUTE_CREATE) }}" class="btn btn-success btn-xs">Добавить услугу</a>
+            <a href="{{ route($routeCreate) }}" class="btn btn-success btn-xs">Добавить</a>
         </div>
     </div>
 @stop

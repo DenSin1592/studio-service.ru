@@ -10,24 +10,27 @@ use App\Services\Repositories\Review\ReviewRepository;
 class ReviewsController extends BaseEssenceController
 {
     public const  ROUTE_INDEX = 'cc.reviews.index';
-    public const  ROUTE_CREATE = 'cc.reviews.create';
-    public const  ROUTE_STORE = 'cc.reviews.store';
-    public const  ROUTE_EDIT = 'cc.reviews.edit';
-    public const  ROUTE_UPDATE = 'cc.reviews.update';
-    public const  ROUTE_DESTROY = 'cc.reviews.destroy';
-    public const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.reviews.toggle-attribute';
-    public const  ROUTE_UPDATE_POSITIONS = 'cc.reviews.update-positions';
+    protected const  ROUTE_CREATE = 'cc.reviews.create';
+    protected const  ROUTE_STORE = 'cc.reviews.store';
+    protected const  ROUTE_EDIT = 'cc.reviews.edit';
+    protected const  ROUTE_UPDATE = 'cc.reviews.update';
+    protected const  ROUTE_DESTROY = 'cc.reviews.destroy';
+    protected const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.reviews.toggle-attribute';
+    protected const  ROUTE_UPDATE_POSITIONS = 'cc.reviews.update-positions';
 
     public const BREADCRUMBS_CREATE = 'cc.reviews.create';
     public const BREADCRUMBS_EDIT = 'cc.reviews.edit';
 
-    protected const VIEW_INDEX = 'admin.reviews.index';
-    protected const VIEW_CREATE = 'admin.reviews.create';
-    protected const VIEW_EDIT = 'admin.reviews.edit';
+    protected const VIEW_LIST = 'admin.essence.reviews._list';
+    protected const VIEW_FORM_FIELDS = 'admin.essence.reviews._form_fields';
+
+    protected const INDEX_TITLE = 'Отзывы';
 
     protected const CREATE_MESSAGE = 'Отзыв создан';
     protected const EDIT_MESSAGE = 'Отзыв обновлён';
     protected const DESTROY_MESSAGE = 'Отзыв удалён';
+
+    public const ESSENCE_NAME = 'review';
 
     protected function setDependencies(): void
     {

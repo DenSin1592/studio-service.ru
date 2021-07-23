@@ -11,8 +11,8 @@
 
 {!! Form::tbCheckboxBlock('publish') !!}
 
-@include('admin.shared._model_image_field', ['model' => $formData[App\Services\DataProviders\CompetenceForm\CompetenceForm::MODEL_KEY], 'field' => 'preview_image'])
+@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
 
 @include('admin.shared._form_meta_fields')
 
-@include('admin.shared._model_timestamps', ['model' => $formData[App\Services\DataProviders\CompetenceForm\CompetenceForm::MODEL_KEY]])
+@include('admin.shared._model_timestamps', ['model' => $formData[$essenceName]])

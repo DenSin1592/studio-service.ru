@@ -17,4 +17,4 @@
     )
 )
 
-@include('admin.shared._model_timestamps', ['model' => $formData[App\Services\DataProviders\OurWorkForm\OurWorkForm::MODEL_KEY]])
+@include('admin.shared._model_timestamps', ['model' => $formData[$essenceName]])
