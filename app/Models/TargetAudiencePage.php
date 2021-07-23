@@ -13,5 +13,6 @@ class TargetAudiencePage extends \Eloquent
         'meta_title',
         'meta_keywords',
         'meta_description',
+        'content',
     ];
 }

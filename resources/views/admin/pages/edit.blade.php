@@ -1,5 +1,4 @@
 @extends('admin.layouts.inner')
-{{-- Edit home pages --}}
 
 @section('title')
     {{ $node->name }} - редактирование содержимого
@@ -9,9 +8,11 @@
 
     @include('admin.layouts._breadcrumbs', ['breadcrumbs' => $breadcrumbs])
 
-    {!! Form::tbModelWithErrors($page, $errors, ['url' => route(\App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController::ROUTE_UPDATE, [$node->id]), 'method' => 'put', 'files' => true]) !!}
+    {!! Form::tbModelWithErrors($page, $errors, ['url' => route($route_update, [$node->id]), 'method' => 'put', 'files' => true]) !!}
 
         @include('admin.shared._form_meta_fields')
+
+        {!! Form::tbTinymceTextareaBlock('text', trans('validation.attributes.content')) !!}
 
         @include('admin.shared._model_timestamps', ['model' => $page])
 

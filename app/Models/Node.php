@@ -119,7 +119,7 @@ class Node extends \Eloquent
             DeleteHelpers::deleteRelatedFirst($model->targetAudiencePage());
             DeleteHelpers::deleteRelatedFirst($model->servicePage());
             DeleteHelpers::deleteRelatedFirst($model->competencePage());
-            DeleteHelpers::deleteRelatedAll($model->textPage());
+            DeleteHelpers::deleteRelatedFirst($model->textPage());
         });
     }
 }

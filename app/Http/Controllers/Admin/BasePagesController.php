@@ -26,6 +26,7 @@ abstract class BasePagesController extends Controller
         $breadcrumbs = $this->breadcrumbs->getFor(StructureController::BREADCRUMBS_EDIT, $page->node);
 
         return view(static::VIEW_FOR_EDIT)
+            ->with('route_update', static::ROUTE_UPDATE)
             ->with('breadcrumbs', $breadcrumbs)
             ->with('page', $page)
             ->with('node', $page->node);
