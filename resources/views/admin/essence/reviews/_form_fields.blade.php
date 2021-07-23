@@ -2,6 +2,7 @@
 {!! Form::tbTextBlock('name') !!}
 
 {!! Form::tbCheckboxBlock('publish') !!}
+{!! Form::tbCheckboxBlock('on_home_page') !!}
 
 {!! Form::tbTextBlock('email') !!}
 

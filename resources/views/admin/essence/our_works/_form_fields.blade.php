@@ -1,7 +1,11 @@
 
 {!! Form::tbTextBlock('name') !!}
 
+{!! Form::tbTextBlock('alias') !!}
+
 {!! Form::tbCheckboxBlock('publish') !!}
+
+{!! Form::tbCheckboxBlock('on_home_page') !!}
 
 {!! Form::tbTinymceTextareaBlock('preview', trans('validation.attributes.our_works_preview')) !!}
 {!! Form::tbTinymceTextareaBlock('description', trans('validation.attributes.our_works_description')) !!}

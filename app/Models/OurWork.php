@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Features\AutoPublish;
 use App\Models\Features\DeleteHelpers;
+use App\Models\Helpers\AliasHelpers;
 use Diol\Fileclip\Eloquent\Glue;
 use Diol\FileclipExif\FileclipExif;
 
@@ -16,7 +17,9 @@ class OurWork extends \Eloquent
 
     protected $fillable = [
         'name',
+        'alias',
         'publish',
+        'on_home_page',
         'position',
         'preview',
         'description',
@@ -47,5 +50,9 @@ class OurWork extends \Eloquent
                 $model->services()->detach();
             }
         );
+
+        self::saving(function (self $model) {
+            AliasHelpers::setAlias($model);
+        });
     }
 }

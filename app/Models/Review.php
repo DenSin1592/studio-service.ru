@@ -20,6 +20,7 @@ class Review extends \Eloquent
     protected $fillable = [
         'name',
         'publish',
+        'on_home_page',
         'position',
         'email',
         'ip',

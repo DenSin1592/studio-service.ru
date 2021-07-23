@@ -24,8 +24,6 @@ class NodeFormProcessor extends BaseFormProcessor
             }
         }
 
-        return $data;
-
         return parent::prepareInputData($data);
     }}
 

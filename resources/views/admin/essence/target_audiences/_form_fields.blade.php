@@ -5,15 +5,9 @@
     {!! Form::tbSelect2('parent_id', $parentVariants) !!}
 {!! Form::tbFormGroupClose() !!}
 
-{!! Form::tbFormGroupOpen('name') !!}
-    {!! Form::tbLabel('name', trans('validation.attributes.name')) !!}
-    {!! Form::tbText('name') !!}
-{!! Form::tbFormGroupClose() !!}
+{!! Form::tbTextBlock('name') !!}
 
-{!! Form::tbFormGroupOpen('alias') !!}
-    {!! Form::tbLabel('alias', trans('validation.attributes.alias')) !!}
-    {!! Form::tbText('alias') !!}
-{!! Form::tbFormGroupClose() !!}
+{!! Form::tbTextBlock('alias') !!}
 
 {!! Form::tbCheckboxBlock('publish') !!}
 

@@ -21,6 +21,7 @@ class TargetAudience extends \Eloquent
         'alias',
         'name',
         'publish',
+        'on_home_page',
         'position',
         'icon_file',
         'icon_remove',

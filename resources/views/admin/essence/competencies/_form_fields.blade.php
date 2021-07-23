@@ -1,15 +1,10 @@
 
-{!! Form::tbFormGroupOpen('name') !!}
-    {!! Form::tbLabel('name', trans('validation.attributes.name')) !!}
-    {!! Form::tbText('name') !!}
-{!! Form::tbFormGroupClose() !!}
+{!! Form::tbTextBlock('name') !!}
 
-{!! Form::tbFormGroupOpen('alias') !!}
-    {!! Form::tbLabel('alias', trans('validation.attributes.alias')) !!}
-    {!! Form::tbText('alias') !!}
-{!! Form::tbFormGroupClose() !!}
+{!! Form::tbTextBlock('alias') !!}
 
 {!! Form::tbCheckboxBlock('publish') !!}
+{!! Form::tbCheckboxBlock('on_home_page') !!}
 
 @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
 

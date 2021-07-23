@@ -19,6 +19,7 @@ class Competence extends \Eloquent
         'name',
         'alias',
         'publish',
+        'on_home_page',
         'position',
         'preview_image_file',
         'preview_image_remove',

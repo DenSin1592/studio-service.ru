@@ -18,6 +18,14 @@
                     ])
                 </div>
 
+                <div class="publish-status">
+                    @include('admin.shared._list_flag', [
+                        'element' => $model,
+                        'action' => route($routeToggleAttribute, [$model->id, 'on_home_page']),
+                        'attribute' => 'publish'
+                    ])
+                </div>
+
                 <div class="control">
                     @include('admin.shared.resource_list._control_block', [
                         'routeEdit' => route($routeEdit, [$model->id]),
