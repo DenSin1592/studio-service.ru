@@ -21,6 +21,7 @@ class StructureController extends BaseEssenceController
     public const BREADCRUMBS_CREATE = 'cc.structure.create';
     public const BREADCRUMBS_EDIT = 'cc.structure.edit';
 
+    protected const VIEW_HEADER_FIELD_NAME = 'admin.essence.structure._header_fields';
     protected const VIEW_LIST = 'admin.essence.structure._list';
     protected const VIEW_FORM_FIELDS = 'admin.essence.structure._form_fields';
 
@@ -44,6 +45,7 @@ class StructureController extends BaseEssenceController
         $modelList = $this->repository->getTree();
         return view(self::VIEW_INDEX)
             ->with('modelList', $modelList)
+            ->with('viewHeaderFieldName', self::VIEW_HEADER_FIELD_NAME)
             ->with('title', self::INDEX_TITLE)
             ->with('viewListName', self::VIEW_LIST)
             ->with($this->getRoutePaths())

@@ -21,6 +21,7 @@ class CompetenciesController extends BaseEssenceController
     public const BREADCRUMBS_CREATE = 'cc.competencies.create';
     public const BREADCRUMBS_EDIT = 'cc.competencies.edit';
 
+    protected const VIEW_HEADER_FIELD_NAME = 'admin.essence.competencies._header_fields';
     protected const VIEW_LIST = 'admin.essence.competencies._list';
     protected const VIEW_FORM_FIELDS = 'admin.essence.competencies._form_fields';
 

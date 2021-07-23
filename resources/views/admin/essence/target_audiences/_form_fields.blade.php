@@ -10,6 +10,7 @@
 {!! Form::tbTextBlock('alias') !!}
 
 {!! Form::tbCheckboxBlock('publish') !!}
+{!! Form::tbCheckboxBlock('on_home_page') !!}
 
 @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'icon'])
 

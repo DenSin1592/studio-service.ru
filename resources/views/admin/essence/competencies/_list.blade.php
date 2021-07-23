@@ -7,7 +7,10 @@
 
                 <div class="name">
                     <a href="{{ route($routeEdit, [$model->id]) }}"
-                       style="margin-left: {{ 0 * 0.5 }}em;">{{ $model->name }}</a>
+                       style="margin-left: {{ $lvl * 0.5 }}em;"
+                    >
+                        {{ $model->name }}
+                    </a>
                 </div>
 
                 <div class="publish-status">
@@ -22,15 +25,17 @@
                     @include('admin.shared._list_flag', [
                         'element' => $model,
                         'action' => route($routeToggleAttribute, [$model->id, 'on_home_page']),
-                        'attribute' => 'publish'
+                        'attribute' => 'on_home_page'
                     ])
                 </div>
 
 
-                @include('admin.shared.resource_list._control_block', [
-                       'routeEdit' => route($routeEdit, [$model->id]),
-                       'routeDestroy' => route($routeDestroy, [$model->id])
-                       ])
+                <div class="control">
+                    @include('admin.shared.resource_list._control_block', [
+                        'routeEdit' => route($routeEdit, [$model->id]),
+                        'routeDestroy' => route($routeDestroy, [$model->id])
+                        ])
+                </div>
 
 
             </div>

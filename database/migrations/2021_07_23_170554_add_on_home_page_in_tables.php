@@ -14,16 +14,19 @@ class AddOnHomePageInTables extends Migration
     public function up()
     {
         Schema::table('competencies', function (Blueprint $table) {
-                $table->boolean('on_home_page')->default(false);
+                $table->boolean('on_home_page')->after('publish')->default(false);
         });
         Schema::table('our_works', function (Blueprint $table) {
-            $table->boolean('on_home_page')->default(false);
+            $table->boolean('on_home_page')->after('publish')->default(false);
         });
         Schema::table('reviews', function (Blueprint $table) {
-            $table->boolean('on_home_page')->default(false);
+            $table->boolean('on_home_page')->after('publish')->default(false);
+        });
+        Schema::table('services', function (Blueprint $table) {
+            $table->boolean('on_home_page')->after('publish')->default(false);
         });
         Schema::table('target_audiences', function (Blueprint $table) {
-            $table->boolean('on_home_page')->default(false);
+            $table->boolean('on_home_page')->after('publish')->default(false);
         });
     }
 
@@ -41,6 +44,9 @@ class AddOnHomePageInTables extends Migration
             $table->dropColumn('on_home_page');
         });
         Schema::table('reviews', function (Blueprint $table) {
+            $table->dropColumn('on_home_page');
+        });
+        Schema::table('services', function (Blueprint $table) {
             $table->dropColumn('on_home_page');
         });
         Schema::table('target_audiences', function (Blueprint $table) {

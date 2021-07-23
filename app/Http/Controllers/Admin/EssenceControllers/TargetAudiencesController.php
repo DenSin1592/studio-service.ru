@@ -22,6 +22,7 @@ class TargetAudiencesController extends BaseEssenceController
     public const BREADCRUMBS_CREATE = 'cc.target-audiences.create';
     public const BREADCRUMBS_EDIT = 'cc.target-audiences.edit';
 
+    protected const VIEW_HEADER_FIELD_NAME = 'admin.essence.target_audiences._header_fields';
     protected const VIEW_LIST = 'admin.essence.target_audiences._list';
     protected const VIEW_FORM_FIELDS = 'admin.essence.target_audiences._form_fields';
 
@@ -45,6 +46,7 @@ class TargetAudiencesController extends BaseEssenceController
         $modelList = $this->repository->getTree();
         return view(self::VIEW_INDEX)
             ->with('modelList', $modelList)
+            ->with('viewHeaderFieldName', self::VIEW_HEADER_FIELD_NAME)
             ->with('title', self::INDEX_TITLE)
             ->with('viewListName', self::VIEW_LIST)
             ->with($this->getRoutePaths())

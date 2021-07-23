@@ -33,7 +33,7 @@
                     @include('admin.shared._list_flag', [
                         'element' => $model,
                         'action' => route($routeToggleAttribute, [$model->id, 'on_home_page']),
-                        'attribute' => 'publish'
+                        'attribute' => 'on_home_page'
                     ])
                 </div>
 

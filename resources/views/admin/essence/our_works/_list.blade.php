@@ -10,12 +10,12 @@
                        style="margin-left: {{ $lvl * 0.5 }}"
                     >
                         {{ $model->name }}
-                       'element' => $model,
                     </a>
                 </div>
 
                 <div class="publish-status">
                     @include('admin.shared._list_flag', [
+                       'element' => $model,
                        'action' => route($routeToggleAttribute, [$model->id, 'publish']),
                        'attribute' => 'publish'
                        ])
@@ -25,7 +25,7 @@
                     @include('admin.shared._list_flag', [
                         'element' => $model,
                         'action' => route($routeToggleAttribute, [$model->id, 'on_home_page']),
-                        'attribute' => 'publish'
+                        'attribute' => 'on_home_page'
                     ])
                 </div>
 

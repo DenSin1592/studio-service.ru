@@ -21,6 +21,7 @@ class OurWorksController extends BaseEssenceController
     public const BREADCRUMBS_CREATE = 'cc.our-works.create';
     public const BREADCRUMBS_EDIT = 'cc.our-works.edit';
 
+    protected const VIEW_HEADER_FIELD_NAME = 'admin.essence.our_works._header_fields';
     protected const VIEW_LIST = 'admin.essence.our_works._list';
     protected const VIEW_FORM_FIELDS = 'admin.essence.our_works._form_fields';
 

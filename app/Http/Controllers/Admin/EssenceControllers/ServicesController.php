@@ -21,6 +21,7 @@ class ServicesController extends BaseEssenceController
     public const BREADCRUMBS_CREATE = 'cc.services.create';
     public const BREADCRUMBS_EDIT = 'cc.services.edit';
 
+    protected const VIEW_HEADER_FIELD_NAME = 'admin.essence.services._header_fields';
     protected const VIEW_LIST = 'admin.essence.services._list';
     protected const VIEW_FORM_FIELDS = 'admin.essence.services._form_fields';
 

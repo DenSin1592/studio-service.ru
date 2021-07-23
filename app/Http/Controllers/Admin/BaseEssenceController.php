@@ -39,6 +39,7 @@ abstract class BaseEssenceController extends Controller
         return view(self::VIEW_INDEX)
             ->with('modelList', $modelList)
             ->with('title', static::INDEX_TITLE)
+            ->with('viewHeaderFieldName', static::VIEW_HEADER_FIELD_NAME)
             ->with('viewListName', static::VIEW_LIST)
             ->with($this->getRoutePaths())
             ;

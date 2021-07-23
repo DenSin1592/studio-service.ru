@@ -21,6 +21,7 @@ class ReviewsController extends BaseEssenceController
     public const BREADCRUMBS_CREATE = 'cc.reviews.create';
     public const BREADCRUMBS_EDIT = 'cc.reviews.edit';
 
+    protected const VIEW_HEADER_FIELD_NAME = 'admin.essence.reviews._header_fields';
     protected const VIEW_LIST = 'admin.essence.reviews._list';
     protected const VIEW_FORM_FIELDS = 'admin.essence.reviews._form_fields';
 
