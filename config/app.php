@@ -261,6 +261,7 @@ return [
 
         'Setting' => App\Facades\Setting::class,
         'TypeContainer' => App\Facades\TypeContainer::class,
+        'StringHelper' => App\Facades\StringHelper::class,
     ],
 
 ];

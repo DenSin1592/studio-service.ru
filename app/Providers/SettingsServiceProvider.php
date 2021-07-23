@@ -48,25 +48,29 @@ class SettingsServiceProvider extends ServiceProvider
                     new SettingValue(
                         'mail.feedback.address',
                         'Email обратной связи (кому)',
-                        'diol-test@yandex.ru',
-                        '',
+                        'msk@studio-service.ru',
+                        'Адрес выводится также в футере и шапке',
                         SettingValue::TYPE_TEXT,
                         ['required', 'email']
                     )
                 );
 
-                $notifications->addSettingValue(
+                /*$notifications->addSettingValue(
                     new SettingValue(
                         'mail.from.address',
                         'Е-mail отправителя (от кого)',
                         '',
-                        'noreply@',
+                        str_replace(
+                            '{app.name}',
+                            \Config::get('app.name'),
+                            'Если поле не заполнено, то используется почта <i>noreply@{app.name}</i>'
+                        ),
                         SettingValue::TYPE_TEXT,
                         ['nullable', 'email']
                     )
-                );
+                );*/
 
-                $notifications->addSettingValue(
+                /*$notifications->addSettingValue(
                     new SettingValue(
                         'mail.from.name',
                         'Имя отправителя (от кого)',
@@ -79,9 +83,9 @@ class SettingsServiceProvider extends ServiceProvider
                         SettingValue::TYPE_TEXT,
                         ['nullable']
                     )
-                );
+                );*/
 
-                $notifications->addSettingValue(
+                /*$notifications->addSettingValue(
                     new SettingValue(
                         'mail.reply_to.address',
                         'Адрес для ответа в письмах посетителям сайта',
@@ -90,9 +94,9 @@ class SettingsServiceProvider extends ServiceProvider
                         SettingValue::TYPE_TEXT,
                         ['nullable', 'email']
                     )
-                );
+                );*/
 
-                $notifications->addSettingValue(
+               /* $notifications->addSettingValue(
                     new SettingValue(
                         'mail.for_display.address',
                         'Email для отображения на сайте и в футере писем',
@@ -101,7 +105,7 @@ class SettingsServiceProvider extends ServiceProvider
                         SettingValue::TYPE_TEXT,
                         ['required', 'email']
                     )
-                );
+                );*/
 
 
                 $siteContent = new SettingGroup('Содержимое сайта');
@@ -111,7 +115,7 @@ class SettingsServiceProvider extends ServiceProvider
                     new SettingValue(
                         'site_content.phone',
                         'Номер телефона',
-                        '',
+                        '+74959333439',
                         '',
                         SettingValue::TYPE_TEXT
                     )

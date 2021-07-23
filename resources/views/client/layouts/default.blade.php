@@ -22,10 +22,13 @@
 <body>
     @include('client.layouts._auth_menu')
 
+    @include('client.layouts._header')
+
     @include('client.shared.breadcrumbs._breadcrumbs')
 
     @yield('content')
 
+    @include('client.layouts._footer')
     {!! Asset::includeJS('client_layout_js') !!}
 </body>
 </html>

@@ -12,9 +12,9 @@ class StructureController extends BaseEssenceController
     public const  ROUTE_INDEX = 'cc.structure.index';
     protected const  ROUTE_CREATE = 'cc.structure.create';
     protected const  ROUTE_STORE = 'cc.structure.store';
-    protected const  ROUTE_EDIT = 'cc.structure.edit';
+    public const  ROUTE_EDIT = 'cc.structure.edit';
     protected const  ROUTE_UPDATE = 'cc.structure.update';
-    protected const  ROUTE_DESTROY = 'cc.structure.destroy';
+    public const  ROUTE_DESTROY = 'cc.structure.destroy';
     protected const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.structure.toggle-attribute';
     protected const  ROUTE_UPDATE_POSITIONS = 'cc.structure.update-positions';
 

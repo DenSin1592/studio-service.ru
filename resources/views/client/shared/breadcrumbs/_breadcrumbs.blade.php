@@ -1,3 +1,7 @@
+<div style="border: 1px solid black">
+
+    хлебные крошки
+
 @if (isset($breadcrumbs) && $breadcrumbs->length() > 0)
     <ul class="breadcrumb d-flex flex-wrap reset-list" id="breadcrumbs">
         <li class="breadcrumb-item">
@@ -10,3 +14,4 @@
         @endforeach
     </ul>
 @endif
+</div>

@@ -112,6 +112,15 @@ class NodeRepository extends BaseRepository implements CreateUpdateRepositoryInt
             ->get();
     }
 
+    public function treePublishedBottomMenu()
+    {
+        return $this->getModel()
+            ->where('menu_bottom', true)
+            ->orderBy('position')
+            ->where('publish', true)
+            ->get();
+    }
+
     public function treePublishedWithAliases($aliases)
     {
         if (count($aliases) === 0)
