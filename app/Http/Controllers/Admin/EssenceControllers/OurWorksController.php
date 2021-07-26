@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\EssenceControllers;
 
 use App\Http\Controllers\Admin\BaseEssenceController;
+use App\Http\Controllers\Client\EssenceControllers\OurWorkController;
 use App\Services\DataProviders\OurWorkForm\OurWorkForm;
 use App\Services\FormProcessors\OurWork\OurWorkFormProcessor;
 use App\Services\Repositories\OurWork\OurWorkRepository;
@@ -12,7 +13,7 @@ class OurWorksController extends BaseEssenceController
     public const  ROUTE_INDEX = 'cc.our-works.index';
     protected const  ROUTE_CREATE = 'cc.our-works.create';
     protected const  ROUTE_STORE = 'cc.our-works.store';
-    protected const  ROUTE_EDIT = 'cc.our-works.edit';
+    public const  ROUTE_EDIT = 'cc.our-works.edit';
     protected const  ROUTE_UPDATE = 'cc.our-works.update';
     protected const  ROUTE_DESTROY = 'cc.our-works.destroy';
     protected const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.our-works.toggle-attribute';
@@ -38,5 +39,6 @@ class OurWorksController extends BaseEssenceController
         $this->repository = \App(OurWorkRepository::class);
         $this->formDataProvider = \App(OurWorkForm::class);
         $this->formProcessor = \App(OurWorkFormProcessor::class);
+        $this->urlShowONSite = OurWorkController::ROUTE_SHOW_ON_SITE;
     }
 }

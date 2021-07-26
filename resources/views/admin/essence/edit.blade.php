@@ -1,6 +1,6 @@
 @extends('admin.layouts.inner')
 
-@section('title') {{ $formData[$essenceName]->name }} - редактирование@stop
+@section('title') {{ $formData[$essenceName]->name }} - редактирование @stop
 
 @section('content')
 
@@ -29,6 +29,10 @@
             </a>
 
             <a href="{{ route($routeIndex) }}" class="btn btn-default">{{ trans('interactions.back_to_list') }}</a>
+
+            @if ($formData[$essenceName]->publish && !empty($urlShowOnSite))
+                @include('admin.shared._show_on_site_button', ['url' => route($urlShowOnSite, $formData[$essenceName]->alias)])
+            @endif
         </div>
 
     {!! Form::close() !!}

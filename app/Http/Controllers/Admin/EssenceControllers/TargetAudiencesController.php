@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\EssenceControllers;
 
 use App\Http\Controllers\Admin\BaseEssenceController;
+use App\Http\Controllers\Client\EssenceControllers\TargetAudienceController;
 use App\Services\DataProviders\TargetAudienceForm\TargetAudienceForm;
 use App\Services\FormProcessors\TargetAudience\TargetAudienceFormProcessor;
 use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
@@ -13,7 +14,7 @@ class TargetAudiencesController extends BaseEssenceController
     public const  ROUTE_INDEX = 'cc.target-audiences.index';
     protected const  ROUTE_CREATE = 'cc.target-audiences.create';
     protected const  ROUTE_STORE = 'cc.target-audiences.store';
-    protected const  ROUTE_EDIT = 'cc.target-audiences.edit';
+    public const  ROUTE_EDIT = 'cc.target-audiences.edit';
     protected const  ROUTE_UPDATE = 'cc.target-audiences.update';
     protected const  ROUTE_DESTROY = 'cc.target-audiences.destroy';
     protected const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.target-audiences.toggle-attribute';
@@ -39,6 +40,7 @@ class TargetAudiencesController extends BaseEssenceController
         $this->repository = \App(TargetAudienceRepository::class);
         $this->formDataProvider = \App(TargetAudienceForm::class);
         $this->formProcessor = \App(TargetAudienceFormProcessor::class);
+        $this->urlShowONSite = TargetAudienceController::ROUTE_SHOW_ON_SITE;
     }
 
     public function index()

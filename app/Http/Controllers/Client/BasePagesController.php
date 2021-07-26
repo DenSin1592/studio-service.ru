@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Client\PageControllers;
+namespace App\Http\Controllers\Client;
 
 use App\Facades\TypeContainer;
 use App\Http\Controllers\Controller;

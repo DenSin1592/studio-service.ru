@@ -94,7 +94,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                         'Целевая аудитория',
                         true,
                         self::REPO_TARGET_AUDIENCE_PAGE,
-                        fn() => route('target-audience')
+                        fn() => route('target-audiences')
                     )
                 );
 

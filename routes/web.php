@@ -42,10 +42,20 @@ Route::namespace('Client')->group(function () {
 
     Route::namespace('PageControllers')->group(function () {
         Route::get('/', 'HomePageController@show')->name('home');
-        Route::get('/dlya-kogo', 'TargetAudiencePageController@show')->name('target-audience');
+        Route::get('/dlya-kogo', 'TargetAudiencePageController@show')->name('target-audiences');
         Route::get('/kompetencii', 'CompetencePageController@show')->name('competencies');
         Route::get('/uslugi', 'ServicePageController@show')->name('services');
+        //Route::get('/proekty', 'PageController@show')->name('our-works');
     });
+
+    Route::namespace('EssenceControllers')->group(function () {
+        Route::get('/dlya-kogo/{url}', 'TargetAudienceController@show')->name('target-audience');
+        Route::get('/uslugi/{url}', 'ServiceController@show')->name('service');
+        Route::get('/kompetencii/{url}', 'CompetenceController@show')->name('competence');
+        Route::get('/proekty/{url}', 'OurWorkController@show')->name('our-work');
+    });
+
+
 
     Route::get('/{url}', 'DynamicPagesController@show')->name('dynamic_page')->where('url', '.*');
 });

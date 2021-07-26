@@ -3,6 +3,7 @@
 namespace App\Services\Repositories;
 
 use App\Services\Pagination\FlexPaginator;
+use http\Url;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -132,4 +133,9 @@ abstract class BaseRepository
 
         return $models;
     }
+
+    public function getByAliasOrFail($alias){
+        return $this->getModel()->where('alias', $alias)->firstOrFail();
+    }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\EssenceControllers;
 
 use App\Http\Controllers\Admin\BaseEssenceController;
+use App\Http\Controllers\Client\EssenceControllers\ServiceController;
 use App\Services\DataProviders\ServiceForm\ServiceForm;
 use App\Services\FormProcessors\Service\ServiceFormProcessor;
 use App\Services\Repositories\Services\ServicesRepository;
@@ -38,5 +39,6 @@ class ServicesController extends BaseEssenceController
         $this->repository = \App(ServicesRepository::class);
         $this->formDataProvider = \App(ServiceForm::class);
         $this->formProcessor = \App(ServiceFormProcessor::class);
+        $this->urlShowONSite = ServiceController::ROUTE_SHOW_ON_SITE;
     }
 }

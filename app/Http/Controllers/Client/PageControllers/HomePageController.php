@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Client\PageControllers;
 
-
+use App\Http\Controllers\Client\BasePagesController;
 use App\Models\Node;
 
 final class HomePageController extends BasePagesController

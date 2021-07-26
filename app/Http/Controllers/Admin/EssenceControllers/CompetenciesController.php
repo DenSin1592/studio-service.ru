@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\EssenceControllers;
 
 use App\Http\Controllers\Admin\BaseEssenceController;
+use App\Http\Controllers\Client\EssenceControllers\CompetenceController;
 use App\Services\DataProviders\CompetenceForm\CompetenceForm;
 use App\Services\FormProcessors\Competence\CompetenceFormProcessor;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
@@ -38,6 +39,7 @@ class CompetenciesController extends BaseEssenceController
         $this->repository = \App(CompetenciesRepository::class);
         $this->formDataProvider = \App(CompetenceForm::class);
         $this->formProcessor = \App(CompetenceFormProcessor::class);
+        $this->urlShowONSite = CompetenceController::ROUTE_SHOW_ON_SITE;
     }
 
 

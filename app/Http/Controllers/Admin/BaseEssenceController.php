@@ -23,6 +23,7 @@ abstract class BaseEssenceController extends Controller
     protected BaseDataProvider $formDataProvider;
     protected BaseFormProcessor $formProcessor;
     protected Breadcrumbs $breadcrumbs;
+    protected ?string $urlShowONSite = null;
 
     abstract protected function setDependencies(): void;
 
@@ -90,6 +91,7 @@ abstract class BaseEssenceController extends Controller
             ->with('essenceName', static::ESSENCE_NAME)
             ->with('breadcrumbs', $breadcrumbs)
             ->with('viewFormFieldsName', static::VIEW_FORM_FIELDS)
+            ->with('urlShowOnSite', $this->urlShowONSite)
             ->with($this->getRoutePaths())
             ;
     }
