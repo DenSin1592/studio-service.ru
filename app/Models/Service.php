@@ -31,20 +31,38 @@ class Service extends \Eloquent
         'publish' => 'boolean',
     ];
 
+
     public function competencies()
     {
         return $this->belongsToMany(Competence::class)->withPivot('position');
     }
+
 
     public function reviews()
     {
         return $this->belongsToMany(Review::class)->withPivot('position');
     }
 
+
     public function ourWorks()
     {
         return $this->belongsToMany(OurWork::class)->withPivot('position');
     }
+
+
+    public function getUrlAttribute(): string
+    {
+        return route(\App\Http\Controllers\Client\EssenceControllers\ServiceController::ROUTE_SHOW_ON_SITE, $this->alias);
+    }
+
+
+    public function getImgPath(string $field, ?string $version, string $noImageVersion)
+    {
+        if($this->getAttachment($field)?->exists($version))
+            return asset($this->getAttachment($field)->getUrl($version));
+        return asset('/images/common/no-image/' . $noImageVersion);
+    }
+
 
     protected static function boot(): void
     {
@@ -55,7 +73,7 @@ class Service extends \Eloquent
             UploaderIntegrator::getUploader(
                 'uploads/services/preview_image', [
                 'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
-                'small' => new BoxVersion(200, 350, ['quality' => 100]),
+                'small' => new BoxVersion(400, 300, ['quality' => 100]),
             ], true
             )
         );

@@ -30,15 +30,24 @@ class OurWork extends \Eloquent
         'position' => 'integer',
     ];
 
+
     public function images()
     {
         return $this->hasMany(OurWorkImage::class);
     }
 
+
     public function services()
     {
         return $this->belongsToMany(Service::class)->withPivot('position');
     }
+
+
+    public function getUrlAttribute(): string
+    {
+        return route(\App\Http\Controllers\Client\EssenceControllers\OurWorkController::ROUTE_SHOW_ON_SITE, $this->alias);
+    }
+
 
     protected static function boot()
     {

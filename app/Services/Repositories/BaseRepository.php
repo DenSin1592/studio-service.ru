@@ -138,4 +138,9 @@ abstract class BaseRepository
         return $this->getModel()->where('alias', $alias)->firstOrFail();
     }
 
+    public function getModelsForHomePage()
+    {
+        return $this->getModel()->where('on_home_page', true)->orderBy('position')->get();
+    }
+
 }

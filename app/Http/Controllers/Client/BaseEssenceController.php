@@ -41,4 +41,9 @@ abstract class BaseEssenceController
                 'breadcrumbs',
             ));
     }
+
+    public function getModelsForHomePage()
+    {
+        return $this->repository->getModelsForHomePage();
+    }
 }

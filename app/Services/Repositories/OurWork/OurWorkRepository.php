@@ -41,4 +41,13 @@ class OurWorkRepository extends BaseRepository implements CreateUpdateRepository
     {
         $this->positionUpdater->updatePositions($this->getModel(), $positions);
     }
+
+    public function getModelsForHomePage()
+    {
+        return $this->getModel()
+            ->with('services')
+            ->where('on_home_page', true)
+            ->orderBy('position')
+            ->get();
+    }
 }

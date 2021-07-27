@@ -35,15 +35,32 @@ class TargetAudience extends \Eloquent
         'publish' => 'boolean',
     ];
 
+
     public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(self::class, 'parent_id');
     }
 
+
     public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(self::class, 'parent_id');
     }
+
+
+    public function getUrlAttribute(): string
+    {
+        return route(\App\Http\Controllers\Client\EssenceControllers\TargetAudienceController::ROUTE_SHOW_ON_SITE, $this->alias);
+    }
+
+
+    public function getImgPath(string $field, ?string $version, string $noImageVersion)
+    {
+        if($this->getAttachment($field)?->exists($version))
+            return asset($this->getAttachment($field)->getUrl($version));
+        return asset('/images/common/no-image/' . $noImageVersion);
+    }
+
 
     protected static function boot(): void
     {
@@ -57,6 +74,7 @@ class TargetAudience extends \Eloquent
             'icon',
             UploaderIntegrator::getUploader(
                 'uploads/target-audience/icons', [
+                    'icon' => new BoxVersion(50, 50, ['quality' => 100]),
                     'thumb' => new BoxVersion(85, 85, ['quality' => 100])
                 ], true
             )

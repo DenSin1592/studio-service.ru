@@ -30,15 +30,18 @@ class Review extends \Eloquent
 
     protected $dates = ['review_date'];
 
+
     public function images()
     {
         return $this->hasMany(ReviewImage::class);
     }
 
+
     public function services()
     {
         return $this->belongsToMany(Service::class)->withPivot('position');
     }
+
 
     public function getReviewDateFormattedAttribute() : string
     {
@@ -49,6 +52,7 @@ class Review extends \Eloquent
             . ' '
             . date('Y', $str);
     }
+
 
     protected static function boot()
     {

@@ -53,7 +53,7 @@ Route::namespace('Client')->group(function () {
         Route::get('/dlya-kogo/{url}', 'TargetAudienceController@show')->name('target-audience');
         Route::get('/uslugi/{url}', 'ServiceController@show')->name('service');
         Route::get('/kompetencii/{url}', 'CompetenceController@show')->name('competence');
-        Route::get('/proekty/{url}', 'ReviewController@show')->name('our-work');
+        Route::get('/proekty/{url}', 'OurWorkController@show')->name('our-work');
     });
 
     Route::get('/{url}', 'DynamicPagesController@show')->name('dynamic_page')->where('url', '.*');

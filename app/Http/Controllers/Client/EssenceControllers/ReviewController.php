@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers\Client\EssenceControllers;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Client\BaseEssenceController;
 use App\Services\Repositories\Review\ReviewRepository;
 
-class ReviewController extends Controller
+class ReviewController extends BaseEssenceController
 {
-    private ReviewRepository $repository;
 
-    public function __construct()
-    {
-        $this->setRepository();
-    }
-
-    private function setRepository(): void
+    protected function setRepository(): void
     {
         $this->repository = \App(ReviewRepository::class);
+    }
+
+    protected function getBreadCrumbs(string $h1)
+    {
+        return null;
     }
 }

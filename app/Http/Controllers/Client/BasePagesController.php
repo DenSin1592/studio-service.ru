@@ -27,8 +27,7 @@ abstract class BasePagesController extends Controller
 
         $metaData = $this->metaHelper->getRule()->metaForObject($page, $node->name);
 
-        $breadcrumbs = $this->breadcrumbs->init();
-        $breadcrumbs->add($metaData['h1']);
+        $breadcrumbs = $this->getBreadcrumbs($metaData['h1']);
 
         $authEditLink = TypeContainer::getContentUrl($node);
 
@@ -39,5 +38,12 @@ abstract class BasePagesController extends Controller
                 'authEditLink',
                 'breadcrumbs',
             ));
+    }
+
+    protected function getBreadcrumbs(string $h1)
+    {
+        $breadcrumbs = $this->breadcrumbs->init();
+        $breadcrumbs->add($h1);
+        return $breadcrumbs;
     }
 }

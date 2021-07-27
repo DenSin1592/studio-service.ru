@@ -41,6 +41,20 @@ class Competence extends \Eloquent
     }
 
 
+    public function getUrlAttribute(): string
+    {
+        return route(\App\Http\Controllers\Client\EssenceControllers\CompetenceController::ROUTE_SHOW_ON_SITE, $this->alias);
+    }
+
+
+    public function getImgPath(string $field, ?string $version, string $noImageVersion)
+    {
+        if($this->getAttachment($field)?->exists($version))
+            return asset($this->getAttachment($field)->getUrl($version));
+        return asset('/images/common/no-image/' . $noImageVersion);
+    }
+
+
     protected static function boot(): void
     {
         parent::boot();
@@ -50,7 +64,7 @@ class Competence extends \Eloquent
             UploaderIntegrator::getUploader(
                 'uploads/competencies/preview_image', [
                 'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
-                'small' => new BoxVersion(200, 350, ['quality' => 100]),
+                'small' => new BoxVersion(350, 450, ['quality' => 100]),
             ], true
             )
         );

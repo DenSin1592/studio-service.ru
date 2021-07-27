@@ -51,4 +51,12 @@ class ServicesRepository extends BaseRepository implements CreateUpdateRepositor
         return $this->getModel()->orderBy('position')->get();
 
     }
+
+    public function getModelsForHomePage()
+    {
+        return $this->getModel()
+            ->where('on_home_page', true)
+            ->orderBy('position')
+            ->get();
+    }
 }

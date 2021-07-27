@@ -41,4 +41,13 @@ class ReviewRepository extends BaseRepository implements CreateUpdateRepositoryI
     {
         $this->positionUpdater->updatePositions($this->getModel(), $positions);
     }
+
+    public function getModelsForHomePage()
+    {
+        return $this->getModel()
+            ->with('services', 'images')
+            ->where('on_home_page', true)
+            ->orderBy('position')
+            ->get();
+    }
 }
