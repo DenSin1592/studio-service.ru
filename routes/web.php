@@ -45,7 +45,7 @@ Route::namespace('Client')->group(function () {
         Route::get('/dlya-kogo', 'TargetAudiencePageController@show')->name('target-audiences');
         Route::get('/kompetencii', 'CompetencePageController@show')->name('competencies');
         Route::get('/uslugi', 'ServicePageController@show')->name('services');
-        Route::get('/proekty', 'ReviewPageController@show')->name('our-works');
+        Route::get('/proekty', 'OurWorkPageController@show')->name('our-works');
         Route::get('/otzyvy', 'ReviewPageController@show')->name('reviews');
     });
 
