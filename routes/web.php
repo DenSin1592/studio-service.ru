@@ -45,14 +45,15 @@ Route::namespace('Client')->group(function () {
         Route::get('/dlya-kogo', 'TargetAudiencePageController@show')->name('target-audiences');
         Route::get('/kompetencii', 'CompetencePageController@show')->name('competencies');
         Route::get('/uslugi', 'ServicePageController@show')->name('services');
-        //Route::get('/proekty', 'PageController@show')->name('our-works');
+        Route::get('/proekty', 'ReviewPageController@show')->name('our-works');
+        Route::get('/otzyvy', 'ReviewPageController@show')->name('reviews');
     });
 
     Route::namespace('EssenceControllers')->group(function () {
         Route::get('/dlya-kogo/{url}', 'TargetAudienceController@show')->name('target-audience');
         Route::get('/uslugi/{url}', 'ServiceController@show')->name('service');
         Route::get('/kompetencii/{url}', 'CompetenceController@show')->name('competence');
-        Route::get('/proekty/{url}', 'OurWorkController@show')->name('our-work');
+        Route::get('/proekty/{url}', 'ReviewController@show')->name('our-work');
     });
 
 

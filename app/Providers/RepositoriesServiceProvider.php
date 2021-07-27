@@ -12,7 +12,9 @@ use App\Models\OurWork;
 use App\Models\OurWorkImage;
 use App\Models\Review;
 use App\Models\ReviewImage;
+use App\Models\ReviewPage;
 use App\Models\Service;
+use App\Models\OurWorkPage;
 use App\Models\ServicePage;
 use App\Models\Setting;
 use App\Models\TargetAudience;
@@ -20,13 +22,14 @@ use App\Models\TargetAudiencePage;
 use App\Models\TextPage;
 use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use App\Services\Repositories\AdminUser\AdminUserRepository;
-use App\Services\Repositories\BaseRepository;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Node\NodeRepository;
 use App\Services\Repositories\OurWork\OurWorkImage\OurWorkImageRepository;
 use App\Services\Repositories\OurWork\OurWorkRepository;
 use App\Services\Repositories\Pages\CompetencePage\CompetencePageRepository;
 use App\Services\Repositories\Pages\HomePage\HomePageRepository;
+use App\Services\Repositories\Pages\OurWorkPage\OurWorkPageRepository;
+use App\Services\Repositories\Pages\ReviewPage\ReviewPageRepository;
 use App\Services\Repositories\Pages\ServicePage\ServicePageRepository;
 use App\Services\Repositories\Pages\TargetAudiencePage\TargetAudiencePageRepository;
 use App\Services\Repositories\Pages\TextPage\TextPageRepository;
@@ -37,9 +40,7 @@ use App\Services\Repositories\Setting\SettingRepository;
 use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
 use App\Services\RepositoryFeatures\Attribute\EloquentAttributeToggler;
 use App\Services\RepositoryFeatures\Attribute\PositionUpdater;
-use App\Services\RepositoryFeatures\Order\OrderScopesInterface;
 use App\Services\RepositoryFeatures\Tree\TreeBuilderInterface;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoriesServiceProvider extends ServiceProvider
@@ -153,8 +154,18 @@ class RepositoriesServiceProvider extends ServiceProvider
         );
 
         $this->app->singleton(
+            ReviewPageRepository::class,
+            fn() => new ReviewPageRepository(new ReviewPage())
+        );
+
+        $this->app->singleton(
             CompetencePageRepository::class,
             fn() => new CompetencePageRepository(new CompetencePage())
+        );
+
+        $this->app->singleton(
+            OurWorkPageRepository::class,
+            fn() => new OurWorkPageRepository(new OurWorkPage())
         );
 
         $this->app->singleton(

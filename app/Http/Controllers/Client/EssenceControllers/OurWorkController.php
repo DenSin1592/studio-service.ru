@@ -21,8 +21,7 @@ class OurWorkController extends BaseEssenceController
     protected function getBreadCrumbs(string $h1)
     {
         $breadcrumbs = $this->breadcrumbs->init();
-        //todo: do it
-       // $breadcrumbs->add('Проекты', route('our-works'));
+        $breadcrumbs->add('Проекты', route('our-works'));
         $breadcrumbs->add($h1);
 
         return $breadcrumbs;

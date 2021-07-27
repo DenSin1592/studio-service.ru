@@ -13,5 +13,7 @@ Route::namespace('PageControllers')->group(function () {
     Route::resource('target-audience-pages', 'TargetAudiencePageController')->only(['edit', 'update']);
     Route::resource('service-pages', 'ServicePageController')->only(['edit', 'update']);
     Route::resource('competence-pages', 'CompetencePageController')->only(['edit', 'update']);
+    Route::resource('review-pages', 'ReviewPageController')->only(['edit', 'update']);
+    Route::resource('our-work-pages', 'OurWorkPageController')->only(['edit', 'update']);
     Route::resource('text-pages', 'TextPageController')->only(['edit', 'update']);
 });

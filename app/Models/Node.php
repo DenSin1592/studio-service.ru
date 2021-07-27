@@ -40,6 +40,8 @@ class Node extends \Eloquent
     public const TYPE_HOME_PAGE = 'home_page';
     public const TYPE_TARGET_AUDIENCE_PAGE = 'target_audience_page';
     public const TYPE_SERVICE_PAGE = 'service_page';
+    public const TYPE_REVIEW_PAGE = 'review_page';
+    public const TYPE_OUR_WORK_PAGE = 'our_work_page';
     public const TYPE_COMPETENCE_PAGE = 'competence_page';
     public const TYPE_TEXT_PAGE = 'text_page';
 
@@ -64,14 +66,7 @@ class Node extends \Eloquent
     public function getAliasPath(): array
     {
         $parentPath = $this->extractPath();
-        $aliasPath = array_map(
-            function (self $node) {
-                return $node->alias;
-            },
-            $parentPath
-        );
-
-        return $aliasPath;
+        return array_map(static fn (self $node) =>  $node->alias, $parentPath);
     }
 
     public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -99,6 +94,16 @@ class Node extends \Eloquent
         return $this->hasOne(ServicePage::class);
     }
 
+    public function ourWorkPage(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(OurWorkPage::class);
+    }
+
+    public function ReviewPage(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(ReviewPage::class);
+    }
+
     public function competencePage(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(CompetencePage::class);
@@ -118,6 +123,8 @@ class Node extends \Eloquent
             DeleteHelpers::deleteRelatedFirst($model->homePage());
             DeleteHelpers::deleteRelatedFirst($model->targetAudiencePage());
             DeleteHelpers::deleteRelatedFirst($model->servicePage());
+            DeleteHelpers::deleteRelatedFirst($model->reviewPage());
+            DeleteHelpers::deleteRelatedFirst($model->ourWorkPage());
             DeleteHelpers::deleteRelatedFirst($model->competencePage());
             DeleteHelpers::deleteRelatedFirst($model->textPage());
         });

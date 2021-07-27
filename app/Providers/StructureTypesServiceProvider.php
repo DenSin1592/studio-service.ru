@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Http\Controllers\Admin\PageControllers\CompetencePageController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
+use App\Http\Controllers\Admin\PageControllers\OurWorkPageController;
+use App\Http\Controllers\Admin\PageControllers\ReviewPageController;
 use App\Http\Controllers\Admin\PageControllers\ServicePageController;
 use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
 use App\Http\Controllers\Admin\PageControllers\TextPageController;
@@ -11,6 +13,8 @@ use App\Models\Node;
 use App\Services\Repositories\Pages\CompetencePage\CompetencePageRepository;
 use App\Services\Repositories\Pages\HomePage\HomePageRepository;
 use App\Services\Repositories\Node\NodeRepository;
+use App\Services\Repositories\Pages\OurWorkPage\OurWorkPageRepository;
+use App\Services\Repositories\Pages\ReviewPage\ReviewPageRepository;
 use App\Services\Repositories\Pages\ServicePage\ServicePageRepository;
 use App\Services\Repositories\Pages\TargetAudiencePage\TargetAudiencePageRepository;
 use App\Services\Repositories\Pages\TextPage\TextPageRepository;
@@ -26,6 +30,8 @@ class StructureTypesServiceProvider extends ServiceProvider
     public const REPO_TEXT_PAGE = 'text_page_repo';
     public const REPO_COMPETENCE_PAGE = 'competence_page_repo';
     public const REPO_SERVICE_PAGE = 'service_page_repo';
+    public const REPO_OUR_WORK_PAGE = 'our_work_page_repo';
+    public const REPO_REVIEW_PAGE = 'review_page_repo';
 
     public function register(): void
     {
@@ -66,6 +72,22 @@ class StructureTypesServiceProvider extends ServiceProvider
                     new RepositoryAssociation(
                         $this->app->make(CompetencePageRepository::class),
                         fn(Node $node) => route(CompetencePageController::ROUTE_EDIT, [$node->id])
+                    )
+                );
+
+                $typeContainer->addRepositoryAssociation(
+                    self::REPO_OUR_WORK_PAGE,
+                    new RepositoryAssociation(
+                        $this->app->make(OurWorkPageRepository::class),
+                        fn(Node $node) => route(OurWorkPageController::ROUTE_EDIT, [$node->id])
+                    )
+                );
+
+                $typeContainer->addRepositoryAssociation(
+                    self::REPO_REVIEW_PAGE,
+                    new RepositoryAssociation(
+                        $this->app->make(ReviewPageRepository::class),
+                        fn(Node $node) => route(ReviewPageController::ROUTE_EDIT, [$node->id])
                     )
                 );
 
@@ -115,6 +137,26 @@ class StructureTypesServiceProvider extends ServiceProvider
                         true,
                         self::REPO_SERVICE_PAGE,
                         fn() => route('services')
+                    )
+                );
+
+                $typeContainer->addType(
+                    Node::TYPE_OUR_WORK_PAGE,
+                    new Type(
+                        'Наши работы',
+                        true,
+                        self::REPO_OUR_WORK_PAGE,
+                        fn() => route('our-works')
+                    )
+                );
+
+                $typeContainer->addType(
+                    Node::TYPE_REVIEW_PAGE,
+                    new Type(
+                        'Отзывы',
+                        true,
+                        self::REPO_REVIEW_PAGE,
+                        fn() => route('reviews')
                     )
                 );
 
