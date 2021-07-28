@@ -19,7 +19,7 @@ use App\Services\Repositories\Review\ReviewImage\ReviewImageRepository;
 use App\Services\Repositories\Review\ReviewRepository;
 use App\Services\Repositories\Services\ServicesRepository;
 use App\Services\Repositories\Setting\SettingRepository;
-use App\Services\Repositories\TargetAudience\ServiceTask\ServiceTaskRepository;
+use App\Services\Repositories\Services\ServiceTask\ServiceTaskRepository;
 use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
 use Illuminate\Support\ServiceProvider;
 

@@ -6,7 +6,6 @@ use App\Models\Node;
 use App\Models\OurWorkPage;
 use App\Services\Repositories\BasePageRepository;
 
-
 class OurWorkPageRepository extends BasePageRepository
 {
     protected function setModel(): void
@@ -14,7 +13,7 @@ class OurWorkPageRepository extends BasePageRepository
         $this->model = new OurWorkPage();
     }
 
-    protected function getRelation(Node $node)
+    protected function getRelationForNode(Node $node)
     {
         return $node->ourWorkPage();
     }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Relations\Services;
 
 use App\Http\Controllers\Admin\Relations\BaseOneToManyController;
-use App\Services\Repositories\TargetAudience\ServiceTask\ServiceTaskRepository;
+use App\Services\Repositories\Services\ServiceTask\ServiceTaskRepository;
 
 final class TasksController extends BaseOneToManyController
 {

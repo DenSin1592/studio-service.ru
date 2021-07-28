@@ -13,7 +13,7 @@ class TargetAudiencePageRepository extends BasePageRepository
         $this->model = new TargetAudiencePage();
     }
 
-    protected function getRelation(Node $node)
+    protected function getRelationForNode(Node $node)
     {
         return $node->targetAudiencePage();
     }

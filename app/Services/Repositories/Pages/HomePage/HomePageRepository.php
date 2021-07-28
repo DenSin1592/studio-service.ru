@@ -13,7 +13,7 @@ class HomePageRepository extends BasePageRepository
         $this->model = new HomePage();
     }
 
-    protected function getRelation(Node $node)
+    protected function getRelationForNode(Node $node)
     {
         return $node->homePage();
     }

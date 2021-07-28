@@ -13,7 +13,7 @@ class ServicePageRepository extends BasePageRepository
         $this->model = new ServicePage();
     }
 
-    protected function getRelation(Node $node)
+    protected function getRelationForNode(Node $node)
     {
         return $node->servicePage();
     }

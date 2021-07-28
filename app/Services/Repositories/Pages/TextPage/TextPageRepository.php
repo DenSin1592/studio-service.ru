@@ -13,7 +13,7 @@ class TextPageRepository extends BasePageRepository
         $this->model = new TextPage();
     }
 
-    protected function getRelation(Node $node)
+    protected function getRelationForNode(Node $node)
     {
         return $node->textPage();
     }

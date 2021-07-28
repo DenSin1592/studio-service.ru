@@ -13,7 +13,7 @@ class ReviewPageRepository extends BasePageRepository
         $this->model = new ReviewPage();
     }
 
-    protected function getRelation(Node $node)
+    protected function getRelationForNode(Node $node)
     {
         return $node->reviewPage();
     }

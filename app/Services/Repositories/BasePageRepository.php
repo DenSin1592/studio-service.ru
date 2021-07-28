@@ -9,7 +9,7 @@ abstract class BasePageRepository extends BaseRepository implements NodeContentR
 {
     public function findForNodeOrNew(Node $node)
     {
-        $page = $this->getRelation($node)->first();
+        $page = $this->getRelationForNode($node)->first();
         if (is_null($page)) {
             $page = $this->getModel();
             $page->node()->associate($node);

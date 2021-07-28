@@ -14,7 +14,7 @@ class CompetencePageRepository extends BasePageRepository
     }
 
 
-    protected function getRelation(Node $node)
+    protected function getRelationForNode(Node $node)
     {
         return $node->competencePage();
     }
