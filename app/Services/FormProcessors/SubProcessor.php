@@ -20,5 +20,5 @@ interface SubProcessor
     /**
      * Save data for form processor.
      */
-    public function save(Model $adminUser, array $data);
+    public function save(Model $model, array $data);
 }

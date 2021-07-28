@@ -221,5 +221,8 @@ return [
 
         'our_works_preview' => 'Превью',
         'our_works_description' => "Описание",
+
+        'title' => "Заголовок",
+        'text' => "Текст",
     ],
 ];

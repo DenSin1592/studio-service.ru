@@ -19,6 +19,7 @@ use App\Services\Repositories\Review\ReviewImage\ReviewImageRepository;
 use App\Services\Repositories\Review\ReviewRepository;
 use App\Services\Repositories\Services\ServicesRepository;
 use App\Services\Repositories\Setting\SettingRepository;
+use App\Services\Repositories\TargetAudience\ServiceTask\ServiceTaskRepository;
 use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -79,6 +80,10 @@ class RepositoriesServiceProvider extends ServiceProvider
             fn() => new ServicesRepository()
         );
 
+        $this->app->singleton(
+            ServiceTaskRepository::class,
+            fn() => new ServiceTaskRepository()
+        );
 
         $this->app->singleton(
             SettingRepository::class,
@@ -127,8 +132,8 @@ class RepositoriesServiceProvider extends ServiceProvider
                 TextPageRepository::class,
                 fn() => new TextPageRepository()
             );
-        })();
 
+        })();
 
     }
 }

@@ -13,6 +13,7 @@ use App\Services\DataProviders\ReviewForm\ReviewSubForm\Images;
 use App\Services\DataProviders\ReviewForm\ReviewSubForm\Services;
 use App\Services\DataProviders\ServiceForm\ServiceForm;
 use App\Services\DataProviders\ServiceForm\ServiceSubForm\Competencies;
+use App\Services\DataProviders\ServiceForm\ServiceSubForm\Tasks;
 use App\Services\DataProviders\SettingsForm\SettingsForm;
 use App\Services\DataProviders\TargetAudienceForm\TargetAudienceForm;
 use Illuminate\Support\ServiceProvider;
@@ -66,6 +67,7 @@ class DataProvidersServiceProvider extends ServiceProvider
             static function() {
                 $form = new ServiceForm();
                 $form->addSubForm(\App(Competencies::class));
+                $form->addSubForm(\App(Tasks::class));
                 return $form;
             });
 

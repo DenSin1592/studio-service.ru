@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Features\AutoPublish;
 use App\Models\Helpers\AliasHelpers;
+use App\Models\Helpers\DeleteHelpers;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\BoxVersion;
 use Diol\FileclipExif\Glue;
@@ -51,6 +52,12 @@ class Service extends Model
     }
 
 
+    public function tasks()
+    {
+        return $this->hasMany(ServiceTask::class);
+    }
+
+
     public function getUrlAttribute(): string
     {
         return route(\App\Http\Controllers\Client\EssenceControllers\ServiceController::ROUTE_SHOW_ON_SITE, $this->alias);
@@ -83,6 +90,7 @@ class Service extends Model
             $model->competencies()->detach();
             $model->reviews()->detach();
             $model->ourWorks()->detach();
+            DeleteHelpers::deleteRelatedAll($model->tasks());
         });
 
         self::saving(function (self $model) {

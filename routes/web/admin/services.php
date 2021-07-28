@@ -13,5 +13,9 @@ Route::prefix('services')->name('services.')->group(function () {
             ->name('rebuild-current');
     });
 
+    Route::prefix('tasks')->name('tasks.')->namespace('Relations\Services')->group(function () {
+        Route::get('create', 'TasksController@create')->name('create');
+    });
+
 });
 Route::resource('services', 'EssenceControllers\ServicesController')->except('show');
