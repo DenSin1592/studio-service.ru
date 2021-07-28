@@ -39,7 +39,7 @@ h1,
     // line-height: 60px;
     // color: $c-default-heading;
     font-size: 25px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 30px;
     @include media-breakpoint-up(sm) {
         font-size: 30px;
@@ -62,7 +62,7 @@ h1,
 h2,
 .title-h2 {
     font-size: 45px;
-    font-weight: 700;
+    font-weight: 600;
     // font-size: 25px;
     // font-weight: 700;
     // line-height: 30px;
@@ -87,7 +87,7 @@ h2,
 h3,
 .title-h3 {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 25px;
     @include media-breakpoint-up(sm) {
         font-size: 22px;
@@ -131,7 +131,7 @@ img {
 }
 
 b {
-    font-weight: 700;
+    font-weight: 600;
 }
 
 
@@ -226,16 +226,6 @@ b {
             margin-bottom: 6px;
         }
     }
-
-    .section-header-controls-container {
-        height: 35px;
-        .swiper-button-prev,
-        .swiper-button-next {
-            position: static;
-            margin: 0;
-            transform: translate(0);
-        }
-    }
 }
 
 
@@ -260,6 +250,10 @@ b {
     .title-h5,
     h6,
     .title-h6 {
+        color: $c-white;
+    }
+
+    .btn {
         color: $c-white;
     }
 }

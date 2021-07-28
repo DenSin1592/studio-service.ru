@@ -1,6 +1,8 @@
 .header-logo-block {
     color: inherit;
+    font-family: $f-secondary;
     font-size: 21px;
+    font-weight: 300;
     line-height: normal;
     text-decoration: none;
     @include media-breakpoint-up(lg) {

@@ -59,7 +59,7 @@
             top: 0;
             right: 0;
             font-size: 95px;
-            font-weight: 700;
+            font-weight: 600;
             transform: translate(30%, -15%);
             color: $c-secondary;
             line-height: 1;
@@ -181,7 +181,7 @@
         border-radius: 8px;
         background: #e9eff8;
         font-size: 15px;
-        font-weight: 700;
+        font-weight: 600;
         line-height: 20px;
         @include media-breakpoint-up(sm) {
             padding: 20px 15px 25px;

@@ -49,10 +49,6 @@
         }
     }
 
-    &.header-light {
-        color: $c-white;
-    }
-
     &.is-sticky {
         color: currentColor;
         background-color: $c-white;
@@ -91,5 +87,11 @@
             padding-top: 10px;
             padding-bottom: 10px;
         }
+    }
+}
+
+.page-extended {
+    .header-box {
+        color: $c-white;
     }
 }

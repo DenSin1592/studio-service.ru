@@ -40,6 +40,8 @@
     @include media-breakpoint-up(xxl) {
         margin-top: -50px;
         margin-bottom: -50px;
+        margin-left: -$grid-gutter-width;
+        margin-right: -$grid-gutter-width;
         padding-top: 50px;
         padding-bottom: 50px;
     }
@@ -52,6 +54,10 @@
         > .swiper-slide {
             padding-left: $grid-gutter-width/2;
             padding-right: $grid-gutter-width/2;
+            @include media-breakpoint-up(xxl) {
+                padding-left: $grid-gutter-width;
+                padding-right: $grid-gutter-width;
+            }
         }
     }
 }

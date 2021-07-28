@@ -20,6 +20,11 @@
                     750: {
                         slidesPerView: 4,
                         // loop: slides.length > 2 ? true : false,
+                    },
+                    // when window width is >= 1680px
+                    1680: {
+                        slidesPerView: 'auto',
+                        // loop: slides.length > 2 ? true : false,
                     }
                 },
 
