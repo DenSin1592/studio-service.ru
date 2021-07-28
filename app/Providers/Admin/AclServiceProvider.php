@@ -5,6 +5,7 @@ namespace App\Providers\Admin;
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
+use App\Http\Controllers\Admin\EssenceControllers\OurWorksController;
 use App\Http\Controllers\Admin\EssenceControllers\StructureController;
 use App\Http\Controllers\Admin\EssenceControllers\TargetAudiencesController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
@@ -77,8 +78,8 @@ class AclServiceProvider extends ServiceProvider
             ], 'Отзывы');
 
             $acl->define('change-our-works', [
-                ReviewsController::class,
-            ], 'Отзывы');
+                OurWorksController::class,
+            ], 'Наши работы');
 
             $acl->define('change-settings', [
                 SettingsController::class,
