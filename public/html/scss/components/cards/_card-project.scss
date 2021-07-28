@@ -150,6 +150,7 @@
     }
 
     .card-project-cta {
+        color: inherit;
         @include media-breakpoint-up(lg) {
             padding: 10px 20px;
             font-size: 18px;

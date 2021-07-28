@@ -3080,7 +3080,7 @@ b { font-weight: 600; }
 .custom-file-label::before { position: absolute; top: 50%; left: 0; width: 26px; height: 26px; -webkit-transform: translateY(-50%); transform: translateY(-50%); font-family: 'icomoon'; font-size: 26px; font-weight: 400; line-height: 1; content: '\f2aa'; }
 .custom-file-label::after { display: none; }
 
-.btn { cursor: pointer; display: inline-block; width: auto; margin: 0; padding: 8px; border: 1px solid transparent; border-radius: 100px; background: none; font-size: 15px; font-weight: 600; line-height: 1.25; text-decoration: none; }
+.btn { cursor: pointer; display: inline-block; width: auto; margin: 0; padding: 8px; border: 1px solid transparent; border-radius: 100px; background: none; font-size: 15px; font-weight: 400; line-height: 1.25; text-decoration: none; }
 @media (min-width: 750px) { .btn { padding: 10px 8px; } }
 @media (min-width: 970px) { .btn { font-size: 17px; } }
 @media (min-width: 1200px) { .btn { padding: 12px 18px; font-size: 18px; } }
@@ -3090,7 +3090,7 @@ b { font-weight: 600; }
 .btn.btn-lg, .btn-group-lg > .btn { padding: 12px 12px; }
 @media (min-width: 480px) { .btn.btn-lg, .btn-group-lg > .btn { padding: 12px; } }
 @media (min-width: 750px) { .btn.btn-lg, .btn-group-lg > .btn { padding: 15px 20px; font-size: 17px; line-height: 25px; } }
-@media (min-width: 1200px) { .btn.btn-lg, .btn-group-lg > .btn { padding: 21px 20px; font-size: 20px; } }
+@media (min-width: 1200px) { .btn.btn-lg, .btn-group-lg > .btn { padding: 21px 20px; font-size: 22px; } }
 
 .btn-primary { background: #564396; background: -webkit-gradient(linear, left bottom, left top, from(#564396), to(#765fc4)); background: linear-gradient(0deg, #564396 0%, #765fc4 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#564396",endColorstr="#765fc4",GradientType=1); -webkit-box-shadow: 0 7px 20px rgba(255, 64, 244, 0.4); box-shadow: 0 7px 20px rgba(255, 64, 244, 0.4); color: #fff; }
 .btn-primary:hover { border-color: transparent; background: -webkit-gradient(linear, left bottom, left top, from(rgba(86, 67, 150, 0.9)), to(rgba(118, 95, 196, 0.9))); background: linear-gradient(0deg, rgba(86, 67, 150, 0.9) 0%, rgba(118, 95, 196, 0.9) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#564396",endColorstr="#765fc4",GradientType=1); color: #fff; }
@@ -3356,6 +3356,7 @@ b { font-weight: 600; }
 @media (min-width: 1680px) { .card-project .card-project-services-block { font-size: 17px; line-height: 25px; } }
 .card-project .card-project-services-block .card-project-services-title { margin: 0 0 10px; font-size: 16px; font-weight: 400; }
 @media (min-width: 970px) { .card-project .card-project-services-block .card-project-services-title { font-size: 17px; } }
+.card-project .card-project-cta { color: inherit; }
 @media (min-width: 970px) { .card-project .card-project-cta { padding: 10px 20px; font-size: 18px; line-height: 25px; } }
 
 .card-include { display: block; width: 100%; padding: 50px 50px; background-repeat: no-repeat; background-size: cover; background-position: center; color: currentColor; font-size: 18px; line-height: 30px; text-decoration: none; }
@@ -3405,7 +3406,7 @@ b { font-weight: 600; }
 @media (min-width: 750px) { .hero-title { max-width: 93.5%; font-size: 25px; line-height: 30px; } }
 @media (min-width: 970px) { .hero-title { font-size: 30px; line-height: 40px; } }
 @media (min-width: 1200px) { .hero-title { max-width: 100%; margin: 0 0 25px; font-size: 38px; } }
-@media (min-width: 1680px) { .hero-title { font-size: 55px; line-height: 60px; } }
+@media (min-width: 1680px) { .hero-title { font-size: 50px; line-height: 60px; } }
 .hero-title .text-lead { display: block; margin: 0 0 5px; font-family: 'Proxima Nova'; font-size: 30px; line-height: 40px; text-transform: uppercase; }
 @media (min-width: 480px) { .hero-title .text-lead { font-size: 35px; line-height: 40px; } }
 @media (min-width: 750px) { .hero-title .text-lead { margin: 0 0 15px; font-size: 40px; line-height: 1; } }
@@ -3417,7 +3418,7 @@ b { font-weight: 600; }
 @media (min-width: 480px) { .hero-description { margin: 0 0 45px; } }
 @media (min-width: 750px) { .hero-description { margin: 0 0 20px; font-size: 17px; line-height: 25px; } }
 @media (min-width: 970px) { .hero-description { margin: 0 0 35px; font-size: 20px; line-height: 28px; } }
-@media (min-width: 1200px) { .hero-description { margin: 0 0 45px; font-size: 22px; line-height: 30px; } }
+@media (min-width: 1200px) { .hero-description { margin: 0 0 50px; font-size: 22px; line-height: 30px; } }
 @media (min-width: 1680px) { .hero-description { max-width: 80%; font-size: 25px; line-height: 35px; } }
 
 .hero-social-list { margin: 0 -5px; }
