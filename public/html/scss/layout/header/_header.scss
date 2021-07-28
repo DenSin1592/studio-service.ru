@@ -50,7 +50,7 @@
     }
 
     &.is-sticky {
-        color: currentColor;
+        color: currentColor !important;
         background-color: $c-white;
         &::before,
         &::after {
