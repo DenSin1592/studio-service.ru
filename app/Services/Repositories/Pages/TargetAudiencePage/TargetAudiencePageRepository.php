@@ -4,19 +4,18 @@ namespace App\Services\Repositories\Pages\TargetAudiencePage;
 
 use App\Models\TargetAudiencePage;
 use App\Models\Node;
-use App\Services\Repositories\BaseRepository;
-use App\Services\Repositories\Node\NodeContentRepositoryInterface;
+use App\Services\Repositories\BasePageRepository;
 
-class TargetAudiencePageRepository extends BaseRepository implements NodeContentRepositoryInterface
+class TargetAudiencePageRepository extends BasePageRepository
 {
-    public function findForNodeOrNew(Node $node) : TargetAudiencePage
+    protected function setModel(): void
     {
-        $page = $node->targetAudiencePage()->first();
-        if (is_null($page)) {
-            $page = $this->getModel();
-            $page->node()->associate($node);
-        }
-
-        return $page;
+        $this->model = new TargetAudiencePage();
     }
+
+    protected function getRelation(Node $node)
+    {
+        return $node->targetAudiencePage();
+    }
+
 }

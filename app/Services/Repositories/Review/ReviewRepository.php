@@ -2,44 +2,18 @@
 
 namespace App\Services\Repositories\Review;
 
-use App\Services\Repositories\BaseRepository;
-use App\Services\Repositories\CreateUpdateRepositoryInterface;
-use App\Services\RepositoryFeatures\Attribute\EloquentAttributeToggler;
-use App\Services\RepositoryFeatures\Attribute\PositionUpdater;
+use App\Models\Review;
+use App\Services\Repositories\BaseFeatureRepository;
+use App\Services\RepositoryFeatures\CreatorWithPosition;
+use Illuminate\Database\Eloquent\Model;
 
-class ReviewRepository extends BaseRepository implements CreateUpdateRepositoryInterface
+class ReviewRepository extends BaseFeatureRepository
 {
-    public function __construct(
-        private EloquentAttributeToggler $attributeToggler,
-        private PositionUpdater $positionUpdater,
-        protected $model
-    ){
-        parent::__construct($model);
-    }
+    use CreatorWithPosition;
 
-    public function toggleAttribute($model, $attribute)
+    protected function setModel(): void
     {
-        $this->attributeToggler->toggleAttribute($model, $attribute);
-
-        return $model;
-    }
-
-    public function create(array $data)
-    {
-        if (empty($data['position'])) {
-            $maxPosition = $this->getModel()->max('position');
-            if (is_null($maxPosition)) {
-                $maxPosition = 0;
-            }
-            $data['position'] = $maxPosition + self::POSITION_STEP;
-        }
-
-        return $this->getModel()->create($data);
-    }
-
-    public function updatePositions(array $positions)
-    {
-        $this->positionUpdater->updatePositions($this->getModel(), $positions);
+        $this->model = new Review();
     }
 
     public function getModelsForHomePage()

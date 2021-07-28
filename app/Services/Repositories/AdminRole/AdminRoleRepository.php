@@ -2,13 +2,17 @@
 
 namespace App\Services\Repositories\AdminRole;
 
+use App\Models\AdminRole;
 use App\Models\AdminUser;
 use App\Services\Repositories\BaseRepository;
-use App\Services\Repositories\CreateUpdateRepositoryInterface;
 
-
-class AdminRoleRepository extends BaseRepository implements CreateUpdateRepositoryInterface
+class AdminRoleRepository extends BaseRepository
 {
+    protected function setModel(): void
+    {
+        $this->model = new AdminRole();
+    }
+
 
     public function allForUser(AdminUser $user)
     {

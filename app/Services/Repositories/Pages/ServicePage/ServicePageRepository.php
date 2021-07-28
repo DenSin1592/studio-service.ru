@@ -3,19 +3,18 @@
 namespace App\Services\Repositories\Pages\ServicePage;
 
 use App\Models\Node;
-use App\Services\Repositories\BaseRepository;
-use App\Services\Repositories\Node\NodeContentRepositoryInterface;
+use App\Models\ServicePage;
+use App\Services\Repositories\BasePageRepository;
 
-class ServicePageRepository extends BaseRepository implements NodeContentRepositoryInterface
+class ServicePageRepository extends BasePageRepository
 {
-    public function findForNodeOrNew(Node $node)
+    protected function setModel(): void
     {
-        $page = $node->servicePage()->first();
-        if (is_null($page)) {
-            $page = $this->getModel();
-            $page->node()->associate($node);
-        }
+        $this->model = new ServicePage();
+    }
 
-        return $page;
+    protected function getRelation(Node $node)
+    {
+        return $node->servicePage();
     }
 }

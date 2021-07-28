@@ -4,15 +4,15 @@ namespace App\Services\Repositories\AdminUser;
 
 use App\Models\AdminUser;
 use App\Services\Repositories\BaseRepository;
-use App\Services\Repositories\CreateUpdateRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 
-/**
- * Class AdminUserRepository
- * @package App\Services\Repositories\AdminUser
- */
-class AdminUserRepository extends BaseRepository implements CreateUpdateRepositoryInterface
+class AdminUserRepository extends BaseRepository
 {
+    protected function setModel(): void
+    {
+        $this->model = new AdminUser();
+    }
+
 
     public function allWithoutSuper()
     {

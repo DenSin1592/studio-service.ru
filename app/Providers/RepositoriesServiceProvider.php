@@ -2,24 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\AdminRole;
-use App\Models\AdminUser;
-use App\Models\Competence;
-use App\Models\CompetencePage;
-use App\Models\HomePage;
-use App\Models\Node;
-use App\Models\OurWork;
-use App\Models\OurWorkImage;
-use App\Models\Review;
-use App\Models\ReviewImage;
-use App\Models\ReviewPage;
-use App\Models\Service;
-use App\Models\OurWorkPage;
-use App\Models\ServicePage;
-use App\Models\Setting;
-use App\Models\TargetAudience;
-use App\Models\TargetAudiencePage;
-use App\Models\TextPage;
 use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use App\Services\Repositories\AdminUser\AdminUserRepository;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
@@ -38,9 +20,6 @@ use App\Services\Repositories\Review\ReviewRepository;
 use App\Services\Repositories\Services\ServicesRepository;
 use App\Services\Repositories\Setting\SettingRepository;
 use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
-use App\Services\RepositoryFeatures\Attribute\EloquentAttributeToggler;
-use App\Services\RepositoryFeatures\Attribute\PositionUpdater;
-use App\Services\RepositoryFeatures\Tree\TreeBuilderInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoriesServiceProvider extends ServiceProvider
@@ -50,128 +29,106 @@ class RepositoriesServiceProvider extends ServiceProvider
 
         $this->app->singleton(
             AdminRoleRepository::class,
-            fn() => new AdminRoleRepository(new AdminRole())
+            fn() => new AdminRoleRepository()
         );
 
 
         $this->app->singleton(
             AdminUserRepository::class,
-            fn() => new AdminUserRepository(new AdminUser())
+            fn() => new AdminUserRepository()
         );
 
 
         $this->app->singleton(
             CompetenciesRepository::class,
-            fn() => new CompetenciesRepository(
-                new EloquentAttributeToggler(),
-                new PositionUpdater(),
-                new Competence()
-            )
+            fn() => new CompetenciesRepository()
         );
 
         $this->app->singleton(
             NodeRepository::class,
-            fn() => new NodeRepository(
-                \App(TreeBuilderInterface::class),
-                new EloquentAttributeToggler(),
-                new PositionUpdater(),
-                new Node()
-            )
+            fn() => new NodeRepository()
         );
 
 
         $this->app->singleton(
             ReviewRepository::class,
-            fn() => new ReviewRepository(
-                new EloquentAttributeToggler(),
-                new PositionUpdater(),
-                new Review()
-            )
+            fn() => new ReviewRepository()
         );
 
 
         $this->app->singleton(
             ReviewImageRepository::class,
-            fn() => new ReviewImageRepository(new ReviewImage())
+            fn() => new ReviewImageRepository()
         );
 
 
         $this->app->singleton(
             OurWorkRepository::class,
-            fn() => new OurWorkRepository(
-                new EloquentAttributeToggler(),
-                new PositionUpdater(),
-                new OurWork()
-            )
+            fn() => new OurWorkRepository()
         );
 
 
         $this->app->singleton(
             OurWorkImageRepository::class,
-            fn() => new OurWorkImageRepository(new OurWorkImage())
+            fn() => new OurWorkImageRepository()
         );
 
 
         $this->app->singleton(
             ServicesRepository::class,
-            fn() => new ServicesRepository(
-                new EloquentAttributeToggler(),
-                new PositionUpdater(),
-                new Service()
-            )
+            fn() => new ServicesRepository()
         );
 
 
         $this->app->singleton(
             SettingRepository::class,
-            fn() => new SettingRepository(new Setting())
+            fn() => new SettingRepository()
         );
 
         $this->app->singleton(
             TargetAudienceRepository::class,
-            fn() => new TargetAudienceRepository(
-                \App(TreeBuilderInterface::class),
-                new EloquentAttributeToggler(),
-                new PositionUpdater(),
-                new TargetAudience()
-            )
+            fn() => new TargetAudienceRepository()
         );
 
 
-        $this->app->singleton(
-            TargetAudiencePageRepository::class,
-            fn() => new TargetAudiencePageRepository(new TargetAudiencePage())
-        );
+        (function(){
 
-        $this->app->singleton(
-            HomePageRepository::class,
-            fn() => new HomePageRepository(new HomePage())
-        );
+            $this->app->singleton(
+                TargetAudiencePageRepository::class,
+                fn() => new TargetAudiencePageRepository()
+            );
 
-        $this->app->singleton(
-            ServicePageRepository::class,
-            fn() => new ServicePageRepository(new ServicePage())
-        );
+            $this->app->singleton(
+                HomePageRepository::class,
+                fn() => new HomePageRepository()
+            );
 
-        $this->app->singleton(
-            ReviewPageRepository::class,
-            fn() => new ReviewPageRepository(new ReviewPage())
-        );
+            $this->app->singleton(
+                ServicePageRepository::class,
+                fn() => new ServicePageRepository()
+            );
 
-        $this->app->singleton(
-            CompetencePageRepository::class,
-            fn() => new CompetencePageRepository(new CompetencePage())
-        );
+            $this->app->singleton(
+                ReviewPageRepository::class,
+                fn() => new ReviewPageRepository()
+            );
 
-        $this->app->singleton(
-            OurWorkPageRepository::class,
-            fn() => new OurWorkPageRepository(new OurWorkPage())
-        );
+            $this->app->singleton(
+                CompetencePageRepository::class,
+                fn() => new CompetencePageRepository()
+            );
 
-        $this->app->singleton(
-            TextPageRepository::class,
-            fn() => new TextPageRepository(new TextPage())
-        );
+            $this->app->singleton(
+                OurWorkPageRepository::class,
+                fn() => new OurWorkPageRepository()
+            );
+
+            $this->app->singleton(
+                TextPageRepository::class,
+                fn() => new TextPageRepository()
+            );
+        })();
+
 
     }
 }

@@ -3,19 +3,20 @@
 namespace App\Services\Repositories\Pages\OurWorkPage;
 
 use App\Models\Node;
-use App\Services\Repositories\BaseRepository;
-use App\Services\Repositories\Node\NodeContentRepositoryInterface;
+use App\Models\OurWorkPage;
+use App\Services\Repositories\BasePageRepository;
 
-class OurWorkPageRepository extends BaseRepository implements NodeContentRepositoryInterface
+
+class OurWorkPageRepository extends BasePageRepository
 {
-    public function findForNodeOrNew(Node $node)
+    protected function setModel(): void
     {
-        $page = $node->ourWorkPage()->first();
-        if (is_null($page)) {
-            $page = $this->getModel();
-            $page->node()->associate($node);
-        }
-
-        return $page;
+        $this->model = new OurWorkPage();
     }
+
+    protected function getRelation(Node $node)
+    {
+        return $node->ourWorkPage();
+    }
+
 }

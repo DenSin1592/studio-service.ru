@@ -4,19 +4,17 @@ namespace App\Services\Repositories\Pages\HomePage;
 
 use App\Models\HomePage;
 use App\Models\Node;
-use App\Services\Repositories\BaseRepository;
-use App\Services\Repositories\Node\NodeContentRepositoryInterface;
+use App\Services\Repositories\BasePageRepository;
 
-class HomePageRepository extends BaseRepository implements NodeContentRepositoryInterface
+class HomePageRepository extends BasePageRepository
 {
-    public function findForNodeOrNew(Node $node)
+    protected function setModel(): void
     {
-        $page = $node->homePage()->first();
-        if (is_null($page)) {
-            $page = $this->getModel();
-            $page->node()->associate($node);
-        }
+        $this->model = new HomePage();
+    }
 
-        return $page;
+    protected function getRelation(Node $node)
+    {
+        return $node->homePage();
     }
 }

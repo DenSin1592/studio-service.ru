@@ -2,21 +2,20 @@
 
 namespace App\Services\Repositories;
 
-use App\Services\Pagination\FlexPaginator;
-use http\Url;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Model;
 
-abstract class BaseRepository
+abstract class BaseRepository implements CreateUpdateRepositoryInterface
 {
-    protected const POSITION_STEP = 10;
-    protected FlexPaginator $flexPaginator;
+    protected \Eloquent|Model $model;
 
-    public function __construct(
-        protected $model
-    ){
-        $this->flexPaginator = \App(FlexPaginator::class);
+
+    public function __construct()
+    {
+        $this->setModel();
     }
+
+
+    abstract protected function setModel(): void;
 
 
     protected function getModel(): \Eloquent
@@ -42,6 +41,7 @@ abstract class BaseRepository
         return $this->getModel()->find($id);
     }
 
+
     public function findByIdOrFail(int $id)
     {
         return $this->getModel()->findOrFail($id);
@@ -59,88 +59,9 @@ abstract class BaseRepository
         return $this->getModel()->all();
     }
 
-    public function allOrderByPosition()
-    {
-        return $this->getModel()->orderBy('position')->all();
-    }
-
 
     public function delete($model)
     {
         return $model->delete();
     }
-
-
-    public function getTotalCount()
-    {
-        return $this->getModel()->count();
-    }
-
-
-    public function allByPage($page, $limit): array
-    {
-        $query = $this->getModel()->query();
-
-        $total = $query->count();
-        $items = $query->skip($limit * ($page - 1))
-            ->orderBy('position')
-            ->take($limit)
-            ->get();
-
-        return [
-            'page' => $page,
-            'limit' => $limit,
-            'items' => $items,
-            'total' => $total,
-        ];
-    }
-
-    /**
-     * @return LengthAwarePaginator
-     */
-    public function paginate(): LengthAwarePaginator
-    {
-        return $this->flexPaginator->make(
-            fn ($page, $limit) => $this->allByPage($page, $limit),
-            'reviews-pagination-page',
-            'reviews-pagination-limit'
-        );
-    }
-
-
-    public function allByIds(array $ids): Collection
-    {
-        if (count($ids) === 0)
-            return Collection::make([]);
-
-        return $this->getModel()
-            ->query()
-            ->whereIn('id', $ids)
-            ->orderBy('position')
-            ->get();
-    }
-
-
-    public function allByIdsInSequence(array $ids): array
-    {
-        $models = [];
-        $modelDict = $this->allByIds($ids)->getDictionary();
-        foreach ($ids as $id) {
-            if (isset($modelDict[$id])) {
-                $models[] = $modelDict[$id];
-            }
-        }
-
-        return $models;
-    }
-
-    public function getByAliasOrFail($alias){
-        return $this->getModel()->where('alias', $alias)->firstOrFail();
-    }
-
-    public function getModelsForHomePage()
-    {
-        return $this->getModel()->where('on_home_page', true)->orderBy('position')->get();
-    }
-
 }

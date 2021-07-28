@@ -34,7 +34,7 @@ class Images implements SubProcessor
 
         $touchedIds = [];
         foreach ($imagesListData as $imageData) {
-            $image = $this->repository->createOrUpdateForReview($model, $imageData);
+            $image = $this->repository->createOrUpdateImageForModel($model, $imageData);
             $touchedIds[] = $image->id;
         }
 

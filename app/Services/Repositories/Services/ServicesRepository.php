@@ -2,61 +2,16 @@
 
 namespace App\Services\Repositories\Services;
 
-use App\Services\Repositories\BaseRepository;
-use App\Services\Repositories\CreateUpdateRepositoryInterface;
-use App\Services\RepositoryFeatures\Attribute\EloquentAttributeToggler;
-use App\Services\RepositoryFeatures\Attribute\PositionUpdater;
+use App\Models\Service;
+use App\Services\Repositories\BaseFeatureRepository;
+use App\Services\RepositoryFeatures\CreatorWithPosition;
 
-class ServicesRepository extends BaseRepository implements CreateUpdateRepositoryInterface
+class ServicesRepository extends BaseFeatureRepository
 {
-    public function __construct(
-        private EloquentAttributeToggler $attributeToggler,
-        private PositionUpdater $positionUpdater,
-        protected $model
-    ){
-        parent::__construct($model);
-    }
+    use CreatorWithPosition;
 
-
-    public function create(array $data)
+    protected function setModel(): void
     {
-        if (empty($data['position'])) {
-            $maxPosition = $this->getModel()->max('position');
-            if (is_null($maxPosition)) {
-                $maxPosition = 0;
-            }
-            $data['position'] = $maxPosition + self::POSITION_STEP;
-        }
-
-        return $this->getModel()->create($data);
-    }
-
-
-    public function updatePositions(array $positions)
-    {
-        $this->positionUpdater->updatePositions($this->getModel(), $positions);
-    }
-
-
-    public function toggleAttribute($model, $attribute)
-    {
-        $this->attributeToggler->toggleAttribute($model, $attribute);
-
-        return $model;
-    }
-
-
-    public function all()
-    {
-        return $this->getModel()->orderBy('position')->get();
-
-    }
-
-    public function getModelsForHomePage()
-    {
-        return $this->getModel()
-            ->where('on_home_page', true)
-            ->orderBy('position')
-            ->get();
+        $this->model = new Service();
     }
 }
