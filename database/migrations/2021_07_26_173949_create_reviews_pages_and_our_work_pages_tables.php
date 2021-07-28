@@ -45,7 +45,7 @@ class CreateReviewsPagesAndOurWorkPagesTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews_pages');
-        Schema::dropIfExists('our_works_pages');
+        Schema::dropIfExists('review_pages');
+        Schema::dropIfExists('our_work_pages');
     }
 }
