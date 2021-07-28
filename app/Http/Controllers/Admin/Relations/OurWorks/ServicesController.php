@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Relations\OurWorks;
 use App\Http\Controllers\Admin\Relations\BaseManyToManyRelationsController;
 use App\Services\Repositories\Services\ServicesRepository;
 
-class ServicesController extends BaseManyToManyRelationsController
+final class ServicesController extends BaseManyToManyRelationsController
 {
     public const BLOCK_NAME = 'Услуги';
     public const RELATIONS_NAME = 'services';
@@ -13,7 +13,7 @@ class ServicesController extends BaseManyToManyRelationsController
     public const ROUTE_AVAILABLE = 'cc.our-works.services.available';
     public const ROUTE_REBUILD_CURRENT = 'cc.our-works.services.rebuild-current';
 
-    protected function setRepository()
+    protected function setRepository(): void
     {
         $this->repository = \App(ServicesRepository::class);
     }

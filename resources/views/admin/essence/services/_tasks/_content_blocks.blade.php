@@ -2,7 +2,7 @@
     <legend>Блок "Задачи, которые решает"</legend>
 
     <ul class="grouped-field-list content-block-list" data-element-list="container" id="tasks-list">
-        @foreach ($elements as $key => $elem)
+        @foreach ($elements as $key => $element)
             @include('admin.essence.services._tasks._content_block')
         @endforeach
     </ul>

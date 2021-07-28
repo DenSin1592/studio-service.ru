@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Relations\Services;
 use App\Http\Controllers\Admin\Relations\BaseManyToManyRelationsController;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 
-class CompetenciesController extends BaseManyToManyRelationsController
+final class CompetenciesController extends BaseManyToManyRelationsController
 {
     public const BLOCK_NAME = 'Компетенции';
     public const RELATIONS_NAME = 'competencies';
@@ -13,7 +13,7 @@ class CompetenciesController extends BaseManyToManyRelationsController
     public const ROUTE_AVAILABLE = 'cc.services.competencies.available';
     public const ROUTE_REBUILD_CURRENT = 'cc.services.competencies.rebuild-current';
 
-   protected function setRepository()
+   protected function setRepository(): void
    {
        $this->repository = \App(CompetenciesRepository::class);
    }

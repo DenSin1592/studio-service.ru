@@ -2,31 +2,17 @@
 
 namespace App\Http\Controllers\Admin\Relations\Reviews;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\Relations\BaseOneToManyController;
 use App\Services\Repositories\Review\ReviewImage\ReviewImageRepository;
-use Illuminate\Http\JsonResponse;
 
-class ImagesController extends Controller
+final class ImagesController extends BaseOneToManyController
 {
     public const RELATIONS_NAME = 'images';
     public const ROUTE_CREATE = 'cc.reviews.reviews-images.create';
+    protected const VIEW_ELEMENT_NAME = 'admin.shared._images._image';
 
-    public function __construct(
-        private ReviewImageRepository $repository
-    ){}
-
-    public function create(): JsonResponse
+    protected function setRepository(): void
     {
-        $imageKey = \Request::get('key');
-        $image = $this->repository->newInstance();
-        $element = view(
-            'admin.shared._images._image',
-            [
-                'imageKey' => $imageKey,
-                'image' => $image,
-            ]
-        )->render();
-
-        return \Response::json(['element' => $element]);
+        $this->repository = \App(ReviewImageRepository::class);
     }
 }

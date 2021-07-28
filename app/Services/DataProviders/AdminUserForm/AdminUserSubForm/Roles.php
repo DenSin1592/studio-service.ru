@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 final class Roles extends BaseSubForm
 {
-    protected function setRepository()
+    protected function setRepository(): void
     {
         $this->repository = \App(AdminRoleRepository::class);
     }

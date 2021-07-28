@@ -2,8 +2,7 @@
     <legend>Галерея</legend>
 
     <ul class="grouped-field-list" data-element-list="container" id="photos-elements">
-        @foreach ($images as $imageKey => $image)
-
+        @foreach ($elements as $key => $element)
             @include('admin.shared._images._image')
         @endforeach
     </ul>

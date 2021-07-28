@@ -11,7 +11,7 @@ final class Tasks extends BaseOneToManySubForm
 {
     protected const SUB_FORM_NAME = TasksController::RELATIONS_NAME;
 
-    protected function setRepository()
+    protected function setRepository(): void
     {
         $this->repository = \App(ServiceTaskRepository::class);
     }

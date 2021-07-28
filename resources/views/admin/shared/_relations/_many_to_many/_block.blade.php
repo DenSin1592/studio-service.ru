@@ -6,7 +6,7 @@
     </div>
 
     <div id="{{"modal-".$relationsName."-current"}}">
-        @include('admin.shared._relations._current')
+        @include('admin.shared._relations._many_to_many._current')
     </div>
 
     <div class="form-group">

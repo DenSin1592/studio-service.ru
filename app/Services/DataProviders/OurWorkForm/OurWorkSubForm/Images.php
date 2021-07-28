@@ -10,7 +10,7 @@ final class Images extends BaseOneToManySubForm
 {
     protected const SUB_FORM_NAME = ImagesController::RELATIONS_NAME;
 
-    protected function setRepository()
+    protected function setRepository(): void
     {
         $this->repository = \App(OurWorkImageRepository::class);
     }

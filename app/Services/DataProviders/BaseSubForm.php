@@ -8,7 +8,7 @@ abstract class BaseSubForm implements BaseSubFormInterface
 {
     protected BaseRepository $repository;
 
-    abstract protected function setRepository();
+    abstract protected function setRepository(): void;
 
     public function __construct()
     {

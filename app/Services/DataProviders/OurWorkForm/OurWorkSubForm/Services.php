@@ -10,7 +10,7 @@ final class Services extends BaseManyToManySubForm
 {
     protected const SUB_FORM_NAME = ServicesController::RELATIONS_NAME;
 
-    protected function setRepository()
+    protected function setRepository(): void
     {
         $this->repository = \App(ServicesRepository::class);
     }

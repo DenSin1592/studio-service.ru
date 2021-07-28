@@ -10,7 +10,7 @@ class Competencies extends BaseManyToManySubForm
 {
     protected const SUB_FORM_NAME = CompetenciesController::RELATIONS_NAME;
 
-    protected function setRepository()
+    protected function setRepository(): void
     {
         $this->repository = \App(CompetenciesRepository::class);
     }

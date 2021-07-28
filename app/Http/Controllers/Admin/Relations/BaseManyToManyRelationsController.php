@@ -11,7 +11,12 @@ abstract class BaseManyToManyRelationsController extends Controller
 {
     protected BaseRepository $repository;
 
-    abstract protected function setRepository();
+    abstract protected function setRepository(): void;
+
+    public function __construct()
+    {
+        $this->setRepository();
+    }
 
     public static function RELATION_BLOCK_VIEW_DEPENDENCIES(): array
     {
@@ -62,7 +67,7 @@ abstract class BaseManyToManyRelationsController extends Controller
         $models = $this->repository->allByIdsInSequence($ids);
 
         $content = \View::make(
-            'admin.shared._relations._current',
+            'admin.shared._relations._many_to_many._current',
             array_merge(self::RELATION_CURRENT_VIEW_DEPENDENCIES(), ['models' => $models])
         )->render();
 
