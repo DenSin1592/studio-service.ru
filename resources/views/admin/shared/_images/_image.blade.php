@@ -36,6 +36,11 @@
     </div>
 
     <div class="full-info">
+        {{ Form::tbLabel("images[{$imageKey}][position]", trans('validation.attributes.position')) }}
+        {{ Form::tbText("images[{$imageKey}][position]", $image->position) }}
+    </div>
+
+    <div class="full-info">
         {!! Form::tbCheckboxBlock("images[{$imageKey}][publish]", trans('validation.attributes.publish'), $image->publish) !!}
     </div>
 
