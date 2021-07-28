@@ -4,11 +4,14 @@
 namespace App\Http\Controllers\Admin\Relations;
 
 use App\Http\Controllers\Controller;
+use App\Services\Repositories\BaseRepository;
 use Illuminate\Http\JsonResponse;
 
-abstract class BaseRelationsController extends Controller
+abstract class BaseManyToManyRelationsController extends Controller
 {
-    protected $repository;
+    protected BaseRepository $repository;
+
+    abstract protected function setRepository();
 
     public static function RELATION_BLOCK_VIEW_DEPENDENCIES(): array
     {

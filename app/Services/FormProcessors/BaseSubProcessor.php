@@ -11,7 +11,7 @@ class BaseSubProcessor implements SubProcessor
         return $data;
     }
 
-    public function save(Model $model, array $data)
+    public function save(Model $model, array $data): void
     {
         $relation = static::SUB_FORM_NAME;
 
