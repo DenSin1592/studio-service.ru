@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Models\Features\AttachedToNode;
+use Illuminate\Database\Eloquent\Model;
 
-class ServicePage extends \Eloquent
+class ServicePage extends Model
 {
     use AttachedToNode;
 

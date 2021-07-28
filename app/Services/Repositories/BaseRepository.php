@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseRepository implements CreateUpdateRepositoryInterface
 {
-    protected \Eloquent|Model $model;
+    protected Model $model;
 
 
     public function __construct()
@@ -18,7 +18,7 @@ abstract class BaseRepository implements CreateUpdateRepositoryInterface
     abstract protected function setModel(): void;
 
 
-    protected function getModel(): \Eloquent
+    protected function getModel(): Model
     {
         return clone $this->model;
     }

@@ -7,8 +7,9 @@ use App\Models\Helpers\AliasHelpers;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\BoxVersion;
 use Diol\FileclipExif\Glue;
+use Illuminate\Database\Eloquent\Model;
 
-class Service extends \Eloquent
+class Service extends Model
 {
     use Glue;
     use AutoPublish;

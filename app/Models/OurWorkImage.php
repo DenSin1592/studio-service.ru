@@ -6,12 +6,13 @@ use App\Models\Features\AutoPublish;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\OutBoundVersion;
 use Diol\FileclipExif\Glue;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class OurWorkImage
  * @package App\Models
  */
-class OurWorkImage extends \Eloquent
+class OurWorkImage extends Model
 {
     use Glue;
     use AutoPublish;

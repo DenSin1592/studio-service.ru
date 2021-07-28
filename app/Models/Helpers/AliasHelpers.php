@@ -2,6 +2,8 @@
 
 namespace App\Models\Helpers;
 
+use Illuminate\Database\Eloquent\Model;
+
 class AliasHelpers
 {
     /**
@@ -12,7 +14,7 @@ class AliasHelpers
     /**
      * Set alias for model.
      */
-    public static function setAlias(\Eloquent $model, string $field = 'name', ?callable $aliasFilter = null): void
+    public static function setAlias(Model $model, string $field = 'name', ?callable $aliasFilter = null): void
     {
         if (!isset($model->alias) || $model->alias === '') {
             // Build alias by default rules

@@ -2,6 +2,8 @@
 
 namespace App\Services\Seo;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Class MetaRule
  * Rule to build meta-data for page.
@@ -24,7 +26,7 @@ class MetaRule
     /**
      * Get data for object.
      */
-    public function metaForObject(\Eloquent $object, string $name = null, array $additionalData = []): array
+    public function metaForObject(Model $object, string $name = null, array $additionalData = []): array
     {
         if (!empty($object->header)) {
             $h1 = $object->header;

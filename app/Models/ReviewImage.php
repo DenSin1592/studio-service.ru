@@ -6,8 +6,9 @@ use App\Models\Features\AutoPublish;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\OutBoundVersion;
 use Diol\FileclipExif\Glue;
+use Illuminate\Database\Eloquent\Model;
 
-class ReviewImage extends \Eloquent
+class ReviewImage extends Model
 {
     use Glue;
     use AutoPublish;

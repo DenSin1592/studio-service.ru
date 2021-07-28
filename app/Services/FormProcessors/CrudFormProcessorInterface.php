@@ -2,17 +2,19 @@
 
 namespace App\Services\FormProcessors;
 
+use Illuminate\Database\Eloquent\Model;
+
 interface CrudFormProcessorInterface
 {
     /**
      * Create an element.
      */
-    public function create(array $data = []): ?\Eloquent;
+    public function create(array $data = []): ?Model;
 
     /**
      * Update an element.
      */
-    public function update(\Eloquent $model, array $data = []): bool;
+    public function update(Model $model, array $data = []): bool;
 
     /**
      * Get errors.

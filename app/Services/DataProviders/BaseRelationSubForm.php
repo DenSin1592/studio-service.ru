@@ -1,12 +1,13 @@
 <?php
 
-
 namespace App\Services\DataProviders;
 
+use App\Services\Repositories\BaseRepository;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseRelationSubForm extends BaseSubForm
 {
-    protected $repository;
+    protected BaseRepository $repository;
 
     abstract protected function setRepository();
 
@@ -14,7 +15,7 @@ abstract class BaseRelationSubForm extends BaseSubForm
         $this->setRepository();
     }
 
-    public function provideData(\Eloquent $model, array $oldInput): array
+    public function provideData(Model $model, array $oldInput): array
     {
         $relation = static::SUB_FORM_NAME;
         if (count($oldInput) === 0)

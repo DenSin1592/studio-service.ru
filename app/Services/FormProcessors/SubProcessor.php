@@ -2,6 +2,8 @@
 
 namespace App\Services\FormProcessors;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Interface SubProcessor
  * Sub processor for form.
@@ -18,5 +20,5 @@ interface SubProcessor
     /**
      * Save data for form processor.
      */
-    public function save(\Eloquent $adminUser, array $data);
+    public function save(Model $adminUser, array $data);
 }

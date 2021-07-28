@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Models\Features\AttachedToNode;
+use Illuminate\Database\Eloquent\Model;
 
-class ReviewPage extends \Eloquent
+class ReviewPage extends Model
 {
     use AttachedToNode;
 

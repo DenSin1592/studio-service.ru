@@ -4,6 +4,7 @@ namespace App\Services\Repositories;
 
 use App\Services\RepositoryFeatures\Tree\TreeBuilderInterface;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseTreeFeatureRepository extends BaseFeatureRepository
 {
@@ -23,7 +24,7 @@ abstract class BaseTreeFeatureRepository extends BaseFeatureRepository
     }
 
 
-    public function getParentVariants(\Eloquent $model = null, $rootName = null)
+    public function getParentVariants(Model $model = null, $rootName = null)
     {
         return $this->treeBuilder->getTreeVariants($this->getModel(), is_null($model) ? null : $model->id, $rootName);
     }
@@ -38,7 +39,7 @@ abstract class BaseTreeFeatureRepository extends BaseFeatureRepository
     }
 
 
-    public function treePublishedChildrenFor(\Eloquent $model)
+    public function treePublishedChildrenFor(Model $model)
     {
         if (!is_null($model)) {
             $query = $model->children();

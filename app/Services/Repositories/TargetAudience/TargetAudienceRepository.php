@@ -5,6 +5,7 @@ namespace App\Services\Repositories\TargetAudience;
 use App\Models\TargetAudience;
 use App\Services\Repositories\BaseTreeFeatureRepository;
 use App\Services\RepositoryFeatures\CreatorWithPosition;
+use Illuminate\Database\Eloquent\Model;
 
 class TargetAudienceRepository extends BaseTreeFeatureRepository
 {
@@ -15,7 +16,7 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
         $this->model = new TargetAudience();
     }
 
-    public function getParentVariants(\Eloquent $model = null, $rootName = null)
+    public function getParentVariants(Model $model = null, $rootName = null)
     {
         return $this->treeBuilder->getTreeVariants(
             $this->getModel(),

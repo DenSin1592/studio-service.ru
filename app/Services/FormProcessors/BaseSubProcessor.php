@@ -1,8 +1,8 @@
 <?php
 
-
 namespace App\Services\FormProcessors;
 
+use Illuminate\Database\Eloquent\Model;
 
 class BaseSubProcessor implements SubProcessor
 {
@@ -11,7 +11,7 @@ class BaseSubProcessor implements SubProcessor
         return $data;
     }
 
-    public function save(\Eloquent $model, array $data)
+    public function save(Model $model, array $data)
     {
         $relation = static::SUB_FORM_NAME;
 

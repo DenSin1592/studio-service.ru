@@ -7,6 +7,7 @@ use App\Models\OurWorkImage;
 use App\Services\FormProcessors\SubProcessor;
 use App\Services\Repositories\OurWork\OurWorkImage\OurWorkImageRepository;
 use Arr;
+use Illuminate\Database\Eloquent\Model;
 
 class Images implements SubProcessor
 {
@@ -21,7 +22,7 @@ class Images implements SubProcessor
         return $data;
     }
 
-    public function save(\Eloquent $model, array $data)
+    public function save(Model $model, array $data)
     {
         $relation = self::SUB_FORM_NAME;
 

@@ -2,6 +2,8 @@
 
 namespace App\Services\DataProviders;
 
+use Illuminate\Database\Eloquent\Model;
+
 abstract class BaseDataProvider
 {
     protected array $subFormList = [];
@@ -11,7 +13,7 @@ abstract class BaseDataProvider
         $this->subFormList[] = $subForm;
     }
 
-    public function provideData(\Eloquent $model, array $oldInput): array
+    public function provideData(Model $model, array $oldInput): array
     {
         $data = [
             static::MODEL_KEY => $model,

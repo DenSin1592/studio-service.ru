@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Class AdminRole
  *
@@ -9,7 +11,7 @@ namespace App\Models;
  * @property AdminUser|null $parent
  * @property boolean $seo
  */
-class AdminRole extends \Eloquent
+class AdminRole extends Model
 {
     protected $fillable = ['name', 'abilities', 'parent_id', 'seo'];
 
@@ -19,13 +21,13 @@ class AdminRole extends \Eloquent
     ];
 
 
-    public function users(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function users()
     {
         return $this->hasMany(AdminUser::class, 'admin_role_id');
     }
 
 
-    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function parent()
     {
         return $this->belongsTo(AdminUser::class);
     }

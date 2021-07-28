@@ -4,6 +4,7 @@ namespace App\Services\DataProviders\AdminUserForm\AdminUserSubForm;
 
 use App\Services\DataProviders\BaseSubForm;
 use App\Services\Repositories\AdminRole\AdminRoleRepository;
+use Illuminate\Database\Eloquent\Model;
 
 class Roles extends BaseSubForm
 {
@@ -11,7 +12,7 @@ class Roles extends BaseSubForm
         private AdminRoleRepository $adminRoleRepository
     ){}
 
-    public function provideData(\Eloquent $model = null, array $oldInput = null): array
+    public function provideData(Model $model = null, array $oldInput = null): array
     {
         $authUser = \Auth::user();
 

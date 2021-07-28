@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Models\Features\AttachedToNode;
+use Illuminate\Database\Eloquent\Model;
 
-class HomePage extends \Eloquent
+class HomePage extends Model
 {
     use AttachedToNode;
 

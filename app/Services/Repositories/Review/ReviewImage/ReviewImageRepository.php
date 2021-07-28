@@ -4,6 +4,7 @@ namespace App\Services\Repositories\Review\ReviewImage;
 
 use App\Models\ReviewImage;
 use App\Services\Repositories\BaseImageRepository;
+use Illuminate\Database\Eloquent\Model;
 
 class ReviewImageRepository extends BaseImageRepository
 {
@@ -12,7 +13,7 @@ class ReviewImageRepository extends BaseImageRepository
         $this->model = new ReviewImage();
     }
 
-    protected function getRelation(\Eloquent $model)
+    protected function getRelation(Model $model)
     {
         return $model->review();
     }

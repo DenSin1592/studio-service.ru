@@ -2,17 +2,19 @@
 
 namespace App\Services\RepositoryFeatures\Tree;
 
+use Illuminate\Database\Eloquent\Model;
+
 class PublishedTreeBuilder extends TreeBuilder implements PublishedTreeBuilderInterface
 {
 
-    public function getPublishedIds(\Eloquent $modelTemplate, $rootId = null): array
+    public function getPublishedIds(Model $modelTemplate, $rootId = null): array
     {
         $idsList = [];
 
         $queue = [];
         $addToQueue = function ($list) use (&$queue) {
             foreach ($list as $c) {
-                array_push($queue, $c);
+                $queue[] = $c;
             }
         };
 
@@ -40,7 +42,7 @@ class PublishedTreeBuilder extends TreeBuilder implements PublishedTreeBuilderIn
     }
 
 
-    public function scopePublishedInTree(\Eloquent $modelTemplate, $query)
+    public function scopePublishedInTree(Model $modelTemplate, $query)
     {
         $ids = $this->getPublishedIds($modelTemplate);
         if (count($ids) == 0) {
@@ -51,7 +53,7 @@ class PublishedTreeBuilder extends TreeBuilder implements PublishedTreeBuilderIn
     }
 
 
-    public function getPublishedChildren(\Eloquent $modelTemplate, $id)
+    public function getPublishedChildren(Model $modelTemplate, $id)
     {
         $query = $modelTemplate->where('parent_id', $id);
         $this->orderScopes->scopeOrdered($query);

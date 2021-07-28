@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Features\AutoPublish;
 use App\Models\Features\TreeParentPath;
 use App\Models\Helpers\DeleteHelpers;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * App\Models\Node
@@ -32,7 +33,7 @@ use App\Models\Helpers\DeleteHelpers;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Node whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Node whereUpdatedAt($value)
  */
-class Node extends \Eloquent
+class Node extends Model
 {
     use AutoPublish;
     use TreeParentPath;
@@ -69,47 +70,47 @@ class Node extends \Eloquent
         return array_map(static fn (self $node) =>  $node->alias, $parentPath);
     }
 
-    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function parent()
     {
         return $this->belongsTo(self::class, 'parent_id');
     }
 
-    public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function children()
     {
         return $this->hasMany(self::class, 'parent_id');
     }
 
-    public function homePage(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function homePage()
     {
         return $this->hasOne(HomePage::class);
     }
 
-    public function targetAudiencePage(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function targetAudiencePage()
     {
         return $this->hasOne(TargetAudiencePage::class);
     }
 
-    public function servicePage(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function servicePage()
     {
         return $this->hasOne(ServicePage::class);
     }
 
-    public function ourWorkPage(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function ourWorkPage()
     {
         return $this->hasOne(OurWorkPage::class);
     }
 
-    public function ReviewPage(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function ReviewPage()
     {
         return $this->hasOne(ReviewPage::class);
     }
 
-    public function competencePage(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function competencePage()
     {
         return $this->hasOne(CompetencePage::class);
     }
 
-    public function textPage(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function textPage()
     {
         return $this->hasOne(TextPage::class);
     }

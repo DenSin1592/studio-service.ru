@@ -2,6 +2,8 @@
 
 namespace App\Services\RepositoryFeatures\Tree;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Interface PublishedTreeBuilderInterface
  * Tree builder interface for published tree.
@@ -13,11 +15,11 @@ interface PublishedTreeBuilderInterface extends TreeBuilderInterface
     /**
      * List of published ids.
      *
-     * @param \Eloquent $modelTemplate
+     * @param Model $modelTemplate
      * @param null $rootId
      * @return array
      */
-    public function getPublishedIds(\Eloquent $modelTemplate, $rootId = null): array;
+    public function getPublishedIds(Model $modelTemplate, $rootId = null): array;
 
     /**
      * Modify query to select published elements in lvl.
@@ -30,18 +32,18 @@ interface PublishedTreeBuilderInterface extends TreeBuilderInterface
     /**
      * Modify query to select published elements according to tree.
      *
-     * @param \Eloquent $modelTemplate
+     * @param Model $modelTemplate
      * @param $query
      * @return mixed
      */
-    public function scopePublishedInTree(\Eloquent $modelTemplate, $query);
+    public function scopePublishedInTree(Model $modelTemplate, $query);
 
     /**
      * Get published children for current element.
      *
-     * @param \Eloquent $modelTemplate
+     * @param Model $modelTemplate
      * @param $id
      * @return mixed
      */
-    public function getPublishedChildren(\Eloquent $modelTemplate, $id);
+    public function getPublishedChildren(Model $modelTemplate, $id);
 }

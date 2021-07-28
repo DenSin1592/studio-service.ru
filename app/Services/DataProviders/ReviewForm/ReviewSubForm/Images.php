@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\Relations\Reviews\ImagesController;
 use App\Services\DataProviders\BaseSubForm;
 use App\Services\Eloquent\CollectionExtractor;
 use App\Services\Repositories\Review\ReviewImage\ReviewImageRepository;
+use Illuminate\Database\Eloquent\Model;
 
 class Images extends BaseSubForm
 {
@@ -17,7 +18,7 @@ class Images extends BaseSubForm
         private ReviewImageRepository $repository
     ){}
 
-    public function provideData(\Eloquent $model, array $oldInput): array
+    public function provideData(Model $model, array $oldInput): array
     {
         $models = $this->extractFromArray(
              fn() => $this->repository->newInstance(),

@@ -7,8 +7,9 @@ use App\Models\Helpers\AliasHelpers;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\BoxVersion;
 use Diol\FileclipExif\Glue;
+use Illuminate\Database\Eloquent\Model;
 
-class Competence extends \Eloquent
+class Competence extends Model
 {
     use Glue;
     use AutoPublish;

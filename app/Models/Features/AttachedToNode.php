@@ -4,7 +4,7 @@ namespace App\Models\Features;
 
 trait AttachedToNode
 {
-    public function node(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function node()
     {
         return $this->belongsTo('App\Models\Node');
     }

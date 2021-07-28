@@ -2,6 +2,8 @@
 
 namespace App\Services\RepositoryFeatures\Tree;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Interface TreeBuilderInterface
  * Interface for tree builder.
@@ -16,7 +18,7 @@ interface TreeBuilderInterface
      *
      * @return mixed
      */
-    public function getTree(\Eloquent $modelTemplate, int $parentId = null, ?callable $filterCallback = null);
+    public function getTree(Model $modelTemplate, int $parentId = null, ?callable $filterCallback = null);
 
 
     /**
@@ -24,7 +26,7 @@ interface TreeBuilderInterface
      *
      * @return mixed
      */
-    public function getTreePath(\Eloquent $modelTemplate, int $id);
+    public function getTreePath(Model $modelTemplate, int $id);
 
 
     /**
@@ -32,7 +34,7 @@ interface TreeBuilderInterface
      *
      * @return mixed
      */
-    public function getCollapsedTree(\Eloquent $modelTemplate, ?int $id = null);
+    public function getCollapsedTree(Model $modelTemplate, ?int $id = null);
 
     /**
      * Get hierarchical variants (for select, for example).
@@ -40,7 +42,7 @@ interface TreeBuilderInterface
      * @return mixed
      */
     public function getTreeVariants(
-        \Eloquent $modelTemplate,
+        Model $modelTemplate,
         int $currentId,
         ?string $root = null,
         ?int $parentId = null,
@@ -72,19 +74,19 @@ interface TreeBuilderInterface
      *
      * @return array
      */
-    public function getChildIds(\Eloquent $modelTemplate, ?int $rootId = null);
+    public function getChildIds(Model $modelTemplate, ?int $rootId = null);
 
     /**
      * List of parent ids for this model.
      *
      * @return mixed
      */
-    public function getParentIds(\Eloquent $modelTemplate, int $id);
+    public function getParentIds(Model $modelTemplate, int $id);
 
     /**
      * Get root for model.
      *
-     * @return \Eloquent
+     * @return Model
      */
-    public function getRoot(\Eloquent $modelTemplate, int $id);
+    public function getRoot(Model $modelTemplate, int $id);
 }

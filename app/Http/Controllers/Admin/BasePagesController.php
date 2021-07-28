@@ -6,10 +6,11 @@ use App\Http\Controllers\Admin\EssenceControllers\StructureController;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
 use App\Services\Repositories\Node\NodeRepository;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class BasePagesController extends Controller
 {
-    protected \Eloquent $modelPage;
+    protected Model $modelPage;
 
     public function __construct(
         protected NodeRepository $repository,
@@ -48,7 +49,7 @@ abstract class BasePagesController extends Controller
     }
 
 
-    private function getPage($nodeId): \Eloquent
+    private function getPage($nodeId): Model
     {
         $node = $this->repository->findById($nodeId);
         if (is_null($node))

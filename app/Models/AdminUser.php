@@ -25,17 +25,17 @@ class AdminUser extends User implements AclUserInterface
         return (bool)$this->super;
     }
 
-    public function role(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function role()
     {
         return $this->belongsTo(AdminRole::class, 'admin_role_id');
     }
 
-    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function parent()
     {
         return $this->belongsTo(AdminUser::class);
     }
 
-    public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function children()
     {
         return $this->hasMany(AdminUser::class, 'parent_id');
     }

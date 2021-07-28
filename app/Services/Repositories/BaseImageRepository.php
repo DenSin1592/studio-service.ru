@@ -4,18 +4,21 @@
 namespace App\Services\Repositories;
 
 
+use Illuminate\Database\Eloquent\Model;
+
 abstract class BaseImageRepository extends BaseRepository
 {
-    abstract protected function getRelation(\Eloquent $model);
+    private const POSITION_STEP = 1;
+    abstract protected function getRelation(Model $model);
 
 
-    public function allForModel(\Eloquent $model)
+    public function allForModel(Model $model)
     {
         return $model->images()->get();
     }
 
 
-    public function createOrUpdateImageForModel(\Eloquent $model, array $data = [])
+    public function createOrUpdateImageForModel(Model $model, array $data = [])
     {
         $id = \Arr::get($data, 'id');
         $image = $model->images()->where('id', $id)->first();

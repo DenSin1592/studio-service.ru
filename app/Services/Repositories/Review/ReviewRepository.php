@@ -5,7 +5,6 @@ namespace App\Services\Repositories\Review;
 use App\Models\Review;
 use App\Services\Repositories\BaseFeatureRepository;
 use App\Services\RepositoryFeatures\CreatorWithPosition;
-use Illuminate\Database\Eloquent\Model;
 
 class ReviewRepository extends BaseFeatureRepository
 {

@@ -4,6 +4,7 @@ namespace App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm;
 
 use App\Services\Admin\Acl\Acl;
 use App\Services\DataProviders\BaseSubForm;
+use Illuminate\Database\Eloquent\Model;
 
 class Abilities extends BaseSubForm
 {
@@ -11,7 +12,7 @@ class Abilities extends BaseSubForm
         private Acl $acl
     ){}
 
-    public function provideData( \Eloquent $model = null, array $oldInput = null): array
+    public function provideData(Model $model = null, array $oldInput = null): array
     {
         return ['abilities' => $this->getAbilitiesVariants()];
     }

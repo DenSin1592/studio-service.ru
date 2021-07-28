@@ -5,12 +5,12 @@ namespace App\Models;
 use App\Models\Features\AutoPublish;
 
 use App\Models\Features\DeleteHelpers;
-use App\Models\Helpers\AliasHelpers;
 use Diol\Fileclip\Eloquent\Glue;
 use Diol\FileclipExif\FileclipExif;
+use Illuminate\Database\Eloquent\Model;
 
 
-class Review extends \Eloquent
+class Review extends Model
 {
     use AutoPublish;
     use Glue;

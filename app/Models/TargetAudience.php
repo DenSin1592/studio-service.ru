@@ -9,8 +9,9 @@ use App\Models\Helpers\DeleteHelpers;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\BoxVersion;
 use Diol\FileclipExif\Glue;
+use Illuminate\Database\Eloquent\Model;
 
-class TargetAudience extends \Eloquent
+class TargetAudience extends Model
 {
     use Glue;
     use AutoPublish;
@@ -36,13 +37,13 @@ class TargetAudience extends \Eloquent
     ];
 
 
-    public function parent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function parent()
     {
         return $this->belongsTo(self::class, 'parent_id');
     }
 
 
-    public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function children()
     {
         return $this->hasMany(self::class, 'parent_id');
     }

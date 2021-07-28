@@ -4,6 +4,7 @@ namespace App\Services\FormProcessors;
 
 use App\Services\Repositories\CreateUpdateRepositoryInterface;
 use App\Services\Validation\ValidableInterface;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseFormProcessor implements CrudFormProcessorInterface
 {
@@ -31,7 +32,7 @@ abstract class BaseFormProcessor implements CrudFormProcessorInterface
     }
 
 
-    public function create(array $data = []): ?\Eloquent
+    public function create(array $data = []): ?Model
     {
 
         $data = $this->prepareInputData($data);

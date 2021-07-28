@@ -4,6 +4,7 @@ namespace App\Services\StructureTypes;
 
 use App\Models\Node;
 use App\Services\Repositories\Node\NodeRepository;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Container to manage types of App\Model\Node.
@@ -82,7 +83,7 @@ class TypeContainer
     }
 
 
-    public function getContentModelFor(Node $node): ?\Eloquent
+    public function getContentModelFor(Node $node): ?Model
     {
         if (!isset($this->typeList[$node->type]))
             return null;

@@ -2,6 +2,8 @@
 
 namespace App\Services\Repositories;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Interface CreateUpdateRepositoryInterface
  * @package App\Services\Repositories
@@ -21,9 +23,9 @@ interface CreateUpdateRepositoryInterface
     /**
      * Update object with data.
      *
-     * @param \Eloquent $instance
+     * @param Model $instance
      * @param array $data
      * @return array|null
      */
-    public function update(\Eloquent $instance, array $data);
+    public function update(Model $instance, array $data);
 }

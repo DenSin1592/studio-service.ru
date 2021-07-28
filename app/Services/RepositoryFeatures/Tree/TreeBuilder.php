@@ -3,11 +3,8 @@
 namespace App\Services\RepositoryFeatures\Tree;
 
 use App\Services\RepositoryFeatures\Order\OrderScopesInterface;
+use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class TreeBuilder
- * @package App\Services\RepositoryFeatures\Tree
- */
 class TreeBuilder implements TreeBuilderInterface
 {
 
@@ -16,7 +13,7 @@ class TreeBuilder implements TreeBuilderInterface
     ){}
 
 
-    public function getTree(\Eloquent $modelTemplate, $parentId = null, ?callable $filterCallback = null)
+    public function getTree(Model $modelTemplate, $parentId = null, ?callable $filterCallback = null)
     {
         if (is_null($filterCallback)) {
             $filterCallback = function ($query) {
@@ -47,7 +44,7 @@ class TreeBuilder implements TreeBuilderInterface
     }
 
 
-    public function getTreePath(\Eloquent $modelTemplate, $id)
+    public function getTreePath(Model $modelTemplate, $id)
     {
         $elementList = [];
         $elementParent = $modelTemplate->find($id);
@@ -62,7 +59,7 @@ class TreeBuilder implements TreeBuilderInterface
     }
 
 
-    public function getCollapsedTree(\Eloquent $modelTemplate, $id = null)
+    public function getCollapsedTree(Model $modelTemplate, $id = null)
     {
         $path = $this->getTreePath($modelTemplate, $id);
         $pathIdList = [];
@@ -77,7 +74,7 @@ class TreeBuilder implements TreeBuilderInterface
     }
 
 
-    private function getTreeLvl(\Eloquent $modelTemplate, $query, array $pathIdList)
+    private function getTreeLvl(Model $modelTemplate, $query, array $pathIdList)
     {
         $this->orderScopes->scopeOrdered($query);
         $result = $query->get();
@@ -104,7 +101,7 @@ class TreeBuilder implements TreeBuilderInterface
 
 
     public function getTreeVariants(
-        \Eloquent $modelTemplate,
+        Model $modelTemplate,
         ?int $currentId,
         ?string $root = null,
         ?int $parentId = null,
@@ -168,7 +165,7 @@ class TreeBuilder implements TreeBuilderInterface
     }
 
 
-    public function getChildIds(\Eloquent $modelTemplate, ?int $rootId = null)
+    public function getChildIds(Model $modelTemplate, ?int $rootId = null)
     {
         $idsList = [];
 
@@ -199,7 +196,7 @@ class TreeBuilder implements TreeBuilderInterface
         return $idsList;
     }
 
-    private function getParentAttributes(\Eloquent $modelTemplate, int $id, $attribute)
+    private function getParentAttributes(Model $modelTemplate, int $id, $attribute)
     {
         $attributes = [];
 
@@ -218,13 +215,13 @@ class TreeBuilder implements TreeBuilderInterface
     }
 
 
-    public function getParentIds(\Eloquent $modelTemplate, int $id)
+    public function getParentIds(Model $modelTemplate, int $id)
     {
         return $this->getParentAttributes($modelTemplate, $id, 'id');
     }
 
 
-    public function getRoot(\Eloquent $modelTemplate, int $id)
+    public function getRoot(Model $modelTemplate, int $id)
     {
         $ids = $this->getParentIds($modelTemplate, $id);
         $rootId = count($ids) > 0 ? $ids[0] : $id;

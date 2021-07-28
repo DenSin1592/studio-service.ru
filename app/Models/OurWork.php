@@ -7,8 +7,9 @@ use App\Models\Features\DeleteHelpers;
 use App\Models\Helpers\AliasHelpers;
 use Diol\Fileclip\Eloquent\Glue;
 use Diol\FileclipExif\FileclipExif;
+use Illuminate\Database\Eloquent\Model;
 
-class OurWork extends \Eloquent
+class OurWork extends Model
 {
     use AutoPublish;
     use Glue;
