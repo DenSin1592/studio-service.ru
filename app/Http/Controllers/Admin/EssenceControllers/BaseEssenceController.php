@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\EssenceControllers;
 
 use App\Http\Controllers\Admin\Features\ToggleFlags;
 use App\Http\Controllers\Admin\Features\UpdatePositions;

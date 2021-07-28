@@ -2,9 +2,16 @@
 
 namespace App\Services\DataProviders;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Services\Repositories\BaseRepository;
 
-abstract class BaseSubForm
+abstract class BaseSubForm implements BaseSubFormInterface
 {
-    abstract public function provideData(Model $model, array $oldInput): array;
+    protected BaseRepository $repository;
+
+    abstract protected function setRepository();
+
+    public function __construct()
+    {
+        $this->setRepository();
+    }
 }

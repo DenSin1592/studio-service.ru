@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin\EssenceControllers;
 
-use App\Http\Controllers\Admin\BaseEssenceController;
 use App\Services\DataProviders\NodeForm\NodeForm;
 use App\Services\FormProcessors\Node\NodeFormProcessor;
 use App\Services\Repositories\Node\NodeRepository;
 
-class StructureController extends BaseEssenceController
+final class StructureController extends BaseEssenceController
 {
     public const  ROUTE_INDEX = 'cc.structure.index';
     protected const  ROUTE_CREATE = 'cc.structure.create';

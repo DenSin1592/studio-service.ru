@@ -6,12 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseDataProvider
 {
+
     protected array $subFormList = [];
 
-    public function addSubForm(BaseSubForm $subForm): void
+
+    public function addSubForm(BaseSubFormInterface $subForm): void
     {
         $this->subFormList[] = $subForm;
     }
+
 
     public function provideData(Model $model, array $oldInput): array
     {

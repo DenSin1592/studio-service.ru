@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin\PageControllers;
 
-use App\Http\Controllers\Admin\BasePagesController;
 use App\Models\TargetAudiencePage;
 
 final class TargetAudiencePageController extends BasePagesController

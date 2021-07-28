@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin\PageControllers;
 
-use App\Http\Controllers\Admin\BasePagesController;
 use App\Models\TextPage;
 
 final class TextPageController extends BasePagesController
@@ -15,5 +14,4 @@ final class TextPageController extends BasePagesController
     {
         $this->modelPage = new TextPage();
     }
-
 }

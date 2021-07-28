@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Admin\PageControllers;
 
-use App\Http\Controllers\Admin\BasePagesController;
 use App\Models\OurWorkPage;
-
 
 final class OurWorkPageController extends BasePagesController
 {

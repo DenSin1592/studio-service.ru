@@ -2,19 +2,10 @@
 
 namespace App\Services\DataProviders;
 
-use App\Services\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
 
-abstract class BaseRelationSubForm extends BaseSubForm
+abstract class BaseManyToManySubForm extends BaseSubForm
 {
-    protected BaseRepository $repository;
-
-    abstract protected function setRepository();
-
-    public function __construct(){
-        $this->setRepository();
-    }
-
     public function provideData(Model $model, array $oldInput): array
     {
         $relation = static::SUB_FORM_NAME;

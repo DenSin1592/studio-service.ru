@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Admin\EssenceControllers;
 
-use App\Http\Controllers\Admin\BaseEssenceController;
 use App\Http\Controllers\Client\EssenceControllers\CompetenceController;
 use App\Services\DataProviders\CompetenceForm\CompetenceForm;
 use App\Services\FormProcessors\Competence\CompetenceFormProcessor;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 
-class CompetenciesController extends BaseEssenceController
+final class CompetenciesController extends BaseEssenceController
 {
     public const  ROUTE_INDEX = 'cc.competencies.index';
     protected const  ROUTE_CREATE = 'cc.competencies.create';

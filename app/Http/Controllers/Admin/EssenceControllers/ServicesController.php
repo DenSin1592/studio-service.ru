@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Admin\EssenceControllers;
 
-use App\Http\Controllers\Admin\BaseEssenceController;
 use App\Http\Controllers\Client\EssenceControllers\ServiceController;
 use App\Services\DataProviders\ServiceForm\ServiceForm;
 use App\Services\FormProcessors\Service\ServiceFormProcessor;
 use App\Services\Repositories\Services\ServicesRepository;
 
-class ServicesController extends BaseEssenceController
+final class ServicesController extends BaseEssenceController
 {
     public const  ROUTE_INDEX = 'cc.services.index';
     protected const  ROUTE_CREATE = 'cc.services.create';

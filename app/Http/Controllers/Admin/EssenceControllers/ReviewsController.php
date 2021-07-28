@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin\EssenceControllers;
 
-use App\Http\Controllers\Admin\BaseEssenceController;
 use App\Services\DataProviders\ReviewForm\ReviewForm;
 use App\Services\FormProcessors\Review\ReviewFormProcessor;
 use App\Services\Repositories\Review\ReviewRepository;
 
-class ReviewsController extends BaseEssenceController
+final class ReviewsController extends BaseEssenceController
 {
     public const  ROUTE_INDEX = 'cc.reviews.index';
     protected const  ROUTE_CREATE = 'cc.reviews.create';

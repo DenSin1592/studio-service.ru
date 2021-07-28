@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Admin\EssenceControllers;
 
-use App\Http\Controllers\Admin\BaseEssenceController;
 use App\Http\Controllers\Client\EssenceControllers\TargetAudienceController;
 use App\Services\DataProviders\TargetAudienceForm\TargetAudienceForm;
 use App\Services\FormProcessors\TargetAudience\TargetAudienceFormProcessor;
 use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
 
 
-class TargetAudiencesController extends BaseEssenceController
+final class TargetAudiencesController extends BaseEssenceController
 {
     public const  ROUTE_INDEX = 'cc.target-audiences.index';
     protected const  ROUTE_CREATE = 'cc.target-audiences.create';

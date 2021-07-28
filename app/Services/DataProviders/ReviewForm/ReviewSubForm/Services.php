@@ -3,10 +3,10 @@
 namespace App\Services\DataProviders\ReviewForm\ReviewSubForm;
 
 use App\Http\Controllers\Admin\Relations\Reviews\ServicesController;
-use App\Services\DataProviders\BaseRelationSubForm;
+use App\Services\DataProviders\BaseManyToManySubForm;
 use App\Services\Repositories\Services\ServicesRepository;
 
-class Services extends BaseRelationSubForm
+final class Services extends BaseManyToManySubForm
 {
     protected const SUB_FORM_NAME = ServicesController::RELATIONS_NAME;
 

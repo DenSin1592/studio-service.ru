@@ -4,7 +4,7 @@ namespace App\Services\DataProviders\AdminRoleForm;
 
 use App\Services\DataProviders\BaseDataProvider;
 
-class AdminRoleForm extends BaseDataProvider
+final class AdminRoleForm extends BaseDataProvider
 {
     public const MODEL_KEY = 'role';
 }

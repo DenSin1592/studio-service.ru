@@ -3,10 +3,10 @@
 namespace App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm;
 
 use App\Services\Admin\Acl\Acl;
-use App\Services\DataProviders\BaseSubForm;
+use App\Services\DataProviders\BaseSubFormInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class Abilities extends BaseSubForm
+final class Abilities implements BaseSubFormInterface
 {
     public function __construct(
         private Acl $acl

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\PageControllers;
 
 use App\Http\Controllers\Admin\EssenceControllers\StructureController;
 use App\Http\Controllers\Controller;

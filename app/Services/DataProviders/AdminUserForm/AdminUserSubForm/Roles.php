@@ -6,11 +6,12 @@ use App\Services\DataProviders\BaseSubForm;
 use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use Illuminate\Database\Eloquent\Model;
 
-class Roles extends BaseSubForm
+final class Roles extends BaseSubForm
 {
-    public function __construct(
-        private AdminRoleRepository $adminRoleRepository
-    ){}
+    protected function setRepository()
+    {
+        $this->repository = \App(AdminRoleRepository::class);
+    }
 
     public function provideData(Model $model = null, array $oldInput = null): array
     {
@@ -18,11 +19,13 @@ class Roles extends BaseSubForm
 
         $availableRoles = [];
         if ($authUser !== null) {
-            $availableRoles = $this->adminRoleRepository->getVariantsForUser($authUser);
+            $availableRoles = $this->repository->getVariantsForUser($authUser);
         }
 
         return [
             'available_roles' => $availableRoles,
         ];
     }
+
+
 }
