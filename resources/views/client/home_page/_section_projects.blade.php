@@ -7,9 +7,11 @@
     @foreach($projects as $element)
 
         <div>
-            <img loading="lazy" src="{{{ $element->images->first()?->getImgPath('preview_image', 'small', 'no-image-200x200.png') }}}" alt="{{$element->name}}" class="card-category-media">
+            <img loading="lazy" src="{{{ $element->getImgPath('preview_image', 'main', 'no-image-800x800.png') }}}" alt="{{$element->name}}" class="card-category-media">
             <span>{{$element->name}}</span>
         </div>
+
+    <div>{{$element->preview}}</div>
 
         <div>
             @foreach($element->services as $elem)

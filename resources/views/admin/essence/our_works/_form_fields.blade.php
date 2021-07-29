@@ -11,6 +11,7 @@
 {!! Form::tbTinymceTextareaBlock('description', trans('validation.attributes.our_works_description')) !!}
 
 
+@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
 <fieldset class="bordered-group">
     <legend>Галерея</legend>
     @include('admin.shared._images._images', [
