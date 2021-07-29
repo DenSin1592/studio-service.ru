@@ -13,6 +13,8 @@
 
         @include('admin.shared._form_meta_fields')
 
+        {!! Form::tbTinymceTextareaBlock('block_advantages', trans('validation.attributes.block_advantages')) !!}
+
         @include('admin.shared._model_timestamps', ['model' => $page])
 
         @include('admin.shared._pages._action_bar')

@@ -14,5 +14,6 @@ class HomePage extends Model
         'meta_title',
         'meta_keywords',
         'meta_description',
+        'block_advantages'
     ];
 }
