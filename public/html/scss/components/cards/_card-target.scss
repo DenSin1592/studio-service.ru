@@ -1,0 +1,21 @@
+.card-target {
+    font-size: 18px;
+    line-height: 20px;
+
+    .card-target-header {
+        margin: 0 0 15px;
+        .card-target-title {
+            min-height: 45px;
+            margin: 0;
+            @include media-breakpoint-up(lg) {
+                min-height: 55px;
+            }
+            @include media-breakpoint-up(xl) {
+                min-height: 70px;
+            }
+            @include media-breakpoint-up(xxl) {
+                min-height: 90px;
+            }
+        }
+    }
+}

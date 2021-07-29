@@ -29,6 +29,13 @@
         background: linear-gradient(0deg, #10203c 50%, rgba(#10203c, 0) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#10203c",endColorstr="#10203c",GradientType=1);
         content: '';
+
+        @include media-breakpoint-up(xxl) {
+            height: 100px;
+            background: -moz-linear-gradient(0deg, #10203c 0%, rgba(#10203c, 0) 100%);
+            background: -webkit-linear-gradient(0deg, #10203c 0%, rgba(#10203c, 0) 100%);
+            background: linear-gradient(0deg, #10203c 0%, rgba(#10203c, 0) 100%);
+        }
     }
 
     .hero-media-container {
@@ -40,9 +47,11 @@
         @include media-breakpoint-up(md) {
             left: 0;
             bottom: -65px;
-            // position: relative;
-            // left: 0;
-            // height: auto;
+        }
+
+        @include media-breakpoint-up(xxl) {
+            left: 200px;
+            bottom: -185px;
         }
     }
 }

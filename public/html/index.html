@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Studio-service</title>
 
-    <link rel="stylesheet" href="vendor/swiper/swiper.css">
+    <link rel="stylesheet" href="vendor/swiper-4.5.1/dist/css/swiper.min.css">
     <link rel="stylesheet" href="vendor/fancybox-master/dist/jquery.fancybox.min.css">
     <link rel="stylesheet" href="vendor/twentytwenty-master/css/twentytwenty.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="page-home page-extended" >
+<body class="page-home page-extended d-flex flex-column" >
     <header class="header-box is-fixed">
         <div class="container">
             <div class="row flex-nowrap align-items-center">
@@ -90,7 +90,7 @@
         </div>
     </header>
 
-    <main class="main">
+    <main class="main d-flex flex-column flex-shrink-0 flex-grow-1">
         <section class="section-hero section-dark" style="background-image: url('images/sections/section-hero/section-hero-bg.jpg')" >
             <div class="container">
                 <div class="row">
@@ -108,7 +108,12 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <div class="hero-cta-block">
-                                                <button type="button" class="hero-cta-btn btn btn-lg btn-primary" data-toggle="modal" data-target="#modalCallback" ><img loading="lazy" src="images/icons/general/png/icon-arrow-to-right.png" class="btn-icon" width="31" height="22" alt="">Отправить заявку</button>
+                                                <button type="button" class="hero-cta-btn btn btn-lg btn-primary" data-toggle="modal" data-target="#modalCallback" >
+                                                    <svg class="btn-icon" width="31" height="22">
+                                                        <use xlink:href="images/icons/sprite.svg#icon-arrow-to-right"></use>
+                                                    </svg>
+                                                    Отправить заявку
+                                                </button>
                                             </div>
                                         </div>
 
@@ -196,13 +201,13 @@
 
                                 <div class="section-header-controls-container col-auto d-md-none align-self-end align-self-end">
                                     <div class="swiper-categories-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
-                                        <button type="button" class="swiper-categories-button-prev swiper-button-prev" >
+                                        <button type="button" class="swiper-categories-button-prev swiper-button-prev swiper-button-light" >
                                             <svg class="swiper-button-prev-media" width="19" height="19">
                                                 <use xlink:href="images/icons/sprite.svg#icon-angle-left"></use>
                                             </svg>
                                         </button>
 
-                                        <button type="button" class="swiper-categories-button-next swiper-button-next" >
+                                        <button type="button" class="swiper-categories-button-next swiper-button-next swiper-button-light" >
                                             <svg class="swiper-button-next-media" width="19" height="19">
                                                 <use xlink:href="images/icons/sprite.svg#icon-angle-right"></use>
                                             </svg>
@@ -312,13 +317,13 @@
                                 <div class="section-header-controls-container col-auto d-md-none align-self-end">
                                     <div class="swiper-services-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
                                         <button type="button" class="swiper-services-button-prev swiper-button-prev" >
-                                            <svg class="swiper-button-prev-media" width="19" height="19">
+                                            <svg class="swiper-button-prev-media" width="14" height="14">
                                                 <use xlink:href="images/icons/sprite.svg#icon-angle-left"></use>
                                             </svg>
                                         </button>
 
                                         <button type="button" class="swiper-services-button-next swiper-button-next" >
-                                            <svg class="swiper-button-next-media" width="19" height="19">
+                                            <svg class="swiper-button-next-media" width="14" height="14">
                                                 <use xlink:href="images/icons/sprite.svg#icon-angle-right"></use>
                                             </svg>
                                         </button>
@@ -329,7 +334,7 @@
 
                         <div class="swiper-services-cover swiper-cover">
                             <div class="swiper-services swiper-container">
-                                <div class="swiper-wrapper row flex-nowrap">
+                                <div class="swiper-wrapper row flex-nowrap m-0">
                                     <div class="swiper-slide col-auto col-sm-6 col-md-4 col-xl-4 d-flex">
                                         <a href="#link" class="card-service d-flex flex-column">
                                             <div class="card-service-thumbnail">
@@ -364,7 +369,9 @@
                                             </div>
 
                                             <div class="card-service-cta d-flex align-items-center justify-content-center">
-                                                <img class="card-service-cta-media" src="images/icons/general/svg/icon-arrow-right.svg" width="19" height="14" alt="">
+                                                <svg class="card-service-cta-media" width="19" height="19">
+                                                    <use xlink:href="images/icons/sprite.svg#icon-arrow-right"></use>
+                                                </svg>
                                             </div>
                                         </a>
                                     </div>
@@ -394,7 +401,9 @@
                                             </div>
 
                                             <div class="card-service-cta d-flex align-items-center justify-content-center">
-                                                <img class="card-service-cta-media" src="images/icons/general/svg/icon-arrow-right.svg" width="19" height="14" alt="">
+                                                <svg class="card-service-cta-media" width="19" height="19">
+                                                    <use xlink:href="images/icons/sprite.svg#icon-arrow-right"></use>
+                                                </svg>
                                             </div>
                                         </a>
                                     </div>
@@ -427,7 +436,9 @@
                                             </div>
 
                                             <div class="card-service-cta d-flex align-items-center justify-content-center">
-                                                <img class="card-service-cta-media" src="images/icons/general/svg/icon-arrow-right.svg" width="19" height="14" alt="">
+                                                <svg class="card-service-cta-media" width="19" height="19">
+                                                    <use xlink:href="images/icons/sprite.svg#icon-arrow-right"></use>
+                                                </svg>
                                             </div>
                                         </a>
                                     </div>
@@ -464,14 +475,14 @@
 
                                 <div class="section-header-controls-container col-auto d-md-none align-self-end">
                                     <div class="swiper-expertise-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
-                                        <button type="button" class="swiper-expertises-button-prev swiper-button-prev" >
-                                            <svg class="swiper-button-prev-media" width="19" height="19">
+                                        <button type="button" class="swiper-expertises-button-prev swiper-button-prev swiper-button-light" >
+                                            <svg class="swiper-button-prev-media" width="14" height="14">
                                                 <use xlink:href="images/icons/sprite.svg#icon-angle-left"></use>
                                             </svg>
                                         </button>
 
-                                        <button type="button" class="swiper-expertises-button-next swiper-button-next" >
-                                            <svg class="swiper-button-next-media" width="19" height="19">
+                                        <button type="button" class="swiper-expertises-button-next swiper-button-next swiper-button-light" >
+                                            <svg class="swiper-button-next-media" width="14" height="14">
                                                 <use xlink:href="images/icons/sprite.svg#icon-angle-right"></use>
                                             </svg>
                                         </button>
@@ -744,13 +755,13 @@
 
                                     <div class="swiper-testimonials-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
                                         <button type="button" class="swiper-testimonials-button-prev swiper-button-prev swiper-button-sm" >
-                                            <svg class="swiper-button-prev-media" width="19" height="19">
+                                            <svg class="swiper-button-prev-media" width="14" height="14">
                                                 <use xlink:href="images/icons/sprite.svg#icon-angle-left"></use>
                                             </svg>
                                         </button>
 
                                         <button type="button" class="swiper-testimonials-button-next swiper-button-next swiper-button-sm" >
-                                            <svg class="swiper-button-next-media" width="19" height="19">
+                                            <svg class="swiper-button-next-media" width="14" height="14">
                                                 <use xlink:href="images/icons/sprite.svg#icon-angle-right"></use>
                                             </svg>
                                         </button>
@@ -821,13 +832,13 @@
                                 <div class="section-header-controls-container col-auto d-flex align-items-baseline d-md-none">
                                     <div class="swiper-projects-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
                                         <button type="button" class="swiper-projects-button-prev swiper-button-prev" >
-                                            <svg class="swiper-button-prev-media" width="19" height="19">
+                                            <svg class="swiper-button-prev-media" width="14" height="14">
                                                 <use xlink:href="images/icons/sprite.svg#icon-angle-left"></use>
                                             </svg>
                                         </button>
 
                                         <button type="button" class="swiper-projects-button-next swiper-button-next" >
-                                            <svg class="swiper-button-next-media" width="19" height="19">
+                                            <svg class="swiper-button-next-media" width="14" height="14">
                                                 <use xlink:href="images/icons/sprite.svg#icon-angle-right"></use>
                                             </svg>
                                         </button>
@@ -898,7 +909,7 @@
         </section>
     </main>
 
-    <footer class="footer-box">
+    <footer class="footer-box flex-shrink-0 flex-grow-0">
         <div class="container">
             <div class="row">
                 <div class="col-xxl-10 offset-xxl-1">
@@ -1105,7 +1116,12 @@
                                         </div>
 
                                         <div class="col-12">
-                                            <button type="submit" class="btn btn-lg btn-primary" ><img loading="lazy" src="images/icons/general/png/icon-arrow-to-right.png" class="btn-icon" width="31" height="22" alt="">Отправить заявку</button>
+                                            <button type="submit" class="btn btn-lg btn-primary" >
+                                                <svg class="btn-icon" width="31" height="22">
+                                                    <use xlink:href="images/icons/sprite.svg#icon-arrow-to-right"></use>
+                                                </svg>
+                                                Отправить заявку
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -1124,7 +1140,7 @@
     <script src="vendor/bootstrap-4.6.0/js/dist/collapse.js" ></script>
     <script src="vendor/bootstrap-4.6.0/js/dist/modal.js" ></script>
     <script src="vendor/bootstrap-4.6.0/js/dist/tooltip.js" ></script>
-    <script src="vendor/swiper/swiper.min.js"></script>
+    <script src="vendor/swiper-4.5.1/dist/js/swiper.min.js"></script>
     <script src="vendor/fancybox-master/dist/jquery.fancybox.min.js"></script>
     <script src="vendor/twentytwenty-master/js/jquery.twentytwenty.js" ></script>
     <script src="vendor/twentytwenty-master/js/jquery.event.move.js" ></script>

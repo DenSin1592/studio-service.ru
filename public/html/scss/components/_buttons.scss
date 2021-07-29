@@ -32,6 +32,8 @@
         width: auto;
         height: auto;
         margin-right: 10px;
+        color: currentColor;
+        fill: currentColor;
         @include media-breakpoint-up(xl) {
             max-width: 32px;
             max-height: 22px;

@@ -1,0 +1,41 @@
+.section-target {
+    position: relative;
+    z-index: 1;
+    padding: 90px 0 0;
+    color: $c-white;
+
+    .section-header {
+        .section-header-cta {
+            .btn-icon {
+                @include media-breakpoint-down(xs) {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .swiper-target-overlay-cover {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        .swiper-target-overlay {
+            width: 100%;
+
+            > .swiper-wrapper {
+                > .swiper-slide {
+                    background-position: center;
+                    background-size: cover;
+                }
+            }
+        }
+    }
+}
+
+.swiper-target {
+    margin-left: -$grid-gutter-width/2;
+    margin-right: -$grid-gutter-width/2;
+}

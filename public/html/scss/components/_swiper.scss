@@ -45,6 +45,21 @@
     }
 }
 
+.swiper-button-light,
+.swiper-button-light {
+    background-color: rgba($c-white, .2);
+    &:hover {
+        background-color: $c-white;
+        color: $c-black;
+
+        .swiper-button-prev-media,
+        .swiper-button-next-media {
+            color: currentColor;
+            fill: currentColor;
+        }
+    }
+}
+
 .swiper-navigation-wrapper {
     height: 35px;
     margin-left: -2px;
@@ -78,6 +93,12 @@
         background-color: rgba($c-white, .2);
         &:hover {
             background-color: $c-white;
+
+            .swiper-button-prev-media,
+            .swiper-button-next-media {
+                color: currentColor;
+                fill: currentColor;
+            }
         }
     }
 }

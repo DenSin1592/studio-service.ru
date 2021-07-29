@@ -3,11 +3,14 @@
         $('.section-categories').each(function (_, container) {
             let jContainer = $(container),
             swiperContainer = jContainer.find('.swiper-categories'),
+            slides = swiperContainer.find('> .swiper-wrapper > .swiper-slide'),
             prev = jContainer.find('.swiper-categories-button-prev'),
             next = jContainer.find('.swiper-categories-button-next');
             
             new Swiper(swiperContainer, {
+                direction: 'horizontal',
                 slidesPerView: 2,
+                slidesPerGroup: 2,
                 loop: true,
                 breakpointsInverse: true,
                 breakpoints: {
@@ -15,15 +18,21 @@
                     480: {
                         // loop: slides.length > 2 ? true : false,
                         slidesPerView: 3,
+                        slidesPerGroup: 3,
                     },
                     // when window width is >= 750px
                     750: {
                         slidesPerView: 4,
+                        slidesPerGroup: 4,
+
                         // loop: slides.length > 2 ? true : false,
                     },
                     // when window width is >= 1680px
                     1680: {
+                        loop: true,
                         slidesPerView: 'auto',
+                        // slidesPerGroup: 1,
+                        loopedSlides: slides.length,
                         // loop: slides.length > 2 ? true : false,
                     }
                 },
@@ -42,6 +51,7 @@
             next = jContainer.find('.swiper-services-button-next');
 
             new Swiper(swiperContainer, {
+                direction: 'horizontal',
                 slidesPerView: 'auto',
                 loop: true,
                 watchSlidesVisibility: true,
@@ -51,10 +61,12 @@
                     480: {
                         // loop: slides.length > 2 ? true : false,
                         slidesPerView: 2,
+                        slidesPerGroup: 2,
                     },
                     // when window width is >= 750px
                     750: {
                         slidesPerView: 3,
+                        slidesPerGroup: 3,
                         // loop: slides.length > 2 ? true : false,
                     }
                 },
@@ -74,6 +86,7 @@
 
             new Swiper(swiperContainer, {
                 slidesPerView: 2,
+                slidesPerGroup: 2,
                 loop: true,
                 breakpointsInverse: true,
                 breakpoints: {
@@ -81,10 +94,12 @@
                     480: {
                         // loop: slides.length > 2 ? true : false,
                         slidesPerView: 3,
+                        slidesPerGroup: 3,
                     },
                     // when window width is >= 750px
                     750: {
                         slidesPerView: 4,
+                        slidesPerGroup: 4,
                         // loop: slides.length > 2 ? true : false,
                     }
                 },
@@ -193,6 +208,95 @@
                     prevEl: prev,
                 }
             });
+        });
+
+        $('.section-target').each(function (_, container) {
+            let jContainer = $(container),
+            swiperContainer = jContainer.find('.swiper-target'),
+            swiperOverlayContainer = jContainer.find('.swiper-target-overlay'),
+            prev = jContainer.find('.swiper-target-button-prev'),
+            next = jContainer.find('.swiper-target-button-next');
+
+            // overlay slider
+            // let sliderOverlay = new Swiper(swiperOverlayContainer, {
+            //     loop: true,
+            //     // spaceBetween: 10,
+            //     // slidesPerView: 1.305,
+            //     slidesPerView: 'auto',
+            //     // freeMode: true,
+            //     // watchSlidesVisibility: true,
+            //     // watchSlidesProgress: true,
+            //     breakpointsInverse: true,
+            //     breakpoints: {
+            //         // when window width is >= 480px
+            //         480: {
+            //             // loop: slides.length > 2 ? true : false,
+            //             slidesPerView: 2,
+            //             slidesPerGroup: 2,
+            //         },
+            //         // when window width is >= 750px
+            //         750: {
+            //             slidesPerView: 3,
+            //             slidesPerGroup: 3,
+            //             // loop: slides.length > 2 ? true : false,
+            //         }
+            //     },
+            // });
+
+            // main slider
+            let slider = new Swiper(swiperContainer, {
+                loop: true,
+                // slidesPerView: 1.305,
+                slidesPerView: 'auto',
+                breakpointsInverse: true,
+                breakpoints: {
+                    // when window width is >= 480px
+                    480: {
+                        // loop: slides.length > 2 ? true : false,
+                        slidesPerView: 2,
+                        slidesPerGroup: 2,
+                    },
+                    // when window width is >= 750px
+                    750: {
+                        slidesPerView: 3,
+                        slidesPerGroup: 3,
+                        // loop: slides.length > 2 ? true : false,
+                    }
+                },
+
+                // spaceBetween: 10,
+                // navigation: {
+                //     nextEl: ".swiper-button-next",
+                //     prevEl: ".swiper-button-prev",
+                // },
+                // thumbs: {
+                //     swiper: sliderOverlay,
+                // },
+            });
+
+            // new Swiper(swiperContainer, {
+            //     slidesPerView: 'auto',
+            //     loop: true,
+            //     watchSlidesVisibility: true,
+            //     breakpointsInverse: true,
+            //     breakpoints: {
+            //         // when window width is >= 480px
+            //         480: {
+            //             // loop: slides.length > 2 ? true : false,
+            //             slidesPerView: 2,
+            //         },
+            //         // when window width is >= 750px
+            //         750: {
+            //             slidesPerView: 3,
+            //             // loop: slides.length > 2 ? true : false,
+            //         }
+            //     },
+
+            //     navigation: {
+            //         nextEl: next,
+            //         prevEl: prev,
+            //     }
+            // });
         });
 
         // $('.gallery-block').each(function (_, container) {

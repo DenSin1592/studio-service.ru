@@ -19,9 +19,27 @@
         line-height: 30px;
     }
 
+    &:after {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $c-white;
+        transition: opacity 150ms linear, visibility 150ms linear;
+        content: '';
+    }
+
     &:hover {
         color: $c-default;
         text-decoration: none;
+
+        &:after {
+            opacity: 0.05;
+            visibility: visible;
+        }
     }
 
     &.card-expertise-dark {

@@ -187,6 +187,7 @@
         height: 40px;
         border: 1px solid #cacaca;
         border-radius: 50%;
+        transition: background 150ms linear, border-color 150ms linear;
         text-align: center;
         line-height: 40px;
         @include media-breakpoint-up(xxl) {
@@ -194,10 +195,25 @@
             height: 50px;
             line-height: 50px;
         }
+
+        .card-service-cta-media {
+            color: currentColor;
+            fill: currentColor;
+        }
     }
 
     &:hover {
         color: $c-default;
         text-decoration: none;
+
+        .card-service-title {
+            color: rgba($c-default-heading, 0.9);
+        }
+
+        .card-service-cta {
+            border-color: $c-secondary;
+            background: $c-secondary;
+            color: $c-white;
+        }
     }
 }

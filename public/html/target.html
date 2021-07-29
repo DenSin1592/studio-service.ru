@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Studio-service</title>
+
+    <link rel="stylesheet" href="vendor/swiper-4.5.1/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="vendor/fancybox-master/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="vendor/twentytwenty-master/css/twentytwenty.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-target page-extended d-flex flex-column" >
+    <header class="header-box is-fixed">
+        <div class="container">
+            <div class="row flex-nowrap align-items-center">
+                <div class="header-nav-container col-auto col-md order-md-1">
+                    <button type="button" class="offcanvas-toggle d-flex d-xl-none align-items-center justify-content-center mx-auto ml-lg-0" >
+                        <div class="offcanvas-toggle-media">
+                            <svg class="offcanvas-toggle-icon" width="20" height="20">
+                                <use xlink:href="images/icons/sprite.svg#icon-bars"></use>
+                            </svg>
+                        </div>
+                        <div class="offcanvas-toggle-text d-none d-md-block">Меню</div>
+                    </button>
+
+                    <nav class="header-nav-block d-none d-xl-block">
+                        <ul class="header-nav-list d-flex flex-wrap justify-content-center list-unstyled">
+                            <li class="header-nav-item">
+                                <a href="services.html" class="header-nav-link">Услуги</a>
+                            </li>
+
+                            <li class="header-nav-item">
+                                <a href="#link" class="header-nav-link">Для кого?</a>
+                            </li>
+
+                            <li class="header-nav-item">
+                                <a href="expertises.html" class="header-nav-link">Компетенции</a>
+                            </li>
+
+                            <li class="header-nav-item">
+                                <a href="#link" class="header-nav-link">Отзывы</a>
+                            </li>
+
+                            <li class="header-nav-item">
+                                <a href="#link" class="header-nav-link">Проекты</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="header-logo-container col-auto col-lg-4 col-xl-auto order-md-0">
+                    <a href="index.html" class="header-logo-block d-flex align-items-center">
+                        <div class="header-logo-thumbnail">
+                            <img src="images/logo.png" alt="Студия-Сервис" width="94" height="87" class="header-logo-media">
+                        </div>
+
+                        <div class="header-logo-content d-none d-md-block">
+                            <div class="header-logo-title text-nowrap"><b>Студия-</b>Сервис</div>
+                            <div class="header-logo-text">Межрегиональный технический центр</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="header-contact-container col col-md-auto d-flex flex-column align-items-center order-md-3">
+                    <div class="header-contact-block">
+                        <a href="tel:+74959333439" class="header-contact-link">+7(495) 933-3439</a>
+                    </div>
+                </div>
+
+                <div class="header-social-container col-auto order-md-2">
+                    <div class="header-social-block">
+                        <ul class="header-social-list d-flex flex-wrap list-unstyled">
+                            <li class="header-social-item">
+                                <a href="#link" class="header-social-link" target="_blank" >
+                                    <img src="images/icons/social/icon-social-telegram.png" width="40" height="40" alt="Telegram" class="header-social-media">
+                                </a>
+                            </li>
+
+                            <li class="header-social-item">
+                                <a href="#link" class="header-social-link" target="_blank" >
+                                    <img src="images/icons/social/icon-social-whatsapp.png" width="40" height="40" alt="Whatsapp" class="header-social-media">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main d-flex flex-column flex-shrink-0 flex-grow-1">
+        <section class="section-target section-dark flex-grow-1">
+            <div class="contaienr">
+                <div class="col-xxl-10 offset-xxl-1">
+                    <nav class="breadcrumb-block" aria-label="breadcrumb">
+                        <ol class="breadcrumb list-unstyled">
+                            <li class="breadcrumb-item">
+                                <a href="index.html" class="breadcrumb-link" >Главная</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">ЦА</li>
+                        </ol>
+                    </nav>
+
+                    <div class="section-header">
+                        <div class="row align-items-center">
+                            <div class="section-header-typography-container col-auto d-flex flex-wrap align-items-center">
+                                <div class="section-title title-h1">Для кого</div>
+                            </div>
+
+                            <div class="section-header-controls-container col-auto">
+                                <div class="swiper-target-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
+                                    <button type="button" class="swiper-target-button-prev swiper-button-prev swiper-button-light" >
+                                        <svg class="swiper-button-prev-media" width="19" height="19">
+                                            <use xlink:href="images/icons/sprite.svg#icon-angle-left"></use>
+                                        </svg>
+                                    </button>
+
+                                    <button type="button" class="swiper-target-button-next swiper-button-next swiper-button-light" >
+                                        <svg class="swiper-button-next-media" width="19" height="19">
+                                            <use xlink:href="images/icons/sprite.svg#icon-angle-right"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="section-header-switch-container col-auto">
+                                <button type="button" class="section-header-cta btn btn-primary"><img loading="lazy" src="images/icons/general/png/icon-bars.png" class="btn-icon" width="21" height="15" alt=""><span class="d-none d-sm-inline" >Смотреть списком</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-target-cover swiper-cover">
+                        <div class="swiper-target swiper-container">
+                            <div class="swiper-wrapper d-flex flex-nowrap">
+                                <div class="swiper-slide col-10 col-sm-6 col-md-4">
+                                    <div class="card-target">
+                                        <div class="card-target-header">
+                                            <div class="card-target-title title-h3">Производственные предприятия </div>
+                                        </div>
+
+                                        <ul class="card-target-includes list-unstyled">
+                                            <li class="card-target-include-item">
+                                                <a href="#link" class="card-category card-category-sm text-left">
+                                                    <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                        <div class="card-category-media-container col-auto">
+                                                            <div class="card-category-thumbnail">
+                                                                <img loading="lazy" src="images/icons/categories/icon-category-factory.png" width="49" height="42" alt="Заводы" class="card-category-media">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-category-typography-container col">
+                                                            <div class="card-category-title">Заводы</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="card-target-include-item">
+                                                <a href="#link" class="card-category card-category-sm text-left">
+                                                    <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                        <div class="card-category-media-container col-auto">
+                                                            <div class="card-category-thumbnail">
+                                                                <img loading="lazy" src="images/icons/categories/icon-category-industry.png" width="42" height="57" alt="Промышленность" class="card-category-media">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-category-typography-container col">
+                                                            <div class="card-category-title">Промышленность</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide col-10 col-sm-6 col-md-4">
+                                    <div class="card-target">
+                                        <div class="card-target-header">
+                                            <div class="card-target-title title-h3">Непроизводственные предприятия</div>
+                                        </div>
+
+                                        <ul class="card-target-includes list-unstyled">
+                                            <li class="card-target-include-item">
+                                                <a href="#link" class="card-category card-category-sm text-left">
+                                                    <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                        <div class="card-category-media-container col-auto">
+                                                            <div class="card-category-thumbnail">
+                                                                <img loading="lazy" src="images/icons/categories/icon-category-bank.png" width="45" height="39" alt="Банки" class="card-category-media">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-category-typography-container col">
+                                                            <div class="card-category-title">Банки</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="card-target-include-item">
+                                                <a href="#link" class="card-category card-category-sm text-left">
+                                                    <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                        <div class="card-category-media-container col-auto">
+                                                            <div class="card-category-thumbnail">
+                                                                <img loading="lazy" src="images/icons/categories/icon-category-finance.png" width="41" height="42" alt="Финансовые организации" class="card-category-media">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-category-typography-container col">
+                                                            <div class="card-category-title">Финансовые организации</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide col-10 col-sm-6 col-md-4">
+                                    <div class="card-target">
+                                        <div class="card-target-header">
+                                            <div class="card-target-title title-h3">Образование</div>
+                                        </div>
+
+                                        <ul class="card-target-includes list-unstyled">
+                                            <li class="card-target-include-item">
+                                                <a href="#link" class="card-category card-category-sm text-left">
+                                                    <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                        <div class="card-category-media-container col-auto">
+                                                            <div class="card-category-thumbnail">
+                                                                <img loading="lazy" src="images/icons/categories/icon-category-school.png" width="49" height="38" alt="Школы" class="card-category-media">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-category-typography-container col">
+                                                            <div class="card-category-title">Школы</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="card-target-include-item">
+                                                <a href="#link" class="card-category card-category-sm text-left">
+                                                    <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                        <div class="card-category-media-container col-auto">
+                                                            <div class="card-category-thumbnail">
+                                                                <img loading="lazy" src="images/icons/categories/icon-category-university.png" width="49" height="32" alt="Университеты" class="card-category-media">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card-category-typography-container col">
+                                                            <div class="card-category-title">Университеты</div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="swiper-target-overlay-cover swiper-cover d-flex">
+                <div class="swiper-target-overlay swiper-container">
+                    <div class="swiper-wrapper d-flex flex-nowrap no-gutters">
+                        <div class="swiper-slide col-10 col-sm-6 col-md-4" style="background-image: url('images/sections/section-target/section-target-slide-item-1.jpg')" ></div>
+                        <div class="swiper-slide col-10 col-sm-6 col-md-4" style="background-image: url('images/sections/section-target/section-target-slide-item-2.jpg')" ></div>
+                        <div class="swiper-slide col-10 col-sm-6 col-md-4" style="background-image: url('images/sections/section-target/section-target-slide-item-3.jpg')" ></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-box flex-shrink-0 flex-grow-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-10 offset-xxl-1">
+                    <div class="row">
+                        <div class="footer-contact-container col-6 col-sm-4 order-sm-0">
+                            <div class="footer-subtitle">Телефон</div>
+                            
+                            <div class="footer-contact-block">
+                                <a href="tel:+74959333439" class="footer-contact-link">+7(495) 933-3439</a>
+                            </div>
+                        </div>
+
+                        <div class="footer-contact-container col-6 col-sm-4 order-sm-1">
+                            <div class="footer-subtitle">Почта</div>
+                            
+                            <div class="footer-contact-block">
+                                <a href="mailto:msk@studio-service.ru" class="footer-contact-link">msk@studio-service.ru</a>
+                            </div>
+                        </div>
+
+                        <div class="footer-divider col-12 order-sm-3"></div>
+
+                        <div class="footer-logo-container col-6 col-md-4 order-sm-4">
+                            <a href="index.html" class="footer-logo-block d-flex align-items-center">
+                                <div class="footer-logo-thumbnail">
+                                    <img loading="lazy" src="images/logo.png" width="70" height="65" alt="" class="footer-logo-media">
+                                </div>
+
+                                <div class="footer-logo-content">
+                                    <div class="footer-logo-title"><b>Студия-</b>Сервис</div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="footer-social-container align-self-center align-self-md-start col-6 col-sm-4 col-md-3 col-lg-2 col-xl-3 order-sm-2 ml-auto">
+                            <div class="footer-subtitle d-none d-md-block">Мессенджеры</div>
+
+                            <div class="footer-social-block">
+                                <ul class="footer-social-list list-unstyled d-flex flex-wrap justify-content-end justify-content-md-start">
+                                    <li class="footer-social-item">
+                                        <a href="#link" class="footer-social-link" target="_blank" >
+                                            <img src="images/icons/social/icon-social-telegram.png" width="40" height="40" alt="Telegram" class="footer-social-media">
+                                        </a>
+                                    </li>
+
+                                    <li class="footer-social-item">
+                                        <a href="#link" class="footer-social-link" target="_blank" >
+                                            <img src="images/icons/social/icon-social-whatsapp.png" width="40" height="40" alt="Whatsapp" class="footer-social-media">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="footer-copyright-container col-12 col-md-5 order-sm-5">
+                            <div class="footer-copyright-block">
+                                <p>&copy;&nbsp;2021 Студия-Сервис</p>
+                                <p>Наша компания занимается подбором решений по организации комплексов для целевой аудитории по направлениям: эфирное вещание, телевизионное производство, продакшн студии и мультимедиа.</p>
+                            </div>
+                        </div>
+
+                        <div class="footer-studio-container col-12 col-md-3 col-lg-2 col-xl-3 order-sm-6 ml-auto">
+                            <a href="https://www.diol-it.ru/" class="footer-studio-block" target="_blank" >
+                                <div class="footer-studio-title">Разработка и продвижение</div>
+                                <div class="footer-studio-thumbnail">
+                                    <img src="images/logo-diol.svg" width="66" height="39" alt="Диол" class="footer-studio-media">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Offcanvas -->
+    <div class="offcanvas-wrapper d-none d-xl-none">
+        <div class="offcanvas-header">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-between">
+                    <div class="offcanvas-close-container col-auto">
+                        <button type="button" class="offcanvas-close d-flex align-items-center justify-content-center" >
+                            <svg aria-hidden="true" class="modal-close-media" width="20" height="20">
+                                <use xlink:href="images/icons/sprite.svg#icon-close"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="offcanvas-logo-container col-auto">
+                        <a href="index.html" class="offcanvas-logo-block d-flex align-items-center">
+                            <div class="offcanvas-logo-thumbnail">
+                                <img src="images/logo.png" alt="Студия-Сервис" width="61" height="56" class="offcanvas-logo-media">
+                            </div>
+
+                            <div class="offcanvas-logo-content">
+                                <div class="offcanvas-logo-title text-nowrap"><b>Студия-</b>Сервис</div>
+                                <div class="offcanvas-logo-text">Межрегиональный технический центр</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas-statusbar">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-between">
+                    <div class="offcanvas-social-container col-auto">
+                        <ul class="offcanvas-social-list d-flex flex-wrap list-unstyled">
+                            <li class="offcanvas-social-item">
+                                <a href="#link" class="offcanvas-social-link" target="_blank">
+                                    <img src="images/icons/social/icon-social-telegram.png" width="35" height="35" alt="Telegram" class="offcanvas-social-media">
+                                </a>
+                            </li>
+
+                            <li class="offcanvas-social-item">
+                                <a href="#link" class="offcanvas-social-link" target="_blank">
+                                    <img src="images/icons/social/icon-social-whatsapp.png" width="35" height="35" alt="Whatsapp" class="offcanvas-social-media">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="offcanvas-contact-container col-auto">
+                        <div class="offcanvas-contact-block">
+                            <a href="tel:+74959333439" class="offcanvas-contact-link">+7(495) 933-3439</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas-navigation">
+            <div class="container-fluid">
+                <nav class="offcanvas-nav-block">
+                    <ul class="offcanvas-nav-list d-flex flex-column list-unstyled text-center">
+                        <li class="offcanvas-nav-item">
+                            <a href="#link" class="offcanvas-nav-link">Услуги</a>
+                        </li>
+                        <li class="offcanvas-nav-item">
+                            <a href="#link" class="offcanvas-nav-link">Для кого?</a>
+                        </li>
+                        <li class="offcanvas-nav-item">
+                            <a href="#link" class="offcanvas-nav-link">Компетенции</a>
+                        </li>
+                        <li class="offcanvas-nav-item">
+                            <a href="#link" class="offcanvas-nav-link">Отзывы</a>
+                        </li>
+                        <li class="offcanvas-nav-item">
+                            <a href="#link" class="offcanvas-nav-link">Проекты</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalCallback" tabindex="-1" aria-labelledby="modalCallbackLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10 col-lg-8 col-xxl-6 offset-sm-1 offset-lg-2 offset-xxl-3">
+                            <div class="modal-header d-flex align-items-center">
+                                <div class="modal-title title-h1" id="modalCallbackLabel">Отправить заявку</div>
+                                
+                                <button type="button" class="modal-close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+                                    <svg aria-hidden="true" class="modal-close-media" width="40" height="40">
+                                        <use xlink:href="images/icons/sprite.svg#icon-close"></use>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <form action="" class="form-modal">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Имя" >
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input type="tel" class="form-control" placeholder="Телефон" >
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="E-mail" >
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="modal-callback-file-field" aria-describedby="modal-callback-file-field">
+                                                    <label class="custom-file-label" for="modal-callback-file-field">Прикрепить проект</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-lg btn-primary" >
+                                                <svg class="btn-icon" width="31" height="22">
+                                                    <use xlink:href="images/icons/sprite.svg#icon-arrow-to-right"></use>
+                                                </svg>
+                                                Отправить заявку
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/jquery/v3/jquery-3.3.1.min.js"></script>
+    <script src="vendor/popper/popper.min.js" ></script>
+    <script src="vendor/bootstrap-4.6.0/js/dist/util.js" ></script>
+    <script src="vendor/bootstrap-4.6.0/js/dist/tab.js" ></script>
+    <script src="vendor/bootstrap-4.6.0/js/dist/collapse.js" ></script>
+    <script src="vendor/bootstrap-4.6.0/js/dist/modal.js" ></script>
+    <script src="vendor/bootstrap-4.6.0/js/dist/tooltip.js" ></script>
+    <script src="vendor/swiper-4.5.1/dist/js/swiper.min.js"></script>
+    <script src="vendor/fancybox-master/dist/jquery.fancybox.min.js"></script>
+    <script src="vendor/twentytwenty-master/js/jquery.twentytwenty.js" ></script>
+    <script src="vendor/twentytwenty-master/js/jquery.event.move.js" ></script>
+    <script src="vendor/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+    <script src="js/header.js"></script>
+    <script src="js/sliders.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/offcanvas.js"></script>
+    <script src="js/fancybox.js"></script>
+    <script src="js/tooltip.js"></script>
+    <script src="js/twentytwenty.js"></script>
+</body>
+</html>
