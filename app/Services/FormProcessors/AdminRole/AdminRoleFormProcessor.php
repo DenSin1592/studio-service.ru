@@ -3,18 +3,9 @@
 namespace App\Services\FormProcessors\AdminRole;
 
 use App\Services\FormProcessors\BaseFormProcessor;
-use App\Services\FormProcessors\SubProcessor;
 
-class AdminRoleFormProcessor extends BaseFormProcessor
+final class AdminRoleFormProcessor extends BaseFormProcessor
 {
-    private array $subProcessorList = [];
-
-    public function addSubProcessor(SubProcessor $subProcessor)
-    {
-        $this->subProcessorList[] = $subProcessor;
-    }
-
-
     protected function prepareInputData(array $data): array
     {
         if (!array_key_exists('abilities', $data) || !is_array($data['abilities'])) {
@@ -22,14 +13,5 @@ class AdminRoleFormProcessor extends BaseFormProcessor
         }
 
         return $data;
-    }
-
-
-    protected function afterSuccess($instance, array $data)
-    {
-        parent::afterSuccess($instance, $data);
-        foreach ($this->subProcessorList as $subProcessor) {
-            $subProcessor->save($instance, $data);
-        }
     }
 }

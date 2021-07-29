@@ -16,7 +16,7 @@ abstract class BaseFormProcessor implements CrudFormProcessorInterface
     ){}
 
 
-    public function addSubProcessor(SubProcessor $subProcessor)
+    public function addSubProcessor(SubProcessorInterface $subProcessor)
     {
         $this->subProcessorList[] = $subProcessor;
     }

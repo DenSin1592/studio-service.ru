@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Services\FormProcessors\AdminRole
  */
-interface SubProcessor
+interface SubProcessorInterface
 {
     /**
      * Prepare input data for sub processor.

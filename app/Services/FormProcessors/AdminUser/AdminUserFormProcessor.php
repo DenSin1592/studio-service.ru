@@ -3,18 +3,9 @@
 namespace App\Services\FormProcessors\AdminUser;
 
 use App\Services\FormProcessors\BaseFormProcessor;
-use App\Services\FormProcessors\SubProcessor;
 
-
-class AdminUserFormProcessor extends BaseFormProcessor
+final class AdminUserFormProcessor extends BaseFormProcessor
 {
-    private array $subProcessorList = [];
-
-    public function addSubProcessor(SubProcessor $subProcessor)
-    {
-        $this->subProcessorList[] = $subProcessor;
-    }
-
     protected function prepareInputData(array $data): array
     {
         // password can be null
@@ -44,13 +35,5 @@ class AdminUserFormProcessor extends BaseFormProcessor
         }
 
         return parent::update($user, $data);
-    }
-
-    protected function afterSuccess($instance, array $data)
-    {
-        parent::afterSuccess($instance, $data);
-        foreach ($this->subProcessorList as $subProcessor) {
-            $subProcessor->save($instance, $data);
-        }
     }
 }

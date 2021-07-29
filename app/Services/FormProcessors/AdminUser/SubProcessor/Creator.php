@@ -2,16 +2,11 @@
 
 namespace App\Services\FormProcessors\AdminUser\SubProcessor;
 
-use App\Services\FormProcessors\SubProcessor;
+use App\Services\FormProcessors\BaseSubProcessor;
 use Illuminate\Database\Eloquent\Model;
 
-
-class Creator implements SubProcessor
+final class Creator extends BaseSubProcessor
 {
-    public function prepareInputData(array $data): array
-    {
-        return $data;
-    }
 
     public function save(Model $user, array $data)
     {

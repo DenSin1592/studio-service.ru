@@ -5,7 +5,7 @@ namespace App\Services\FormProcessors\Node;
 use App\Services\FormProcessors\BaseFormProcessor;
 use App\Services\FormProcessors\Features\AutoAlias;
 
-class NodeFormProcessor extends BaseFormProcessor
+final class NodeFormProcessor extends BaseFormProcessor
 {
     use AutoAlias;
 

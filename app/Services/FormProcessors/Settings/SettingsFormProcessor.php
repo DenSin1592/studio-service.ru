@@ -9,11 +9,7 @@ use App\Services\Settings\SettingValue;
 use App\Services\Validation\ValidableInterface;
 use Arr;
 
-/**
- * Class SettingsFormProcessor
- * @package App\Services\FormProcessors
- */
-class SettingsFormProcessor extends BaseFormProcessor
+final class SettingsFormProcessor extends BaseFormProcessor
 {
     public function __construct(
         ValidableInterface $validator,

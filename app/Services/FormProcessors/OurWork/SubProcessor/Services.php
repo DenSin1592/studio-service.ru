@@ -3,9 +3,9 @@
 namespace App\Services\FormProcessors\OurWork\SubProcessor;
 
 use App\Http\Controllers\Admin\Relations\OurWorks\ServicesController;
-use App\Services\FormProcessors\BaseSubProcessor;
+use App\Services\FormProcessors\BaseManyToManySubProcessor;
 
-class Services extends BaseSubProcessor
+final class Services extends BaseManyToManySubProcessor
 {
     protected const SUB_FORM_NAME = ServicesController::RELATIONS_NAME;
 }
