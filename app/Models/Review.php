@@ -26,6 +26,7 @@ class Review extends Model
         'ip',
         'text',
         'review_date',
+        'youtube_link',
     ];
 
     protected $dates = ['review_date'];

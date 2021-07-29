@@ -44,7 +44,7 @@ class ReviewImage extends Model
 
         self::mountUploader('image', UploaderIntegrator::getUploader('uploads/reviews/images', [
             'thumb' => new OutBoundVersion(85, 85),
-            'mini'  => new OutBoundVersion(300, 300),
+            'preview'  => new OutBoundVersion(700, 500),
         ], false));
     }
 

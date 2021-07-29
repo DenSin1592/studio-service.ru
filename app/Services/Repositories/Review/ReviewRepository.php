@@ -18,7 +18,10 @@ class ReviewRepository extends BaseFeatureRepository
     public function getModelsForHomePage()
     {
         return $this->getModel()
-            ->with('services', 'images')
+            ->with(['services', 'images' => static function ($q){
+                $q->orderBy('position')
+                    ->first();
+            }])
             ->where('on_home_page', true)
             ->orderBy('position')
             ->get();

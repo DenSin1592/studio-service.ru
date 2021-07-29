@@ -254,8 +254,8 @@ class FormBuilderServiceProvider extends ServiceProvider
                 return
                     Form::tbFormGroupOpen($name) .
                     Form::tbLabel($name, $labelName) .
-                    Form::tbText($name, $value, Arr::except($options, 'hint')) .
                     $helpers->getFieldHintBlock(Arr::get($options, 'hint'), $labelName) .
+                    Form::tbText($name, $value, Arr::except($options, 'hint')) .
                     Form::tbFormGroupClose();
             }
         );

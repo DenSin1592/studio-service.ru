@@ -226,5 +226,6 @@ return [
         'text' => "Текст",
 
         'block_advantages' => "Блок 'Наши примущества'",
+        'youtube_link' => "Ссылка Youtube",
     ],
 ];
