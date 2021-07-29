@@ -14,4 +14,13 @@ class ServicesRepository extends BaseFeatureRepository
     {
         $this->model = new Service();
     }
+
+    public function getModelsForHomePage()
+    {
+        return $this->getModel()
+            ->with('tasks')
+            ->where('on_home_page', true)
+            ->orderBy('position')
+            ->get();
+    }
 }
