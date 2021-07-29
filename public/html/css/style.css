@@ -3027,14 +3027,13 @@ b { font-weight: 600; }
 
 .swiper-button-sm { width: 30px !important; height: 30px !important; }
 
-.swiper-button-prev, .swiper-button-next { cursor: pointer; position: absolute; z-index: 1; width: 30px; height: 30px; padding: 0; border: none; border-radius: 50%; background: rgba(53, 53, 76, 0.2); -webkit-transition: background-color 300ms ease; transition: background-color 300ms ease; text-align: center; }
+.swiper-button-prev, .swiper-button-next { cursor: pointer; position: absolute; z-index: 1; width: 30px; height: 30px; padding: 0; border: none; border-radius: 50%; background: #1f1f39; -webkit-transition: background-color 300ms ease; transition: background-color 300ms ease; color: #fff; text-align: center; }
 @media (min-width: 1200px) { .swiper-button-prev, .swiper-button-next { width: 50px; height: 50px; } }
-.swiper-button-prev:hover, .swiper-button-next:hover { background: #35354c; }
-.swiper-button-prev:hover .swiper-button-prev-media, .swiper-button-prev:hover .swiper-button-next-media, .swiper-button-next:hover .swiper-button-prev-media, .swiper-button-next:hover .swiper-button-next-media { fill: #fff; color: #fff; }
+.swiper-button-prev:hover, .swiper-button-next:hover { background: rgba(31, 31, 57, 0.9); color: #fff; }
+.swiper-button-prev .swiper-button-prev-media, .swiper-button-prev .swiper-button-next-media, .swiper-button-next .swiper-button-prev-media, .swiper-button-next .swiper-button-next-media { color: currentColor; fill: currentColor; }
 
-.swiper-button-light, .swiper-button-light { background-color: rgba(255, 255, 255, 0.2); }
-.swiper-button-light:hover, .swiper-button-light:hover { background-color: #fff; color: #000; }
-.swiper-button-light:hover .swiper-button-prev-media, .swiper-button-light:hover .swiper-button-next-media, .swiper-button-light:hover .swiper-button-prev-media, .swiper-button-light:hover .swiper-button-next-media { color: currentColor; fill: currentColor; }
+.swiper-button-light, .swiper-button-light { background-color: rgba(255, 255, 255, 0.2); color: #1f1f39; }
+.swiper-button-light:hover, .swiper-button-light:hover { background-color: #fff; color: #1f1f39; }
 
 .swiper-navigation-wrapper { height: 35px; margin-left: -2px; margin-right: -2px; }
 .swiper-navigation-wrapper .swiper-button-prev, .swiper-navigation-wrapper .swiper-button-next { position: static; margin: 0 2px; -webkit-transform: translate(0); transform: translate(0); }
@@ -3043,9 +3042,8 @@ b { font-weight: 600; }
 
 .swiper-pagination-fraction { position: static; margin: 0; font-size: 17px; font-weight: 600; line-height: 1; color: #000; }
 
-.swiper-light .swiper-button-prev, .swiper-light .swiper-button-next { background-color: rgba(255, 255, 255, 0.2); }
-.swiper-light .swiper-button-prev:hover, .swiper-light .swiper-button-next:hover { background-color: #fff; }
-.swiper-light .swiper-button-prev:hover .swiper-button-prev-media, .swiper-light .swiper-button-prev:hover .swiper-button-next-media, .swiper-light .swiper-button-next:hover .swiper-button-prev-media, .swiper-light .swiper-button-next:hover .swiper-button-next-media { color: currentColor; fill: currentColor; }
+.swiper-light .swiper-button-prev, .swiper-light .swiper-button-next { background-color: rgba(255, 255, 255, 0.2); color: #1f1f39; }
+.swiper-light .swiper-button-prev:hover, .swiper-light .swiper-button-next:hover { background-color: #fff; color: #1f1f39; }
 
 .nav.nav-tabs { margin: 0; border: none; }
 .nav.nav-tabs .nav-item { margin-left: 15px; margin-left: 15px; }
@@ -3719,6 +3717,9 @@ b { font-weight: 600; }
 .post-article .post-article-hero-thumbnail .post-article-hero-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; max-width: none; max-height: none; -o-object-fit: cover; object-fit: cover; -o-object-position: center; object-position: center; }
 
 .section-content { background-position: center; background-size: cover; }
+.section-content ol.section-list { counter-reset: counter-step; }
+.section-content ol.section-list > li { position: relative; }
+.section-content ol.section-list > li::before { counter-increment: counter-step; content: counters(counter-step,".") "."; }
 
 .swiper-content .swiper-content-thumbnail .swiper-content-media { height: auto; width: auto; max-width: 100%; max-height: 100%; }
 

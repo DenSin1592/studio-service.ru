@@ -26,8 +26,10 @@
     padding: 0;
     border: none;
     border-radius: 50%;
-    background: rgba(#35354c, .2);
+    background: $c-default-heading;
     transition: background-color 300ms ease;
+    // color: $c-default-heading;
+    color: $c-white;
     text-align: center;
     @include media-breakpoint-up(xl) {
         width: 50px;
@@ -35,28 +37,25 @@
     }
 
     &:hover {
-        background: #35354c;
+        background: rgba($c-default-heading, 0.9);
+        color: $c-white;
+    }
 
-        .swiper-button-prev-media,
-        .swiper-button-next-media {
-            fill: $c-white;
-            color: $c-white;
-        }
+    .swiper-button-prev-media,
+    .swiper-button-next-media {
+        color: currentColor;
+        fill: currentColor;
     }
 }
 
 .swiper-button-light,
 .swiper-button-light {
     background-color: rgba($c-white, .2);
+    color: $c-default-heading;
+
     &:hover {
         background-color: $c-white;
-        color: $c-black;
-
-        .swiper-button-prev-media,
-        .swiper-button-next-media {
-            color: currentColor;
-            fill: currentColor;
-        }
+        color: $c-default-heading;
     }
 }
 
@@ -91,14 +90,11 @@
     .swiper-button-prev,
     .swiper-button-next {
         background-color: rgba($c-white, .2);
+        color: $c-default-heading;
+
         &:hover {
             background-color: $c-white;
-
-            .swiper-button-prev-media,
-            .swiper-button-next-media {
-                color: currentColor;
-                fill: currentColor;
-            }
+            color: $c-default-heading;
         }
     }
 }
