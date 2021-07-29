@@ -15,7 +15,9 @@ abstract class BaseOneToManyRepository extends BaseRepository
 
     public function allForModel(Model $model)
     {
-        return $this->getRelationForModel($model)->get();
+        return $this->getRelationForModel($model)
+            ->orderBy('position')
+            ->get();
     }
 
 
