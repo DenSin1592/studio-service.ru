@@ -30,7 +30,7 @@
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#10203c",endColorstr="#10203c",GradientType=1);
         content: '';
 
-        @include media-breakpoint-up(xxl) {
+        @include media-breakpoint-up(xl) {
             height: 100px;
             background: -moz-linear-gradient(0deg, #10203c 0%, rgba(#10203c, 0) 100%);
             background: -webkit-linear-gradient(0deg, #10203c 0%, rgba(#10203c, 0) 100%);
@@ -48,7 +48,10 @@
             left: 0;
             bottom: -65px;
         }
-
+        @include media-breakpoint-up(xl) {
+            left: 30px;
+            bottom: -115px;
+        }
         @include media-breakpoint-up(xxl) {
             left: 200px;
             bottom: -185px;
@@ -211,9 +214,9 @@
         height: 445px;
     }
     @include media-breakpoint-up(xl) {
-        flex: 0 0 570px;
-        width: 570px;
-        height: 500px;
+        flex: 0 0 627px;
+        width: 627px;
+        height: 550px;
     }
     @include media-breakpoint-up(xxl) {
         flex: 0 0 860px;

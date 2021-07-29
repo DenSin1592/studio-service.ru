@@ -3417,9 +3417,10 @@ b { font-weight: 600; }
 @media (min-width: 1200px) { .section-hero { padding: 175px 0 120px; } }
 @media (min-width: 1680px) { .section-hero { padding: 185px 0 200px; } }
 .section-hero::before { position: absolute; z-index: -1; left: 0; bottom: 0; width: 100%; height: 50px; background: #22c1c3; background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #10203c), to(rgba(16, 32, 60, 0))); background: linear-gradient(0deg, #10203c 50%, rgba(16, 32, 60, 0) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#10203c",endColorstr="#10203c",GradientType=1); content: ''; }
-@media (min-width: 1680px) { .section-hero::before { height: 100px; background: -webkit-gradient(linear, left bottom, left top, from(#10203c), to(rgba(16, 32, 60, 0))); background: linear-gradient(0deg, #10203c 0%, rgba(16, 32, 60, 0) 100%); } }
+@media (min-width: 1200px) { .section-hero::before { height: 100px; background: -webkit-gradient(linear, left bottom, left top, from(#10203c), to(rgba(16, 32, 60, 0))); background: linear-gradient(0deg, #10203c 0%, rgba(16, 32, 60, 0) 100%); } }
 .section-hero .hero-media-container { position: absolute; z-index: -2; left: 30%; bottom: 0; height: 100%; }
 @media (min-width: 750px) { .section-hero .hero-media-container { left: 0; bottom: -65px; } }
+@media (min-width: 1200px) { .section-hero .hero-media-container { left: 30px; bottom: -115px; } }
 @media (min-width: 1680px) { .section-hero .hero-media-container { left: 200px; bottom: -185px; } }
 
 .hero-title { margin: 0 0 15px; font-size: 18px; line-height: 25px; }
@@ -3456,7 +3457,7 @@ b { font-weight: 600; }
 @media (min-width: 480px) { .hero-media-figure { -webkit-box-flex: 0; -ms-flex: 0 0 342px; flex: 0 0 342px; width: 342px; height: 300px; } }
 @media (min-width: 750px) { .hero-media-figure { -webkit-box-flex: 0; -ms-flex: 0 0 490px; flex: 0 0 490px; width: 490px; height: 430px; } }
 @media (min-width: 970px) { .hero-media-figure { -webkit-box-flex: 0; -ms-flex: 0 0 507px; flex: 0 0 507px; width: 507px; height: 445px; } }
-@media (min-width: 1200px) { .hero-media-figure { -webkit-box-flex: 0; -ms-flex: 0 0 570px; flex: 0 0 570px; width: 570px; height: 500px; } }
+@media (min-width: 1200px) { .hero-media-figure { -webkit-box-flex: 0; -ms-flex: 0 0 627px; flex: 0 0 627px; width: 627px; height: 550px; } }
 @media (min-width: 1680px) { .hero-media-figure { -webkit-box-flex: 0; -ms-flex: 0 0 860px; flex: 0 0 860px; width: 860px; height: 755px; } }
 .hero-media-figure .hero-media { max-width: 100%; max-height: 100%; }
 
