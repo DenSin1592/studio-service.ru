@@ -1,26 +1,20 @@
-<div style="border: 1px solid black">
+@if($targetAudiences->count() > 0)
 
-    <h1>Секция Для кого мы работаем</h1>
+    <div style="border: 1px solid black">
 
-    <a href="{{route('target-audiences')}}">смотреть все</a>
+        <h1>Секция Для кого мы работаем</h1>
 
-    @foreach($targetAudiences as $element)
+        <a href="{{route('target-audiences')}}">смотреть все</a>
 
-        <div>
-            <img loading="lazy" src="{{{ $element->getImgPath('icon', 'icon', 'no-image-40x40.png') }}}" alt="{{$element->name}}" class="card-category-media">
-            <a href="{{ $element->url}}">{{$element->name}}</a>
-        </div>
-    @endforeach
+        @foreach($targetAudiences as $element)
 
-</div>
+            <div>
+                <img loading="lazy" src="{{{ $element->getImgPath('icon', 'icon', 'no-image-40x40.png') }}}"
+                     alt="{{$element->name}}" class="card-category-media">
+                <a href="{{ $element->url}}">{{$element->name}}</a>
+            </div>
+        @endforeach
 
-{{--
-@if ($article->getAttachment('image')->exists())
-    "background-image: url('{{{ asset($article->getAttachment('image')->getRelativePath('picture'))}}}')"
-@else
-    "background-image: url('{{{asset('/images/common/no-image/no-image-500x500.png')}}}')"
+    </div>
+
 @endif
-<img loading="lazy" src="{{{ $productData['image']->getAttachment('image')->getUrl('list') }}}"
-     alt="{{ $productData['customName'] ?? $productData['product']->name }}"
-     title="{{ $productData['customName'] ?? $productData['product']->out_name }}"
-     class="card-product-media">--}}
