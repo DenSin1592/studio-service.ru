@@ -28,4 +28,6 @@
     )
 )
 
+@include('admin.shared._form_meta_fields')
+
 @include('admin.shared._model_timestamps', ['model' => $formData[$essenceName]])
