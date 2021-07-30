@@ -120,14 +120,16 @@ class Node extends Model
         parent::boot();
 
         static::deleting(function (self $model) {
-            DeleteHelpers::deleteRelatedAll($model->children());
-            DeleteHelpers::deleteRelatedFirst($model->homePage());
-            DeleteHelpers::deleteRelatedFirst($model->targetAudiencePage());
-            DeleteHelpers::deleteRelatedFirst($model->servicePage());
-            DeleteHelpers::deleteRelatedFirst($model->reviewPage());
-            DeleteHelpers::deleteRelatedFirst($model->ourWorkPage());
-            DeleteHelpers::deleteRelatedFirst($model->competencePage());
-            DeleteHelpers::deleteRelatedFirst($model->textPage());
+            \DB::transaction(function() use ($model) {
+                DeleteHelpers::deleteRelatedAll($model->children());
+                DeleteHelpers::deleteRelatedFirst($model->homePage());
+                DeleteHelpers::deleteRelatedFirst($model->targetAudiencePage());
+                DeleteHelpers::deleteRelatedFirst($model->servicePage());
+                DeleteHelpers::deleteRelatedFirst($model->reviewPage());
+                DeleteHelpers::deleteRelatedFirst($model->ourWorkPage());
+                DeleteHelpers::deleteRelatedFirst($model->competencePage());
+                DeleteHelpers::deleteRelatedFirst($model->textPage());
+            });
         });
     }
 }

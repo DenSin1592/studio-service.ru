@@ -47,10 +47,6 @@ class Offer extends Model
         return route(\App\Http\Controllers\Client\EssenceControllers\ServiceController::ROUTE_SHOW_ON_SITE, $this->alias);
     }*/
 
-
-
-
-
     protected static function boot(): void
     {
         parent::boot();

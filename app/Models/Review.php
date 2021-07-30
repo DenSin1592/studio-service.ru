@@ -61,8 +61,10 @@ class Review extends Model
 
         static::deleting(
             function (self $model) {
-                self::deleteRelatedAll($model->images());
-                $model->services()->detach();
+                \DB::transaction(function() use ($model){
+                    self::deleteRelatedAll($model->images());
+                    $model->services()->detach();
+                });
             }
         );
     }

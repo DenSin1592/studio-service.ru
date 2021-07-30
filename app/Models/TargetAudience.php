@@ -74,8 +74,10 @@ class TargetAudience extends Model
         parent::boot();
 
         static::deleting(function (self $model) {
-            DeleteHelpers::deleteRelatedAll($model->children());
-            DeleteHelpers::removeCommunicationAll($model->offers(), 'target_audience_id');
+            \DB::transaction(function() use ($model){
+                DeleteHelpers::deleteRelatedAll($model->children());
+                DeleteHelpers::removeCommunicationAll($model->offers(), 'target_audience_id');
+            });
         });
 
         self::mountUploader(

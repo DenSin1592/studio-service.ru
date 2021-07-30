@@ -54,8 +54,10 @@ class AdminUser extends User implements AclUserInterface
         parent::boot();
 
         self::deleting(function (self $model) {
-            AdminUser::where('parent_id', $model->id)->update(['parent_id' => null]);
-            AdminRole::where('parent_id', $model->id)->update(['parent_id' => optional(\Auth::user())->id]);
+            \DB::transaction(function() use ($model) {
+                AdminUser::where('parent_id', $model->id)->update(['parent_id' => null]);
+                AdminRole::where('parent_id', $model->id)->update(['parent_id' => optional(\Auth::user())->id]);
+            });
         });
     }
 }

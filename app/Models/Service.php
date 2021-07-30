@@ -92,11 +92,13 @@ class Service extends Model
         );
 
         static::deleting(function (self $model) {
-            $model->competencies()->detach();
-            $model->reviews()->detach();
-            $model->ourWorks()->detach();
-            DeleteHelpers::deleteRelatedAll($model->tasks());
-            DeleteHelpers::removeCommunicationAll($model->offers(), 'service_id');
+            \DB::transaction(function() use ($model){
+                $model->competencies()->detach();
+                $model->reviews()->detach();
+                $model->ourWorks()->detach();
+                DeleteHelpers::deleteRelatedAll($model->tasks());
+                DeleteHelpers::removeCommunicationAll($model->offers(), 'service_id');
+            });
         });
 
         self::saving(function (self $model) {
