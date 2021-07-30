@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\EssenceControllers;
 
-use App\Http\Controllers\Client\EssenceControllers\CompetenceController;
+use App\Http\Controllers\Client\EssenceControllers\OfferController;
 use App\Services\DataProviders\OfferForm\OfferForm;
 use App\Services\FormProcessors\Offer\OfferFormProcessor;
 use App\Services\Repositories\Offer\OfferRepository;
@@ -38,7 +38,7 @@ final class OffersController extends BaseEssenceController
         $this->repository = \App(OfferRepository::class);
         $this->formDataProvider = \App(OfferForm::class);
         $this->formProcessor = \App(OfferFormProcessor::class);
-        $this->urlShowONSite = CompetenceController::ROUTE_SHOW_ON_SITE;
+        $this->urlShowONSite = OfferController::ROUTE_SHOW_ON_SITE;
     }
 
 

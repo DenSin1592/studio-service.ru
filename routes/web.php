@@ -55,6 +55,7 @@ Route::namespace('Client')->group(function () {
         Route::get('/uslugi/{url}', 'ServiceController@show')->name('service');
         Route::get('/kompetencii/{url}', 'CompetenceController@show')->name('competence');
         Route::get('/proekty/{url}', 'OurWorkController@show')->name('our-work');
+        Route::get('/offery/{url}', 'OfferController@show')->name('offer');
     });
 
     Route::get('/{url}', 'DynamicPagesController@show')->name('dynamic_page')->where('url', '.*');

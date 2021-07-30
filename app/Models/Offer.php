@@ -13,7 +13,7 @@ class Offer extends Model
     use AutoPublish;
 
     protected $fillable = [
-        'title',
+        'name',
         'alias',
         'publish',
         'service_id',
@@ -52,7 +52,7 @@ class Offer extends Model
         parent::boot();
 
         self::saving(function (self $model) {
-            AliasHelpers::setAlias($model, 'title');
+            AliasHelpers::setAlias($model);
         });
     }
 }

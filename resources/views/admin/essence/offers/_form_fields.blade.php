@@ -1,5 +1,5 @@
 
-{!! Form::tbTextBlock('title') !!}
+{!! Form::tbTextBlock('name') !!}
 
 {!! Form::tbTextBlock('alias') !!}
 
