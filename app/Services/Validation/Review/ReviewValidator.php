@@ -8,7 +8,6 @@ use Illuminate\Validation\Rule;
 
 class ReviewValidator extends AbstractLaravelValidator
 {
-
     protected function getRules(): array
     {
         return [

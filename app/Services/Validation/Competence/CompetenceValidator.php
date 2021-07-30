@@ -8,12 +8,6 @@ use Illuminate\Validation\Rule;
 
 class CompetenceValidator extends AbstractLaravelValidator
 {
-    public function __construct(ValidatorFactory $validatorFactory)
-    {
-        parent::__construct($validatorFactory);
-    }
-
-
     protected function getRules(): array
     {
         $rules = [];

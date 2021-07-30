@@ -6,7 +6,6 @@ use App\Services\Validation\AbstractLaravelValidator;
 
 class OurWorkValidator extends AbstractLaravelValidator
 {
-
     protected function getRules(): array
     {
         return [

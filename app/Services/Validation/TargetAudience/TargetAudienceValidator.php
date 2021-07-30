@@ -8,13 +8,6 @@ use Illuminate\Validation\Rule;
 
 class TargetAudienceValidator extends AbstractLaravelValidator
 {
-
-    public function __construct(ValidatorFactory $validatorFactory)
-    {
-        parent::__construct($validatorFactory);
-    }
-
-
     protected function getRules(): array
     {
         $rules = [];
