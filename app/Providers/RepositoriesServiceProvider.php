@@ -6,6 +6,7 @@ use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use App\Services\Repositories\AdminUser\AdminUserRepository;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Node\NodeRepository;
+use App\Services\Repositories\Offer\OfferRepository;
 use App\Services\Repositories\OurWork\OurWorkImage\OurWorkImageRepository;
 use App\Services\Repositories\OurWork\OurWorkRepository;
 use App\Services\Repositories\Pages\CompetencePage\CompetencePageRepository;
@@ -60,6 +61,12 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->app->singleton(
             ReviewImageRepository::class,
             fn() => new ReviewImageRepository()
+        );
+
+
+        $this->app->singleton(
+            OfferRepository::class,
+            fn() => new OfferRepository()
         );
 
 

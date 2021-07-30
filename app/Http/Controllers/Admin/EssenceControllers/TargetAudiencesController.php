@@ -26,7 +26,7 @@ final class TargetAudiencesController extends BaseEssenceController
     protected const VIEW_LIST = 'admin.essence.target_audiences._list';
     protected const VIEW_FORM_FIELDS = 'admin.essence.target_audiences._form_fields';
 
-    protected const INDEX_TITLE = 'Каталог ЦА';
+    public const INDEX_TITLE = 'Каталог ЦА';
 
     protected const CREATE_MESSAGE = 'ЦА создана';
     protected const EDIT_MESSAGE = 'ЦА обновлена';

@@ -24,4 +24,13 @@ class DeleteHelpers
             $model->delete();
         }
     }
+
+    public static function removeCommunicationAll($associationQueryBuilder, $field): void
+    {
+        foreach ($associationQueryBuilder->get() as $subModel) {
+            $subModel->$field = null;
+            $subModel->publish = false;
+            $subModel->save();
+        }
+    }
 }

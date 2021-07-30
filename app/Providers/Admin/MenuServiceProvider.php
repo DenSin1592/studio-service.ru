@@ -5,6 +5,7 @@ namespace App\Providers\Admin;
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
+use App\Http\Controllers\Admin\EssenceControllers\OffersController;
 use App\Http\Controllers\Admin\EssenceControllers\OurWorksController;
 use App\Http\Controllers\Admin\EssenceControllers\StructureController;
 use App\Http\Controllers\Admin\EssenceControllers\TargetAudiencesController;
@@ -67,6 +68,14 @@ class MenuServiceProvider extends ServiceProvider
                         [TargetAudiencesController::class]
                     )
                 );
+                $groupCatalogs->addMenuElement(
+                    new MenuElement(
+                        'Офферы',
+                        'glyphicon-usd',
+                        route(OffersController::ROUTE_INDEX),
+                        [OffersController::class]
+                    )
+                );
 
 
                 $menu->addMenuElement(
@@ -82,7 +91,7 @@ class MenuServiceProvider extends ServiceProvider
                 $menu->addMenuElement(
                     new MenuElement(
                         'Наши работы',
-                        'glyphicon-wrench',
+                        'glyphicon-briefcase',
                         route(OurWorksController::ROUTE_INDEX),
                         [OurWorksController::class]
                     )

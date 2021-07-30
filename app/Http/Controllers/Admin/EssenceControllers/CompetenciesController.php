@@ -25,7 +25,7 @@ final class CompetenciesController extends BaseEssenceController
     protected const VIEW_LIST = 'admin.essence.competencies._list';
     protected const VIEW_FORM_FIELDS = 'admin.essence.competencies._form_fields';
 
-    protected const INDEX_TITLE = 'Каталог компетенций';
+    public const INDEX_TITLE = 'Каталог компетенций';
 
     protected const CREATE_MESSAGE = 'Компетенция создана';
     protected const EDIT_MESSAGE = 'Компетенция обновлена';

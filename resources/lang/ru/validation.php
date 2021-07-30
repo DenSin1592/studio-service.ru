@@ -222,10 +222,13 @@ return [
         'our_works_preview' => 'Превью',
         'our_works_description' => "Описание",
 
-        'title' => "Заголовок",
+        'title' => "Название",
         'text' => "Текст",
 
         'block_advantages' => "Блок 'Наши примущества'",
         'youtube_link' => "Ссылка Youtube",
+
+        'service' => "Услуга",
+        'TA' => "ЦА",
     ],
 ];

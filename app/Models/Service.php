@@ -58,6 +58,11 @@ class Service extends Model
     }
 
 
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
+    }
+
     public function getUrlAttribute(): string
     {
         return route(\App\Http\Controllers\Client\EssenceControllers\ServiceController::ROUTE_SHOW_ON_SITE, $this->alias);
@@ -91,6 +96,7 @@ class Service extends Model
             $model->reviews()->detach();
             $model->ourWorks()->detach();
             DeleteHelpers::deleteRelatedAll($model->tasks());
+            DeleteHelpers::removeCommunicationAll($model->offers(), 'service_id');
         });
 
         self::saving(function (self $model) {

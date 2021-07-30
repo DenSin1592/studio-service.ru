@@ -49,6 +49,12 @@ class TargetAudience extends Model
     }
 
 
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
+    }
+
+
     public function getUrlAttribute(): string
     {
         return route(\App\Http\Controllers\Client\EssenceControllers\TargetAudienceController::ROUTE_SHOW_ON_SITE, $this->alias);
@@ -69,6 +75,7 @@ class TargetAudience extends Model
 
         static::deleting(function (self $model) {
             DeleteHelpers::deleteRelatedAll($model->children());
+            DeleteHelpers::removeCommunicationAll($model->offers(), 'target_audience_id');
         });
 
         self::mountUploader(

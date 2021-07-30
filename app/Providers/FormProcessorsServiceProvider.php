@@ -6,6 +6,7 @@ use App\Services\FormProcessors\AdminRole\AdminRoleFormProcessor;
 use App\Services\FormProcessors\AdminUser\AdminUserFormProcessor;
 use App\Services\FormProcessors\Competence\CompetenceFormProcessor;
 use App\Services\FormProcessors\Node\NodeFormProcessor;
+use App\Services\FormProcessors\Offer\OfferFormProcessor;
 use App\Services\FormProcessors\OurWork\OurWorkFormProcessor;
 use App\Services\FormProcessors\Review\ReviewFormProcessor;
 use App\Services\FormProcessors\Review\SubProcessor\Images;
@@ -18,6 +19,7 @@ use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use App\Services\Repositories\AdminUser\AdminUserRepository;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Node\NodeRepository;
+use App\Services\Repositories\Offer\OfferRepository;
 use App\Services\Repositories\OurWork\OurWorkRepository;
 use App\Services\Repositories\Review\ReviewRepository;
 use App\Services\Repositories\Services\ServicesRepository;
@@ -26,6 +28,7 @@ use App\Services\Validation\AdminRole\AdminRoleValidator;
 use App\Services\Validation\AdminUser\AdminUserValidator;
 use App\Services\Validation\Competence\CompetenceValidator;
 use App\Services\Validation\Node\NodeValidator;
+use App\Services\Validation\Offer\OfferValidator;
 use App\Services\Validation\OurWork\OurWorkValidator;
 use App\Services\Validation\Review\ReviewValidator;
 use App\Services\Validation\Service\ServiceValidator;
@@ -108,6 +111,14 @@ class FormProcessorsServiceProvider extends ServiceProvider
                 $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Review\SubProcessor\Services::class));
                 return $formProcessor;
             }
+        );
+
+        $this->app->bind(
+            OfferFormProcessor::class,
+            fn() => new OfferFormProcessor(
+                $this->app->make(OfferValidator::class),
+                $this->app->make(OfferRepository::class)
+            )
         );
 
 

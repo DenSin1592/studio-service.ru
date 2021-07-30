@@ -25,7 +25,7 @@ final class ServicesController extends BaseEssenceController
     protected const VIEW_LIST = 'admin.essence.services._list';
     protected const VIEW_FORM_FIELDS = 'admin.essence.services._form_fields';
 
-    protected const INDEX_TITLE = 'Каталог Услуг';
+    public const INDEX_TITLE = 'Каталог Услуг';
 
     protected const CREATE_MESSAGE = 'Услуга создан';
     protected const EDIT_MESSAGE = 'Услуга обновлена';
