@@ -12,6 +12,8 @@
 
         @include('admin.shared._form_meta_fields')
 
+        {!! Form::tbTinymceTextareaBlock('content_top', trans('validation.attributes.content_top')) !!}
+
         @include('admin.shared._model_timestamps', ['model' => $page])
 
         @include('admin.shared._pages._action_bar')

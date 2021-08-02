@@ -14,6 +14,7 @@ class CompetencePage extends Model
         'meta_title',
         'meta_keywords',
         'meta_description',
+        'content_top'
     ];
 
 }

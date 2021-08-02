@@ -14,4 +14,12 @@ class CompetenciesRepository extends BaseFeatureRepository
     {
         $this->model = new Competence();
     }
+
+    public function getModelsForCompetencePage()
+    {
+        return $this->getModel()
+            ->where('publish', true)
+            ->orderBy('position')
+            ->get();
+    }
 }

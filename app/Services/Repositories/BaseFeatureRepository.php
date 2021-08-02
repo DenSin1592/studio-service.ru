@@ -27,7 +27,10 @@ abstract class BaseFeatureRepository extends BaseRepository
 
 
     public function getByAliasOrFail($alias){
-        return $this->getModel()->where('alias', $alias)->firstOrFail();
+        return $this->getModel()
+            ->where('alias', $alias)
+            ->where('publish', true)
+            ->firstOrFail();
     }
 
 

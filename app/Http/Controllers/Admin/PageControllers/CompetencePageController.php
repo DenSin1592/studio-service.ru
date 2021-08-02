@@ -8,7 +8,7 @@ final class CompetencePageController extends BasePagesController
 {
     public const  ROUTE_EDIT = 'cc.competence-pages.edit';
     public const  ROUTE_UPDATE = 'cc.competence-pages.update';
-    protected const VIEW_FOR_EDIT = 'admin.pages.edit';
+    protected const VIEW_FOR_EDIT = 'admin.pages.competence_page.edit';
 
     protected function installModelPage(): void
     {

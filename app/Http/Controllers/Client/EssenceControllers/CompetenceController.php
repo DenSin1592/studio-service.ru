@@ -26,4 +26,9 @@ class CompetenceController extends BaseEssenceController
 
         return $breadcrumbs;
     }
+
+    public function getModelsForCompetencePage()
+    {
+        return $this->repository->getModelsForCompetencePage();
+    }
 }

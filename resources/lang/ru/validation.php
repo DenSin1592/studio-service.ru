@@ -193,6 +193,8 @@ return [
         'type' => 'Тип',
         'top_content' => 'Содержимое вверху',
         'content' => 'Содержимое',
+        'content_top' => 'Содержимое сверху',
+        'content_bottom' => 'Содержимое снизу',
         'short_content' => 'Краткое содержимое',
         'bottom_content' => 'Содержимое внизу',
         'import_description' => 'Описание, полученное при импорте',
