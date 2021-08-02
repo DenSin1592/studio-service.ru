@@ -1,5 +1,9 @@
 @extends('client.layouts.default')
 
+@section('body_class')
+    class="page-home page-extended d-flex flex-column"
+@stop
+
 @section('content')
 
     @include('client.home_page._section_hero')

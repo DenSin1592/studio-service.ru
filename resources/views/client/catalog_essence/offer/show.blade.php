@@ -1,5 +1,8 @@
 @extends('client.layouts.default')
 
+@section('body_class')
+    {{--todo:added class--}}
+@stop
 
 @section('content')
 

@@ -1,5 +1,8 @@
 @extends('client.layouts.default')
 
+@section('body_class')
+    class="page-expertises d-flex flex-column"
+@stop
 
 @section('content')
 
