@@ -14,7 +14,7 @@
         </div>
 
         <span class="toggle-button" data-action="toggle">
-            <img class="logotype" src="{{ Asset::timed('/images/admin/logo-diol.svg') }}">
+            <img class="logotype" src="{{ Asset::timed('/images/logo-diol.svg') }}">
         </span>
     </div>
 @endif

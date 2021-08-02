@@ -11,7 +11,7 @@
             </button>
 
             <a id="logotype" href="{{ route('cc.home') }}">
-                <img src="{{ Asset::timed('images/admin/logo-diol.svg') }}" alt="Проект">
+                <img src="{{ Asset::timed('images/logo-diol.svg') }}" alt="Проект">
             </a>
         </div>
 

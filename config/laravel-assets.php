@@ -24,20 +24,43 @@ return [
 
     'groups' => [
 
-        'client_layout_css' => [
+        'client_general_css' => [
             'assets' => [
                 'css/client/auth_menu.css',
+                'css/client/style.css',
+                'vendor/swiper-4.5.1/dist/css/swiper.min.css',
+                'vendor/fancybox-master/dist/jquery.fancybox.min.css',
+                'vendor/twentytwenty-master/css/twentytwenty.css',
             ],
             'filters' => ['css_min', 'embed_css', 'strip_bom', 'css_url_rebase'],
             //'async' => true,
             'output' => 'css/compiled/client_layout.css'
         ],
 
-        'client_layout_js' => [
+        'client_general_js' => [
             'assets' => [
-                'vendor/jquery/v2/jquery-2.1.3.min.js',
+                'vendor/jquery/v3/jquery-3.3.1.min.js',
+                'vendor/popper/popper.min.js',
+                'vendor/bootstrap-4.6.0/js/dist/util.js',
+                'vendor/bootstrap-4.6.0/js/dist/tab.js',
+                'vendor/bootstrap-4.6.0/js/dist/collapse.js',
+                'vendor/bootstrap-4.6.0/js/dist/modal.js',
+                'vendor/bootstrap-4.6.0/js/dist/tooltip.js',
+                'vendor/swiper-4.5.1/dist/js/swiper.min.js',
+                'vendor/fancybox-master/dist/jquery.fancybox.min.js',
+                'vendor/twentytwenty-master/js/jquery.twentytwenty.js',
+                'vendor/twentytwenty-master/js/jquery.event.move.js',
+                'vendor/bs-custom-file-input/bs-custom-file-input.min.js',
+
                 'js/common/csrf.js',
+
                 'js/client/auth_menu.js',
+                'js/client/header.js',
+                'js/client/sliders.js',
+                'js/client/forms.js',
+                'js/client/offcanvas.js',
+                'js/client/fancybox.js',
+                'js/client/twentytwenty.js',
             ],
             'filters' => ['js_min', 'end_with_semicolon'],
             //'async' => true,
