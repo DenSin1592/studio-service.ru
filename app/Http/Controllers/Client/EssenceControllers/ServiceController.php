@@ -26,4 +26,9 @@ class ServiceController extends BaseEssenceController
 
         return $breadcrumbs;
     }
+
+    public function getModelsForServicePage()
+    {
+        return $this->repository->getModelsForServicePage();
+    }
 }

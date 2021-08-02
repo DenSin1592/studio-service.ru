@@ -20,6 +20,18 @@ class ServicesRepository extends BaseFeatureRepository
         return $this->getModel()
             ->with('tasks')
             ->where('on_home_page', true)
+            ->where('publish', true)
+            ->orderBy('position')
+            ->get();
+    }
+
+    public function getModelsForServicePage()
+    {
+        return $this->getModel()
+            ->with(['tasks' => static function($q){
+                $q->orderBy('position')->get();
+            }])
+            ->where('publish', true)
             ->orderBy('position')
             ->get();
     }

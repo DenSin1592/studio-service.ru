@@ -86,7 +86,7 @@ class Service extends Model
             UploaderIntegrator::getUploader(
                 'uploads/services/preview_image', [
                 'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
-                'small' => new BoxVersion(400, 300, ['quality' => 100]),
+                'main' => new BoxVersion(400, 300, ['quality' => 100]),
             ], true
             )
         );

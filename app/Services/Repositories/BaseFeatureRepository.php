@@ -36,7 +36,11 @@ abstract class BaseFeatureRepository extends BaseRepository
 
     public function getModelsForHomePage()
     {
-        return $this->getModel()->where('on_home_page', true)->orderBy('position')->get();
+        return $this->getModel()
+            ->where('on_home_page', true)
+            ->where('publish', true)
+            ->orderBy('position')
+            ->get();
     }
 
 
