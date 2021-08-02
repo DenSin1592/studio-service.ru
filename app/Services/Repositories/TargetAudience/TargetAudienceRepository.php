@@ -35,6 +35,11 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
       return $this->getModel()
           ->where('publish', true)
           ->where('parent_id', null)
+          ->orderBy('position')
+          ->with(['children' => static function($q){
+              $q->where('publish', true)
+                  ->orderBy('position');
+          }])
           ->get();
    }
 }
