@@ -8,7 +8,7 @@
         'data-show_on-site-url-name' => $routeShowOnSite,
     ]) !!}
 
-<div id="model-edit-links" {!! !isset($formData[$relationName]) ? 'style="display: none"' : '' !!}>
+<div class="model-edit-links inline-block {!! !isset($formData[$relationName]) ? 'dnone' : '' !!}">
 
     <a data-edit-link
        href="{!! isset($formData[$relationName]) ? route($routeEdit, $formData[$relationName]->id) : '#' !!}"

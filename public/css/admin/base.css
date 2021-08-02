@@ -153,3 +153,7 @@ h1 {
     display: inline-block;
     margin-left: 10px;
 }
+
+.inline-block {
+    display: inline-block;
+}

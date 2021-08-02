@@ -7,6 +7,9 @@ Route::prefix('offers')->name('offers.')->group(function () {
     Route::prefix('services')->name('services.')->namespace('Relations\Offers')->group(function () {
         Route::get('search', 'ServicesController@getSearchedValues')->name('search');
     });
+    Route::prefix('target-audiences')->name('target-audiences.')->namespace('Relations\Offers')->group(function () {
+        Route::get('search', 'TargetAudiencesController@getSearchedValues')->name('search');
+    });
 
 });
 Route::resource('offers', 'EssenceControllers\OffersController')->except('show');
