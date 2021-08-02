@@ -213,38 +213,11 @@
         $('.section-target').each(function (_, container) {
             let jContainer = $(container),
             swiperContainer = jContainer.find('.swiper-target'),
-            swiperOverlayContainer = jContainer.find('.swiper-target-overlay'),
             prev = jContainer.find('.swiper-target-button-prev'),
             next = jContainer.find('.swiper-target-button-next');
 
-            // overlay slider
-            // let sliderOverlay = new Swiper(swiperOverlayContainer, {
-            //     loop: true,
-            //     // spaceBetween: 10,
-            //     // slidesPerView: 1.305,
-            //     slidesPerView: 'auto',
-            //     // freeMode: true,
-            //     // watchSlidesVisibility: true,
-            //     // watchSlidesProgress: true,
-            //     breakpointsInverse: true,
-            //     breakpoints: {
-            //         // when window width is >= 480px
-            //         480: {
-            //             // loop: slides.length > 2 ? true : false,
-            //             slidesPerView: 2,
-            //             slidesPerGroup: 2,
-            //         },
-            //         // when window width is >= 750px
-            //         750: {
-            //             slidesPerView: 3,
-            //             slidesPerGroup: 3,
-            //             // loop: slides.length > 2 ? true : false,
-            //         }
-            //     },
-            // });
-
             // main slider
-            let slider = new Swiper(swiperContainer, {
+            new Swiper(swiperContainer, {
                 loop: true,
                 // slidesPerView: 1.305,
                 slidesPerView: 'auto',
@@ -264,89 +237,13 @@
                     }
                 },
 
-                // spaceBetween: 10,
                 navigation: {
                     nextEl: next,
                     prevEl: prev,
                 },
-                // thumbs: {
-                //     swiper: sliderOverlay,
-                // },
+                
             });
-
-            // new Swiper(swiperContainer, {
-            //     slidesPerView: 'auto',
-            //     loop: true,
-            //     watchSlidesVisibility: true,
-            //     breakpointsInverse: true,
-            //     breakpoints: {
-            //         // when window width is >= 480px
-            //         480: {
-            //             // loop: slides.length > 2 ? true : false,
-            //             slidesPerView: 2,
-            //         },
-            //         // when window width is >= 750px
-            //         750: {
-            //             slidesPerView: 3,
-            //             // loop: slides.length > 2 ? true : false,
-            //         }
-            //     },
-
-            //     navigation: {
-            //         nextEl: next,
-            //         prevEl: prev,
-            //     }
-            // });
         });
-
-        // $('.gallery-block').each(function (_, container) {
-        //     let jContainer = $(container),
-        //     swiperContainer = jContainer.find('.swiper-gallery'),
-        //     prev = jContainer.find('.swiper-gallery-button-prev'),
-        //     next = jContainer.find('.swiper-gallery-button-next'),
-        //     pagination = jContainer.find('.swiper-gallery-pagination'),
-        //     paginationCurrent = pagination.find('.swiper-gallery-pagination-current'),
-        //     paginationTotal = pagination.find('.swiper-gallery-pagination-total'),
-        //     slides = swiperContainer.find('> .swiper-wrapper > .swiper-slide');
-
-        //     /**
-        //      * Update active slide view.
-        //      * print out number of active slide and so on.
-        //      */
-        //     let updateActiveSlideView = function () {
-        //         if (paginationCurrent.length !== 0) {
-        //             paginationCurrent.text(slider.realIndex + 1 + ' из ');
-        //         }
-        //     };
-
-        //     /**
-        //      * Update visible parameters for slider and related elements according to current slider state.
-        //      */
-        //     let updateSliderView = function () {
-        //         if (paginationTotal.length !== 0) {
-        //             paginationTotal.text(slides.length);
-        //         }
-        //         updateActiveSlideView();
-        //     };
-
-        //     let slider = new Swiper(swiperContainer, {
-        //         slidesPerView: 1,
-        //         loop: true,
-        //         touchRatio: 0,
-
-        //         navigation: {
-        //             nextEl: next,
-        //             prevEl: prev,
-        //         }
-        //     });
-
-        //     updateSliderView();
-
-        //     // On slide change change update current slide info
-        //     slider.on('slideChange', function () {
-        //         updateActiveSlideView();
-        //     });
-        // });
     });
 })();
 

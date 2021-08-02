@@ -3419,7 +3419,11 @@ table td:last-child { padding-right: 15px; }
 .card-project .card-project-cta { color: inherit; }
 @media (min-width: 970px) { .card-project .card-project-cta { padding: 10px 20px; font-size: 18px; line-height: 25px; } }
 
-.card-target { position: relative; font-size: 18px; line-height: 20px; }
+.card-target { position: relative; width: 100%; padding: 20px 15px; background-position: center; background-size: cover; font-size: 18px; line-height: 20px; }
+@media (min-width: 480px) { .card-target { padding: 20px; } }
+@media (min-width: 750px) { .card-target { padding: 25px 20px; } }
+@media (min-width: 970px) { .card-target { padding: 25px; } }
+@media (min-width: 1200px) { .card-target { padding: 40px 40px 50px; } }
 .card-target .card-target-header { margin: 0 0 10px; }
 @media (min-width: 480px) { .card-target .card-target-header { margin-bottom: 20px; } }
 @media (min-width: 1200px) { .card-target .card-target-header { margin-bottom: 30px; } }
@@ -3767,18 +3771,16 @@ table td:last-child { padding-right: 15px; }
 @media (min-width: 1200px) { .section-target .section-header .section-header-cta { font-size: 16px; } }
 @media (max-width: 479.98px) { .section-target .section-header .section-header-cta .btn-icon { margin: 0; } }
 
-.swiper-target { margin-left: -15px; margin-right: -15px; counter-reset: target-step; }
-@media (min-width: 1200px) { .swiper-target .card-target { max-width: 320px; } }
-@media (min-width: 1680px) { .swiper-target .card-target { max-width: none; } }
+.swiper-target { margin-left: -15px; margin-right: -15px; padding-left: 7.5px; padding-right: 7.5px; }
+@media (min-width: 970px) { .swiper-target { margin-left: -7.5px; margin-right: -7.5px; padding-left: 0; padding-right: 0; } }
+.swiper-target > .swiper-wrapper { margin: 0; }
+.swiper-target > .swiper-wrapper > .swiper-slide { padding-left: 5px; padding-right: 5px; }
+@media (min-width: 970px) { .swiper-target > .swiper-wrapper > .swiper-slide { padding-left: 7.5px; padding-right: 7.5px; } }
 
 .swiper-target-navigation-wrapper .swiper-target-button-prev, .swiper-target-navigation-wrapper .swiper-target-button-next { width: 35px; height: 35px; line-height: 35px; }
 @media (min-width: 480px) { .swiper-target-navigation-wrapper .swiper-target-button-prev, .swiper-target-navigation-wrapper .swiper-target-button-next { width: 40px; height: 40px; line-height: 40px; } }
 @media (min-width: 1200px) { .swiper-target-navigation-wrapper .swiper-target-button-prev, .swiper-target-navigation-wrapper .swiper-target-button-next { width: 50px; height: 50px; line-height: 50px; } }
 @media (min-width: 1200px) { .swiper-target-navigation-wrapper .swiper-target-button-prev .swiper-button-prev-media, .swiper-target-navigation-wrapper .swiper-target-button-prev .swiper-button-next-media, .swiper-target-navigation-wrapper .swiper-target-button-next .swiper-button-prev-media, .swiper-target-navigation-wrapper .swiper-target-button-next .swiper-button-next-media { width: 19px; height: 19px; } }
-
-.swiper-target-overlay-cover { position: absolute; z-index: -1; top: 0; left: 0; width: 100%; height: 100%; }
-.swiper-target-overlay-cover .swiper-target-overlay { width: 100%; }
-.swiper-target-overlay-cover .swiper-target-overlay > .swiper-wrapper > .swiper-slide { background-position: center; background-size: cover; }
 
 .target-grid { margin-bottom: -50px; }
 .target-grid .target-item { margin-bottom: 50px; }
