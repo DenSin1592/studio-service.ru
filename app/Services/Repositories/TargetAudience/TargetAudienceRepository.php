@@ -23,8 +23,19 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
             is_null($model) ? null : $model->id,
             $rootName,
             null,
-            null, 0
-            , ''
-            , 0);
+            null,
+            0,
+            '',
+            0);
     }
+
+
+   public function getModelsForTargetAudiencePage()
+   {
+      return $this->getModel()
+          ->where('publish', true)
+          ->where('parent_id', null)
+          ->get();
+   }
 }
+
