@@ -88,7 +88,7 @@
 
     <main class="main d-flex flex-column flex-shrink-0 flex-grow-1">
         <section class="section-target section-dark flex-grow-1">
-            <div class="contaienr">
+            <div class="container">
                 <div class="col-xxl-10 offset-xxl-1">
                     <nav class="breadcrumb-block" aria-label="breadcrumb">
                         <ol class="breadcrumb list-unstyled">
@@ -100,7 +100,7 @@
                     </nav>
 
                     <div class="section-header">
-                        <div class="row align-items-center">
+                        <div class="form-row align-items-center">
                             <div class="section-header-typography-container col-auto d-flex flex-wrap align-items-center">
                                 <div class="section-title title-h1">Для кого</div>
                             </div>
@@ -108,13 +108,13 @@
                             <div class="section-header-controls-container col-auto">
                                 <div class="swiper-target-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
                                     <button type="button" class="swiper-target-button-prev swiper-button-prev swiper-button-light" >
-                                        <svg class="swiper-button-prev-media" width="19" height="19">
+                                        <svg class="swiper-button-prev-media" width="14" height="14">
                                             <use xlink:href="images/icons/sprite.svg#icon-angle-left"></use>
                                         </svg>
                                     </button>
 
                                     <button type="button" class="swiper-target-button-next swiper-button-next swiper-button-light" >
-                                        <svg class="swiper-button-next-media" width="19" height="19">
+                                        <svg class="swiper-button-next-media" width="14" height="14">
                                             <use xlink:href="images/icons/sprite.svg#icon-angle-right"></use>
                                         </svg>
                                     </button>
@@ -122,7 +122,7 @@
                             </div>
 
                             <div class="section-header-switch-container col-auto">
-                                <button type="button" class="section-header-cta btn btn-primary"><img loading="lazy" src="images/icons/general/png/icon-bars.png" class="btn-icon" width="21" height="15" alt=""><span class="d-none d-sm-inline" >Смотреть списком</span></button>
+                                <button type="button" class="section-header-cta btn btn-primary" data-toggle="modal" data-target="#modalTarget" ><img loading="lazy" src="images/icons/general/png/icon-bars.png" class="btn-icon" width="21" height="15" alt=""><span class="d-none d-sm-inline" >Смотреть списком</span></button>
                             </div>
                         </div>
                     </div>
@@ -133,13 +133,14 @@
                                 <div class="swiper-slide col-10 col-sm-6 col-md-4">
                                     <div class="card-target">
                                         <div class="card-target-header">
+                                            <div class="card-target-count">1.</div>
                                             <div class="card-target-title title-h3">Производственные предприятия </div>
                                         </div>
 
                                         <ul class="card-target-includes list-unstyled">
                                             <li class="card-target-include-item">
                                                 <a href="#link" class="card-category card-category-sm text-left">
-                                                    <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                    <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
                                                         <div class="card-category-media-container col-auto">
                                                             <div class="card-category-thumbnail">
                                                                 <img loading="lazy" src="images/icons/categories/icon-category-factory.png" width="49" height="42" alt="Заводы" class="card-category-media">
@@ -154,7 +155,7 @@
                                             </li>
                                             <li class="card-target-include-item">
                                                 <a href="#link" class="card-category card-category-sm text-left">
-                                                    <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                    <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
                                                         <div class="card-category-media-container col-auto">
                                                             <div class="card-category-thumbnail">
                                                                 <img loading="lazy" src="images/icons/categories/icon-category-industry.png" width="42" height="57" alt="Промышленность" class="card-category-media">
@@ -174,13 +175,14 @@
                                 <div class="swiper-slide col-10 col-sm-6 col-md-4">
                                     <div class="card-target">
                                         <div class="card-target-header">
+                                            <div class="card-target-count">2.</div>
                                             <div class="card-target-title title-h3">Непроизводственные предприятия</div>
                                         </div>
 
                                         <ul class="card-target-includes list-unstyled">
                                             <li class="card-target-include-item">
                                                 <a href="#link" class="card-category card-category-sm text-left">
-                                                    <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                    <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
                                                         <div class="card-category-media-container col-auto">
                                                             <div class="card-category-thumbnail">
                                                                 <img loading="lazy" src="images/icons/categories/icon-category-bank.png" width="45" height="39" alt="Банки" class="card-category-media">
@@ -195,7 +197,7 @@
                                             </li>
                                             <li class="card-target-include-item">
                                                 <a href="#link" class="card-category card-category-sm text-left">
-                                                    <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                    <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
                                                         <div class="card-category-media-container col-auto">
                                                             <div class="card-category-thumbnail">
                                                                 <img loading="lazy" src="images/icons/categories/icon-category-finance.png" width="41" height="42" alt="Финансовые организации" class="card-category-media">
@@ -215,13 +217,14 @@
                                 <div class="swiper-slide col-10 col-sm-6 col-md-4">
                                     <div class="card-target">
                                         <div class="card-target-header">
+                                            <div class="card-target-count">3.</div>
                                             <div class="card-target-title title-h3">Образование</div>
                                         </div>
 
                                         <ul class="card-target-includes list-unstyled">
                                             <li class="card-target-include-item">
                                                 <a href="#link" class="card-category card-category-sm text-left">
-                                                    <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                    <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
                                                         <div class="card-category-media-container col-auto">
                                                             <div class="card-category-thumbnail">
                                                                 <img loading="lazy" src="images/icons/categories/icon-category-school.png" width="49" height="38" alt="Школы" class="card-category-media">
@@ -236,7 +239,7 @@
                                             </li>
                                             <li class="card-target-include-item">
                                                 <a href="#link" class="card-category card-category-sm text-left">
-                                                    <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                    <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
                                                         <div class="card-category-media-container col-auto">
                                                             <div class="card-category-thumbnail">
                                                                 <img loading="lazy" src="images/icons/categories/icon-category-university.png" width="49" height="32" alt="Университеты" class="card-category-media">
@@ -491,81 +494,538 @@
         </div>
     </div>
 
-    <!-- Offcanvas -->
-    <div class="offcanvas-wrapper d-none d-xl-none">
-        <div class="offcanvas-header">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-between">
-                    <div class="offcanvas-close-container col-auto">
-                        <button type="button" class="offcanvas-close d-flex align-items-center justify-content-center" >
-                            <svg aria-hidden="true" class="modal-close-media" width="20" height="20">
-                                <use xlink:href="images/icons/sprite.svg#icon-close"></use>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="offcanvas-logo-container col-auto">
-                        <a href="index.html" class="offcanvas-logo-block d-flex align-items-center">
-                            <div class="offcanvas-logo-thumbnail">
-                                <img src="images/logo.png" alt="Студия-Сервис" width="61" height="56" class="offcanvas-logo-media">
+    <div class="modal fade" id="modalTarget" tabindex="-1" aria-labelledby="modalTargetLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="modal-header d-flex align-items-center">
+                                <div class="modal-title title-h1" id="modalTargetLabel">Список ЦА</div>
+                                
+                                <button type="button" class="modal-close d-flex align-items-center justify-content-center" data-dismiss="modal" aria-label="Close">
+                                    <svg aria-hidden="true" class="modal-close-media" width="40" height="40">
+                                        <use xlink:href="images/icons/sprite.svg#icon-close"></use>
+                                    </svg>
+                                </button>
                             </div>
 
-                            <div class="offcanvas-logo-content">
-                                <div class="offcanvas-logo-title text-nowrap"><b>Студия-</b>Сервис</div>
-                                <div class="offcanvas-logo-text">Межрегиональный технический центр</div>
+                            <div class="modal-body">
+                                <div class="target-grid row">
+                                    <div class="target-item col-12 col-sm-6 col-md-4 col-xl-3">
+                                        <div class="card-target card-target-sm">
+                                            <div class="card-target-header">
+                                                <div class="card-target-count">1.</div>
+                                                <div class="card-target-title title-h6">Производственные предприятия </div>
+                                            </div>
+
+                                            <ul class="card-target-includes list-unstyled">
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-factory.png" width="49" height="42" alt="Заводы" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Заводы</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-industry.png" width="42" height="57" alt="Промышленность" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Промышленность</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="target-item col-12 col-sm-6 col-md-4 col-xl-3">
+                                        <div class="card-target card-target-sm">
+                                            <div class="card-target-header">
+                                                <div class="card-target-count">2.</div>
+                                                <div class="card-target-title title-h6">Непроизводственные предприятия</div>
+                                            </div>
+
+                                            <ul class="card-target-includes list-unstyled">
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-bank.png" width="45" height="39" alt="Банки" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Банки</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-finance.png" width="41" height="42" alt="Финансовые организации" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Финансовые организации</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="target-item col-12 col-sm-6 col-md-4 col-xl-3">
+                                        <div class="card-target card-target-sm">
+                                            <div class="card-target-header">
+                                                <div class="card-target-count">3.</div>
+                                                <div class="card-target-title title-h6">Образование</div>
+                                            </div>
+
+                                            <ul class="card-target-includes list-unstyled">
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-school.png" width="49" height="38" alt="Школы" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Школы</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-university.png" width="49" height="32" alt="Университеты" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Университеты</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="target-item col-12 col-sm-6 col-md-4 col-xl-3">
+                                        <div class="card-target card-target-sm">
+                                            <div class="card-target-header">
+                                                <div class="card-target-count">4.</div>
+                                                <div class="card-target-title title-h6">Производственные предприятия </div>
+                                            </div>
+
+                                            <ul class="card-target-includes list-unstyled">
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-factory.png" width="49" height="42" alt="Заводы" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Заводы</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-industry.png" width="42" height="57" alt="Промышленность" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Промышленность</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="target-item col-12 col-sm-6 col-md-4 col-xl-3">
+                                        <div class="card-target card-target-sm">
+                                            <div class="card-target-header">
+                                                <div class="card-target-count">5.</div>
+                                                <div class="card-target-title title-h6">Производственные предприятия </div>
+                                            </div>
+
+                                            <ul class="card-target-includes list-unstyled">
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-factory.png" width="49" height="42" alt="Заводы" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Заводы</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-industry.png" width="42" height="57" alt="Промышленность" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Промышленность</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="target-item col-12 col-sm-6 col-md-4 col-xl-3">
+                                        <div class="card-target card-target-sm">
+                                            <div class="card-target-header">
+                                                <div class="card-target-count">6.</div>
+                                                <div class="card-target-title title-h6">Непроизводственные предприятия</div>
+                                            </div>
+
+                                            <ul class="card-target-includes list-unstyled">
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-bank.png" width="45" height="39" alt="Банки" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Банки</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-finance.png" width="41" height="42" alt="Финансовые организации" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Финансовые организации</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="target-item col-12 col-sm-6 col-md-4 col-xl-3">
+                                        <div class="card-target card-target-sm">
+                                            <div class="card-target-header">
+                                                <div class="card-target-count">7.</div>
+                                                <div class="card-target-title title-h6">Образование</div>
+                                            </div>
+
+                                            <ul class="card-target-includes list-unstyled">
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-school.png" width="49" height="38" alt="Школы" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Школы</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-university.png" width="49" height="32" alt="Университеты" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Университеты</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="target-item col-12 col-sm-6 col-md-4 col-xl-3">
+                                        <div class="card-target card-target-sm">
+                                            <div class="card-target-header">
+                                                <div class="card-target-count">8.</div>
+                                                <div class="card-target-title title-h6">Производственные предприятия </div>
+                                            </div>
+
+                                            <ul class="card-target-includes list-unstyled">
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-factory.png" width="49" height="42" alt="Заводы" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Заводы</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-industry.png" width="42" height="57" alt="Промышленность" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Промышленность</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="target-item col-12 col-sm-6 col-md-4 col-xl-3">
+                                        <div class="card-target card-target-sm">
+                                            <div class="card-target-header">
+                                                <div class="card-target-count">9.</div>
+                                                <div class="card-target-title title-h6">Производственные предприятия </div>
+                                            </div>
+
+                                            <ul class="card-target-includes list-unstyled">
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-factory.png" width="49" height="42" alt="Заводы" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Заводы</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-industry.png" width="42" height="57" alt="Промышленность" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Промышленность</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="target-item col-12 col-sm-6 col-md-4 col-xl-3">
+                                        <div class="card-target card-target-sm">
+                                            <div class="card-target-header">
+                                                <div class="card-target-count">10.</div>
+                                                <div class="card-target-title title-h6">Непроизводственные предприятия</div>
+                                            </div>
+
+                                            <ul class="card-target-includes list-unstyled">
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-bank.png" width="45" height="39" alt="Банки" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Банки</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-finance.png" width="41" height="42" alt="Финансовые организации" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Финансовые организации</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="target-item col-12 col-sm-6 col-md-4 col-xl-3">
+                                        <div class="card-target card-target-sm">
+                                            <div class="card-target-header">
+                                                <div class="card-target-count">11.</div>
+                                                <div class="card-target-title title-h6">Образование</div>
+                                            </div>
+
+                                            <ul class="card-target-includes list-unstyled">
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-school.png" width="49" height="38" alt="Школы" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Школы</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-university.png" width="49" height="32" alt="Университеты" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Университеты</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="target-item col-12 col-sm-6 col-md-4 col-xl-3">
+                                        <div class="card-target card-target-sm">
+                                            <div class="card-target-header">
+                                                <div class="card-target-count">12.</div>
+                                                <div class="card-target-title title-h6">Производственные предприятия </div>
+                                            </div>
+
+                                            <ul class="card-target-includes list-unstyled">
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-factory.png" width="49" height="42" alt="Заводы" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Заводы</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                                <li class="card-target-include-item">
+                                                    <a href="#link" class="card-category card-category-xs text-left">
+                                                        <div class="form-row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                                            <div class="card-category-media-container col-auto">
+                                                                <div class="card-category-thumbnail">
+                                                                    <img loading="lazy" src="images/icons/categories/icon-category-industry.png" width="42" height="57" alt="Промышленность" class="card-category-media">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="card-category-typography-container col">
+                                                                <div class="card-category-title">Промышленность</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="offcanvas-statusbar">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-between">
-                    <div class="offcanvas-social-container col-auto">
-                        <ul class="offcanvas-social-list d-flex flex-wrap list-unstyled">
-                            <li class="offcanvas-social-item">
-                                <a href="#link" class="offcanvas-social-link" target="_blank">
-                                    <img src="images/icons/social/icon-social-telegram.png" width="35" height="35" alt="Telegram" class="offcanvas-social-media">
-                                </a>
-                            </li>
-
-                            <li class="offcanvas-social-item">
-                                <a href="#link" class="offcanvas-social-link" target="_blank">
-                                    <img src="images/icons/social/icon-social-whatsapp.png" width="35" height="35" alt="Whatsapp" class="offcanvas-social-media">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="offcanvas-contact-container col-auto">
-                        <div class="offcanvas-contact-block">
-                            <a href="tel:+74959333439" class="offcanvas-contact-link">+7(495) 933-3439</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="offcanvas-navigation">
-            <div class="container-fluid">
-                <nav class="offcanvas-nav-block">
-                    <ul class="offcanvas-nav-list d-flex flex-column list-unstyled text-center">
-                        <li class="offcanvas-nav-item">
-                            <a href="services.html" class="offcanvas-nav-link">Услуги</a>
-                        </li>
-                        <li class="offcanvas-nav-item">
-                            <a href="expertises.html" class="offcanvas-nav-link">Компетенции</a>
-                        </li>
-                        <li class="offcanvas-nav-item">
-                            <a href="#link" class="offcanvas-nav-link">Отзывы</a>
-                        </li>
-                        <li class="offcanvas-nav-item">
-                            <a href="#link" class="offcanvas-nav-link">Проекты</a>
-                        </li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </div>

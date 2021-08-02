@@ -1,6 +1,17 @@
 .section-content {
     background-position: center;
     background-size: cover;
+
+    ol.section-list {
+        counter-reset: counter-step;
+        > li {
+            position: relative;
+            &::before {
+                counter-increment: counter-step;
+                content: counters(counter-step, '.') ".";
+            }
+        }
+    }
 }
 
 
@@ -16,7 +27,7 @@
 
     .swiper-content-title {
         @include media-breakpoint-up(xxl) {
-            
+
         }
     }
 }

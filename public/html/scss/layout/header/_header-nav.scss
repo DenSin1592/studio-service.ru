@@ -11,8 +11,9 @@
         }
 
         .header-nav-link {
-            color: $c-purple;
             border-bottom: 2px solid currentColor;
+            color: $c-purple;
+            font-weight: 600;
             text-decoration: none;
 
             &:hover {

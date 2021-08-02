@@ -35,10 +35,6 @@ body {
 
 h1,
 .title-h1 {
-    // font-size: 55px;
-    // font-weight: 700;
-    // line-height: 60px;
-    // color: $c-default-heading;
     font-size: 25px;
     font-weight: 600;
     line-height: 30px;
@@ -62,27 +58,24 @@ h1,
 
 h2,
 .title-h2 {
-    font-size: 45px;
+    font-size: 22px;
     font-weight: 600;
-    // font-size: 25px;
-    // font-weight: 700;
-    // line-height: 30px;
-    // @include media-breakpoint-up(sm) {
-    //     font-size: 30px;
-    //     line-height: 35px;
-    // }
-    // @include media-breakpoint-up(md) {
-    //     font-size: 35px;
-    //     line-height: 40px;
-    // }
-    // @include media-breakpoint-up(lg) {
-    //     font-size: 40px;
-    //     line-height: 45px;
-    // }
-    // @include media-breakpoint-up(xl) {
-    //     font-size: 55px;
-    //     line-height: 60px;
-    // }
+    @include media-breakpoint-up(sm) {
+        font-size: 25px;
+        line-height: 35px;
+    }
+    @include media-breakpoint-up(md) {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 35px;
+        line-height: 45px;
+    }
+    @include media-breakpoint-up(xl) {
+        font-size: 45px;
+        line-height: 55px;
+    }
 }
 
 h3,
@@ -114,17 +107,80 @@ h3,
 
 h4,
 .title-h4 {
-    font-size: 35px;
+    font-size: 18px;
+    font-weight: 600;
+    @include media-breakpoint-up(sm) {
+        font-size: 20px;
+        // line-height: 25px;
+    }
+    @include media-breakpoint-up(md) {
+        font-size: 22px;
+        // line-height: 30px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 25px;
+        // line-height: 40px;
+    }
+    @include media-breakpoint-up(xl) {
+        font-size: 30px;
+        // line-height: 45px;
+    }
+    @include media-breakpoint-up(xxl) {
+        font-size: 35px;
+        // line-height: 50px;
+    }
 }
 
 h5,
 .title-h5 {
-    font-size: 32px;
+    font-size: 16px;
+    font-weight: 600;
+    @include media-breakpoint-up(sm) {
+        font-size: 18px;
+        // line-height: 25px;
+    }
+    @include media-breakpoint-up(md) {
+        font-size: 20px;
+        // line-height: 30px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 22px;
+        // line-height: 40px;
+    }
+    @include media-breakpoint-up(xl) {
+        font-size: 27px;
+        // line-height: 45px;
+    }
+    @include media-breakpoint-up(xxl) {
+        font-size: 32px;
+        // line-height: 50px;
+    }
 }
 
 h6,
 .title-h6 {
-    font-size: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    @include media-breakpoint-up(sm) {
+        font-size: 16px;
+        // line-height: 25px;
+    }
+    @include media-breakpoint-up(md) {
+        font-size: 18px;
+        // line-height: 30px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 20px;
+        // line-height: 40px;
+    }
+    @include media-breakpoint-up(xl) {
+        font-size: 25px;
+        // line-height: 45px;
+    }
+    @include media-breakpoint-up(xxl) {
+        font-size: 30px;
+        // line-height: 50px;
+    }
 }
 
 img {
@@ -133,6 +189,19 @@ img {
 
 b {
     font-weight: 600;
+}
+
+blockquote {
+    margin: 0;
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: $c-purple-light;
+    font-weight: 600;
+    @include media-breakpoint-up(xxl) {
+        padding: 20px 25px;
+        font-size: 24px;
+        line-height: 35px;
+    }
 }
 
 

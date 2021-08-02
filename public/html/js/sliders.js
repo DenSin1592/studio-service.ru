@@ -265,10 +265,10 @@
                 },
 
                 // spaceBetween: 10,
-                // navigation: {
-                //     nextEl: ".swiper-button-next",
-                //     prevEl: ".swiper-button-prev",
-                // },
+                navigation: {
+                    nextEl: next,
+                    prevEl: prev,
+                },
                 // thumbs: {
                 //     swiper: sliderOverlay,
                 // },

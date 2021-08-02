@@ -28,7 +28,6 @@
     border-radius: 50%;
     background: $c-default-heading;
     transition: background-color 300ms ease;
-    // color: $c-default-heading;
     color: $c-white;
     text-align: center;
     @include media-breakpoint-up(xl) {
@@ -37,7 +36,7 @@
     }
 
     &:hover {
-        background: rgba($c-default-heading, 0.9);
+        background: rgba($c-default-heading, 0.2);
         color: $c-white;
     }
 
