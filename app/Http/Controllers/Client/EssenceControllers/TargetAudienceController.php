@@ -26,4 +26,9 @@ class TargetAudienceController extends BaseEssenceController
 
         return $breadcrumbs;
     }
+
+    public function getModelsForTargetAudiencePage()
+    {
+        return $this->repository->getModelsForTargetAudiencePage();
+    }
 }

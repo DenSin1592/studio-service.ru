@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Client\PageControllers;
-use App\Http\Controllers\Client\BasePagesController;
 
+use App\Http\Controllers\Client\BasePagesController;
+use App\Http\Controllers\Client\EssenceControllers\TargetAudienceController;
 use App\Models\Node;
-use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
 
 final class TargetAudiencePageController extends BasePagesController
 {
@@ -14,7 +14,7 @@ final class TargetAudiencePageController extends BasePagesController
     public function show()
     {
         return parent::show()
-            ->with('modelList', resolve(TargetAudienceRepository::class)->getModelsForTargetAudiencePage())
+            ->with('modelList', resolve(TargetAudienceController::class)->getModelsForTargetAudiencePage())
             ;
     }
 }
