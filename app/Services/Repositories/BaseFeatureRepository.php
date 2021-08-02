@@ -37,25 +37,6 @@ abstract class BaseFeatureRepository extends BaseRepository
     }
 
 
-    private function allByPage($page, $limit): array
-    {
-        $query = $this->getModel()->query();
-
-        $total = $query->count();
-        $items = $query->skip($limit * ($page - 1))
-            ->orderBy('position')
-            ->take($limit)
-            ->get();
-
-        return [
-            'page' => $page,
-            'limit' => $limit,
-            'items' => $items,
-            'total' => $total,
-        ];
-    }
-
-
     public function paginate(): LengthAwarePaginator
     {
         return $this->flexPaginator->make(
@@ -63,19 +44,6 @@ abstract class BaseFeatureRepository extends BaseRepository
             'reviews-pagination-page',
             'reviews-pagination-limit'
         );
-    }
-
-
-    private function allByIds(array $ids): Collection
-    {
-        if (count($ids) === 0)
-            return Collection::make([]);
-
-        return $this->getModel()
-            ->query()
-            ->whereIn('id', $ids)
-            ->orderBy('position')
-            ->get();
     }
 
 
@@ -104,5 +72,74 @@ abstract class BaseFeatureRepository extends BaseRepository
         $this->attributeToggler->toggleAttribute($model, $attribute);
 
         return $model;
+    }
+
+
+    public function getEssencesBySearchString($searchString, $page = 1, $limit = 20): array
+    {
+        $searchString = trim($searchString);
+        if ($searchString === '' || empty($searchString))
+            return [
+                'items' => Collection::make([]),
+                'total' => 0,
+                'page' => $page,
+                'limit' => $limit,
+            ];
+
+        $query = $this->getModel()->where('name', 'like', "%{$searchString}%");
+
+        $total = $this->selectProductCount($query);
+
+        $products = $query
+            ->skip($limit * ($page - 1))
+            ->take($limit)
+            ->get();
+
+        return [
+            'items' => $products,
+            'total' => $total,
+            'page' => $page,
+            'limit' => $limit,
+        ];
+    }
+
+
+    private function allByIds(array $ids): Collection
+    {
+        if (count($ids) === 0)
+            return Collection::make([]);
+
+        return $this->getModel()
+            ->query()
+            ->whereIn('id', $ids)
+            ->orderBy('position')
+            ->get();
+    }
+
+
+    private function allByPage($page, $limit): array
+    {
+        $query = $this->getModel()->query();
+
+        $total = $query->count();
+        $items = $query->skip($limit * ($page - 1))
+            ->orderBy('position')
+            ->take($limit)
+            ->get();
+
+        return [
+            'page' => $page,
+            'limit' => $limit,
+            'items' => $items,
+            'total' => $total,
+        ];
+    }
+
+
+    private function selectProductCount($query)
+    {
+        return $query
+            ->distinct()
+            ->count();
     }
 }

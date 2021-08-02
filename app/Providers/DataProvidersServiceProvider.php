@@ -58,6 +58,7 @@ class DataProvidersServiceProvider extends ServiceProvider
         $this->app->bind(OfferForm::class,
             static function() {
                 $form = new OfferForm();
+                $form->addSubForm(\App(\App\Services\DataProviders\OfferForm\OfferSubForm\Services::class));
                 return $form;
             });
 
