@@ -1,0 +1,102 @@
+.table-responsive {
+    margin: -25px;
+    padding: 25px;
+    width: calc(100% + 50px);
+}
+
+table {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 30px;
+    background-color: $c-white;
+    @include media-breakpoint-up(xl) {
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    &::before,
+    &::after {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        content: '';
+    }
+
+    &::before {
+        background: conic-gradient(
+            from 90deg,
+            #944547,
+            #5b4a90,
+            #506c90,
+            #944547
+        );
+        filter: blur(10px);
+    }
+
+    &::after {
+        background-color: inherit;
+    }
+
+    tr {
+        &:not(:first-child):not(:last-child) {
+            border-bottom: 1px solid #bfc2c8;
+        }
+    }
+
+    th,
+    td {
+        vertical-align: top;
+    }
+
+    th {
+        padding: 15px 15px;
+        background: $c-primary;
+        color: $c-white;
+        @include media-breakpoint-up(xxl) {
+            padding: 28px 30px;
+        }
+
+        &:first-child {
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            @include media-breakpoint-up(xxl) {
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+            }
+        }
+
+        &:last-child {
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            @include media-breakpoint-up(xxl) {
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+            }
+        }
+    }
+
+    td {
+        padding: 10px 5px;
+        @include media-breakpoint-up(xl) {
+            padding: 20px;
+        }
+
+        &:first-child {
+            padding-left: 15px;
+            @include media-breakpoint-up(xl) {
+                padding-left: 30px;
+            }
+        }
+
+        &:last-child {
+            padding-right: 15px;
+            @include media-breakpoint-up(xl) {
+                padding-right: 30px;
+            }
+        }
+    }
+}

@@ -1,0 +1,152 @@
+.card-target {
+    position: relative;
+    width: 100%;
+    padding: 20px 15px;
+    background-position: center;
+    background-size: cover;
+    font-size: 18px;
+    line-height: 20px;
+    @include media-breakpoint-up(sm) {
+        padding: 20px;
+    }
+    @include media-breakpoint-up(md) {
+        padding: 25px 20px;
+    }
+    @include media-breakpoint-up(lg) {
+        padding: 25px;
+    }
+    @include media-breakpoint-up(xl) {
+        padding: 40px 40px 50px;
+    }
+
+    .card-target-header {
+        margin: 0 0 10px;
+        @include media-breakpoint-up(sm) {
+            margin-bottom: 20px;
+        }
+        @include media-breakpoint-up(xl) {
+            margin-bottom: 30px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin-bottom: 20px;
+        }
+    }
+
+    .card-target-count {
+        margin: 0 0 8px;
+        color: #c6a996;
+        font-size: 30px;
+        line-height: 1;
+        letter-spacing: -3.5px;
+        @include media-breakpoint-up(sm) {
+            margin-bottom: 15px;
+            font-size: 35px;
+        }
+        @include media-breakpoint-up(lg) {
+            font-size: 50px;
+            letter-spacing: -5px;
+        }
+        @include media-breakpoint-up(xl) {
+            margin: 0;
+            font-size: 80px;
+            letter-spacing: -8px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin-bottom: 10px;
+            font-size: 100px;
+            letter-spacing: -10px;
+        }
+    }
+
+    .card-target-title {
+        min-height: 45px;
+        margin: 0;
+        font-size: 20px;
+        line-height: 25px;
+        @include media-breakpoint-up(md) {
+            font-size: 22px;
+            line-height: 25px;
+        }
+        @include media-breakpoint-up(lg) {
+            min-height: 55px;
+            font-size: 25px;
+            line-height: 30px;
+        }
+        @include media-breakpoint-up(xl) {
+            min-height: 70px;
+            font-size: 30px;
+            line-height: 40px;
+        }
+        @include media-breakpoint-up(xxl) {
+            min-height: 90px;
+            font-size: 40px;
+            line-height: 50px;
+        }
+    }
+
+    .card-target-includes {
+        margin: 0;
+
+        .card-target-include-item {
+            &:not(:last-child) {
+                margin-bottom: 15px;
+                @include media-breakpoint-up(lg) {
+                    margin-bottom: 25px;
+                }
+            }
+        }
+    }
+
+
+    &.card-target-sm {
+        padding: 0 0 0 25px;
+
+        .card-target-header {
+            margin-bottom: 15px;
+        }
+
+        .card-target-count {
+            position: absolute;
+            top: 0;
+            right: calc(100% - 15px);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 25px;
+            letter-spacing: normal;
+            @include media-breakpoint-up(md) {
+                font-size: 20px;
+                line-height: 25px;
+            }
+            @include media-breakpoint-up(xl) {
+                font-size: 22px;
+                line-height: 30px;
+            }
+        }
+
+        .card-target-title {
+            min-height: auto;
+            font-size: 18px;
+            line-height: 25px;
+            @include media-breakpoint-up(sm) {
+                min-height: 50px;
+            }
+            @include media-breakpoint-up(md) {
+                min-height: 55px;
+                font-size: 20px;
+                line-height: 25px;
+            }
+            @include media-breakpoint-up(lg) {
+                font-size: 25px;
+                line-height: 30px;
+            }
+        }
+
+        .card-target-includes {
+             .card-target-include-item {
+                 &:not(:last-child) {
+                     margin-bottom: 15px;
+                 }
+             }
+        }
+    }
+}

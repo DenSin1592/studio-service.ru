@@ -1,0 +1,41 @@
+.breadcrumb-block {
+    margin: 0 0 20px;
+}
+
+.breadcrumb {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    font-size: 15px;
+    line-height: 25px;
+
+    .breadcrumb-item {
+        position: relative;
+
+        + .breadcrumb-item {
+            padding-left: 18px;
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                width: 5px;
+                height: 1px;
+                background: currentColor;
+                transform: translateY(-50%);
+                content: '';
+            }
+        }
+
+        .breadcrumb-link {
+            color: currentColor;
+            text-decoration: none;
+            &:hover {
+                color: $c-black;
+                text-decoration: none;
+            }
+        }
+    }
+}

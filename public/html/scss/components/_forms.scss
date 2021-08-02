@@ -1,0 +1,83 @@
+.form-group {
+    margin-bottom: 30px;
+    @include media-breakpoint-up(xl) {
+        margin-bottom: 45px;
+    }
+}
+
+.form-control {
+    height: 35px;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid currentColor;
+    border-radius: 0;
+    background: none;
+    font-size: 16px;
+    color: currentColor;
+    @include media-breakpoint-up(lg) {
+        font-size: 17px;
+    }
+    @include media-breakpoint-up(xl) {
+        font-size: 20px;
+    }
+
+    &::placeholder {
+        color: currentColor;
+    }
+
+    &:focus {
+        border-color: currentColor;
+        background: none;
+        box-shadow: none;
+        color: currentColor;
+
+        &::placeholder {
+            color: $c-light;
+        }
+    }
+}
+
+.custom-file {
+    height: 35px;
+
+    &-input,
+    &-label {
+        height: inherit;
+    }
+    
+    &-label {
+        margin: 0;
+        padding: 0 0 0 35px;
+        border: none;
+        border-radius: 0;
+        background: none;
+        color: currentColor;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 35px;
+        @include media-breakpoint-up(lg) {
+            font-size: 17px;
+        }
+        @include media-breakpoint-up(xl) {
+            font-size: 20px;
+        }
+        
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 26px;
+            height: 26px;
+            transform: translateY(-50%);
+            font-family: 'icomoon';
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 1;
+            content: '\f2aa';
+        }
+
+        &::after {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.offcanvas-logo-block {
+    font-family: $f-secondary;
+    font-size: 19px;
+    font-weight: 300;
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .offcanvas-logo-thumbnail {
+        flex: 0 0 61px;
+        width: 61px;
+        max-width: 61px;
+        margin-right: 10px;
+
+        .offcanvas-logo-media {
+            width: inherit;
+            height: auto;
+        }
+    }
+
+    .offcanvas-logo-title {
+        text-transform: uppercase;
+    }
+
+    .offcanvas-logo-text {
+        font-size: 8.8px;
+        line-height: normal;
+    }
+}

@@ -1,0 +1,50 @@
+<svg width="0" height="0" class="hidden">
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024" id="icon-bars">
+        <path d="M128 224h768v64h-768v-64zM128 480h768v64h-768v-64zM128 736h768v64h-768v-64z"></path>
+    </symbol>
+
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024" id="icon-angle-left">
+        <path d="M711.303 0c20.426 0 40.906 7.707 56.643 23.175 31.852 31.259 32.337 82.459 1.078 114.311l-359.586 366.323 359.909 370.58c31.097 32.013 30.343 83.213-1.671 114.311-32.013 31.043-83.213 30.397-114.311-1.671l-414.882-427.224c-30.666-31.421-30.504-81.597 0.269-112.909l414.882-422.696c15.791-16.115 36.756-24.199 57.667-24.199z"></path>
+    </symbol>
+
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024" id="icon-angle-right">
+        <path d="M296.421 1011.604c-20.426 0-40.906-7.707-56.643-23.175-31.852-31.259-32.337-82.459-1.078-114.311l359.586-366.323-359.855-370.634c-31.097-32.013-30.343-83.213 1.671-114.311s83.213-30.397 114.311 1.671l414.882 427.224c30.558 31.475 30.397 81.651-0.323 112.963l-414.882 422.643c-15.791 16.115-36.702 24.253-57.667 24.253z"></path>
+    </symbol>
+
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024" id="icon-angle-up">
+        <path d="M512 211l23 22 400 400-46 46-377-377-377 377-46-46 400-400z"></path>
+    </symbol>
+
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024" id="icon-angle-down">
+        <path d="M135 345l377 377 377-377 46 46-400 400-23 22-23-22-400-400z"></path>
+    </symbol>
+
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024" id="icon-arrow-left">
+        <path d="M425 217l46 46-217 217h642v64h-642l217 217-46 46-272-272-22-23 22-23z"></path>
+    </symbol>
+
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024" id="icon-arrow-right">
+        <path d="M599 217l272 272 22 23-22 23-272 272-46-46 217-217h-642v-64h642l-217-217z"></path>
+    </symbol>
+
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024" id="icon-arrow-up">
+        <path d="M512 131l23 22 272 272-46 46-217-217v642h-64v-642l-217 217-46-46 272-272z"></path>
+    </symbol>
+
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024" id="icon-arrow-down">
+        <path d="M480 128h64v642l217-217 46 46-272 272-23 22-23-22-272-272 46-46 217 217v-642z"></path>
+    </symbol>
+
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30.5 21.75" id="icon-arrow-to-right">
+        <path d="M29,0c-0.828,0-1.5,0.671-1.5,1.5v18.75c0,0.828,0.672,1.5,1.5,1.5s1.5-0.672,1.5-1.5V1.5
+		C30.5,0.671,29.828,0,29,0z"></path>
+	    <path d="M14.312,2.315c-0.585-0.586-1.535-0.588-2.121-0.002c-0.586,0.585-0.587,1.535-0.002,2.121L17.243,9.5H1.5
+		C0.671,9.5,0,10.171,0,11c0,0.828,0.671,1.5,1.5,1.5h15.658l-4.84,4.811c-0.588,0.584-0.591,1.534-0.007,2.122
+		c0.293,0.295,0.679,0.442,1.064,0.442c0.382,0,0.765-0.146,1.057-0.436l7.454-7.406c0.282-0.281,0.441-0.663,0.442-1.062
+		c0.001-0.398-0.157-0.78-0.438-1.063L14.312,2.315z"></path>
+    </symbol>
+
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024" id="icon-close">
+        <path d="M231 185l281 281 281-281 46 46-281 281 281 281-46 46-281-281-281 281-46-46 281-281-281-281z"></path>
+    </symbol>
+</svg>

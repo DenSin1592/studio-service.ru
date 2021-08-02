@@ -1,0 +1,74 @@
+// vars
+@import 'vars';
+
+// vendors
+@import '../vendor/bootstrap-4.6.0/scss/bootstrap.scss';
+
+// general
+@import 'fonts';
+@import 'base';
+
+// components
+@import 'components/swiper';
+@import 'components/nav';
+@import 'components/breadcrumb';
+@import 'components/forms';
+@import 'components/buttons';
+@import 'components/lists';
+@import 'components/table';
+@import 'components/gallery';
+@import 'components/twentytwenty';
+@import 'components/tooltip';
+@import 'components/modal';
+
+// header
+@import 'layout/header/header';
+@import 'layout/header/header-logo';
+@import 'layout/header/header-nav';
+@import 'layout/header/header-social';
+@import 'layout/header/header-contact';
+
+// cards
+@import 'components/cards/card-category';
+@import 'components/cards/card-service';
+@import 'components/cards/card-expertise';
+@import 'components/cards/card-advantage';
+@import 'components/cards/card-testimonial';
+@import 'components/cards/card-project';
+@import 'components/cards/card-target';
+@import 'components/cards/card-include';
+@import 'components/cards/card-social';
+
+// sections
+@import 'sections/section-display';
+@import 'sections/section-hero';
+@import 'sections/section-about';
+@import 'sections/section-categories';
+@import 'sections/section-services';
+@import 'sections/section-expertises';
+@import 'sections/section-advantages';
+@import 'sections/section-projects';
+@import 'sections/section-testimonials';
+@import 'sections/section-includes';
+@import 'sections/section-target';
+@import 'sections/section-article';
+@import 'sections/section-content';
+@import 'sections/section-social';
+@import 'sections/section-overlay';
+
+
+// footer
+@import 'layout/footer/footer';
+@import 'layout/footer/footer-logo';
+@import 'layout/footer/footer-contact';
+@import 'layout/footer/footer-social';
+@import 'layout/footer/footer-copyright';
+@import 'layout/footer/footer-studio';
+
+
+// offcanvas
+@import 'layout/offcanvas/offcanvas';
+@import 'layout/offcanvas/offcanvas-logo';
+@import 'layout/offcanvas/offcanvas-contact';
+@import 'layout/offcanvas/offcanvas-social';
+@import 'layout/offcanvas/offcanvas-nav';
