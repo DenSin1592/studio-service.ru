@@ -21,9 +21,9 @@
                     @include('admin.shared._list_flag', ['element' => $model, 'action' => route($routeToggleAttribute, [$model->id, 'menu_top']), 'attribute' => 'menu_top'])
                 </div>
 
-                <div class="menu_bottom-status">
+                {{--<div class="menu_bottom-status">
                     @include('admin.shared._list_flag', ['element' => $model, 'action' => route($routeToggleAttribute, [$model->id, 'menu_bottom']), 'attribute' => 'menu_bottom'])
-                </div>
+                </div>--}}
 
                 <div class="alias">
                     <a href="{{ TypeContainer::getClientUrl($model, true) }}" target="_blank">

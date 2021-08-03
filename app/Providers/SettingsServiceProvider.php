@@ -115,7 +115,7 @@ class SettingsServiceProvider extends ServiceProvider
                     new SettingValue(
                         'site_content.phone',
                         'Номер телефона',
-                        '+74959333439',
+                        '+7(495) 933-3439',
                         '',
                         SettingValue::TYPE_TEXT
                     )

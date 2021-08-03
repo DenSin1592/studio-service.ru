@@ -21,6 +21,6 @@
 
 {!! Form::tbCheckboxBlock('publish') !!}
 {!! Form::tbCheckboxBlock('menu_top') !!}
-{!! Form::tbCheckboxBlock('menu_bottom') !!}
+{{--{!! Form::tbCheckboxBlock('menu_bottom') !!}--}}
 
 @include('admin.shared._model_timestamps', ['model' => $formData[$essenceName]])

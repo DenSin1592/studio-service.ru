@@ -22,8 +22,11 @@ class ComposersServiceProvider extends ServiceProvider
                 'client.layouts._auth_menu',
             ],
             AdminMainMenuComposer::class => 'admin.layouts._main_menu',
-            ClientTopMenuComposer::class => 'client.layouts._header',
-            ClientBottomMenuComposer::class => 'client.layouts._footer',
+            ClientTopMenuComposer::class => [
+                'client.layouts._header',
+                'client.layouts._offcanvas'
+            ],
+            //ClientBottomMenuComposer::class => 'client.layouts._footer',
 
         ]);
     }
