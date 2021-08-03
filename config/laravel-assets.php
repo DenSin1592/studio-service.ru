@@ -31,7 +31,7 @@ return [
                 'vendor/fancybox-master/dist/jquery.fancybox.min.css',
                 'vendor/twentytwenty-master/css/twentytwenty.css',
                 'css/client/auth_menu.css',
-                'css/client/style.css',
+                'html/css/style.css',
             ],
             'filters' => ['css_min', 'embed_css', 'strip_bom', 'css_url_rebase'],
             //'async' => true,
@@ -52,6 +52,10 @@ return [
                 'vendor/twentytwenty-master/js/jquery.twentytwenty.js',
                 'vendor/twentytwenty-master/js/jquery.event.move.js',
                 'vendor/bs-custom-file-input/bs-custom-file-input.min.js',
+                'vendor/jquery.validate/jquery.validate.min.js',
+                'vendor/jquery.validate/additional-methods.min.js',
+                'vendor/jquery.validate/additional-methods.ext.js',
+                'vendor/jquery.validate/additional-methods.ext.js',
 
                 'js/common/csrf.js',
 
@@ -63,6 +67,7 @@ return [
                 'js/client/fancybox.js',
                 'js/client/tooltip.js',
                 'js/client/twentytwenty.js',
+                'js/client/feedback.js',
             ],
             'filters' => ['js_min', 'end_with_semicolon'],
             //'async' => true,
