@@ -48,7 +48,7 @@ class ServiceTask extends Model
             'icon',
             UploaderIntegrator::getUploader(
                 'uploads/service_tasks/icons', [
-                'icon' => new BoxVersion(50, 50, ['quality' => 100]),
+                'main' => new BoxVersion(50, 50, ['quality' => 100]),
                 'thumb' => new BoxVersion(85, 85, ['quality' => 100])
             ], true
             )

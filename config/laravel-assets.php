@@ -26,11 +26,12 @@ return [
 
         'client_general_css' => [
             'assets' => [
-                'css/client/auth_menu.css',
-                'css/client/style.css',
+
                 'vendor/swiper-4.5.1/dist/css/swiper.min.css',
                 'vendor/fancybox-master/dist/jquery.fancybox.min.css',
                 'vendor/twentytwenty-master/css/twentytwenty.css',
+                'css/client/auth_menu.css',
+                'css/client/style.css',
             ],
             'filters' => ['css_min', 'embed_css', 'strip_bom', 'css_url_rebase'],
             //'async' => true,
@@ -60,6 +61,7 @@ return [
                 'js/client/forms.js',
                 'js/client/offcanvas.js',
                 'js/client/fancybox.js',
+                'js/client/tooltip.js',
                 'js/client/twentytwenty.js',
             ],
             'filters' => ['js_min', 'end_with_semicolon'],

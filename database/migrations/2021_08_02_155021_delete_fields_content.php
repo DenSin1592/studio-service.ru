@@ -17,7 +17,7 @@ class DeleteFieldsContent extends Migration
             $table->dropColumn('content');
         });
         Schema::table('competence_pages', function (Blueprint $table) {
-            $table->text('content_top');
+            $table->text('content_top')->nullable();
         });
 
     }

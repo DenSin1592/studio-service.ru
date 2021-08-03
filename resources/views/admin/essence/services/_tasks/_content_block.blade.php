@@ -11,9 +11,9 @@
 
     <div class="short-info">
         <div class="loaded-image image-thumb-wrapper">
-            @if ($element->getAttachment('image')->exists())
-                <a href="{{{ $element->getAttachment('image')->getRelativePath() }}}" target="_blank" rel="prettyPhoto">
-                    <img src="{{{ $element->getAttachment('image')->getRelativePath('thumb') }}}" alt="" />
+            @if ($element->getAttachment('icon')->exists())
+                <a href="{{{ $element->getAttachment('icon')->getRelativePath() }}}" target="_blank" rel="prettyPhoto">
+                    <img src="{{{ $element->getAttachment('icon')->getRelativePath('thumb') }}}" alt="" />
                 </a>
             @else
                 <img src="/images/common/no-image/no-image-100x100.png" alt="" />

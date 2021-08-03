@@ -14,7 +14,7 @@ class AddContentTop extends Migration
     public function up()
     {
         Schema::table('service_pages', function (Blueprint $table) {
-            $table->text('content_top');
+            $table->text('content_top')->nullable();
         });
     }
 
