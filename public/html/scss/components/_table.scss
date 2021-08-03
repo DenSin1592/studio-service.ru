@@ -7,7 +7,7 @@
 table {
     position: relative;
     z-index: 1;
-    margin: 0 0 30px;
+    margin: 0;
     background-color: $c-white;
     @include media-breakpoint-up(xl) {
         font-size: 18px;
@@ -49,15 +49,57 @@ table {
 
     th,
     td {
+        padding-left: 5px;
+        padding-right: 5px;
         vertical-align: top;
+        @include media-breakpoint-up(lg) {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        @include media-breakpoint-up(xl) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        &:first-child {
+            padding-left: 15px;
+            @include media-breakpoint-up(md) {
+                padding-left: 20px;
+            }
+            @include media-breakpoint-up(lg) {
+                padding-left: 25px;
+            }
+            @include media-breakpoint-up(xl) {
+                padding-left: 30px;
+            }
+        }
+
+        &:last-child {
+            padding-right: 15px;
+            @include media-breakpoint-up(md) {
+                padding-right: 20px;
+            }
+            @include media-breakpoint-up(lg) {
+                padding-right: 25px;
+            }
+            @include media-breakpoint-up(xl) {
+                padding-right: 30px;
+            }
+        }
     }
 
     th {
-        padding: 15px 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
         background: $c-primary;
         color: $c-white;
+        @include media-breakpoint-up(lg) {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
         @include media-breakpoint-up(xxl) {
-            padding: 28px 30px;
+            padding-top: 28px;
+            padding-bottom: 28px;
         }
 
         &:first-child {
@@ -80,23 +122,15 @@ table {
     }
 
     td {
-        padding: 10px 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        @include media-breakpoint-up(md) {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
         @include media-breakpoint-up(xl) {
-            padding: 20px;
-        }
-
-        &:first-child {
-            padding-left: 15px;
-            @include media-breakpoint-up(xl) {
-                padding-left: 30px;
-            }
-        }
-
-        &:last-child {
-            padding-right: 15px;
-            @include media-breakpoint-up(xl) {
-                padding-right: 30px;
-            }
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
     }
 }
