@@ -1,17 +1,12 @@
-<div style="border: 1px solid black">
-
-    хлебные крошки
-
 @if (isset($breadcrumbs) && $breadcrumbs->length() > 0)
-    <ul class="breadcrumb d-flex flex-wrap reset-list" id="breadcrumbs">
-        <li class="breadcrumb-item">
-            <a class="breadcrumb-link" href="{{{ route('home') }}}">
-                Главная
-            </a>
-        </li>
-        @foreach ($breadcrumbs->getBreadcrumbs() as $key => $breadcrumb)
-            @include('client.shared.breadcrumbs._item')
-        @endforeach
-    </ul>
+    <nav class="breadcrumb-block" aria-label="breadcrumb">
+        <ol class="breadcrumb list-unstyled">
+            <li class="breadcrumb-item">
+                <a href="{{{ route('home') }}}" class="breadcrumb-link">Главная</a>
+            </li>
+            @foreach ($breadcrumbs->getBreadcrumbs() as $key => $breadcrumb)
+                @include('client.shared.breadcrumbs._item')
+            @endforeach
+        </ol>
+    </nav>
 @endif
-</div>

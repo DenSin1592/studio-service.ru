@@ -6,22 +6,59 @@
 
 @section('content')
 
-    <h1>{{$metaData['h1']}}</h1>
+    <section class="section-display">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-10 offset-xxl-1">
 
-    {!! $page->content_top !!}
+                    @include('client.shared.breadcrumbs._breadcrumbs')
 
-    @foreach($modelList as $model)
+                    <div class="display-header">
+                        <h1 class="display-title title-h1">{{$metaData['h1']}}</h1>
+                    </div>
 
-        <div>
-            <a href="{{$model->url}}">
-            <img loading="lazy" src="{{{ $model->getImgPath('preview_image', 'main', 'no-image-500x500.png') }}}"
-                 alt="{{$model->name}}" class="card-category-media">
-        <div>{{$model->name}}</div>
-            </a>
+                    <div class="row">
+                        <div class="display-media-container col-3 col-sm-2 col-xl-1">
+                            <div class="display-thumnbail">
+                                <img src="{{asset('images/icons/general/png/icon-expertise.png')}}" alt="" width="104"
+                                     height="104" class="display-media">
+                            </div>
+                        </div>
+
+                        <div class="display-typography-container col-12 col-sm-10 col-xl-11">
+                            <div class="display-description">{!! $page->content_top !!}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        @include('client.shared._section_social')
+    <section class="section-expertises section-dark"
+             style="background-image: url({{asset('images/sections/section-expertises/section-expertises-bg.jpg')}})">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-10 offset-xxl-1">
+                    <div class="expertises-grid row">
 
-    @endforeach
+                        @foreach($modelList as $model)
+                            <div class="expertise-item col-6 col-sm-4 col-md-3 d-flex">
+                                <a href="{{$model->url}}" class="card-expertise card-expertise-dark">
+                                    <div class="card-expertise-thumbnail">
+                                        <img loading="lazy" src="{{{ $model->getImgPath('preview_image', 'main', 'no-image-500x500.png') }}}"
+                                             alt="{{$model->name}}" class="card-expertise-media">
+                                    </div>
 
+                                    <div class="card-expertise-title">{{$model->name}}</div>
+                                </a>
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @include('client.shared._section_social')
 @stop
