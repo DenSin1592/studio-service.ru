@@ -14,5 +14,11 @@
             padding-top: 14px;
             padding-bottom: 14px;
         }
+
+        &.active {
+            .offcanvas-nav-link {
+                color: $c-secondary;
+            }
+        }
     }
 }

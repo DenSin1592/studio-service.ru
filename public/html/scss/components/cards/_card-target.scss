@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     padding: 20px 15px;
-    background-position: center;
+    background-position: center 30%;
     background-size: cover;
     font-size: 18px;
     line-height: 20px;
@@ -16,7 +16,11 @@
         padding: 25px;
     }
     @include media-breakpoint-up(xl) {
+        min-height: 370px;
         padding: 40px 40px 50px;
+    }
+    @include media-breakpoint-up(xxl) {
+        min-height: 500px;
     }
 
     .card-target-header {
