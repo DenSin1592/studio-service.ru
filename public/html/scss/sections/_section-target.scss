@@ -2,6 +2,9 @@
     position: relative;
     z-index: 1;
     padding: 90px 0 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     color: $c-white;
     @include media-breakpoint-up(md) {
         padding: 110px 0 100px;

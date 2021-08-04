@@ -20,7 +20,7 @@
         padding: 40px 40px 50px;
     }
     @include media-breakpoint-up(xxl) {
-        min-height: 500px;
+        min-height: 655px;
     }
 
     .card-target-header {
@@ -101,8 +101,9 @@
         }
     }
 
-
+    // target card sm
     &.card-target-sm {
+        min-height: auto;
         padding: 0 0 0 25px;
 
         .card-target-header {

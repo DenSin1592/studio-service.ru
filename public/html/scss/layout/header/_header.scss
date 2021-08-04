@@ -1,5 +1,5 @@
 .header-box {
-    position: fixed;
+    position: absolute;
     z-index: 99;
     top: 0;
     left: 0;
@@ -50,6 +50,7 @@
     }
 
     &.is-sticky {
+        position: fixed;
         color: currentColor !important;
         background-color: $c-white;
         &::before,
@@ -65,13 +66,7 @@
 
         &::before {
             opacity: 0.5;
-            background: conic-gradient(
-                from 90deg,
-                #944547,
-                #5b4a90,
-                #506c90,
-                #944547
-            );
+            background: #506c90;
             filter: blur(10px);
             @include media-breakpoint-up(xxl) {
                 opacity: 1;
