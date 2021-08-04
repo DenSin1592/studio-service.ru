@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Features\AutoPublish;
 
-use App\Models\Features\DeleteHelpers;
+use App\Models\Helpers\DeleteHelpers;
 use Diol\Fileclip\Eloquent\Glue;
 use Diol\FileclipExif\FileclipExif;
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +15,6 @@ class Review extends Model
     use AutoPublish;
     use Glue;
     use FileclipExif;
-    use DeleteHelpers;
 
     protected $fillable = [
         'name',
@@ -62,7 +61,7 @@ class Review extends Model
         static::deleting(
             function (self $model) {
                 \DB::transaction(function() use ($model){
-                    self::deleteRelatedAll($model->images());
+                    DeleteHelpers::deleteRelatedAll($model->images());
                     $model->services()->detach();
                 });
             }

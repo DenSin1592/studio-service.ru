@@ -16,7 +16,6 @@ class OurWork extends Model
     use AutoPublish;
     use Glue;
     use FileclipExif;
-    use DeleteHelpers;
 
     protected $fillable = [
         'name',
@@ -79,7 +78,7 @@ class OurWork extends Model
         static::deleting(
             function (self $model) {
                 \DB::transaction(function() use ($model){
-                    self::deleteRelatedAll($model->images());
+                    DeleteHelpers::deleteRelatedAll($model->images());
                     $model->services()->detach();
                 });
             }

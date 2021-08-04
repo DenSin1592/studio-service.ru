@@ -83,7 +83,7 @@ class TargetAudience extends Model
         self::mountUploader(
             'icon',
             UploaderIntegrator::getUploader(
-                'uploads/target-audience/icons', [
+                'uploads/target_audience/icons', [
                     'icon' => new BoxVersion(50, 50, ['quality' => 100]),
                     'thumb' => new BoxVersion(85, 85, ['quality' => 100])
                 ], true
