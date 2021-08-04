@@ -58,5 +58,7 @@ Route::namespace('Client')->group(function () {
         Route::get('/offery/{url}', 'OfferController@show')->name('offer');
     });
 
+    Route::post('feedback', 'FeedbackController')->name('feedback');
+
     Route::get('/{url}', 'DynamicPagesController@show')->name('dynamic_page')->where('url', '.*');
 });

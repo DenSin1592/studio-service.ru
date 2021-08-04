@@ -26,3 +26,8 @@
 
 @stop
 
+@section('modal')
+
+    @include('client.shared.modals._modal_callback')
+
+@stop

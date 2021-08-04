@@ -38,6 +38,8 @@
 
         @include('client.layouts._offcanvas')
 
+        @yield('modal')
+
         {!! Asset::includeJS('client_general_js') !!}
 
     </body>
