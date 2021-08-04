@@ -37,7 +37,7 @@
                                     <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
                                         <div class="card-category-media-container col-12 col-xxl-auto">
                                             <div class="card-category-thumbnail">
-                                                <img loading="lazy" src="{{{ $element->getImgPath('icon', 'icon', 'no-image-40x40.png') }}}" width="48" height="40" alt="{{$element->name}}" class="card-category-media">
+                                                <img loading="lazy" src="{{{ $element->getImgPath('icon', 'main', 'no-image-40x40.png') }}}" width="48" height="40" alt="{{$element->name}}" class="card-category-media">
                                             </div>
                                         </div>
 
