@@ -11,21 +11,20 @@
                 direction: 'horizontal',
                 slidesPerView: 2,
                 slidesPerGroup: 2,
-                loop: true,
+                loop: slides.length > 2 ? true : false,
                 breakpointsInverse: true,
                 breakpoints: {
                     // when window width is >= 480px
                     480: {
-                        // loop: slides.length > 2 ? true : false,
                         slidesPerView: 3,
                         slidesPerGroup: 3,
+                        loop: slides.length > 3 ? true : false,
                     },
                     // when window width is >= 750px
                     750: {
                         slidesPerView: 4,
                         slidesPerGroup: 4,
-
-                        // loop: slides.length > 2 ? true : false,
+                        loop: slides.length > 4 ? true : false,
                     },
                     // when window width is >= 1680px
                     1680: {
@@ -47,27 +46,28 @@
         $('.section-services').each(function (_, container) {
             let jContainer = $(container),
             swiperContainer = jContainer.find('.swiper-services'),
+            slides = swiperContainer.find('> .swiper-wrapper > .swiper-slide'),
             prev = jContainer.find('.swiper-services-button-prev'),
             next = jContainer.find('.swiper-services-button-next');
 
             new Swiper(swiperContainer, {
                 direction: 'horizontal',
                 slidesPerView: 'auto',
-                loop: true,
+                loop: slides.length > 1 ? true : false,
                 watchSlidesVisibility: true,
                 breakpointsInverse: true,
                 breakpoints: {
                     // when window width is >= 480px
                     480: {
-                        // loop: slides.length > 2 ? true : false,
                         slidesPerView: 2,
                         slidesPerGroup: 2,
+                        loop: slides.length > 2 ? true : false,
                     },
                     // when window width is >= 750px
                     750: {
                         slidesPerView: 3,
                         slidesPerGroup: 3,
-                        // loop: slides.length > 2 ? true : false,
+                        loop: slides.length > 3 ? true : false,
                     }
                 },
 
@@ -81,26 +81,27 @@
         $('.section-expertises').each(function (_, container) {
             let jContainer = $(container);
             swiperContainer = jContainer.find('.swiper-expertises'),
+            slides = swiperContainer.find('> .swiper-wrapper > .swiper-slide'),
             prev = jContainer.find('.swiper-expertises-button-prev'),
             next = jContainer.find('.swiper-expertises-button-next');
 
             new Swiper(swiperContainer, {
                 slidesPerView: 2,
                 slidesPerGroup: 2,
-                loop: true,
+                loop: slides.length > 2 ? true : false,
                 breakpointsInverse: true,
                 breakpoints: {
                     // when window width is >= 480px
                     480: {
-                        // loop: slides.length > 2 ? true : false,
                         slidesPerView: 3,
                         slidesPerGroup: 3,
+                        loop: slides.length > 3 ? true : false,
                     },
                     // when window width is >= 750px
                     750: {
                         slidesPerView: 4,
                         slidesPerGroup: 4,
-                        // loop: slides.length > 2 ? true : false,
+                        loop: slides.length > 4 ? true : false,
                     }
                 },
 
@@ -114,12 +115,12 @@
         $('.section-testimonials').each(function (_, container) {
             let jContainer = $(container);
             swiperContainer = jContainer.find('.swiper-testimonials'),
+            slides = swiperContainer.find('> .swiper-wrapper > .swiper-slide'),
             prev = jContainer.find('.swiper-testimonials-button-prev'),
             next = jContainer.find('.swiper-testimonials-button-next'),
             pagination = jContainer.find('.swiper-testimonials-pagination'),
             paginationCurrent = pagination.find('.swiper-testimonials-pagination-current'),
-            paginationTotal = pagination.find('.swiper-testimonials-pagination-total'),
-            slides = swiperContainer.find('> .swiper-wrapper > .swiper-slide');
+            paginationTotal = pagination.find('.swiper-testimonials-pagination-total');
 
             /**
              * Update active slide view.
@@ -213,27 +214,27 @@
         $('.section-target').each(function (_, container) {
             let jContainer = $(container),
             swiperContainer = jContainer.find('.swiper-target'),
+            slides = swiperContainer.find('> .swiper-wrapper > .swiper-slide'),
             prev = jContainer.find('.swiper-target-button-prev'),
             next = jContainer.find('.swiper-target-button-next');
 
             // main slider
             new Swiper(swiperContainer, {
-                loop: true,
-                // slidesPerView: 1.305,
                 slidesPerView: 'auto',
+                loop: slides.length > 1 ? true : false,
                 breakpointsInverse: true,
                 breakpoints: {
                     // when window width is >= 480px
                     480: {
-                        // loop: slides.length > 2 ? true : false,
                         slidesPerView: 2,
                         slidesPerGroup: 2,
+                        loop: slides.length > 2 ? true : false,
                     },
                     // when window width is >= 750px
                     750: {
                         slidesPerView: 3,
                         slidesPerGroup: 3,
-                        // loop: slides.length > 2 ? true : false,
+                        loop: slides.length > 3 ? true : false,
                     }
                 },
 
@@ -242,6 +243,55 @@
                     prevEl: prev,
                 },
                 
+            });
+        });
+
+        // gallery
+        $('.gallery-block').each(function (_, container) {
+            let jContainer = $(container),
+                swiperContainer = jContainer.find('.swiper-gallery'),
+                slides = swiperContainer.find('> .swiper-wrapper > .swiper-slide'),
+                prev = jContainer.find('.swiper-gallery-button-prev'),
+                next = jContainer.find('.swiper-gallery-button-next'),
+                pagination = jContainer.find('.swiper-gallery-pagination'),
+                paginationCurrent = pagination.find('.swiper-gallery-pagination-current'),
+                paginationTotal = pagination.find('.swiper-gallery-pagination-total');
+
+            /**
+             * Update active slide view.
+             * print out number of active slide and so on.
+             */
+            let updateActiveSlideView = function () {
+                if (paginationCurrent.length !== 0) {
+                    paginationCurrent.text(slider.realIndex + 1 + ' из ');
+                }
+            };
+
+            /**
+             * Update visible parameters for slider and related elements according to current slider state.
+             */
+            let updateSliderView = function () {
+                if (paginationTotal.length !== 0) {
+                    paginationTotal.text(slides.length);
+                }
+                updateActiveSlideView();
+            };
+
+            let slider = new Swiper(swiperContainer, {
+                noSwipingClass: 'twentytwenty-handle',
+                loop: slides.length > 1 ? true : false,
+
+                navigation: {
+                    nextEl: next,
+                    prevEl: prev,
+                },
+            });
+
+            updateSliderView();
+
+            // On slide change change update current slide info
+            slider.on('slideChange', function () {
+                updateActiveSlideView();
             });
         });
     });
