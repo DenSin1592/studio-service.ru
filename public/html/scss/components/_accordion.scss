@@ -1,0 +1,89 @@
+.card-accordion {
+    position: relative;
+    margin: 0 0 20px;
+    padding: 25px 25px;
+    border-radius: 10px;
+    background: $c-purple-light;
+
+    &-header {
+
+    }
+
+    &-content {
+        padding: 0 0 0 90px;
+    }
+
+    &-typogrpahy-container {
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &-title {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0 0 0 80px;
+        border: none;
+        border-radius: 0;
+        background: none;
+        text-align: left;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #c5cad6;
+            text-align: center;
+            line-height: 40px;
+
+            @include media-breakpoint-up(xl) {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+            }
+        }
+
+        &[aria-expanded="true"] {
+            &::before {
+                content: '-';
+            }
+        }
+
+        &[aria-expanded="false"] {
+            &::before {
+                content: '+';
+            }
+        }
+    }
+
+    .text-lead {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 20px;
+        @include media-breakpoint-up(lg) {
+            font-size: 16px;
+            line-height: 25px;
+        }
+        @include media-breakpoint-up(xl) {
+            font-size: 18px;
+            line-height: 25px;
+        }
+        @include media-breakpoint-up(xxl) {
+            font-size: 22px;
+            line-height: 30px;
+        }
+    }
+}
