@@ -70,13 +70,15 @@
 
                                                     @if($element->services->count() > 0)
                                                         <div class="card-project-services-block">
-                                                            <div class="card-project-services-title">Оказанные услуги</div>
+                                                            <div class="card-project-services-title">Оказанные услуги
+                                                            </div>
 
                                                             <ul class="card-project-services-list list-unstyled check-list">
 
                                                                 @foreach($element->services as $elem)
                                                                     <li class="list-item">
-                                                                        <a href="{{ $elem->url}}" class="list-link">{{$elem->name}}</a>
+                                                                        <a href="{{ $elem->url}}"
+                                                                           class="list-link">{{$elem->name}}</a>
                                                                     </li>
                                                                 @endforeach
 
@@ -84,7 +86,9 @@
                                                         </div>
                                                     @endif
 
-                                                    <a href="{{ $element->url}}" class="card-project-cta btn btn-outline-secondary">Более подробно о проекте</a>
+                                                    <a href="{{ $element->url}}"
+                                                       class="card-project-cta btn btn-outline-secondary">Более подробно
+                                                        о проекте</a>
                                                 </div>
                                             </div>
                                         </div>
