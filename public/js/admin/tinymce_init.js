@@ -26,6 +26,7 @@
             // Init tinymce
             var initData = {
                 selector: '[data-tinymce]',
+                forced_root_block : "",
                 menubar: false,
                 plugins: "image,link,code,table",
                 toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify |  bullist numlist outdent indent | table link unlink image | removeformat code",
