@@ -223,6 +223,7 @@ return [
         'review_date' => 'Дата отзыва',
         'on_home_page' => 'На главной',
         'email' => 'Email',
+        'black_header_preview' => 'Чёрный заголовок на превью (по умолчанию заголовок белый)(подходит для белых картинок)',
 
         'our_works_preview' => 'Превью',
         'our_works_description' => "Описание",

@@ -21,6 +21,7 @@ class Competence extends Model
         'alias',
         'publish',
         'on_home_page',
+        'black_header_preview',
         'position',
         'preview_image_file',
         'preview_image_remove',

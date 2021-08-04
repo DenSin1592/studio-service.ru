@@ -43,14 +43,9 @@
 
                         @foreach($modelList as $model)
                             <div class="expertise-item col-6 col-sm-4 col-md-3 d-flex">
-                                <a href="{{$model->url}}" class="card-expertise card-expertise-dark">
-                                    <div class="card-expertise-thumbnail">
-                                        <img loading="lazy" src="{{{ $model->getImgPath('preview_image', 'main', 'no-image-500x500.png') }}}"
-                                             alt="{{$model->name}}" class="card-expertise-media">
-                                    </div>
 
-                                    <div class="card-expertise-title">{{$model->name}}</div>
-                                </a>
+                                @include('client.shared.competencies._card')
+
                             </div>
                         @endforeach
 
