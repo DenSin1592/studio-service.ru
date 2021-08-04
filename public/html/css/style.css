@@ -3075,8 +3075,8 @@ blockquote { margin: 0; padding: 10px 15px; border-radius: 20px; background-colo
 
 .breadcrumb-block { margin: 0 0 20px; }
 
-.breadcrumb { margin: 0; padding: 0; border: none; border-radius: 0; background: none; font-size: 15px; line-height: 25px; }
-.breadcrumb .breadcrumb-item { position: relative; }
+.breadcrumb { overflow-y: auto; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: nowrap; flex-wrap: nowrap; margin: -15px; padding: 0 15px; border: none; border-radius: 0; background: none; font-size: 15px; line-height: 25px; }
+.breadcrumb .breadcrumb-item { position: relative; -webkit-box-flex: 0; -ms-flex: 0 0 auto; flex: 0 0 auto; }
 .breadcrumb .breadcrumb-item + .breadcrumb-item { padding-left: 18px; }
 .breadcrumb .breadcrumb-item + .breadcrumb-item::before { position: absolute; top: 50%; left: 5px; width: 5px; height: 1px; background: currentColor; -webkit-transform: translateY(-50%); transform: translateY(-50%); content: ''; }
 .breadcrumb .breadcrumb-item .breadcrumb-link { color: currentColor; text-decoration: none; }
@@ -3223,7 +3223,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 
 .modal-backdrop.show { opacity: 0.97; background-color: #00173a; }
 
-.header-box { position: fixed; z-index: 99; top: 0; left: 0; width: 100%; padding: 12px 0; -webkit-transition: padding-top 100ms ease-in-out, padding-bottom 100ms ease-in-out; transition: padding-top 100ms ease-in-out, padding-bottom 100ms ease-in-out; }
+.header-box { position: absolute; z-index: 99; top: 0; left: 0; width: 100%; padding: 12px 0; -webkit-transition: padding-top 100ms ease-in-out, padding-bottom 100ms ease-in-out; transition: padding-top 100ms ease-in-out, padding-bottom 100ms ease-in-out; }
 @media (min-width: 750px) { .header-box { padding: 32px 0; } }
 @media (min-width: 970px) { .header-box { padding: 25px 0; } }
 @media (min-width: 1680px) { .header-box { padding: 40px 0; } }
@@ -3233,9 +3233,9 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 480px) { .header-box .row:not(.no-gutters) > .col, .header-box .row:not(.no-gutters) > [class*="col-"] { padding-left: 15px; padding-right: 15px; } }
 @media (min-width: 750px) { .header-box .row:not(.no-gutters) > .col, .header-box .row:not(.no-gutters) > [class*="col-"] { padding-left: 10px; padding-right: 10px; } }
 @media (min-width: 1680px) { .header-box .row:not(.no-gutters) > .col, .header-box .row:not(.no-gutters) > [class*="col-"] { padding-left: 15px; padding-right: 15px; } }
-.header-box.is-sticky { color: currentColor !important; background-color: #fff; }
+.header-box.is-sticky { position: fixed; color: currentColor !important; background-color: #fff; }
 .header-box.is-sticky::before, .header-box.is-sticky::after { position: absolute; z-index: -1; top: 0; left: 0; right: 0; bottom: 0; content: ''; }
-.header-box.is-sticky::before { opacity: 0.5; background: conic-gradient(from 90deg, #944547, #5b4a90, #506c90, #944547); -webkit-filter: blur(10px); filter: blur(10px); }
+.header-box.is-sticky::before { opacity: 0.5; background: #506c90; -webkit-filter: blur(10px); filter: blur(10px); }
 @media (min-width: 1680px) { .header-box.is-sticky::before { opacity: 1; top: 0; } }
 .header-box.is-sticky::after { background-color: inherit; }
 @media (min-width: 750px) { .header-box.is-sticky { padding-top: 10px; padding-bottom: 10px; } }
@@ -3450,12 +3450,12 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 .card-project .card-project-cta { color: inherit; }
 @media (min-width: 970px) { .card-project .card-project-cta { padding: 10px 20px; font-size: 18px; line-height: 25px; } }
 
-.card-target { position: relative; width: 100%; padding: 20px 15px; background-position: center 30%; background-size: cover; font-size: 18px; line-height: 20px; }
-@media (min-width: 480px) { .card-target { padding: 20px; } }
-@media (min-width: 750px) { .card-target { padding: 25px 20px; } }
-@media (min-width: 970px) { .card-target { padding: 25px; } }
-@media (min-width: 1200px) { .card-target { min-height: 370px; padding: 40px 40px 50px; } }
-@media (min-width: 1680px) { .card-target { min-height: 500px; } }
+.card-target { position: relative; width: 100%; min-height: 305px; padding: 20px 15px; background-position: center 30%; background-size: cover; font-size: 18px; line-height: 20px; }
+@media (min-width: 480px) { .card-target { min-height: 330px; padding: 20px; } }
+@media (min-width: 750px) { .card-target { min-height: 340px; padding: 25px 20px; } }
+@media (min-width: 970px) { .card-target { min-height: 440px; padding: 25px; } }
+@media (min-width: 1200px) { .card-target { min-height: 525px; padding: 40px 40px 50px; } }
+@media (min-width: 1680px) { .card-target { min-height: 565px; } }
 .card-target .card-target-header { margin: 0 0 10px; }
 @media (min-width: 480px) { .card-target .card-target-header { margin-bottom: 20px; } }
 @media (min-width: 1200px) { .card-target .card-target-header { margin-bottom: 30px; } }
@@ -3473,7 +3473,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 .card-target .card-target-includes { margin: 0; }
 .card-target .card-target-includes .card-target-include-item:not(:last-child) { margin-bottom: 15px; }
 @media (min-width: 970px) { .card-target .card-target-includes .card-target-include-item:not(:last-child) { margin-bottom: 25px; } }
-.card-target.card-target-sm { padding: 0 0 0 25px; }
+.card-target.card-target-sm { min-height: auto; padding: 0 0 0 25px; }
 .card-target.card-target-sm .card-target-header { margin-bottom: 15px; }
 .card-target.card-target-sm .card-target-count { position: absolute; top: 0; right: calc(100% - 15px); font-size: 18px; font-weight: 400; line-height: 25px; letter-spacing: normal; }
 @media (min-width: 750px) { .card-target.card-target-sm .card-target-count { font-size: 20px; line-height: 25px; } }
@@ -3781,7 +3781,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 .swiper-includes .swiper-wrapper .swiper-slide.swiper-slide-active { opacity: 1; visibility: visible; }
 .swiper-includes .swiper-wrapper .swiper-slide.swiper-slide-active + .swiper-slide-next { opacity: 0.5; visibility: visible; }
 
-.section-target { position: relative; z-index: 1; padding: 90px 0 50px; color: #fff; }
+.section-target { position: relative; z-index: 1; padding: 90px 0 50px; background-repeat: no-repeat; background-position: center; background-size: cover; color: #fff; }
 @media (min-width: 750px) { .section-target { padding: 110px 0 100px; } }
 @media (min-width: 970px) { .section-target { padding: 125px 0 85px; } }
 @media (min-width: 1200px) { .section-target { padding: 155px 0 120px; } }

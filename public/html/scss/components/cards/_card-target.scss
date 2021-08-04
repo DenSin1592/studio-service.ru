@@ -1,26 +1,30 @@
 .card-target {
     position: relative;
     width: 100%;
+    min-height: 305px;
     padding: 20px 15px;
     background-position: center 30%;
     background-size: cover;
     font-size: 18px;
     line-height: 20px;
     @include media-breakpoint-up(sm) {
+        min-height: 330px;
         padding: 20px;
     }
     @include media-breakpoint-up(md) {
+        min-height: 340px;
         padding: 25px 20px;
     }
     @include media-breakpoint-up(lg) {
+        min-height: 440px;
         padding: 25px;
     }
     @include media-breakpoint-up(xl) {
-        min-height: 370px;
+        min-height: 525px;
         padding: 40px 40px 50px;
     }
     @include media-breakpoint-up(xxl) {
-        min-height: 500px;
+        min-height: 565px;
     }
 
     .card-target-header {
@@ -101,8 +105,9 @@
         }
     }
 
-
+    // target card sm
     &.card-target-sm {
+        min-height: auto;
         padding: 0 0 0 25px;
 
         .card-target-header {
