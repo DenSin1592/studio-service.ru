@@ -45,7 +45,7 @@
 
                     <div class="hero-media-container col-12 col-md-5 col-xl-5 col-xxl-5 offset-md-7 offset-xl-6 d-flex align-items-end justify-content-center">
                         <figure class="hero-media-figure">
-                            <img loading="lazy" src="asset('images/sections/section-hero/section-hero-media-2.png')" width="860" height="755" alt="" class="hero-media">
+                            <img loading="lazy" src="{{asset('images/sections/section-hero/section-hero-media-2.png')}}" width="860" height="755" alt="" class="hero-media">
                         </figure>
                     </div>
                 </div>
