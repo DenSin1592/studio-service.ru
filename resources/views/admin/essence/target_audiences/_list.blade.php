@@ -7,7 +7,7 @@
 
                 <div class="name">
                     <a href="{{ route($routeEdit, [$model->id]) }}"
-                       style="margin-left: {{ $lvl * 0.5 }}em;"
+                       style="margin-left: {{ $lvl * 1.5 }}em;"
                     >
                         {{ $model->name }}
                     </a>
