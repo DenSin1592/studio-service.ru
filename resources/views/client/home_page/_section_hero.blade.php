@@ -1,6 +1,4 @@
-{{--todo:возможно старая вёрстка - натянуть новую--}}
-
-<section class="section-hero section-dark" style="background-image: url('images/sections/section-hero/section-hero-bg.jpg')" >
+<section class="section-hero section-dark" style="background-image: url({{asset('images/sections/section-hero/section-hero-bg.jpg')}})" >
     <div class="container">
         <div class="row">
             <div class="col-xxl-10 offset-xxl-1">
@@ -29,14 +27,14 @@
                                 <div class="col-auto">
                                     <ul class="hero-social-list list-unstyled d-flex flex-wrap">
                                         <li class="hero-social-item">
-                                            <a href="#link" class="hero-social-link d-flex align-items-center justify-content-center" >
-                                                <img src="images/icons/general/png/icon-telegram.png" width="22" height="18" alt="Telegram" class="hero-social-media">
+                                            <a href="https://t.me/+79160640600" class="hero-social-link d-flex align-items-center justify-content-center" target="_blank">
+                                                <img src="{{asset('images/icons/general/png/icon-telegram.png')}}" width="22" height="18" alt="Telegram" class="hero-social-media">
                                             </a>
                                         </li>
 
                                         <li class="hero-social-item">
-                                            <a href="#link" class="hero-social-link d-flex align-items-center justify-content-center" >
-                                                <img src="images/icons/general/png/icon-whatsapp.png" width="27" height="27" alt="Whatsapp" class="hero-social-media">
+                                            <a href="https://wa.me/+79160640600" class="hero-social-link d-flex align-items-center justify-content-center" target="_blank">
+                                                <img src="{{asset('images/icons/general/png/icon-whatsapp.png')}}" width="27" height="27" alt="Whatsapp" class="hero-social-media">
                                             </a>
                                         </li>
                                     </ul>
@@ -47,7 +45,7 @@
 
                     <div class="hero-media-container col-12 col-md-5 col-xl-5 col-xxl-5 offset-md-7 offset-xl-6 d-flex align-items-end justify-content-center">
                         <figure class="hero-media-figure">
-                            <img loading="lazy" src="images/sections/section-hero/section-hero-media-2.png" width="860" height="755" alt="" class="hero-media">
+                            <img loading="lazy" src="asset('images/sections/section-hero/section-hero-media-2.png')" width="860" height="755" alt="" class="hero-media">
                         </figure>
                     </div>
                 </div>
