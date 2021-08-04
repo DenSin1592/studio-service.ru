@@ -7,6 +7,7 @@ use App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm\Abilities;
 use App\Services\DataProviders\AdminUserForm\AdminUserForm;
 use App\Services\DataProviders\AdminUserForm\AdminUserSubForm\Roles;
 use App\Services\DataProviders\CompetenceForm\CompetenceForm;
+use App\Services\DataProviders\FeedbackForm\FeedbackForm;
 use App\Services\DataProviders\OfferForm\OfferForm;
 use App\Services\DataProviders\OurWorkForm\OurWorkForm;
 use App\Services\DataProviders\ReviewForm\ReviewForm;
@@ -45,6 +46,11 @@ class DataProvidersServiceProvider extends ServiceProvider
                 return $form;
             });
 
+        $this->app->bind(FeedbackForm::class,
+            static function() {
+                $form = new FeedbackForm();
+                return $form;
+            });
 
         $this->app->bind(ReviewForm::class,
             static function() {

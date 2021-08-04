@@ -3,6 +3,7 @@
 namespace App\Providers\Admin;
 
 use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
+use App\Http\Controllers\Admin\EssenceControllers\FeedbackController;
 use App\Http\Controllers\Admin\EssenceControllers\OffersController;
 use App\Http\Controllers\Admin\EssenceControllers\OurWorksController;
 use App\Http\Controllers\Admin\EssenceControllers\ServicesController;
@@ -129,6 +130,26 @@ class BreadcrumbsServiceProvider extends ServiceProvider
                 function () {
                     $path = new Path();
                     $path->add(CompetenciesController::INDEX_TITLE, route(CompetenciesController::ROUTE_INDEX));
+                    $path->add('Редактирование');
+                    return $path;
+                }
+            );
+
+
+            $breadcrumbs->addBuilder(
+                FeedbackController::BREADCRUMBS_CREATE,
+                function () {
+                    $path = new Path();
+                    $path->add(FeedbackController::INDEX_TITLE, route(FeedbackController::ROUTE_INDEX));
+                    $path->add('Создание');
+                    return $path;
+                }
+            );
+            $breadcrumbs->addBuilder(
+                FeedbackController::BREADCRUMBS_EDIT,
+                function () {
+                    $path = new Path();
+                    $path->add(FeedbackController::INDEX_TITLE, route(FeedbackController::ROUTE_INDEX));
                     $path->add('Редактирование');
                     return $path;
                 }

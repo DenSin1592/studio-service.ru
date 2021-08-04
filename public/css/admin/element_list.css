@@ -248,3 +248,19 @@
 .sorting-control {
     margin-bottom: 0.3rem;
 }
+
+.element-list-wrapper .element-container > .id {
+    width: 10rem;
+}
+
+.element-list-wrapper .element-container > .status {
+    width: 10rem;
+}
+
+.element-list-wrapper .element-container > .device_type {
+    width: 15rem;
+}
+
+.element-list-wrapper .element-container > .name {
+    width: 15rem;
+}

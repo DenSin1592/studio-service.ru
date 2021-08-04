@@ -12,13 +12,13 @@ class Feedback extends Model
 
     protected $table = 'feedback';
 
-    private const STATUS_NEW = 'new';
-    private const STATUS_IN_PROGRESS = 'in_progress';
-    private const STATUS_CLOSED = 'closed';
+    public const STATUS_NEW = 'new';
+    public const STATUS_IN_PROGRESS = 'in_progress';
+    public const STATUS_CLOSED = 'closed';
     public const STATUS_LIST = [
-        self::STATUS_NEW,
-        self::STATUS_IN_PROGRESS,
-        self::STATUS_CLOSED
+        self::STATUS_NEW => 'Новая',
+        self::STATUS_IN_PROGRESS => 'В обработке',
+        self::STATUS_CLOSED => 'Закрыта'
     ];
 
     protected $fillable = [

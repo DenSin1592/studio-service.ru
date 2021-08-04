@@ -5,6 +5,7 @@ namespace App\Providers\Admin;
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
+use App\Http\Controllers\Admin\EssenceControllers\FeedbackController;
 use App\Http\Controllers\Admin\EssenceControllers\OffersController;
 use App\Http\Controllers\Admin\EssenceControllers\OurWorksController;
 use App\Http\Controllers\Admin\EssenceControllers\StructureController;
@@ -74,6 +75,16 @@ class MenuServiceProvider extends ServiceProvider
                         'glyphicon-usd',
                         route(OffersController::ROUTE_INDEX),
                         [OffersController::class]
+                    )
+                );
+
+
+                $menu->addMenuElement(
+                    new MenuElement(
+                        'Обратная связь',
+                        'glyphicon-envelope',
+                        route(FeedbackController::ROUTE_INDEX),
+                        [FeedbackController::class]
                     )
                 );
 

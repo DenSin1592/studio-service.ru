@@ -17,8 +17,8 @@
         </div>
 
         @include('admin.shared.resource_list.sorting._commit', [
-            'updateUrl' => route($routeUpdatePosition),
-            'reloadUrl' => route($routeIndex)
+            'updateUrl' => $routeUpdatePosition,
+            'reloadUrl' => $routeIndex
             ])
 
         <div>

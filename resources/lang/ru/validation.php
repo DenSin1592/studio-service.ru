@@ -168,12 +168,15 @@ return [
         'created_at' => 'Дата создания',
         'updated_at' => 'Дата редактирования',
 
+        'id' => 'Номер',
         'name' => 'Название',
         'header' => 'Заголовок',
         'sub_header' => 'Подзаголовок',
         'meta_title' => 'Meta title',
         'meta_description' => 'Meta description',
         'meta_keywords' => 'Meta keywords',
+        'status' => 'Статус',
+        'phone' => 'Телефон',
 
         'username' => 'Имя пользователя',
         'password' => 'Пароль',
@@ -232,5 +235,23 @@ return [
 
         'service' => "Услуга",
         'TA' => "ЦА",
+        'admin_comment' => 'Коментарий администратора',
+
+    ],
+
+    'model_values' => [
+        'feedback' => [
+            'status' => [
+                \App\Models\Feedback::STATUS_NEW => 'Новая',
+                \App\Models\Feedback::STATUS_IN_PROGRESS => 'В обработке',
+                \App\Models\Feedback::STATUS_CLOSED => 'Закрыта',
+            ],
+            'referral_url' => 'Страница отправки заявки',
+        ],
+        'device_type' => [
+            \App\Helpers\Device::TYPE_DESKTOP => 'компьютер',
+            \App\Helpers\Device::TYPE_MOBILE => 'телефон',
+            \App\Helpers\Device::TYPE_TABLET => 'планшет',
+        ],
     ],
 ];

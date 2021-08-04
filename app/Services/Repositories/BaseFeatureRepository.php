@@ -124,7 +124,7 @@ abstract class BaseFeatureRepository extends BaseRepository
     }
 
 
-    private function allByPage($page, $limit): array
+    protected function allByPage($page, $limit): array
     {
         $query = $this->getModel()->query();
 
