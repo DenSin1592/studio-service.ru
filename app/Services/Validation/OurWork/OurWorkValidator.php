@@ -10,6 +10,7 @@ class OurWorkValidator extends AbstractLaravelValidator
     {
         return [
             'name' => 'required',
+            'alias' => ['nullable',  Rule::unique('our_works')->ignore($this->currentId)]
         ];
     }
 

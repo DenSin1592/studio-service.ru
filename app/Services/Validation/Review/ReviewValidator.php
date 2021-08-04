@@ -12,9 +12,6 @@ class ReviewValidator extends AbstractLaravelValidator
     {
         return [
             'name' => 'required',
-            'email' => 'nullable|email',
-            //'product_id' => 'required|exists:products,id',
-            'text' => 'required',
         ];
     }
 
