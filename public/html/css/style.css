@@ -3124,6 +3124,8 @@ form a:hover { border-color: transparent; color: #8174af; text-decoration: none;
 .custom-file-label::before { position: absolute; top: 50%; left: 0; width: 26px; height: 26px; -webkit-transform: translateY(-50%); transform: translateY(-50%); font-family: 'icomoon'; font-size: 26px; font-weight: 400; line-height: 1; content: '\e900'; }
 .custom-file-label::after { display: none; }
 
+.error { color: red; }
+
 .btn { cursor: pointer; display: inline-block; width: auto; margin: 0; padding: 8px; border: 1px solid transparent; border-radius: 100px; background: none; font-size: 15px; font-weight: 400; line-height: 1.25; text-decoration: none; }
 @media (min-width: 750px) { .btn { padding: 10px 8px; } }
 @media (min-width: 970px) { .btn { font-size: 17px; } }
