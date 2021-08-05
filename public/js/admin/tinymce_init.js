@@ -30,7 +30,7 @@
                 menubar: false,
                 plugins: "image,link,code,table",
                 toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify |  bullist numlist outdent indent | table link unlink image | removeformat code",
-                relative_urls: false,
+                relative_urls: true,
                 language : "ru",
                 theme: "modern",
                 skin: "lightgray",
