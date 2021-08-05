@@ -63,7 +63,7 @@ class MenuServiceProvider extends ServiceProvider
                 );
                 $groupCatalogs->addMenuElement(
                     new MenuElement(
-                        'ЦА',
+                        'Целевые аудитории',
                         'glyphicon-user',
                         route(TargetAudiencesController::ROUTE_INDEX),
                         [TargetAudiencesController::class]

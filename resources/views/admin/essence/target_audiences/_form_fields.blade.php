@@ -1,5 +1,4 @@
 
-
 {!! Form::tbFormGroupOpen('parent_id') !!}
     {!! Form::tbLabel('parent_id', trans('validation.attributes.parent_id')) !!}
     {!! Form::tbSelect2('parent_id', $parentVariants) !!}
@@ -13,6 +12,8 @@
 {!! Form::tbCheckboxBlock('on_home_page') !!}
 
 @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'icon'])
+
+@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'background_image'])
 
 @include('admin.shared._form_meta_fields')
 

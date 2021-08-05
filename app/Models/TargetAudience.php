@@ -26,6 +26,8 @@ class TargetAudience extends Model
         'position',
         'icon_file',
         'icon_remove',
+        'background_image_file',
+        'background_image_remove',
         'header',
         'meta_title',
         'meta_description',
@@ -85,6 +87,16 @@ class TargetAudience extends Model
             UploaderIntegrator::getUploader(
                 'uploads/target_audience/icons', [
                     'main' => new BoxVersion(50, 50, ['quality' => 100]),
+                    'thumb' => new BoxVersion(85, 85, ['quality' => 100])
+                ], true
+            )
+        );
+
+        self::mountUploader(
+            'background_image',
+            UploaderIntegrator::getUploader(
+                'uploads/target_audience/background_images', [
+                    'main' => new BoxVersion(660, 1400, ['quality' => 100]),
                     'thumb' => new BoxVersion(85, 85, ['quality' => 100])
                 ], true
             )

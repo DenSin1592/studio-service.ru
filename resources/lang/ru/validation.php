@@ -206,6 +206,7 @@ return [
         'url' => 'Ссылка',
         'icon_file' => 'Иконка',
         'preview_image_file' => 'Изображение для превью',
+        'background_image_file' => 'Изображение фона',
 
         'device_type' => 'Тип устройства',
         'user_agent' => 'Заголовок браузера',
