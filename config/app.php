@@ -199,6 +199,7 @@ return [
         App\Providers\ComposersServiceProvider::class,
         App\Providers\Admin\MenuServiceProvider::class,
         App\Providers\Admin\BreadcrumbsServiceProvider::class,
+        App\Providers\MailServiceProvider::class,
         App\Providers\StructureTypesServiceProvider::class,
         App\Providers\SettingsServiceProvider::class,
         App\Providers\DataProvidersServiceProvider::class,

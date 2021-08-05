@@ -55,7 +55,7 @@ class SettingsServiceProvider extends ServiceProvider
                     )
                 );
 
-                /*$notifications->addSettingValue(
+                $notifications->addSettingValue(
                     new SettingValue(
                         'mail.from.address',
                         'Е-mail отправителя (от кого)',
@@ -68,9 +68,9 @@ class SettingsServiceProvider extends ServiceProvider
                         SettingValue::TYPE_TEXT,
                         ['nullable', 'email']
                     )
-                );*/
+                );
 
-                /*$notifications->addSettingValue(
+                $notifications->addSettingValue(
                     new SettingValue(
                         'mail.from.name',
                         'Имя отправителя (от кого)',
@@ -83,9 +83,9 @@ class SettingsServiceProvider extends ServiceProvider
                         SettingValue::TYPE_TEXT,
                         ['nullable']
                     )
-                );*/
+                );
 
-                /*$notifications->addSettingValue(
+                $notifications->addSettingValue(
                     new SettingValue(
                         'mail.reply_to.address',
                         'Адрес для ответа в письмах посетителям сайта',
@@ -94,7 +94,7 @@ class SettingsServiceProvider extends ServiceProvider
                         SettingValue::TYPE_TEXT,
                         ['nullable', 'email']
                     )
-                );*/
+                );
 
                /* $notifications->addSettingValue(
                     new SettingValue(

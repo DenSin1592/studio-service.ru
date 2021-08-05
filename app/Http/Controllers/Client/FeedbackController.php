@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Mail\FeedbackCreated;
 use App\Services\FormProcessors\Feedback\FeedbackFormProcessor;
 
 class FeedbackController extends Controller
@@ -21,7 +22,8 @@ class FeedbackController extends Controller
         if (is_null($feedback))
             return \Response::json(['errors' => $this->formProcessor->errors()]);
 
-        //\Mail::queue(new FeedbackCreated($feedback));
+        \Mail::queue(new FeedbackCreated($feedback));
+
         $title = 'Ваша заявка принята';
         $content = 'В ближайшее время с Вами свяжется наш менеджер.';
 
