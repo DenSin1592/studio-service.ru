@@ -1,10 +1,24 @@
 .gallery-block {
-    .gallery-header-typography-container {
+    position: relative;
+    .gallery-header-container,
+    .gallery-controls-container {
         margin-bottom: 15px;
     }
-    
-    .gallery-header-controls-container {
-        margin-bottom: 15px;
+
+    .gallery-header-container {
+        @include media-breakpoint-up(sm) {
+            min-height: 35px;
+            margin-right: 150px;
+        }
+    }
+
+    .gallery-controls-container {
+        @include media-breakpoint-up(sm) {
+            position: absolute;
+            z-index: 9;
+            top: 0;
+            right: 0;
+        }
     }
 
     .gallery-description {

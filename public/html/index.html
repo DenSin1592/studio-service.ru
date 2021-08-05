@@ -678,50 +678,55 @@
 
                         <div class="advantages-gallery-block">
                             <div class="gallery-block">
-                                <div class="gallery-header">
-                                    <div class="row align-items-center">
-                                        <div class="gallery-header-controls-container col-12 col-sm-auto d-flex align-items-center order-sm-1">
-                                            <div class="swiper-gallery-pagination-wrapper swiper-pagination-wrapper">
-                                                <div class="swiper-gallery-pagination swiper-pagination swiper-pagination-fraction">
-                                                    <span class="swiper-gallery-pagination-current swiper-pagination-current"></span>
-                                                    <span class="swiper-gallery-pagination-total swiper-pagination-total"></span>
-                                                </div>
-                                            </div>
-
-                                            <div class="swiper-gallery-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
-                                                <button type="button" class="swiper-gallery-button-prev swiper-button-prev swiper-button-sm d-flex align-items-center justify-content-center" >
-                                                    <svg class="swiper-button-prev-media" width="14" height="14">
-                                                        <use xlink:href="images/icons/sprite.svg#icon-angle-left"></use>
-                                                    </svg>
-                                                </button>
-
-                                                <button type="button" class="swiper-gallery-button-next swiper-button-next swiper-button-sm d-flex align-items-center justify-content-center" >
-                                                    <svg class="swiper-button-next-media" width="14" height="14">
-                                                        <use xlink:href="images/icons/sprite.svg#icon-angle-right"></use>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div class="gallery-header-typography-container col-12 col-sm order-sm-0">
-                                            <div class="gallery-description"><b>Пример:</b> Проложенные трассы по виду одного из наших проектов</div>
+                                <div class="gallery-controls-container d-flex align-items-center justify-content-sm-end">
+                                    <div class="swiper-gallery-pagination-wrapper swiper-pagination-wrapper">
+                                        <div class="swiper-gallery-pagination swiper-pagination swiper-pagination-fraction">
+                                            <span class="swiper-gallery-pagination-current swiper-pagination-current"></span>
+                                            <span class="swiper-gallery-pagination-total swiper-pagination-total"></span>
                                         </div>
                                     </div>
+
+                                    <div class="swiper-gallery-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
+                                        <button type="button" class="swiper-gallery-button-prev swiper-button-prev swiper-button-sm d-flex align-items-center justify-content-center" >
+                                            <svg class="swiper-button-prev-media" width="14" height="14">
+                                                <use xlink:href="images/icons/sprite.svg#icon-angle-left"></use>
+                                            </svg>
+                                        </button>
+
+                                        <button type="button" class="swiper-gallery-button-next swiper-button-next swiper-button-sm d-flex align-items-center justify-content-center" >
+                                            <svg class="swiper-button-next-media" width="14" height="14">
+                                                <use xlink:href="images/icons/sprite.svg#icon-angle-right"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
+
                                 <div class="swiper-gallery-cover swiper-cover">
                                     <div class="swiper-gallery swiper-container">
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
-                                                <div class="twentytwenty-gallery-block">
-                                                    <img src="uploads/examples/example-item-1.jpg" class="twentytwenty-gallery-media" alt="">
-                                                    <img src="uploads/examples/example-item-1.jpg" class="twentytwenty-gallery-media" alt="">
+                                                <div class="gallery-header-container d-flex flex-column justify-content-center">
+                                                    <div class="gallery-description"><b>Пример:</b> Проложенные трассы по виду одного из наших проектов</div>
+                                                </div>
+
+                                                <div class="twentytwenty-container">
+                                                    <div class="twentytwenty-block">
+                                                        <img src="uploads/examples/example-item-1-before.jpg" class="twentytwenty-media" alt="">
+                                                        <img src="uploads/examples/example-item-1-after.jpg" class="twentytwenty-media" alt="">
+                                                    </div>
                                                 </div>
                                             </div>
 
                                             <div class="swiper-slide">
-                                                <div class="twentytwenty-gallery-block">
-                                                    <img src="uploads/examples/example-item-1.jpg" class="twentytwenty-gallery-media" alt="">
-                                                    <img src="uploads/examples/example-item-1.jpg" class="twentytwenty-gallery-media" alt="">
+                                                <div class="gallery-header-container d-flex flex-column justify-content-center">
+                                                    <div class="gallery-description"><b>Пример:</b> Проложенные трассы по виду одного из наших проектов</div>
+                                                </div>
+
+                                                <div class="twentytwenty-container">
+                                                    <div class="twentytwenty-block">
+                                                        <img src="uploads/examples/example-item-1-before.jpg" class="twentytwenty-media" alt="">
+                                                        <img src="uploads/examples/example-item-1-after.jpg" class="twentytwenty-media" alt="">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1138,7 +1143,7 @@
 
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <input type="tel" class="form-control" placeholder="Телефон" >
+                                                <input type="tel" class="form-control" placeholder="Телефон*" >
                                             </div>
                                         </div>
 
@@ -1153,6 +1158,15 @@
                                                 <div class="custom-file">
                                                     <input type="file" class="custom-file-input" id="modal-callback-file-field" aria-describedby="modal-callback-file-field">
                                                     <label class="custom-file-label" for="modal-callback-file-field">Прикрепить проект</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="modal-callback-privacy-field" checked required >
+                                                    <label for="modal-callback-privacy-field" class="custom-control-label" >Я ознакомлен и согласен с <a href="#link">Политикой конфиденциальности</a></label>
                                                 </div>
                                             </div>
                                         </div>
