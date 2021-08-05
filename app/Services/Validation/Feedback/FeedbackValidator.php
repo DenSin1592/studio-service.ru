@@ -18,6 +18,7 @@ class FeedbackValidator extends AbstractLaravelValidator
     {
         return [
             'file_project_file' => 'Файл проекта',
+            'privacy' => 'Политика конфиденциальности',
         ];
     }
 }

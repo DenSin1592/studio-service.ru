@@ -75,6 +75,7 @@ return [
                 'js/client/twentytwenty.js',*/
                 'js/client/auth_menu.js',
                 'js/client/feedback.js',
+                'js/client/modal_message.js',
             ],
             'filters' => ['js_min', 'end_with_semicolon'],
             //'async' => true,

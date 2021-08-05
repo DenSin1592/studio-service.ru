@@ -18,7 +18,7 @@ class FeedbackRepository extends BaseFeatureRepository
 
         $total = $query->count();
         $items = $query->skip($limit * ($page - 1))
-            ->orderBy('id')
+            ->orderBy('id', 'DESC')
             ->take($limit)
             ->get();
 

@@ -29,5 +29,6 @@
 @section('modal')
 
     @include('client.shared.modals._modal_callback')
+    @include('client.shared.modals._modal_message')
 
 @stop

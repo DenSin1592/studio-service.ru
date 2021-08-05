@@ -12,7 +12,9 @@
                 @include('admin.shared.device_type._list_column')
 
                 <div class="name">
-                        {{ $model->name }}
+                    <a href="{{ route($routeEdit, [$model->id]) }}">
+                        {{ $model->name ??  $model->phone }}
+                    </a>
                 </div>
 
                 <div class="name">
