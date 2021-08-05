@@ -232,7 +232,7 @@ return [
         'title' => "Название",
         'text' => "Текст",
 
-        'block_advantages' => "Блок 'Наши примущества'",
+        'block_advantages' => "Блок \"Наши примущества\"  (Слайды)",
         'youtube_link' => "Ссылка Youtube",
 
         'service' => "Услуга",
