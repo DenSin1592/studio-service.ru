@@ -178,39 +178,6 @@
             });
         });
 
-        $('.swiper-includes').each(function (_, container) {
-            let jContainer = $(container),
-            swiperContainer = jContainer.find('.swiper-services'),
-            prev = jContainer.find('.swiper-services-button-prev'),
-            next = jContainer.find('.swiper-services-button-next');
-
-            new Swiper(jContainer, {
-                slidesPerView: 'auto',
-                loop: true,
-                watchSlidesVisibility: true,
-                observer: true,
-                observeParents: true,
-                // breakpointsInverse: true,
-                // breakpoints: {
-                //     // when window width is >= 480px
-                //     480: {
-                //         // loop: slides.length > 2 ? true : false,
-                //         slidesPerView: 2,
-                //     },
-                //     // when window width is >= 750px
-                //     750: {
-                //         slidesPerView: 3,
-                //         // loop: slides.length > 2 ? true : false,
-                //     }
-                // },
-
-                navigation: {
-                    nextEl: next,
-                    prevEl: prev,
-                }
-            });
-        });
-
         $('.section-target').each(function (_, container) {
             let jContainer = $(container),
             swiperContainer = jContainer.find('.swiper-target'),
@@ -243,6 +210,57 @@
                     prevEl: prev,
                 },
                 
+            });
+        });
+
+        $('.section-content').each(function (_, container) {
+            let jContainer = $(container),
+            swiperContainer = jContainer.find('.swiper-content'),
+            slides = swiperContainer.find('> .swiper-wrapper > .swiper-slide'),
+            prev = jContainer.find('.swiper-content-button-prev'),
+            next = jContainer.find('.swiper-content-button-next');
+
+            new Swiper(swiperContainer, {
+                slidesPerView: 1,
+                loop: slides.length > 1 ? true : false,
+
+                navigation: {
+                    nextEl: next,
+                    prevEl: prev,
+                }
+            });
+        });
+
+        $('.swiper-includes').each(function (_, container) {
+            let jContainer = $(container),
+            swiperContainer = jContainer.find('.swiper-services'),
+            prev = jContainer.find('.swiper-services-button-prev'),
+            next = jContainer.find('.swiper-services-button-next');
+
+            new Swiper(jContainer, {
+                slidesPerView: 'auto',
+                loop: true,
+                watchSlidesVisibility: true,
+                observer: true,
+                observeParents: true,
+                // breakpointsInverse: true,
+                // breakpoints: {
+                //     // when window width is >= 480px
+                //     480: {
+                //         // loop: slides.length > 2 ? true : false,
+                //         slidesPerView: 2,
+                //     },
+                //     // when window width is >= 750px
+                //     750: {
+                //         slidesPerView: 3,
+                //         // loop: slides.length > 2 ? true : false,
+                //     }
+                // },
+
+                navigation: {
+                    nextEl: next,
+                    prevEl: prev,
+                }
             });
         });
 
