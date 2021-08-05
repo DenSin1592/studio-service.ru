@@ -28,7 +28,7 @@
 
         @include('client.layouts._header')
 
-        <main class="main d-flex flex-column flex-shrink-0 flex-grow-1">
+        <main class="main flex-shrink-0 flex-grow-1">
 
             @yield('content')
 
