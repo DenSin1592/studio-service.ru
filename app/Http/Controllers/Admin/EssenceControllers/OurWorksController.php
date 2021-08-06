@@ -25,11 +25,11 @@ final class OurWorksController extends BaseEssenceController
     protected const VIEW_LIST = 'admin.essence.our_works._list';
     protected const VIEW_FORM_FIELDS = 'admin.essence.our_works._form_fields';
 
-    public const INDEX_TITLE = 'Наши работы';
+    public const INDEX_TITLE = 'Проекты';
 
-    protected const CREATE_MESSAGE = 'Наша работа создана';
-    protected const EDIT_MESSAGE = 'Наша работа обновлена';
-    protected const DESTROY_MESSAGE = 'Наша работа удалена';
+    protected const CREATE_MESSAGE = 'Проект создан';
+    protected const EDIT_MESSAGE = 'Проект обновлён';
+    protected const DESTROY_MESSAGE = 'Проект удалён';
 
     public const ESSENCE_NAME = 'our_work';
 
