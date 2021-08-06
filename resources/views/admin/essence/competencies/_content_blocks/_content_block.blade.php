@@ -1,4 +1,4 @@
-<li data-element-list="element" data-element-key="{{ $key }}" class="content-block-element {{{ (\Request::old("{$relation}.{$key}.full_info") == 1 || !$element->exists) ? 'show-full-info' : '' }}}">
+<li style="width: 100%;" data-element-list="element" data-element-key="{{ $key }}" class="content-block-element {{{ (\Request::old("{$relation}.{$key}.full_info") == 1 || !$element->exists) ? 'show-full-info' : '' }}}">
 
     <div class="controls">
         <span class="btn btn-default btn-xs toggle-info toggle-full-info glyphicon glyphicon-menu-down"></span>
@@ -11,12 +11,16 @@
 
     <div class="short-info">
         <div class="loaded-image image-thumb-wrapper">
-           {{"id: $element->id"}}
+            {!! Form::tbTextBlock("{$relation}[{$key}][name]", trans('validation.attributes.name')) !!}
         </div>
     </div>
 
 
     <div class="full-info">
+
+        <div class="form-group">
+            {!! Form::tbTextBlock("{$relation}[{$key}][name]", trans('validation.attributes.name')) !!}
+        </div>
         <div class="form-group">
             {{ Form::tbLabel("{$relation}[{$key}][content]", trans('validation.attributes.content')) }}
             {{ Form::tbTinymceTextarea("{$relation}[{$key}][content]", $element->content, ['rows' => 3]) }}

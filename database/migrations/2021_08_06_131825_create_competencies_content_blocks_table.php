@@ -17,6 +17,7 @@ class CreateCompetenciesContentBlocksTable extends Migration
             $table->id();
             $table->timestamps();
 
+            $table->string('name')->nullable();
             $table->integer('position')->default(0);
             $table->boolean('publish')->default(false);
             $table->text('content')->nullable();

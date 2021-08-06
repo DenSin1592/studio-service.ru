@@ -10,6 +10,7 @@ class CompetenceContentBlock extends Model
     use AutoPublish;
 
     protected $fillable = [
+        'name',
         'content',
         'publish',
         'position',
