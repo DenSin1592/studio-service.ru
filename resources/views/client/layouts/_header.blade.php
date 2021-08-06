@@ -53,14 +53,14 @@
                 <div class="header-social-block">
                     <ul class="header-social-list d-flex flex-wrap list-unstyled">
                         <li class="header-social-item">
-                            <a href="#link" class="header-social-link" target="_blank">
+                            <a href="https://wa.me/+79160640600" class="header-social-link" target="_blank">
                                 <img src="{{asset('images/icons/social/icon-social-telegram.png')}}" width="40" height="40"
                                      alt="Telegram" class="header-social-media">
                             </a>
                         </li>
 
                         <li class="header-social-item">
-                            <a href="#link" class="header-social-link" target="_blank">
+                            <a href="https://wa.me/+79160640600" class="header-social-link" target="_blank">
                                 <img src="{{asset('images/icons/social/icon-social-whatsapp.png')}}" width="40" height="40"
                                      alt="Whatsapp" class="header-social-media">
                             </a>
