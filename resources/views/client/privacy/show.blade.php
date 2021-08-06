@@ -5,9 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <nav class="breadcrumb-navigation" aria-label="breadcrumb">
                         @include('client.shared.breadcrumbs._breadcrumbs')
-                    </nav>
                 </div>
             </div>
         </div>
