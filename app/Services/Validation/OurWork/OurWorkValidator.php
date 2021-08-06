@@ -3,6 +3,7 @@
 namespace App\Services\Validation\OurWork;
 
 use App\Services\Validation\AbstractLaravelValidator;
+use Illuminate\Validation\Rule;
 
 class OurWorkValidator extends AbstractLaravelValidator
 {

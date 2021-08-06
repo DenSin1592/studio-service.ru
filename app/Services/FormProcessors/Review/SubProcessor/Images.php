@@ -16,10 +16,10 @@ final class Images extends BaseOneToManySubProcessor
         $this->repository = \App(ReviewImageRepository::class);
     }
 
-    protected function SelectNotEmptyData(array &$imagesListData) :void
+    protected function SelectNotEmptyData(array &$listData) :void
     {
-        $imagesListData = array_filter(
-            $imagesListData,
+        $listData = array_filter(
+            $listData,
             static fn($val) => (isset($val[ReviewImage::IMAGE_FILE]) || !empty($val['id']))
         );
     }

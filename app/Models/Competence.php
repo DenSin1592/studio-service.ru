@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Features\AutoPublish;
 use App\Models\Helpers\AliasHelpers;
+use App\Models\Helpers\DeleteHelpers;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\BoxVersion;
 use Diol\FileclipExif\Glue;
@@ -36,10 +37,14 @@ class Competence extends Model
     ];
 
 
-
     public function services()
     {
         return $this->belongsToMany(Service::class)->withPivot('position');
+    }
+
+    public function contentBlocks()
+    {
+        return $this->hasMany(CompetenceContentBlock::class);
     }
 
 
@@ -51,7 +56,7 @@ class Competence extends Model
 
     public function getImgPath(string $field, ?string $version, string $noImageVersion)
     {
-        if($this->getAttachment($field)?->exists($version))
+        if ($this->getAttachment($field)?->exists($version))
             return asset($this->getAttachment($field)->getUrl($version));
         return asset('/images/common/no-image/' . $noImageVersion);
     }
@@ -72,7 +77,10 @@ class Competence extends Model
         );
 
         static::deleting(function (self $model) {
-            $model->services()->detach();
+            \DB::transaction(function () use ($model) {
+                $model->services()->detach();
+                DeleteHelpers::deleteRelatedAll($model->contentBlocks());
+            });
         });
 
         self::saving(function (self $model) {

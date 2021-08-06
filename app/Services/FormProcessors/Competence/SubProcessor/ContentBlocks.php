@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Services\FormProcessors\Service\SubProcessor;
+namespace App\Services\FormProcessors\Competence\SubProcessor;
 
-use App\Http\Controllers\Admin\Relations\Services\TasksController;
+use App\Http\Controllers\Admin\Relations\Competencies\ContentBlocksController;
 use App\Services\FormProcessors\BaseOneToManySubProcessor;
-use App\Services\Repositories\Services\ServiceTask\ServiceTaskRepository;
+use App\Services\Repositories\Competencies\CompetenceContentBlock\CompetenceContentBlockRepository;
 
-final class Tasks extends BaseOneToManySubProcessor
+final class ContentBlocks extends BaseOneToManySubProcessor
 {
-    protected const SUB_FORM_NAME = TasksController::RELATIONS_NAME;
+    protected const SUB_FORM_NAME = ContentBlocksController::RELATIONS_NAME;
 
 
     protected function setRepository(): void
     {
-        $this->repository = \App(ServiceTaskRepository::class);
+        $this->repository = \App(CompetenceContentBlockRepository::class);
     }
 
 

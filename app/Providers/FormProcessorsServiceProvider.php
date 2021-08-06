@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Services\FormProcessors\AdminRole\AdminRoleFormProcessor;
 use App\Services\FormProcessors\AdminUser\AdminUserFormProcessor;
 use App\Services\FormProcessors\Competence\CompetenceFormProcessor;
+use App\Services\FormProcessors\Competence\SubProcessor\ContentBlocks;
 use App\Services\FormProcessors\Feedback\FeedbackFormProcessor;
 use App\Services\FormProcessors\Node\NodeFormProcessor;
 use App\Services\FormProcessors\Offer\OfferFormProcessor;
@@ -73,10 +74,14 @@ class FormProcessorsServiceProvider extends ServiceProvider
 
         $this->app->bind(
         CompetenceFormProcessor::class,
-         fn() => new CompetenceFormProcessor(
-             $this->app->make(CompetenceValidator::class),
-             $this->app->make(CompetenciesRepository::class)
-             )
+         function () {
+             $formProcessor =  new CompetenceFormProcessor(
+                $this->app->make(CompetenceValidator::class),
+                $this->app->make(CompetenciesRepository::class)
+            );
+             $formProcessor->addSubProcessor(\App(ContentBlocks::class));
+             return $formProcessor;
+         }
         );
 
         $this->app->bind(

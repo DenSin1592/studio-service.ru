@@ -22,6 +22,7 @@ class ServiceTask extends Model
         'icon_remove',
         'image_file',
         'image_remove',
+        'service_id'
     ];
 
     protected $casts = [

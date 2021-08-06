@@ -75,6 +75,10 @@
     </div>
 
     <div class="full-info">
+        {!! Form::tbCheckboxBlock("{$relation}[{$key}][publish]", trans('validation.attributes.publish'), $element->publish) !!}
+    </div>
+
+    <div class="full-info">
         {{ Form::tbLabel("{$relation}[{$key}][position]", trans('validation.attributes.position')) }}
         {{ Form::tbText("{$relation}[{$key}][position]", $element->position) }}
     </div>

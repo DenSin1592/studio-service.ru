@@ -3,7 +3,6 @@
 namespace App\Services\Validation\Offer;
 
 use App\Services\Validation\AbstractLaravelValidator;
-use Illuminate\Validation\Factory as ValidatorFactory;
 use Illuminate\Validation\Rule;
 
 class OfferValidator extends AbstractLaravelValidator

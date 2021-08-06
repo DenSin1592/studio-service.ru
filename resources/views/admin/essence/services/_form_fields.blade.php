@@ -13,7 +13,7 @@
     ['models' => $formData[\App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATIONS_NAME]
     ]))
 
-    @include('admin.essence.services._tasks._content_blocks',[
+@include('admin.essence.services._tasks._content_blocks',[
     'elements' => $formData[\App\Http\Controllers\Admin\Relations\Services\TasksController::RELATIONS_NAME],
     'route' => route(\App\Http\Controllers\Admin\Relations\Services\TasksController::ROUTE_CREATE),
     'relation' => \App\Http\Controllers\Admin\Relations\Services\TasksController::RELATIONS_NAME,

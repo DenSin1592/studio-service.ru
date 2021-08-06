@@ -7,6 +7,7 @@ use App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm\Abilities;
 use App\Services\DataProviders\AdminUserForm\AdminUserForm;
 use App\Services\DataProviders\AdminUserForm\AdminUserSubForm\Roles;
 use App\Services\DataProviders\CompetenceForm\CompetenceForm;
+use App\Services\DataProviders\CompetenceForm\CompetenceSubForm\ContentBlocks;
 use App\Services\DataProviders\FeedbackForm\FeedbackForm;
 use App\Services\DataProviders\OfferForm\OfferForm;
 use App\Services\DataProviders\OurWorkForm\OurWorkForm;
@@ -43,6 +44,7 @@ class DataProvidersServiceProvider extends ServiceProvider
         $this->app->bind(CompetenceForm::class,
             static function() {
                 $form = new CompetenceForm();
+                $form->addSubForm(\App(ContentBlocks::class));
                 return $form;
             });
 

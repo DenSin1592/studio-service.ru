@@ -11,7 +11,7 @@ abstract class BaseOneToManySubProcessor extends BaseSubProcessor
 
     abstract protected function setRepository(): void;
 
-    abstract protected function SelectNotEmptyData(array &$imagesListData): void;
+    abstract protected function SelectNotEmptyData(array &$listData): void;
 
     public function __construct()
     {
@@ -22,17 +22,17 @@ abstract class BaseOneToManySubProcessor extends BaseSubProcessor
     {
         $relation = static::SUB_FORM_NAME;
 
-        $imagesListData = \Arr::get($data, $relation,  []);
-        $this->SelectNotEmptyData($imagesListData);
+        $listData = \Arr::get($data, $relation,  []);
+        $this->SelectNotEmptyData($listData);
 
         $currentIds = collect($model->$relation)
             ->pluck('id')
             ->all();
 
         $touchedIds = [];
-        foreach ($imagesListData as $imageData) {
-            $image = $this->repository->createOrUpdateRelationForModel($model, $imageData);
-            $touchedIds[] = $image->id;
+        foreach ($listData as $relationData) {
+            $relationModel = $this->repository->createOrUpdateRelationForModel($model, $relationData);
+            $touchedIds[] = $relationModel->id;
         }
 
         $idsToDelete = array_diff($currentIds, $touchedIds);
