@@ -6,17 +6,14 @@ use App\Models\Node;
 use App\Services\MapBuilder\MapPart;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Node\NodeRepository;
-use App\Services\Repositories\Offer\OfferRepository;
-use App\Services\Repositories\OurWork\OurWorkRepository;
 use App\Services\Repositories\Services\ServicesRepository;
 use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
 
 class Nodes implements MapPart
 {
     public function __construct(
-        private NodeRepository $repository)
-    {
-    }
+        private NodeRepository $repository
+    ){}
 
 
     public function buildStructure(): array
@@ -54,8 +51,6 @@ class Nodes implements MapPart
                         Node::TYPE_TARGET_AUDIENCE_PAGE => $this->getCatalogElements(TargetAudienceRepository::class),
                         Node::TYPE_SERVICE_PAGE => $this->getCatalogElements(ServicesRepository::class),
                         Node::TYPE_COMPETENCE_PAGE => $this->getCatalogElements(CompetenciesRepository::class),
-                        Node::TYPE_HOME_PAGE => $this->getCatalogElements(OfferRepository::class),
-                        Node::TYPE_OUR_WORK_PAGE => $this->getCatalogElements(OurWorkRepository::class),
                         default => []
                     }),
             ];

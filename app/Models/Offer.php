@@ -42,10 +42,10 @@ class Offer extends Model
         return $this->belongsTo(TargetAudience::class);
     }
 
-    /*public function getUrlAttribute(): string
+    public function getUrlAttribute(): string
     {
-        return route(\App\Http\Controllers\Client\EssenceControllers\ServiceController::ROUTE_SHOW_ON_SITE, $this->alias);
-    }*/
+        return route(\App\Http\Controllers\Client\EssenceControllers\OfferController::ROUTE_SHOW_ON_SITE, $this->alias);
+    }
 
     protected static function boot(): void
     {

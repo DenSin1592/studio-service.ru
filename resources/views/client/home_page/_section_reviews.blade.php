@@ -8,8 +8,6 @@
                         <div class="row">
                             <div class="section-header-typography-container col d-flex flex-wrap align-items-center">
                                 <div class="section-title title-h1">Отзывы</div>
-                                <a href="{{route('reviews')}}" class="section-header-cta btn btn-outline-secondary">Смотреть
-                                    все</a>
                             </div>
 
                             <div

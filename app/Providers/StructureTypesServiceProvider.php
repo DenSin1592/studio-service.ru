@@ -75,21 +75,21 @@ class StructureTypesServiceProvider extends ServiceProvider
                     )
                 );
 
-                $typeContainer->addRepositoryAssociation(
+                /*$typeContainer->addRepositoryAssociation(
                     self::REPO_OUR_WORK_PAGE,
                     new RepositoryAssociation(
                         $this->app->make(OurWorkPageRepository::class),
                         fn(Node $node) => route(OurWorkPageController::ROUTE_EDIT, [$node->id])
                     )
-                );
+                );*/
 
-                $typeContainer->addRepositoryAssociation(
+                /*$typeContainer->addRepositoryAssociation(
                     self::REPO_REVIEW_PAGE,
                     new RepositoryAssociation(
                         $this->app->make(ReviewPageRepository::class),
                         fn(Node $node) => route(ReviewPageController::ROUTE_EDIT, [$node->id])
                     )
-                );
+                );*/
 
                 $typeContainer->addRepositoryAssociation(
                     self::REPO_TEXT_PAGE,
@@ -140,7 +140,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                     )
                 );
 
-                $typeContainer->addType(
+                /*$typeContainer->addType(
                     Node::TYPE_OUR_WORK_PAGE,
                     new Type(
                         'Наши работы',
@@ -148,9 +148,9 @@ class StructureTypesServiceProvider extends ServiceProvider
                         self::REPO_OUR_WORK_PAGE,
                         fn() => route('our-works')
                     )
-                );
+                );*/
 
-                $typeContainer->addType(
+                /*$typeContainer->addType(
                     Node::TYPE_REVIEW_PAGE,
                     new Type(
                         'Отзывы',
@@ -158,7 +158,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                         self::REPO_REVIEW_PAGE,
                         fn() => route('reviews')
                     )
-                );
+                );*/
 
                 $typeContainer->addType(
                     Node::TYPE_TEXT_PAGE,
