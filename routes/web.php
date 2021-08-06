@@ -42,8 +42,6 @@ Route::prefix(config('app.admin_path'))->name('cc.')->namespace('Admin')->group(
 
 Route::namespace('Client')->group(function () {
 
-    Route::get('privacy', 'PrivacyController')->name('privacy');
-
     Route::namespace('PageControllers')->group(function () {
         Route::get('/', 'HomePageController@show')->name('home');
         Route::get('/dlya-kogo', 'TargetAudiencePageController@show')->name('target-audiences');
@@ -62,6 +60,8 @@ Route::namespace('Client')->group(function () {
     });
 
     Route::post('feedback', 'FeedbackController')->name('feedback');
+    Route::get('privacy', 'PrivacyController')->name('privacy');
+    Route::get('sitemap', 'MapController')->name('sitemap');
 
     Route::get('/{url}', 'DynamicPagesController@show')->name('dynamic_page')->where('url', '.*');
 });

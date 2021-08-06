@@ -44,6 +44,7 @@ class Node extends Model
     public const TYPE_REVIEW_PAGE = 'review_page';
     public const TYPE_OUR_WORK_PAGE = 'our_work_page';
     public const TYPE_COMPETENCE_PAGE = 'competence_page';
+    public const TYPE_OFFER_PAGE = 'offer_page';
     public const TYPE_TEXT_PAGE = 'text_page';
 
     protected $fillable = [

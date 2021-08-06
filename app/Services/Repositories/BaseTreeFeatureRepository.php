@@ -39,21 +39,20 @@ abstract class BaseTreeFeatureRepository extends BaseFeatureRepository
     }
 
 
-    public function treePublishedChildrenFor(Model $model)
+    public function getPublishedTree()
     {
-        if (!is_null($model)) {
-            $query = $model->children();
-        } else {
-            $query = $this->getModel()->where('parent_id', null);
-        }
-        $query->where('publish', true)
-            ->orderBy('position');
-        $children = $query->get();
+        return $this->treeBuilder->getTree($this->getModel(), null, function ($query) {
+            $query->where('publish', true);
+        });
+    }
 
-        foreach ($children as $child) {
-            $child->parent()->associate($model);
-        }
 
-        return $children;
+    public function getModelsForSiteMap()
+    {
+        return $this->getModel()
+            ->where('publish', true)
+            ->whereNotNull('parent_id')
+            ->orderBy('position')
+            ->get();
     }
 }

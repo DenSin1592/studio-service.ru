@@ -6,6 +6,7 @@ use App\Services\Pagination\FlexPaginator;
 use App\Services\RepositoryFeatures\Attribute\EloquentAttributeToggler;
 use App\Services\RepositoryFeatures\Attribute\PositionUpdater;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\QueryException;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 abstract class BaseFeatureRepository extends BaseRepository
@@ -111,14 +112,10 @@ abstract class BaseFeatureRepository extends BaseRepository
     }
 
 
-    private function allByIds(array $ids): Collection
+    public function getModelsForSiteMap()
     {
-        if (count($ids) === 0)
-            return Collection::make([]);
-
         return $this->getModel()
-            ->query()
-            ->whereIn('id', $ids)
+            ->where('publish', true)
             ->orderBy('position')
             ->get();
     }
@@ -140,6 +137,19 @@ abstract class BaseFeatureRepository extends BaseRepository
             'items' => $items,
             'total' => $total,
         ];
+    }
+
+
+    private function allByIds(array $ids): Collection
+    {
+        if (count($ids) === 0)
+            return Collection::make([]);
+
+        return $this->getModel()
+            ->query()
+            ->whereIn('id', $ids)
+            ->orderBy('position')
+            ->get();
     }
 
 
