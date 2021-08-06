@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseRepository implements CreateUpdateRepositoryInterface
 {
-    protected Model $model;
+    protected const POSITION_STEP = 10;
 
+    protected Model $model;
 
     public function __construct()
     {

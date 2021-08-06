@@ -11,8 +11,6 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 abstract class BaseFeatureRepository extends BaseRepository
 {
-    protected const POSITION_STEP = 10;
-
     protected FlexPaginator $flexPaginator;
     protected EloquentAttributeToggler $attributeToggler;
     protected PositionUpdater $positionUpdater;

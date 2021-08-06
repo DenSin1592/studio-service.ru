@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseOneToManyRepository extends BaseRepository
 {
-    private const POSITION_STEP = 1;
-
     abstract protected function getRelationForSubModel(Model $subModel);
 
     abstract protected function getRelationForModel(Model $model);
