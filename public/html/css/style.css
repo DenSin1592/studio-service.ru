@@ -3224,6 +3224,10 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 .twentytwenty-horizontal .twentytwenty-handle::before { margin-bottom: 18px; }
 .twentytwenty-horizontal .twentytwenty-handle::after { margin-top: 18px; }
 
+.loader { color: transparent; background-image: url("images/common/loaders/loading-white.svg"); background-repeat: no-repeat; background-size: auto 60%; background-position: center center; }
+
+.loader * { opacity: 0; }
+
 .tooltip .tooltip-inner { opacity: 1; padding: 18px 15px; border-radius: 20px; background: #fff; -webkit-box-shadow: 0 0 20px rgba(145, 129, 191, 0.5); box-shadow: 0 0 20px rgba(145, 129, 191, 0.5); color: #000; font-size: 17px; line-height: 25px; text-align: left; }
 .tooltip.bs-tooltip-top .arrow::before, .tooltip.bs-tooltip-auto[x-placement^="top"] .arrow::before, .tooltip.bs-tooltip-auto[x-placement^="top"] .arrow::before { border-top-color: #fff; }
 .tooltip.bs-tooltip-bottom .arrow::before, .tooltip.bs-tooltip-auto[x-placement^="bottom"] .arrow::before, .tooltip.bs-tooltip-auto[x-placement^="bottom"] .arrow::before { border-bottom-color: #fff; }
@@ -3243,6 +3247,8 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 1200px) { .modal-header { margin-bottom: 45px; } }
 
 .modal-backdrop.show { opacity: 0.97; background-color: #00173a; }
+
+#modalMessage .modal-body { font-size: 30px; line-height: 30px; }
 
 .header-box { position: absolute; z-index: 99; top: 0; left: 0; width: 100%; padding: 10px 0; -webkit-transition: padding-top 100ms ease-in-out, padding-bottom 100ms ease-in-out; transition: padding-top 100ms ease-in-out, padding-bottom 100ms ease-in-out; }
 @media (min-width: 750px) { .header-box { padding: 32px 0; } }
