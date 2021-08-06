@@ -25,7 +25,7 @@ abstract class BaseEssenceController
     }
     public function show($url)
     {
-        $model = $this->repository->getByAliasOrFail($url);
+        $model = $this->repository->getModelforShowByAliasOrFail($url);
 
         $metaData = $this->metaHelper->getRule()->metaForObject($model);
 

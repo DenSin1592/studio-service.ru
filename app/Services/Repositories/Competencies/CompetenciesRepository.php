@@ -22,4 +22,21 @@ class CompetenciesRepository extends BaseFeatureRepository
             ->orderBy('position')
             ->get();
     }
+
+    public function getModelforShowByAliasOrFail(string $alias)
+    {
+        return $this->getModel()
+            ->with([
+                'services' => static function ($q) {
+                    $q->with(['tasks' => static function($qu){
+                        $qu->orderBy('position');
+                    }])->where('publish', true)->orderBy('position');
+                },
+                'contentBlocks' => static function ($q) {
+                    $q->where('publish', true)->orderBy('position');
+                }])
+            ->where('alias', $alias)
+            ->where('publish', true)
+            ->firstOrFail();
+    }
 }

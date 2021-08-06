@@ -171,6 +171,7 @@ return [
         'id' => 'Номер',
         'name' => 'Название',
         'header' => 'Заголовок',
+        'description' => 'Описание',
         'sub_header' => 'Подзаголовок',
         'meta_title' => 'Meta title',
         'meta_description' => 'Meta description',

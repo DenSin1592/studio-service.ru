@@ -20,7 +20,7 @@ class ReviewRepository extends BaseFeatureRepository
         return $this->getModel()
             ->with(['services', 'images' => static function ($q){
                 $q->orderBy('position')
-                    ->first();
+                    ->limit(1);
             }])
             ->where('on_home_page', true)
             ->orderBy('position')

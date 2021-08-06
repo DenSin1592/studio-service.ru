@@ -29,7 +29,7 @@ class ServicesRepository extends BaseFeatureRepository
     {
         return $this->getModel()
             ->with(['tasks' => static function($q){
-                $q->orderBy('position')->get();
+                $q->orderBy('position');
             }])
             ->where('publish', true)
             ->orderBy('position')

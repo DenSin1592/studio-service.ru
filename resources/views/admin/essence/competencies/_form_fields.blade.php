@@ -11,6 +11,8 @@
 
 {!! Form::tbCheckboxBlock('black_header_preview') !!}
 
+{!! Form::tbTinymceTextareaBlock('description') !!}
+
 @include('admin.essence.competencies._content_blocks._content_blocks',[
     'elements' => $formData[\App\Http\Controllers\Admin\Relations\Competencies\ContentBlocksController::RELATIONS_NAME],
     'route' => route(\App\Http\Controllers\Admin\Relations\Competencies\ContentBlocksController::ROUTE_CREATE),
