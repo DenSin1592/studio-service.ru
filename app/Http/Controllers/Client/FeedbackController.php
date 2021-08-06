@@ -22,16 +22,20 @@ class FeedbackController extends Controller
         if (is_null($feedback))
             return \Response::json(['errors' => $this->formProcessor->errors()]);
 
-        \Mail::queue(new FeedbackCreated($feedback));
 
-        $title = 'Ваша заявка принята';
-        $content = 'В ближайшее время с Вами свяжется наш менеджер.';
+        try{
+            \Mail::queue(new FeedbackCreated($feedback));
+        } catch (\Swift_SwiftException $ex){
+            \Log::error($ex->getMessage());
+        } finally {
+            $title = 'Ваша заявка принята';
+            $content = 'В ближайшее время с Вами свяжется наш менеджер.';
 
-        return \Response::json([
-            'success' => true,
-            'title' => $title,
-            'content' => $content,
-        ]);
-
+            return \Response::json([
+                'success' => true,
+                'title' => $title,
+                'content' => $content,
+            ]);
+        }
     }
 }
