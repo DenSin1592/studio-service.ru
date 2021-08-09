@@ -1,4 +1,4 @@
-{!! Form::tbSelect($fieldName,
+{!! Form::tbSelect2($fieldName,
     (!empty($formData[$relationName]) ? [$formData[$relationName]->id => $formData[$relationName]->name . ' [id = ' . $formData[$relationName]->id . ']'] : []),
     null,
     [

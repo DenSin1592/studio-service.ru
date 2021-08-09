@@ -12,9 +12,17 @@ class OfferValidator extends AbstractLaravelValidator
         $rules = [];
         $rules['name'] = "required";
         $rules['alias'] = ['nullable',  Rule::unique('offers')->ignore($this->currentId)];
-        $rules['service_id'] = ['nullable', "exists:services,id"];
-        $rules['target_audience_id'] = ['nullable', "exists:target_audiences,id"];
+        $rules['service_id'] = ['required', "exists:services,id"];
+        $rules['target_audience_id'] = ['required', "exists:target_audiences,id"];
 
         return $rules;
+    }
+
+    public function getAttributeNames()
+    {
+        return [
+            'service_id' => '"Услуга"',
+            'target_audience_id' => '"ЦА"',
+        ];
     }
 }

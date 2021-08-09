@@ -2,7 +2,7 @@
     $(document).ready(function () {
 
 
-        $('form [data-search-url]').each((_, el) => {
+        $('form [data-with-search]').each((_, el) => {
 
             let modelSearchBlock = $(el);
             let productLinks =  modelSearchBlock.siblings('.model-edit-links');
