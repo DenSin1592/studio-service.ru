@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client\EssenceControllers;
 use App\Http\Controllers\Admin\EssenceControllers\TargetAudiencesController;
 use App\Http\Controllers\Client\BaseEssenceController;
 use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
+use Illuminate\Database\Eloquent\Model;
 
 class TargetAudienceController extends BaseEssenceController
 {
@@ -18,7 +19,7 @@ class TargetAudienceController extends BaseEssenceController
         $this->repository = \App(TargetAudienceRepository::class);
     }
 
-    protected function getBreadCrumbs(string $h1)
+    protected function getBreadCrumbs(string $h1, Model $model)
     {
         $breadcrumbs = $this->breadcrumbs->init();
         $breadcrumbs->add('Для кого', route('target-audiences'));

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client\EssenceControllers;
 use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
 use App\Http\Controllers\Client\BaseEssenceController;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
+use Illuminate\Database\Eloquent\Model;
 
 class CompetenceController extends BaseEssenceController
 {
@@ -18,7 +19,7 @@ class CompetenceController extends BaseEssenceController
         $this->repository = \App(CompetenciesRepository::class);
     }
 
-    protected function getBreadCrumbs(string $h1)
+    protected function getBreadCrumbs(string $h1, Model $model)
     {
         $breadcrumbs = $this->breadcrumbs->init();
         $breadcrumbs->add('Компетенции', route('competencies'));

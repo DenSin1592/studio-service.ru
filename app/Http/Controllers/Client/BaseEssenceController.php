@@ -4,15 +4,16 @@
 namespace App\Http\Controllers\Client;
 
 use App\Services\Breadcrumbs\Factory as Breadcrumbs;
+use App\Services\Repositories\BaseRepository;
 use App\Services\Seo\MetaHelper;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class BaseEssenceController
 {
-    protected $repository;
+    protected BaseRepository $repository;
     protected MetaHelper $metaHelper;
     protected Breadcrumbs $breadcrumbs;
 
-    abstract protected function getBreadCrumbs(string $h1);
     abstract protected function setRepository(): void;
 
     public function __construct(
@@ -23,13 +24,15 @@ abstract class BaseEssenceController
       $this->breadcrumbs = $breadcrumbs;
       $this->setRepository();
     }
+
+
     public function show($url)
     {
         $model = $this->repository->getModelforShowByAliasOrFail($url);
 
         $metaData = $this->metaHelper->getRule()->metaForObject($model);
 
-        $breadcrumbs = $this->getBreadCrumbs($metaData['h1']);
+        $breadcrumbs = $this->getBreadCrumbs($metaData['h1'], $model);
 
         $authEditLink = route(static::AUTH_EDIT_LINK, $model->id);
 
@@ -41,6 +44,13 @@ abstract class BaseEssenceController
                 'breadcrumbs',
             ));
     }
+
+
+    protected function getBreadCrumbs(string $h1, Model $model)
+    {
+        return null;
+    }
+
 
     public function getModelsForHomePage()
     {

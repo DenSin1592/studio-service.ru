@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client\EssenceControllers;
 use App\Http\Controllers\Admin\EssenceControllers\ServicesController;
 use App\Http\Controllers\Client\BaseEssenceController;
 use App\Services\Repositories\Services\ServicesRepository;
+use Illuminate\Database\Eloquent\Model;
 
 class ServiceController extends BaseEssenceController
 {
@@ -18,7 +19,7 @@ class ServiceController extends BaseEssenceController
         $this->repository = \App(ServicesRepository::class);
     }
 
-    protected function getBreadCrumbs(string $h1)
+    protected function getBreadCrumbs(string $h1, Model $model)
     {
         $breadcrumbs = $this->breadcrumbs->init();
         $breadcrumbs->add('Услуги', route('services'));

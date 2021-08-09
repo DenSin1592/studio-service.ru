@@ -13,8 +13,4 @@ class ReviewController extends BaseEssenceController
         $this->repository = \App(ReviewRepository::class);
     }
 
-    protected function getBreadCrumbs(string $h1)
-    {
-        return null;
-    }
 }

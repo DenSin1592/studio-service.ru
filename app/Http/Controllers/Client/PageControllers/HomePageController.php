@@ -25,9 +25,4 @@ final class HomePageController extends BasePagesController
             ->with('projects', resolve(OurWorkController::class)->getModelsForHomePage())
             ;
     }
-
-    protected function getBreadcrumbs(string $h1)
-    {
-        return null;
-    }
 }
