@@ -107,59 +107,61 @@
                     качественно!
                 </div>
 
-                <div class="advantages-gallery-block">
-                    <div class="gallery-block">
-                        <div class="gallery-controls-container d-flex align-items-center justify-content-sm-end">
-                            <div class="swiper-gallery-pagination-wrapper swiper-pagination-wrapper">
-                                <div class="swiper-gallery-pagination swiper-pagination swiper-pagination-fraction">
+                @if(!empty($page->block_advantages))
+                    <div class="advantages-gallery-block">
+                        <div class="gallery-block">
+                            <div class="gallery-controls-container d-flex align-items-center justify-content-sm-end">
+                                <div class="swiper-gallery-pagination-wrapper swiper-pagination-wrapper">
+                                    <div class="swiper-gallery-pagination swiper-pagination swiper-pagination-fraction">
                                         <span
                                             class="swiper-gallery-pagination-current swiper-pagination-current"></span>
-                                    <span class="swiper-gallery-pagination-total swiper-pagination-total"></span>
+                                        <span class="swiper-gallery-pagination-total swiper-pagination-total"></span>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="swiper-gallery-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
+                                    <button type="button"
+                                            class="swiper-gallery-button-prev swiper-button-prev swiper-button-sm d-flex align-items-center justify-content-center">
+                                        <svg class="swiper-button-prev-media" width="14" height="14">
+                                            <use xlink:href="images/icons/sprite.svg#icon-angle-left"></use>
+                                        </svg>
+                                    </button>
+
+                                    <button type="button"
+                                            class="swiper-gallery-button-next swiper-button-next swiper-button-sm d-flex align-items-center justify-content-center">
+                                        <svg class="swiper-button-next-media" width="14" height="14">
+                                            <use xlink:href="images/icons/sprite.svg#icon-angle-right"></use>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
 
-                            <div
-                                class="swiper-gallery-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
-                                <button type="button"
-                                        class="swiper-gallery-button-prev swiper-button-prev swiper-button-sm d-flex align-items-center justify-content-center">
-                                    <svg class="swiper-button-prev-media" width="14" height="14">
-                                        <use xlink:href="images/icons/sprite.svg#icon-angle-left"></use>
-                                    </svg>
-                                </button>
+                            <div class="swiper-gallery-cover swiper-cover">
+                                <div class="swiper-gallery swiper-container">
+                                    <div class="swiper-wrapper">
 
-                                <button type="button"
-                                        class="swiper-gallery-button-next swiper-button-next swiper-button-sm d-flex align-items-center justify-content-center">
-                                    <svg class="swiper-button-next-media" width="14" height="14">
-                                        <use xlink:href="images/icons/sprite.svg#icon-angle-right"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
+                                        {!! $page->block_advantages !!}
 
-                        <div class="swiper-gallery-cover swiper-cover">
-                            <div class="swiper-gallery swiper-container">
-                                <div class="swiper-wrapper">
-
-                                    {!! $page->block_advantages !!}
-
-                                    {{--<div class="swiper-slide">
-                                        <div class="gallery-header-container d-flex flex-column justify-content-center">
-                                            <div class="gallery-description"><b>Пример:</b> Проложенные трассы по виду одного из наших проектов</div>
-                                        </div>
-
-                                        <div class="twentytwenty-container">
-                                            <div class="twentytwenty-block">
-                                                <img src="uploads/advantages/example-item-1-before.jpg" class="twentytwenty-media" alt="">
-                                                <img src="uploads/advantages/example-item-1-after.jpg" class="twentytwenty-media" alt="">
+                                        {{--<div class="swiper-slide">
+                                            <div class="gallery-header-container d-flex flex-column justify-content-center">
+                                                <div class="gallery-description"><b>Пример:</b> Проложенные трассы по виду одного из наших проектов</div>
                                             </div>
-                                        </div>
-                                    </div>--}}
 
+                                            <div class="twentytwenty-container">
+                                                <div class="twentytwenty-block">
+                                                    <img src="uploads/advantages/example-item-1-before.jpg" class="twentytwenty-media" alt="">
+                                                    <img src="uploads/advantages/example-item-1-after.jpg" class="twentytwenty-media" alt="">
+                                                </div>
+                                            </div>
+                                        </div>--}}
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>
