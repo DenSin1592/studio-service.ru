@@ -56,8 +56,10 @@ return [
                 'vendor/jquery.validate/additional-methods.min.js',
                 'vendor/jquery.validate/additional-methods.ext.js',
                 'vendor/jquery.validate/additional-methods.ext.js',
+                'vendor/jquery.inputmask/jquery.inputmask.min.js',
 
                 'js/common/csrf.js',
+                'js/common/inputmask.init.js',
 
                 'html/js/header.js',
                 'html/js/sliders.js',

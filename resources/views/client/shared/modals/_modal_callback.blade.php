@@ -34,7 +34,7 @@
 
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <input type="tel" name="phone" class="form-control" placeholder="Телефон" >
+                                            <input type="tel" name="phone" data-client-phone-mask class="form-control" placeholder="Телефон" >
                                         </div>
                                     </div>
 
