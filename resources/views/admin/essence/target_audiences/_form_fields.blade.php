@@ -1,7 +1,7 @@
 
 {!! Form::tbFormGroupOpen('parent_id') !!}
     {!! Form::tbLabel('parent_id', trans('validation.attributes.parent_id')) !!}
-    {!! Form::tbSelect2('parent_id', $parentVariants) !!}
+    {!! Form::tbSelect('parent_id', $parentVariants) !!}
 {!! Form::tbFormGroupClose() !!}
 
 {!! Form::tbTextBlock('name') !!}
