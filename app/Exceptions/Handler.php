@@ -44,12 +44,11 @@ class Handler extends ExceptionHandler
 
     public function report(Throwable $exception): void
     {
-        //todo:сделать отправку ошибок
-        /*if (app()->isProduction() && $this->shouldReport($exception)) {
+        if (app()->isProduction() && $this->shouldReport($exception)) {
             $this->container->make(ErrorSenderInterface::class)->send($exception);
         }
 
-        parent::report($exception);*/
+        parent::report($exception);
     }
 
 

@@ -36,6 +36,9 @@ Route::prefix(config('app.admin_path'))->name('cc.')->namespace('Admin')->group(
             require_once 'web/admin/structure.php';
             require_once 'web/admin/target_audiences.php';
         });
+
+        // all others should show 404 page for admin
+        Route::any('/{url}', static function (){ \App::abort(404, 'Unknown route'); })->where('url', '.*');
     });
 
 });
