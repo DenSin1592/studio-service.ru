@@ -23,6 +23,7 @@ class ReviewRepository extends BaseFeatureRepository
                     ->limit(1);
             }])
             ->where('on_home_page', true)
+            ->where('publish', true)
             ->orderBy('position')
             ->get();
     }
