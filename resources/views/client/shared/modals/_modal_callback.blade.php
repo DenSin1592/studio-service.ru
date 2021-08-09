@@ -57,7 +57,7 @@
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" name="privacy" class="custom-control-input" id="modal-callback-privacy-field" checked>
-                                                <label for="modal-callback-privacy-field" class="custom-control-label" >Я ознакомлен и согласен с <a href="{{route('privacy')}}">Политикой конфиденциальности</a></label>
+                                                <label for="modal-callback-privacy-field" class="custom-control-label" >Я ознакомлен и согласен с <a href="{{route('privacy')}}" target="_blank">Политикой конфиденциальности</a></label>
                                             </div>
                                         </div>
                                     </div>
