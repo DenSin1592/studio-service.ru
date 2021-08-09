@@ -18,7 +18,7 @@
                         <div class="form-row align-items-center">
                             <div
                                 class="section-header-typography-container col-auto d-flex flex-wrap align-items-center">
-                                <h1 class="section-title title-h1">{{$metaData['h1']}}</h1>
+                                <h1 class="section-title title-h1">{!! $metaData['h1'] !!}</h1>
                             </div>
 
                             <div class="section-header-controls-container col-auto">

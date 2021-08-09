@@ -6,6 +6,6 @@
 
 @section('content')
 
-    <h1>{{$metaData['h1']}}</h1>
+    <h1>{!! $metaData['h1'] !!}</h1>
 
 @stop

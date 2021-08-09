@@ -14,7 +14,7 @@
                     @include('client.shared.breadcrumbs._breadcrumbs')
 
                     <article class="article">
-                        <h1><h1>{{$metaData['h1']}}</h1></h1>
+                        <h1><h1>{!! $metaData['h1'] !!}</h1></h1>
 
                         {!! $textPage->content !!}
 

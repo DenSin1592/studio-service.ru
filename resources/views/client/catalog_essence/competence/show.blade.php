@@ -15,7 +15,7 @@
 
 
                     <div class="display-header">
-                        <h1 class="display-title title-h1">{{$metaData['h1']}}</h1>
+                        <h1 class="display-title title-h1">{!! $metaData['h1'] !!}</h1>
                     </div>
 
                     <div class="row">

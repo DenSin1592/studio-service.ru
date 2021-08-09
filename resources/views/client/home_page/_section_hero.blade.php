@@ -7,9 +7,7 @@
                     <div class="hero-typography-container col-12 col-md-7 col-xxl-8">
                         <div class="row">
                             <div class="col-10 col-sm-8 col-md-12">
-                                <h1 class="hero-title"><span class="text-lead text-secondary"><b>Студия-</b><span
-                                            class="font-weight-light">Сервис</span> —</span> эксперт в области эфирного
-                                    вещания, телевизионного производства, продакшн студий и мультимедиа.</h1>
+                                <h1 class="hero-title">{!! $metaData['h1'] !!}</h1>
                                 <div class="hero-description">Мы подбираем решения по организации комплексов для
                                     профессиональных телевизионных студий, заводов, спортивных объектов, школ и многих
                                     других.
