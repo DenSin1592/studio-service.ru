@@ -85,6 +85,7 @@
         let resetForm = () => {
             form.get(0).reset();
             form.find('input').removeClass('error');
+            form.find('label.error').remove();
             submitWrapper.removeClass('loader');
             formError.html('');
         };
