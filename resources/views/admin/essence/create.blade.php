@@ -16,6 +16,7 @@
             'autocomplete' => 'off'
             ]) !!}
 
+        {!! Form::hidden('admin', true) !!}
         @include($viewFormFieldsName)
 
         <div class="action-bar">

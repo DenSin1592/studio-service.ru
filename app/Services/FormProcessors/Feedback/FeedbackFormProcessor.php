@@ -10,7 +10,9 @@ final class FeedbackFormProcessor extends BaseFormProcessor
 {
     protected function prepareInputData(array $data)
     {
-        $data['referral_url'] = \Request::server('HTTP_REFERER');
+        if(!isset($data['admin'])){
+            $data['referral_url'] = \Request::server('HTTP_REFERER');
+        }
 
         $data['status'] =(!empty($data['status']))? $data['status'] : Feedback::STATUS_NEW;
         $data = array_merge($data, resolve(Device::class)->info());
