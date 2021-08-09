@@ -53,7 +53,7 @@
                         return repo.text;
                     },
                     placeholder: 'Выберите запись',
-                    minimumInputLength: 3
+                    minimumInputLength: 0
                 });
             }
 

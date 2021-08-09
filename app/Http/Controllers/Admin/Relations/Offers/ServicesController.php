@@ -8,6 +8,7 @@ use App\Services\Repositories\Services\ServicesRepository;
 class ServicesController extends BaseBelongsToController
 {
     public const RELATIONS_NAME = 'service';
+    public const FIELD_NAME = 'service_id';
     public const ROUTE_SEARCH = 'cc.offers.services.search';
     public const ROUTE_EDIT = \App\Http\Controllers\Admin\EssenceControllers\ServicesController::ROUTE_EDIT;
     public const ROUTE_SHOW_ON_SITE = \App\Http\Controllers\Client\EssenceControllers\ServiceController::ROUTE_SHOW_ON_SITE;

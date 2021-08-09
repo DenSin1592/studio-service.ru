@@ -85,15 +85,11 @@ abstract class BaseFeatureRepository extends BaseRepository
     public function getEssencesBySearchString($searchString, $page = 1, $limit = 20): array
     {
         $searchString = trim($searchString);
-        if ($searchString === '' || empty($searchString))
-            return [
-                'items' => Collection::make([]),
-                'total' => 0,
-                'page' => $page,
-                'limit' => $limit,
-            ];
-
-        $query = $this->getModel()->where('name', 'like', "%{$searchString}%");
+        if ($searchString === '' || empty($searchString)){
+            $query = $this->getModel()->query();
+        }else{
+            $query = $this->getModel()->where('name', 'like', "%{$searchString}%");
+        }
 
         $total = $this->selectProductCount($query);
 

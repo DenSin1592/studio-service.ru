@@ -25,6 +25,7 @@
         @include('admin.shared._relations._belongs_to._block',
             [
                 'relationName' => \App\Http\Controllers\Admin\Relations\Offers\ServicesController::RELATIONS_NAME,
+                'fieldName' => \App\Http\Controllers\Admin\Relations\Offers\ServicesController::FIELD_NAME,
                 'routeSearch' => \App\Http\Controllers\Admin\Relations\Offers\ServicesController::ROUTE_SEARCH,
                 'routeEdit' => \App\Http\Controllers\Admin\Relations\Offers\ServicesController::ROUTE_EDIT,
                 'routeShowOnSite' => \App\Http\Controllers\Admin\Relations\Offers\ServicesController::ROUTE_SHOW_ON_SITE,
@@ -39,6 +40,7 @@
         @include('admin.shared._relations._belongs_to._block',
             [
                 'relationName' => \App\Http\Controllers\Admin\Relations\Offers\TargetAudiencesController::RELATIONS_NAME,
+                'fieldName' => \App\Http\Controllers\Admin\Relations\Offers\TargetAudiencesController::FIELD_NAME,
                 'routeSearch' => \App\Http\Controllers\Admin\Relations\Offers\TargetAudiencesController::ROUTE_SEARCH,
                 'routeEdit' => \App\Http\Controllers\Admin\Relations\Offers\TargetAudiencesController::ROUTE_EDIT,
                 'routeShowOnSite' => \App\Http\Controllers\Admin\Relations\Offers\TargetAudiencesController::ROUTE_SHOW_ON_SITE,
