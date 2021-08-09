@@ -9,6 +9,8 @@ use App\Services\DataProviders\AdminUserForm\AdminUserSubForm\Roles;
 use App\Services\DataProviders\CompetenceForm\CompetenceForm;
 use App\Services\DataProviders\CompetenceForm\CompetenceSubForm\ContentBlocks;
 use App\Services\DataProviders\FeedbackForm\FeedbackForm;
+use App\Services\DataProviders\NodeForm\NodeForm;
+use App\Services\DataProviders\NodeForm\NodeSubForm\ParentVariants;
 use App\Services\DataProviders\OfferForm\OfferForm;
 use App\Services\DataProviders\OurWorkForm\OurWorkForm;
 use App\Services\DataProviders\ReviewForm\ReviewForm;
@@ -21,7 +23,8 @@ use App\Services\DataProviders\SettingsForm\SettingsForm;
 use App\Services\DataProviders\TargetAudienceForm\TargetAudienceForm;
 use Illuminate\Support\ServiceProvider;
 
-class DataProvidersServiceProvider extends ServiceProvider
+class
+DataProvidersServiceProvider extends ServiceProvider
 {
     public function register()
     {
@@ -63,6 +66,14 @@ class DataProvidersServiceProvider extends ServiceProvider
             });
 
 
+        $this->app->bind(NodeForm::class,
+            static function() {
+                $form = new NodeForm();
+                $form->addSubForm(\App(ParentVariants::class));
+                return $form;
+            });
+
+
         $this->app->bind(OfferForm::class,
             static function() {
                 $form = new OfferForm();
@@ -100,6 +111,7 @@ class DataProvidersServiceProvider extends ServiceProvider
         $this->app->bind(TargetAudienceForm::class,
             static function() {
                 $form = new TargetAudienceForm();
+                $form->addSubForm(\App(\App\Services\DataProviders\TargetAudienceForm\TargetAudienceSubForm\ParentVariants::class));
                 return $form;
             });
 

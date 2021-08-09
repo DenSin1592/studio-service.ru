@@ -53,17 +53,4 @@ final class TargetAudiencesController extends BaseEssenceController
             ->with($this->getRoutePaths())
             ;
     }
-
-    public function create()
-    {
-        return parent::create()
-            ->with('parentVariants', $this->repository->getParentVariants(null, '[Корень]'));
-    }
-
-
-    public function edit($id)
-    {
-        return parent::edit($id)
-            ->with('parentVariants', $this->repository->getParentVariants(null, '[Корень]'));
-    }
 }

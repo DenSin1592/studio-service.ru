@@ -42,6 +42,7 @@ final class StructureController extends BaseEssenceController
     public function index()
     {
         $modelList = $this->repository->getTree();
+
         return view(self::VIEW_INDEX)
             ->with('modelList', $modelList)
             ->with('viewHeaderFieldName', self::VIEW_HEADER_FIELD_NAME)
@@ -49,19 +50,5 @@ final class StructureController extends BaseEssenceController
             ->with('viewListName', self::VIEW_LIST)
             ->with($this->getRoutePaths())
             ;
-    }
-
-
-    public function create()
-    {
-        return parent::create()
-            ->with('parentVariants', $this->repository->getParentVariants(null, '[Корень]'));
-    }
-
-
-    public function edit($id)
-    {
-        return parent::edit($id)
-            ->with('parentVariants', $this->repository->getParentVariants(null, '[Корень]'));
     }
 }
