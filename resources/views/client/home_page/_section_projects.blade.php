@@ -63,7 +63,7 @@
                                                     <a href="{{$element->url}}"
                                                        class="card-project-title title-h3">{{$element->name}}</a>
 
-                                                    <div class="card-project-description">{{mb_substr($element->preview, 0, 240)}}...
+                                                    <div class="card-project-description">{{mb_strimwidth($element->preview, 0, 240, '...')}}
                                                     </div>
 
                                                     @if($element->services->count() > 0)
