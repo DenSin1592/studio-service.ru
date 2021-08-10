@@ -41,13 +41,13 @@
                 <div class="col-xxl-10 offset-xxl-1">
                     <div class="services-grid row">
 
-                       {{-- @foreach($modelList as $model)
+                        @foreach($model->offers as $model)
                             <div class="service-item col-12 col-sm-6 col-md-4 d-flex">
 
                                 @include('client.shared.services._card', ['blackTaskIcon' => true])
 
                             </div>
-                        @endforeach--}}
+                        @endforeach
 
                     </div>
                 </div>
