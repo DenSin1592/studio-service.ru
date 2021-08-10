@@ -42,5 +42,23 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
           }])
           ->get();
    }
+
+
+    public function getModelforShowByAliasOrFail(string $alias)
+    {
+        return $this->getModel()
+            ->with([
+                'offers' => static function ($q) {
+                    $q->with(['service' => static function($q){
+                        $q->with(['tasks' => static function($q){
+                            $q->orderBy('position');
+                        }])->orderBy('position');
+                    }])->where('publish', true)->orderBy('position');
+                },
+            ])
+            ->where('alias', $alias)
+            ->where('publish', true)
+            ->firstOrFail();
+    }
 }
 

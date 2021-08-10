@@ -8,6 +8,7 @@
 
 {!! Form::tbTinymceTextareaBlock('block_advantages', trans('validation.attributes.block_advantages')) !!}
 
+@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
 
 <fieldset class="bordered-group">
     <legend>Предмет оффера</legend>
