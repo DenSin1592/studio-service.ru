@@ -32,6 +32,7 @@ class TargetAudience extends Model
         'meta_title',
         'meta_description',
         'meta_keywords',
+        'content_top',
     ];
 
     protected $casts = [

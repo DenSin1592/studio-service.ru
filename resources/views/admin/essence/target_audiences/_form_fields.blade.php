@@ -15,6 +15,8 @@
 
 @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'background_image'])
 
+{!! Form::tbTinymceTextareaBlock('content_top', trans('validation.attributes.content_top')) !!}
+
 @include('admin.shared._form_meta_fields')
 
 @include('admin.shared._model_timestamps', ['model' => $formData[$essenceName]])
