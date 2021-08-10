@@ -1,6 +1,8 @@
 (function ($, window) {
     $(function () {
-        window.tinymceInit = function() {
+
+
+        window.tinymceInit = () => {
             /**
              * Glue between tinymce and elfinder
              * @param fieldName
@@ -23,8 +25,8 @@
                 return false;
             }
 
-            // Init tinymce
-            var initData = {
+
+            let initData = {
                 selector: '[data-tinymce]',
                 forced_root_block : "",
                 menubar: false,
@@ -52,5 +54,6 @@
         };
 
         tinymceInit();
+
     });
 })(jQuery, window);
