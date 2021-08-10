@@ -103,11 +103,13 @@
                     </div>
                 </div>
 
-                <div class="advantages-text-lead title-h3 text-purple">Даже то, что вы можете не видеть, мы делаем
-                    качественно!
-                </div>
-
                 @if(!empty($page->block_advantages))
+
+                    <div class="advantages-text-lead title-h3 text-purple">Даже то, что вы можете не видеть, мы делаем
+                        качественно!
+                    </div>
+
+
                     <div class="advantages-gallery-block">
                         <div class="gallery-block">
                             <div class="gallery-controls-container d-flex align-items-center justify-content-sm-end">
