@@ -60,5 +60,17 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
             ->where('publish', true)
             ->firstOrFail();
     }
+
+    public function getModelsForHomePage()
+    {
+        return $this->getModel()
+            ->whereHas('parent', function ($query) {
+                $query->where('publish', true);
+            })
+            ->where('on_home_page', true)
+            ->where('publish', true)
+            ->orderBy('position')
+            ->get();
+    }
 }
 
