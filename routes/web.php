@@ -64,7 +64,7 @@ Route::namespace('Client')->group(function () {
 
     Route::post('feedback', 'FeedbackController')->name('feedback');
     Route::get('privacy', 'PrivacyController')->name('privacy');
-    Route::get('sitemap', 'MapController')->name('sitemap');
+    Route::get('map', 'MapController')->name('map');
 
     Route::get('/{url}', 'DynamicPagesController@show')->name('dynamic_page')->where('url', '.*');
 });
