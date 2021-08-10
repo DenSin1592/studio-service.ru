@@ -8,4 +8,7 @@
 
     <h1>{!! $metaData['h1'] !!}</h1>
 
+    <div>{{$model->preview}}</div>
+    <div>{{$model->description}}</div>
+
 @stop
