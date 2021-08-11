@@ -8,7 +8,7 @@
                             <div class="row align-items-center">
                                 <div class="card-social-media-container col-auto">
                                     <div class="card-social-thumbnail">
-                                        <img src="{{asset('images/icons/social/icon-logo-whatsapp.png')}}" alt="WhatsApp" width="122" height="122" class="card-social-media">
+                                        <img src="{{asset('images/icons/social/icon-logo-whatsapp.svg')}}" alt="WhatsApp" width="122" height="122" class="card-social-media">
                                     </div>
                                 </div>
 
@@ -24,7 +24,7 @@
                             <div class="row align-items-center">
                                 <div class="card-social-media-container col-auto">
                                     <div class="card-social-thumbnail">
-                                        <img src="{{asset('images/icons/social/icon-logo-telegram.png')}}" alt="Telegram" width="124" height="124" class="card-social-media">
+                                        <img src="{{asset('images/icons/social/icon-logo-telegram.svg')}}" alt="Telegram" width="124" height="124" class="card-social-media">
                                     </div>
                                 </div>
 

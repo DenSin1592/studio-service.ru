@@ -19,7 +19,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-        {!! Asset::includeCSS('client_general_css') !!}
+        {!! Asset::includeCSS('client_css') !!}
     </head>
 
     <body @yield('body_class')>
@@ -40,7 +40,7 @@
 
         @yield('modal')
 
-        {!! Asset::includeJS('client_general_js') !!}
+        {!! Asset::includeJS('client_js') !!}
 
     </body>
 </html>

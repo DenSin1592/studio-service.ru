@@ -15,7 +15,7 @@
                 <div class="offcanvas-logo-container col-auto">
                     <a href="{{route('home')}}" class="offcanvas-logo-block d-flex align-items-center">
                         <div class="offcanvas-logo-thumbnail">
-                            <img src="{{asset('images/logo.png')}}" alt="Студия-Сервис" width="61" height="56" class="offcanvas-logo-media">
+                            <img src="{{asset('images/logo.svg')}}" alt="Студия-Сервис" width="61" height="56" class="offcanvas-logo-media">
                         </div>
 
                         <div class="offcanvas-logo-content">
@@ -34,14 +34,14 @@
                 <div class="offcanvas-social-container col-auto">
                     <ul class="offcanvas-social-list d-flex flex-wrap list-unstyled">
                         <li class="offcanvas-social-item">
-                            <a href="#link" class="offcanvas-social-link" target="_blank">
-                                <img src="{{asset('images/icons/social/icon-social-telegram.png')}}" width="35" height="35" alt="Telegram" class="offcanvas-social-media">
+                            <a href="https://t.me/+79160640600" class="offcanvas-social-link" target="_blank">
+                                <img src="{{asset('images/icons/social/icon-social-telegram.svg')}}" width="35" height="35" alt="Telegram" class="offcanvas-social-media">
                             </a>
                         </li>
 
                         <li class="offcanvas-social-item">
-                            <a href="#link" class="offcanvas-social-link" target="_blank">
-                                <img src="{{asset('images/icons/social/icon-social-whatsapp.png')}}" width="35" height="35" alt="Whatsapp" class="offcanvas-social-media">
+                            <a href="https://wa.me/+79160640600" class="offcanvas-social-link" target="_blank">
+                                <img src="{{asset('images/icons/social/icon-social-whatsapp.svg')}}" width="35" height="35" alt="Whatsapp" class="offcanvas-social-media">
                             </a>
                         </li>
                     </ul>

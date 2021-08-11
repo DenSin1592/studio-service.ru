@@ -24,7 +24,7 @@ return [
 
     'groups' => [
 
-        'client_general_css' => [
+        'client_css' => [
             'assets' => [
 
                 'vendor/swiper-4.5.1/dist/css/swiper.min.css',
@@ -38,7 +38,7 @@ return [
             'output' => 'css/compiled/client_layout.css'
         ],
 
-        'client_general_js' => [
+        'client_js' => [
             'assets' => [
                 'vendor/jquery/v3/jquery-3.3.1.min.js',
                 'vendor/popper/popper.min.js',

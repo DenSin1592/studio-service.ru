@@ -17,7 +17,7 @@
                                     <div
                                         class="card-advantage-thumbnail d-flex align-items-start align-items-lg-center justify-content-start">
                                         <img loading="lazy"
-                                             src="{{asset('images/icons/advantage/icon-advantage-cycle.png')}}"
+                                             src="{{asset('images/icons/advantage/icon-advantage-cycle.svg')}}"
                                              width="130" height="130" alt="Полный цикл услуг"
                                              class="card-advantage-media">
                                     </div>
@@ -40,7 +40,7 @@
                                     <div
                                         class="card-advantage-thumbnail d-flex align-items-start align-items-lg-center justify-content-start">
                                         <img loading="lazy"
-                                             src="{{asset('images/icons/advantage/icon-advantage-receipt.png')}}"
+                                             src="{{asset('images/icons/advantage/icon-advantage-receipt.svg')}}"
                                              width="149" height="130" alt="Отсутствие доп.расходов"
                                              class="card-advantage-media">
                                     </div>
@@ -63,7 +63,7 @@
                                     <div
                                         class="card-advantage-thumbnail d-flex align-items-start align-items-lg-center justify-content-start">
                                         <img loading="lazy"
-                                             src="{{asset('images/icons/advantage/icon-advantage-infinity.png')}}"
+                                             src="{{asset('images/icons/advantage/icon-advantage-infinity.svg')}}"
                                              width="160" height="70" alt="Вложения на годы"
                                              class="card-advantage-media">
                                     </div>
@@ -86,7 +86,7 @@
                                     <div
                                         class="card-advantage-thumbnail d-flex align-items-start align-items-lg-center justify-content-start">
                                         <img loading="lazy"
-                                             src="{{asset('images/icons/advantage/icon-advantage-100.png')}}"
+                                             src="{{asset('images/icons/advantage/icon-advantage-100.svg')}}"
                                              width="220" height="71" alt="Более 100 внедренных проектов"
                                              class="card-advantage-media">
                                     </div>

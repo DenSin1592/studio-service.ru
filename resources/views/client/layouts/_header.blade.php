@@ -30,7 +30,7 @@
             <div class="header-logo-container col-auto col-lg-4 col-xl-auto order-md-0">
                 <a href="{{route('home')}}" class="header-logo-block d-flex align-items-center">
                     <div class="header-logo-thumbnail">
-                        <img src="{{asset('images/logo.png')}}" alt="Студия-Сервис" width="94" height="87" class="header-logo-media">
+                        <img src="{{asset('images/logo.svg')}}" alt="Студия-Сервис" width="94" height="87" class="header-logo-media">
                     </div>
 
                     <div class="header-logo-content d-none d-md-block">
@@ -53,15 +53,15 @@
                 <div class="header-social-block">
                     <ul class="header-social-list d-flex flex-wrap list-unstyled">
                         <li class="header-social-item">
-                            <a href="https://wa.me/+79160640600" class="header-social-link" target="_blank">
-                                <img src="{{asset('images/icons/social/icon-social-telegram.png')}}" width="40" height="40"
+                            <a href="https://t.me/+79160640600" class="header-social-link" target="_blank">
+                                <img src="{{asset('images/icons/social/icon-social-telegram.svg')}}" width="40" height="40"
                                      alt="Telegram" class="header-social-media">
                             </a>
                         </li>
 
                         <li class="header-social-item">
                             <a href="https://wa.me/+79160640600" class="header-social-link" target="_blank">
-                                <img src="{{asset('images/icons/social/icon-social-whatsapp.png')}}" width="40" height="40"
+                                <img src="{{asset('images/icons/social/icon-social-whatsapp.svg')}}" width="40" height="40"
                                      alt="Whatsapp" class="header-social-media">
                             </a>
                         </li>

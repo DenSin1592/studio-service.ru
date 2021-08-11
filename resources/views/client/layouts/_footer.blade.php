@@ -31,7 +31,7 @@
                     <div class="footer-logo-container col-6 col-md-4 order-sm-4">
                         <a href="{{route('home')}}" class="footer-logo-block d-flex align-items-center">
                             <div class="footer-logo-thumbnail">
-                                <img loading="lazy" src="{{asset('images/logo.png')}}" width="70" height="65" alt=""
+                                <img loading="lazy" src="{{asset('images/logo.svg')}}" width="70" height="65" alt=""
                                      class="footer-logo-media">
                             </div>
 
@@ -49,14 +49,14 @@
                             <ul class="footer-social-list list-unstyled d-flex flex-wrap justify-content-end justify-content-md-start">
                                 <li class="footer-social-item">
                                     <a href="https://wa.me/+79160640600" class="footer-social-link" target="_blank">
-                                        <img src="{{asset('images/icons/social/icon-social-telegram.png')}}" width="40" height="40"
+                                        <img src="{{asset('images/icons/social/icon-social-telegram.svg')}}" width="40" height="40"
                                              alt="Telegram" class="footer-social-media">
                                     </a>
                                 </li>
 
                                 <li class="footer-social-item">
                                     <a href="https://wa.me/+79160640600" class="footer-social-link" target="_blank">
-                                        <img src="{{asset('images/icons/social/icon-social-whatsapp.png')}}" width="40" height="40"
+                                        <img src="{{asset('images/icons/social/icon-social-whatsapp.svg')}}" width="40" height="40"
                                              alt="Whatsapp" class="footer-social-media">
                                     </a>
                                 </li>
