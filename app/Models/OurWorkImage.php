@@ -23,6 +23,7 @@ class OurWorkImage extends Model
        self::IMAGE_FILE,
         'image_remove',
         'position',
+        'name',
         'publish',
         'review_id',
     ];
@@ -47,7 +48,7 @@ class OurWorkImage extends Model
 
         self::mountUploader('image', UploaderIntegrator::getUploader('uploads/our_works/images', [
             'thumb' => new OutBoundVersion(85, 85),
-            'mini'  => new OutBoundVersion(300, 300),
+            'main'  => new OutBoundVersion(1500, 1000),
         ], false));
     }
 

@@ -23,4 +23,21 @@ class OurWorkRepository extends BaseFeatureRepository
             ->orderBy('position')
             ->get();
     }
+
+    public function getModelforShowByAliasOrFail(string $alias)
+    {
+        return $this->getModel()
+            ->with([
+                'services' => static function ($q) {
+                    $q->with(['tasks' => static function($qu){
+                        $qu->orderBy('position');
+                    }])->where('publish', true)->orderBy('position');
+                },
+                'images' => static function ($q) {
+                    $q->orderBy('position')->where('publish', true);
+                }])
+            ->where('alias', $alias)
+            ->where('publish', true)
+            ->firstOrFail();
+    }
 }

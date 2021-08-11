@@ -38,7 +38,7 @@
                 skin: "lightgray",
                 file_browser_callback : elFinderBrowser,
                 allow_script_urls: true,
-                extended_valid_elements: "script[*],span[*],div[*],b[*],i[*],a[*],button[*],frame[*],iframe[*],form[*],ol[*],ul[*],li[*]",
+                extended_valid_elements: "script[*],span[*],div[*],b[*],i[*],a[*],button[*],frame[*],iframe[*],form[*],ol[*],ul[*],li[*],svg[*],use[*],a[*]div[*]",
                 language_url: "/vendor/tinymce/langs/ru.js",
                 theme_url: "/vendor/tinymce/themes/modern/theme.min.js",
                 skin_url: "/vendor/tinymce/skins/lightgray",

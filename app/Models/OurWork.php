@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use App\Models\Features\AutoPublish;
-use App\Models\Features\DeleteHelpers;
 use App\Models\Helpers\AliasHelpers;
+use App\Models\Helpers\DeleteHelpers;
 use Diol\Fileclip\Eloquent\Glue;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\BoxVersion;
@@ -24,7 +24,8 @@ class OurWork extends Model
         'on_home_page',
         'position',
         'preview',
-        'description',
+        'content_before_slider',
+        'content_after_slider',
         'preview_image_file',
         'preview_image_remove',
     ];

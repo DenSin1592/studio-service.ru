@@ -172,6 +172,8 @@ return [
         'name' => 'Название',
         'header' => 'Заголовок',
         'description' => 'Описание',
+        'content_before_slider' => 'Контент до слайдера',
+        'content_after_slider' => 'Контент после слайдера',
         'sub_header' => 'Подзаголовок',
         'meta_title' => 'Meta title',
         'meta_description' => 'Meta description',

@@ -36,6 +36,11 @@
     </div>
 
     <div class="full-info">
+        {{ Form::tbLabel("{$relation}[{$key}][name]", trans('validation.attributes.name')) }}
+        {{ Form::tbText("{$relation}[{$key}][name]", $element->name) }}
+    </div>
+
+    <div class="full-info">
         {{ Form::tbLabel("{$relation}[{$key}][position]", trans('validation.attributes.position')) }}
         {{ Form::tbText("{$relation}[{$key}][position]", $element->position) }}
     </div>
