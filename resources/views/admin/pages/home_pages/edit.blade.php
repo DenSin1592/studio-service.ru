@@ -17,7 +17,6 @@
 
     {!! Form::tbTextBlock('youtube_link_about', null, null, ['hint' => 'Ссылка вида "поделиться"(например: https://youtu.be/K73-hmaHPHY)']) !!}
 
-
     {!! Form::tbTextBlock('link_about') !!}
 
     {!! Form::tbTinymceTextareaBlock('short_about', trans('validation.attributes.short_about')) !!}
