@@ -15,6 +15,7 @@
 @import 'components/forms';
 @import 'components/buttons';
 @import 'components/lists';
+@import 'components/social';
 @import 'components/table';
 @import 'components/gallery';
 @import 'components/accordion';
@@ -39,7 +40,10 @@
 @import 'components/cards/card-project';
 @import 'components/cards/card-target';
 @import 'components/cards/card-include';
+@import 'components/cards/card-requirement';
+@import 'components/cards/card-pricing';
 @import 'components/cards/card-social';
+@import 'components/cards/card-video';
 
 // sections
 @import 'sections/section-display';
@@ -53,10 +57,20 @@
 @import 'sections/section-testimonials';
 @import 'sections/section-includes';
 @import 'sections/section-target';
+@import 'sections/section-service';
+@import 'sections/section-presentation';
+@import 'sections/section-requirements';
+@import 'sections/section-faq';
+@import 'sections/section-pricing';
+@import 'sections/section-feedback';
 @import 'sections/section-article';
 @import 'sections/section-content';
 @import 'sections/section-social';
-@import 'sections/section-overlay';
+@import 'sections/section-video';
+
+
+// pages
+@import 'pages/page-project/project';
 
 
 // footer

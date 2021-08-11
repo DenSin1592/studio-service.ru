@@ -66,6 +66,17 @@
             margin-bottom: 45px;
         }
     }
+
+    .form-control {
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active { 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: #fff !important;
+            border-color: #fff;
+        }
+    }
 }
 
 .modal-backdrop {

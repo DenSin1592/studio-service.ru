@@ -1,0 +1,84 @@
+.section-requirements {
+    margin-top: 40px;
+    margin-bottom: 25px;
+    @include media-breakpoint-up(sm) {
+        margin-top: 40px;
+        margin-bottom: 35px;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-top: 60px;
+        margin-bottom: 35px;
+    }
+    @include media-breakpoint-up(xl) {
+        margin-top: 60px;
+        margin-bottom: 50px;
+    }
+    @include media-breakpoint-up(xxl) {
+        margin-top: 90px;
+        margin-bottom: 90px;
+    }
+
+    .section-header {
+        margin-bottom: 10px;
+        @include media-breakpoint-up(sm) {
+            margin-bottom: 15px;
+        }
+        @include media-breakpoint-up(md) {
+            margin-bottom: 10px;
+        }
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.requirements-block {
+    .requirements-headline {
+        margin: 0 0 12px;
+        @include media-breakpoint-up(sm) {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 20px;
+        }
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 30px;
+        }
+        @include media-breakpoint-up(xl) {
+            font-size: 18px;
+            line-height: 25px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin-bottom: 35px;
+            font-size: 22px;
+            line-height: 30px;
+        }
+    }
+}
+
+.requirements-grid {
+    margin-bottom: 0;
+    @include media-breakpoint-up(sm) {
+        margin-bottom: 10px;
+    }
+    @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 15px;
+    }
+    @include media-breakpoint-up(xxl) {
+        margin-bottom: 25px;
+    }
+
+    .requirement-item {
+        margin-bottom: 20px;
+    }
+}
+
+.requirements-text-lead {
+    margin: 0;
+    @include media-breakpoint-up(xxl) {
+        font-size: 50px;
+        line-height: 60px;
+    }
+}

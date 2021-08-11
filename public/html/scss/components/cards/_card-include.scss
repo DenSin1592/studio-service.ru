@@ -1,14 +1,38 @@
 .card-include {
     display: block;
     width: 100%;
-    padding: 50px 50px;
+    min-height: 250px;
+    padding: 15px 20px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     color: currentColor;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 14px;
+    line-height: 20px;
     text-decoration: none;
+    @include media-breakpoint-up(sm) {
+        min-height: 310px;
+    }
+    @include media-breakpoint-up(md) {
+        padding: 20px;
+    }
+    @include media-breakpoint-up(lg) {
+        min-height: 410px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+    @include media-breakpoint-up(xl) {
+        padding: 15px 30px 20px;
+        font-size: 16px;
+        line-height: 25px;
+    }
+    @include media-breakpoint-up(xxl) {
+        min-height: 605px;
+        padding: 45px 50px 50px;
+        font-size: 18px;
+        line-height: 30px;
+    }
+
     &:hover {
         color: currentColor;
         text-decoration: none;
@@ -21,13 +45,76 @@
 
     .card-include-title {
         margin: 0 0 10px;
-        font-size: 30px;
+        font-size: 18px;
         font-weight: 600;
-        line-height: 1;
+        line-height: 25px;
+        @include media-breakpoint-up(sm) {
+            font-size: 22px;
+            line-height: 30px;
+        }
+        @include media-breakpoint-up(lg) {
+            font-size: 25px;
+            line-height: 30px;
+        }
+        @include media-breakpoint-up(xl) {
+            font-size: 28px;
+            line-height: 38px;
+        }
+        @include media-breakpoint-up(xxl) {
+            font-size: 30px;
+            line-height: 40px;
+        }
+    }
+
+    .card-include-description {
+        margin-bottom: 15px;
+        @include media-breakpoint-up(sm) {
+            max-width: 265px;
+        }
+        @include media-breakpoint-up(lg) {
+            max-width: 355px;
+        }
+        @include media-breakpoint-up(xl) {
+            max-width: 425px;
+        }
+        @include media-breakpoint-up(xxl) {
+            max-width: 385px;
+        }
     }
 
     .card-include-cta {
         margin-top: auto;
+        font-size: 12px;
+        font-weight: 400;
+        @include media-breakpoint-up(sm) {
+            font-size: 15px;
+        }
+        @include media-breakpoint-up(md) {
+            padding: 9px 18px;
+        }
+        @include media-breakpoint-up(lg) {
+            padding: 13px 20px;
+        }
+        @include media-breakpoint-up(xxl) {
+            font-size: 18px;
+        }
+    }
+
+    &.card-include-sm {
+        min-height: 125px;
+        @include media-breakpoint-up(sm) {
+            min-height: 155px;
+        }
+        @include media-breakpoint-up(lg) {
+            min-height: 195px;
+        }
+        @include media-breakpoint-up(xxl) {
+            min-height: 300px;
+        }
+
+        .card-include-description {
+            max-width: none;
+        }
     }
 
     &.card-include-dark {
