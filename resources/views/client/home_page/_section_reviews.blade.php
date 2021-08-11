@@ -60,7 +60,7 @@
                                                            data-src="{{$element->youtube_link}}"
                                                            class="card-testimonial-thumbnail card-testimonial-video-thumbnail">
                                                             <img
-                                                                src="{{{ $element->images->first()?->getImgPath('image', 'preview', 'no-image-200x200.png') ?? asset('/images/common/no-image/no-image-200x200.png') }}}"
+                                                                src="{{{ $element->getImgPath('preview_image', 'main', 'no-image-800x800.png') }}}"
                                                                 alt="{{$element->name}}"
                                                                 class="card-testimonial-media">
 

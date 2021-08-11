@@ -19,6 +19,7 @@ class ReviewImage extends Model
         self::IMAGE_FILE,
         'image_remove',
         'position',
+        'name',
         'publish',
         'review_id',
     ];

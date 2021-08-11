@@ -122,7 +122,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
                     $this->app->make(ReviewValidator::class),
                     $this->app->make(ReviewRepository::class)
                 );
-                $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Review\SubProcessor\Images::class));
+                //$formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Review\SubProcessor\Images::class));
                 $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Review\SubProcessor\Services::class));
                 return $formProcessor;
             }

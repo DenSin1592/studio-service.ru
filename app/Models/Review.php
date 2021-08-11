@@ -6,6 +6,8 @@ use App\Models\Features\AutoPublish;
 
 use App\Models\Helpers\DeleteHelpers;
 use Diol\Fileclip\Eloquent\Glue;
+use Diol\Fileclip\UploaderIntegrator;
+use Diol\Fileclip\Version\BoxVersion;
 use Diol\FileclipExif\FileclipExif;
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,6 +23,8 @@ class Review extends Model
         'publish',
         'on_home_page',
         'position',
+        'preview_image_file',
+        'preview_image_remove',
         'email',
         'ip',
         'text',
@@ -31,15 +35,23 @@ class Review extends Model
     protected $dates = ['review_date'];
 
 
-    public function images()
+    /*public function images()
     {
         return $this->hasMany(ReviewImage::class);
-    }
+    }*/
 
 
     public function services()
     {
         return $this->belongsToMany(Service::class)->withPivot('position');
+    }
+
+
+    public function getImgPath(string $field, ?string $version, string $noImageVersion)
+    {
+        if($this->getAttachment($field)?->exists($version))
+            return asset($this->getAttachment($field)->getUrl($version));
+        return asset('/images/common/no-image/' . $noImageVersion);
     }
 
 
@@ -58,10 +70,20 @@ class Review extends Model
     {
         parent::boot();
 
+        self::mountUploader(
+            'preview_image',
+            UploaderIntegrator::getUploader(
+                'uploads/reviews/preview_image', [
+                'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
+                'main' => new BoxVersion(700, 500, ['quality' => 100]),
+            ], true
+            )
+        );
+
         static::deleting(
             function (self $model) {
                 \DB::transaction(function() use ($model){
-                    DeleteHelpers::deleteRelatedAll($model->images());
+                    //DeleteHelpers::deleteRelatedAll($model->images());
                     $model->services()->detach();
                 });
             }

@@ -60,7 +60,7 @@ DataProvidersServiceProvider extends ServiceProvider
         $this->app->bind(ReviewForm::class,
             static function() {
                 $form = new ReviewForm();
-                $form->addSubForm(\App(Images::class));
+                //$form->addSubForm(\App(Images::class));
                 $form->addSubForm(\App(Services::class));
                 return $form;
             });
