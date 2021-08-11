@@ -8,13 +8,9 @@
                         <div class="row">
                             <div class="col-10 col-sm-8 col-md-12">
                                 <h1 class="hero-title">{!! $metaData['h1'] !!}</h1>
-                                <div class="hero-description">Мы подбираем решения по организации комплексов для
-                                    профессиональных телевизионных студий, заводов, спортивных объектов, школ и многих
-                                    других.
-                                </div>
+                                <div class="hero-description">{{$page->description_after_header}}</div>
                             </div>
                         </div>
-
                         <div class="hero-actions-block">
                             <div class="row align-items-center">
                                 <div class="col-auto">

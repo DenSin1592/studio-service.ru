@@ -235,6 +235,10 @@ return [
 
         'block_advantages' => "Блок \"Наши примущества\"  (Слайды)",
         'youtube_link' => "Ссылка Youtube",
+        'youtube_link_about' => "Ссылка Youtube - \"Видео о нас\"",
+        'short_about' => "Текст \"Коротко о нас\"",
+        'description_after_header' => "Описание после заголовка",
+        'link_about' => "Cсылка \"Подробнее о нас\"",
 
         'service' => "Услуга",
         'TA' => "ЦА",
