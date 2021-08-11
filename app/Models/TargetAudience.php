@@ -62,7 +62,7 @@ class TargetAudience extends Model
     {
         return !empty($this->parent_id)
             ? route(\App\Http\Controllers\Client\EssenceControllers\TargetAudienceController::ROUTE_SHOW_ON_SITE, $this->alias)
-            : '#_';
+            : 'javascript:void(0);';
 
     }
 

@@ -67,6 +67,7 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
             ->whereHas('parent', function ($query) {
                 $query->where('publish', true);
             })
+            ->orWhere('parent_id', null)
             ->where('on_home_page', true)
             ->where('publish', true)
             ->orderBy('position')
