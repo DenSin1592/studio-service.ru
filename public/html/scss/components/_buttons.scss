@@ -56,6 +56,20 @@
             font-size: 22px;
         }
     }
+
+    &.btn-xl {
+        padding: 14px 20px;
+        font-size: 20px;
+        font-weight: 600;
+        @include media-breakpoint-up(xl) {
+            padding: 18px 48px;
+        }
+        @include media-breakpoint-up(xxl) {
+            padding: 22px 68px;
+            font-size: 40px;
+            line-height: 50px;
+        }
+    }
 }
 
 .btn-primary {

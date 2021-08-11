@@ -48,11 +48,15 @@ h1,
     }
     @include media-breakpoint-up(lg) {
         font-size: 40px;
-        line-height: 45px;
+        line-height: 50px;
     }
     @include media-breakpoint-up(xl) {
+        font-size: 45px;
+        line-height: 55px;
+    }
+    @include media-breakpoint-up(xxl) {
         font-size: 55px;
-        line-height: 60px;
+        line-height: 65px;
     }
 }
 
@@ -219,6 +223,10 @@ blockquote {
     color: $c-purple !important;
 }
 
+.text-purple-dark {
+    color: $c-purple-dark !important;
+}
+
 .text-secondary {
     color: $c-secondary !important;
 }
@@ -305,13 +313,12 @@ blockquote {
 
 
 .section-subtitle {
-    // @extend .title-h3;
     font-weight: 400;
 }
 
 .section-dark {
     background: #10203c;
-    color: $c-light;
+    color: $c-white;
 
     h1,
     .title-h1,

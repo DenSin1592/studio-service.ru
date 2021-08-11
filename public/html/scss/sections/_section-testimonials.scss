@@ -40,8 +40,8 @@
     @include media-breakpoint-up(xl) {
         margin-top: -30px;
         margin-bottom: -30px;
-        margin-left: -$grid-gutter-width;
-        margin-right: -$grid-gutter-width;
+        margin-left: -$grid-gutter-width/1.5;
+        margin-right: -$grid-gutter-width/1.5;
         padding-top: 30px;
         padding-bottom: 30px;
     }
@@ -61,8 +61,8 @@
             padding-left: $grid-gutter-width/2;
             padding-right: $grid-gutter-width/2;
             @include media-breakpoint-up(xl) {
-                padding-left: $grid-gutter-width;
-                padding-right: $grid-gutter-width;
+                padding-left: $grid-gutter-width/1.5;
+                padding-right: $grid-gutter-width/1.5;
             }
         }
     }
