@@ -57,3 +57,28 @@
         }
     }
 }
+
+.form-feedback {
+    > .row {
+        @include media-breakpoint-up(lg) {
+            margin-left: -$grid-gutter-width;
+            margin-right: -$grid-gutter-width;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin-left: -$grid-gutter-width*1.075;
+            margin-right: -$grid-gutter-width*1.075;
+        }
+
+        > .col,
+        > [class*="col-"] {
+            @include media-breakpoint-up(lg) {
+                padding-left: $grid-gutter-width;
+                padding-right: $grid-gutter-width;
+            }
+            @include media-breakpoint-up(xxl) {
+                padding-left: $grid-gutter-width*1.075;
+                padding-right: $grid-gutter-width*1.075;
+            }
+        }
+    }
+}

@@ -1,20 +1,10 @@
 .section-projects {
     overflow: hidden;
-    margin: 45px 0 0;
-    @include media-breakpoint-up(sm) {
-        margin: 55px 0 0;
-    }
-    @include media-breakpoint-up(md) {
-        margin: 65px 0 0;
-    }
-    @include media-breakpoint-up(lg) {
-        margin: 75px 0 0;
-    }
+    margin-top: 45px;
+    margin-bottom: 45px;
     @include media-breakpoint-up(xl) {
-        margin: 95px 0 0;
-    }
-    @include media-breakpoint-up(xxl) {
-        margin: 125px 0 0;
+        margin-top: 55px;
+        margin-bottom: 55px;
     }
 
     .section-header {
