@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Features\AutoPublish;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\OutBoundVersion;
 use Diol\FileclipExif\Glue;
@@ -15,7 +14,6 @@ use Illuminate\Database\Eloquent\Model;
 class OurWorkImage extends Model
 {
     use Glue;
-    use AutoPublish;
 
     public const IMAGE_FILE = 'image_file';
 

@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use App\Models\Features\AutoPublish;
+use App\Models\Features\Glue;
 use App\Models\Helpers\AliasHelpers;
 use App\Models\Helpers\DeleteHelpers;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\BoxVersion;
-use Diol\FileclipExif\Glue;
 use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
@@ -66,14 +66,6 @@ class Service extends Model
     public function getUrlAttribute(): string
     {
         return route(\App\Http\Controllers\Client\EssenceControllers\ServiceController::ROUTE_SHOW_ON_SITE, $this->alias);
-    }
-
-
-    public function getImgPath(string $field, ?string $version, string $noImageVersion)
-    {
-        if($this->getAttachment($field)?->exists($version))
-            return asset($this->getAttachment($field)->getUrl($version));
-        return asset('/images/common/no-image/' . $noImageVersion);
     }
 
 

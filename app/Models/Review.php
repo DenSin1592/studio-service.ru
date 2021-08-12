@@ -4,11 +4,10 @@ namespace App\Models;
 
 use App\Models\Features\AutoPublish;
 
+use App\Models\Features\Glue;
 use App\Models\Helpers\DeleteHelpers;
-use Diol\Fileclip\Eloquent\Glue;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\BoxVersion;
-use Diol\FileclipExif\FileclipExif;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -16,7 +15,6 @@ class Review extends Model
 {
     use AutoPublish;
     use Glue;
-    use FileclipExif;
 
     protected $fillable = [
         'name',
@@ -44,14 +42,6 @@ class Review extends Model
     public function services()
     {
         return $this->belongsToMany(Service::class)->withPivot('position');
-    }
-
-
-    public function getImgPath(string $field, ?string $version, string $noImageVersion)
-    {
-        if($this->getAttachment($field)?->exists($version))
-            return asset($this->getAttachment($field)->getUrl($version));
-        return asset('/images/common/no-image/' . $noImageVersion);
     }
 
 
