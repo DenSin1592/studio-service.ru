@@ -35,8 +35,11 @@
             #506c90,
             #944547
         );
-        filter: blur(10px);
+        filter: blur(5px);
         content: '';
+        @include media-breakpoint-up(xl) {
+            filter: blur(10px);
+        }
         @include media-breakpoint-up(xxl) {
             opacity: 1;
             top: 0;

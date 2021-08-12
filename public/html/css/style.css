@@ -3385,7 +3385,8 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 970px) { .card-service { font-size: 15px; } }
 @media (min-width: 1200px) { .card-service { padding: 15px 20px 20px; font-size: 16px; } }
 @media (min-width: 1680px) { .card-service { padding: 35px 25px 30px; font-size: 17px; } }
-.card-service::before { position: absolute; z-index: -1; opacity: 0.5; top: 10px; left: 0; right: 0; bottom: 0; background: conic-gradient(from 90deg, #944547, #5b4a90, #506c90, #944547); -webkit-filter: blur(10px); filter: blur(10px); content: ''; }
+.card-service::before { position: absolute; z-index: -1; opacity: 0.5; top: 10px; left: 0; right: 0; bottom: 0; background: conic-gradient(from 90deg, #944547, #5b4a90, #506c90, #944547); -webkit-filter: blur(5px); filter: blur(5px); content: ''; }
+@media (min-width: 1200px) { .card-service::before { -webkit-filter: blur(10px); filter: blur(10px); } }
 @media (min-width: 1680px) { .card-service::before { opacity: 1; top: 0; } }
 .card-service .card-service-thumbnail { position: relative; margin: 0 0 10px; padding: 0 0 76%; }
 @media (min-width: 480px) { .card-service .card-service-thumbnail { padding: 0 0 74%; } }
@@ -3858,14 +3859,14 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 
 .swiper-services { margin-top: -10px; margin-bottom: -20px; margin-left: -15px; margin-right: -15px; padding-top: 10px; padding-bottom: 20px; padding-left: 5px; padding-right: 5px; }
 @media (min-width: 480px) { .swiper-services { padding-left: 0; padding-right: 0; } }
-@media (min-width: 750px) { .swiper-services { margin-left: 15px; margin-right: 15px; padding-left: 15px; padding-right: 15px; } }
+@media (min-width: 750px) { .swiper-services { margin-left: 22px; margin-right: 22px; padding-left: 8px; padding-right: 8px; } }
 @media (min-width: 970px) { .swiper-services { margin-left: 20px; margin-right: 20px; } }
 @media (min-width: 1200px) { .swiper-services { margin-left: 40px; margin-right: 40px; } }
 @media (min-width: 1680px) { .swiper-services { margin-top: -30px; margin-bottom: -30px; margin-left: -18px; margin-right: -18px; padding-top: 30px; padding-bottom: 30px; padding-left: 10px; padding-right: 10px; } }
 .swiper-services > .swiper-wrapper { margin: 0; padding: 0; }
 @media (max-width: 479.98px) { .swiper-services > .swiper-wrapper > .swiper-slide { width: 215px !important; } }
 @media (min-width: 480px) { .swiper-services > .swiper-wrapper > .swiper-slide { padding-left: 15px; padding-right: 15px; } }
-@media (min-width: 750px) { .swiper-services > .swiper-wrapper > .swiper-slide { padding-left: 7.5px; padding-right: 7.5px; } }
+@media (min-width: 750px) { .swiper-services > .swiper-wrapper > .swiper-slide { padding-left: 8px; padding-right: 8px; } }
 @media (min-width: 1200px) { .swiper-services > .swiper-wrapper > .swiper-slide { padding-left: 10px; padding-right: 10px; } }
 @media (min-width: 1680px) { .swiper-services > .swiper-wrapper > .swiper-slide { padding-left: 15px; padding-right: 15px; } }
 .swiper-services > .swiper-wrapper > .swiper-slide:not(.swiper-slide-visible) .card-service::before { opacity: 0; }
