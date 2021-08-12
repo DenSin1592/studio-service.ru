@@ -3140,7 +3140,7 @@ form a:hover { border-color: transparent; color: #8174af; text-decoration: none;
 .custom-checkbox .custom-control-label::before { background: #8174af; content: ''; }
 .custom-checkbox .custom-control-label::after { content: ''; }
 
-.custom-file { height: 35px; }
+.custom-file { cursor: pointer; height: 35px; }
 .custom-file-input, .custom-file-label { height: inherit; }
 .custom-file-label { margin: 0; padding: 0 0 0 35px; border: none; border-radius: 0; background: none; color: #574497; font-size: 16px; font-weight: 600; line-height: 35px; }
 @media (min-width: 970px) { .custom-file-label { font-size: 17px; } }
@@ -3408,7 +3408,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 1680px) { .card-service .card-service-include-block .card-service-include-list { margin: 0 -5px -5px; } }
 .card-service .card-service-include-block .card-service-include-list .card-service-include-item { position: relative; z-index: 1; margin: 0 5px 10px; }
 @media (min-width: 1680px) { .card-service .card-service-include-block .card-service-include-list .card-service-include-item { margin: 0 10px 10px; } }
-.card-service .card-service-include-block .card-service-include-list .card-service-include-item .card-service-include-media { height: auto; width: auto; max-width: 28px; max-height: 28px; -o-object-fit: contain; object-fit: contain; -o-object-position: center; object-position: center; }
+.card-service .card-service-include-block .card-service-include-list .card-service-include-item .card-service-include-media { max-width: 28px; max-height: 28px; -o-object-fit: contain; object-fit: contain; -o-object-position: center; object-position: center; }
 @media (min-width: 1680px) { .card-service .card-service-include-block .card-service-include-list .card-service-include-item .card-service-include-media { max-width: 36px; max-height: 36px; } }
 .card-service .card-service-include-block .card-service-include-list.card-service-include-pills-list .card-service-include-item { width: 48px; height: 48px; margin: 0 5px 10px; border: 1px solid #414342; border-radius: 8px; background-color: #2f2f2f; }
 .card-service .card-service-include-block .card-service-include-list.card-service-include-pills-list .card-service-include-item::before, .card-service .card-service-include-block .card-service-include-list.card-service-include-pills-list .card-service-include-item::after { position: absolute; z-index: -1; top: 0; left: 0; right: 0; bottom: 0; border-radius: inherit; content: ''; }
@@ -3802,6 +3802,9 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 970px) { .section-about .section-header { margin-bottom: 10px; } }
 @media (min-width: 1200px) { .section-about .section-header { margin-bottom: 20px; } }
 @media (min-width: 1680px) { .section-about .section-header { margin-bottom: 30px; } }
+.section-about .section-header .section-title { position: relative; z-index: 1; }
+@media (min-width: 970px) { .section-about .section-header .section-title::before { position: absolute; z-index: -1; top: 0; left: 0; width: 104px; height: 95px; -webkit-transform: translate(-50%, -35%); transform: translate(-50%, -35%); background: url("../images/logo-purple.png") no-repeat 0 0; background-size: contain; content: ''; } }
+@media (min-width: 1680px) { .section-about .section-header .section-title::before { width: 138px; height: 127px; } }
 
 .about-description { margin: 0 0 15px; }
 @media (min-width: 480px) { .about-description { margin: 0 0 25px; } }

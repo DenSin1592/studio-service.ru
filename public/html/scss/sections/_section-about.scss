@@ -43,6 +43,31 @@
         @include media-breakpoint-up(xxl) {
             margin-bottom: 30px;
         }
+
+        .section-title {
+            position: relative;
+            z-index: 1;
+            
+
+            &::before {
+                @include media-breakpoint-up(lg) {
+                    position: absolute;
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+                    width: 104px;
+                    height: 95px;
+                    transform: translate(-50%, -35%);
+                    background: url('../images/logo-purple.png') no-repeat 0 0;
+                    background-size: contain;
+                    content: '';
+                }
+                @include media-breakpoint-up(xxl) {
+                    width: 138px;
+                    height: 127px;
+                }
+            }
+        }
     }
 }
 
