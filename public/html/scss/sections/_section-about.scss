@@ -86,6 +86,25 @@
 
 .about-presentation-block {
     .card-video {
+        &::before {
+            top: 5%;
+            left: 5%;
+            right: 5%;
+            bottom: 5%;
+            border-radius: 20%;
+            background: rgb(188,205,255);
+            background: -moz-linear-gradient(145deg, rgba(188,205,255,1) 0%, rgba(182,249,209,1) 50%, rgba(230,162,235,1) 100%);
+            background: -webkit-linear-gradient(145deg, rgba(188,205,255,1) 0%, rgba(182,249,209,1) 50%, rgba(230,162,235,1) 100%);
+            background: linear-gradient(145deg, rgba(188,205,255,1) 0%, rgba(182,249,209,1) 50%, rgba(230,162,235,1) 100%);
+            filter: blur(15px);
+            @include media-breakpoint-up(lg) {
+                filter: blur(30px);
+            }
+            @include media-breakpoint-up(xxl) {
+                filter: blur(40px);
+            }
+        }
+
         .card-video-figure {
             &::before,
             &::after {
