@@ -8,7 +8,7 @@
                         <div class="row">
                             <div
                                 class="section-header-typography-container col d-flex flex-wrap align-items-center">
-                                <div class="section-title title-h1">Проекты</div>
+                                <div class="section-title title-h1">{{$h1}}</div>
                             </div>
 
                             <div

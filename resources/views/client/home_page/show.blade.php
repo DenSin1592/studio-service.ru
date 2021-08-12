@@ -22,8 +22,7 @@
 
     @include('client.home_page._section_reviews')
 
-    @include('client.shared._section_projects')
-
+    @include('client.shared._section_projects', ['h1' => 'Проекты'])
 @stop
 
 @section('modal')

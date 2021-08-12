@@ -187,6 +187,6 @@
 
     @include('client.shared._section_social')
 
-    @include('client.shared._section_projects')
+    @include('client.shared._section_projects', ['h1' => 'Другие проекты'])
 
 @stop
