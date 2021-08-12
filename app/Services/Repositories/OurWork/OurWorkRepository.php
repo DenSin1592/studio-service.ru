@@ -32,12 +32,23 @@ class OurWorkRepository extends BaseFeatureRepository
                     $q->with(['tasks' => static function($qu){
                         $qu->orderBy('position');
                     }])->where('publish', true)->orderBy('position');
-                },
-                'images' => static function ($q) {
-                    $q->orderBy('position')->where('publish', true);
                 }])
             ->where('alias', $alias)
             ->where('publish', true)
             ->firstOrFail();
+    }
+
+    public function getOtherModelsForModelByAlias(string $alias)
+    {
+        return $this->getModel()
+            ->where('alias', '<>', $alias)
+            ->with([
+                'services' => static function ($q) {
+                    $q->with(['tasks' => static function($qu){
+                        $qu->orderBy('position');
+                    }])->where('publish', true)->orderBy('position');
+                }])
+            ->where('publish', true)
+            ->get();
     }
 }

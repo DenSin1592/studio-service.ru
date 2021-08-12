@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client\EssenceControllers;
 use App\Http\Controllers\Admin\EssenceControllers\OurWorksController;
 use App\Http\Controllers\Client\BaseEssenceController;
 use App\Services\Repositories\OurWork\OurWorkRepository;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class OurWorkController extends BaseEssenceController
@@ -13,6 +14,11 @@ class OurWorkController extends BaseEssenceController
 
     protected const VIEW_FOR_SHOW = 'client.catalog_essence.our_work.show';
     protected const AUTH_EDIT_LINK = OurWorksController::ROUTE_EDIT;
+
+    public function show($url){
+        return parent::show($url)
+            ->with('projects',$this->repository->getOtherModelsForModelByAlias($url));
+    }
 
     protected function setRepository(): void
     {

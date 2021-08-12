@@ -185,4 +185,8 @@
         </section>
     @endif
 
+    @include('client.shared._section_social')
+
+    @include('client.shared._section_projects')
+
 @stop
