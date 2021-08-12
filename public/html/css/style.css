@@ -3140,8 +3140,10 @@ form a:hover { border-color: transparent; color: #8174af; text-decoration: none;
 .custom-checkbox .custom-control-label::before { background: #8174af; content: ''; }
 .custom-checkbox .custom-control-label::after { content: ''; }
 
-.custom-file { cursor: pointer; height: 35px; }
+.custom-file { height: 35px; }
 .custom-file-input, .custom-file-label { height: inherit; }
+.custom-file-input { cursor: pointer; }
+.custom-file-input::-webkit-file-upload-button { cursor: pointer; }
 .custom-file-label { margin: 0; padding: 0 0 0 35px; border: none; border-radius: 0; background: none; color: #574497; font-size: 16px; font-weight: 600; line-height: 35px; }
 @media (min-width: 970px) { .custom-file-label { font-size: 17px; } }
 @media (min-width: 1200px) { .custom-file-label { font-size: 20px; } }

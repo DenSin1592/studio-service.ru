@@ -129,12 +129,18 @@ form {
 }
 
 .custom-file {
-    cursor: pointer;
     height: 35px;
 
     &-input,
     &-label {
         height: inherit;
+    }
+
+    &-input {
+        cursor: pointer;
+        &::-webkit-file-upload-button {
+            cursor: pointer; 
+        }
     }
     
     &-label {
