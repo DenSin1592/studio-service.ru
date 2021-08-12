@@ -73,8 +73,8 @@
         &:-webkit-autofill:focus,
         &:-webkit-autofill:active { 
             -webkit-background-clip: text;
-            -webkit-text-fill-color: #fff !important;
-            border-color: #fff;
+            -webkit-text-fill-color: $c-white !important;
+            border-color: $c-white;
         }
     }
 }

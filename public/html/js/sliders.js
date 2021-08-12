@@ -291,20 +291,38 @@
 
         $('.swiper-includes').each(function (_, container) {
             let jContainer = $(container),
+            slides = jContainer.find('> .swiper-wrapper > .swiper-slide'),
             prev = jContainer.find('.swiper-includes-button-prev'),
             next = jContainer.find('.swiper-includes-button-next');
 
             new Swiper(jContainer, {
                 slidesPerView: 'auto',
-                loop: true,
+                loop: slides.length > 1 ? true : false,
                 watchSlidesVisibility: true,
                 observer: true,
                 observeParents: true,
+                breakpointsInverse: true,
+                breakpoints: {
+                    970: {
+                        loop: false,
+                    }
+                },
 
                 navigation: {
                     nextEl: next,
                     prevEl: prev,
-                }
+                },
+
+                // on: {
+                //     init: function () {
+                //         swiperHelpers.initRewindControls(
+                //             this,
+                //             prev,
+                //             next,
+                //             true
+                //         );
+                //     },
+                // },
             });
         });
 

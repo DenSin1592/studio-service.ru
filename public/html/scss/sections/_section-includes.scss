@@ -98,23 +98,31 @@
     overflow: visible;
     margin-left: -$grid-gutter-width/2;
     margin-right: -$grid-gutter-width/2;
+    @include media-breakpoint-up(lg) {
+        margin-left: 0;
+        margin-right: 0;
+    }
 
     .swiper-wrapper {
         .swiper-slide {
-            opacity: 0;
-            visibility: hidden;
+            opacity: 0.5;
+            visibility: visible;
             transition: opacity 300ms linear, visibility 300ms ease;
             padding-left: $grid-gutter-width/2;
             padding-right: $grid-gutter-width/2;
+            @include media-breakpoint-up(lg) {
+                padding-left: 0;
+                padding-right: 0;
+            }
 
             &.swiper-slide-active {
                 opacity: 1;
                 visibility: visible;
 
-                + .swiper-slide-next {
-                    opacity: 0.5;
-                    visibility: visible;
-                }
+                // + .swiper-slide-next {
+                //     opacity: 0.5;
+                //     visibility: visible;
+                // }
             }
         }
     }
@@ -132,9 +140,6 @@
     .swiper-includes-button-prev {
         left: 0;
         transform: translateX(-15px);
-        @include media-breakpoint-up(lg) {
-            transform: translateX(calc(-100% - 15px));
-        }
         @include media-breakpoint-up(xl) {
             transform: translateX(calc(-100% - 30px));
         }
@@ -143,9 +148,6 @@
     .swiper-includes-button-next {
         right: 0;
         transform: translateX(15px);
-        @include media-breakpoint-up(lg) {
-            transform: translateX(calc(100% + 15px));
-        }
         @include media-breakpoint-up(xl) {
             transform: translateX(calc(100% + 30px));
         }

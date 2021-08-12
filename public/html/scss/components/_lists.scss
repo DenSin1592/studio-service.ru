@@ -40,16 +40,17 @@
 
         &::before {
             position: absolute;
-            top: 8px;
+            top: 0;
             left: 0;
             width: 18px;
-            height: 10px;
-            background: url('../images/icons/general/png/icon-double-check.png') no-repeat 0 0;
-            background-size: contain;
-            content: '';
+            color: $c-secondary;
+            font-family: 'icomoon';
+            font-size: 18px;
+            font-weight: 400;
+            content: '\e903';
             @include media-breakpoint-up(sm) {
                 width: 25px;
-                height: 14px;
+                font-size: 25px;
             }
         }
 

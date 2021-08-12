@@ -9,7 +9,7 @@
             height: 45px;
             border-radius: 50%;
             background: #35354c;
-            color: #fff;
+            color: $c-white;
             text-align: center;
             line-height: 70px;
             transition: background 300ms ease;
@@ -31,6 +31,8 @@
             .social-media {
                 max-width: 18px;
                 max-height: 18px;
+                color: currentColor;
+                fill: currentColor;
                 @include media-breakpoint-up(md) {
                     max-width: 22px;
                     max-height: 22px;

@@ -52,25 +52,29 @@
             border-radius: 50%;
             background: #c5cad6;
             transform: translateY(-50%);
+            color: $c-white;
+            font-family: 'icomoon';
+            font-size: 16px;
             text-align: center;
             line-height: 40px;
 
             @include media-breakpoint-up(xl) {
                 width: 50px;
                 height: 50px;
+                font-size: 21px;
                 line-height: 50px;
             }
         }
 
         &[aria-expanded="true"] {
             &::before {
-                content: '-';
+                content: '\e901';
             }
         }
 
         &[aria-expanded="false"] {
             &::before {
-                content: '+';
+                content: '\e902';
             }
         }
     }
