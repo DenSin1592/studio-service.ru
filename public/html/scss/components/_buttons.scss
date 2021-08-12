@@ -83,8 +83,8 @@
     color: $c-white;
 
     &:hover {
-        border-color: transparent;
-         background: -moz-linear-gradient(0deg, rgba(86,67,150,0.90) 0%, rgba(118,95,196,0.90) 100%);
+        border-color: $c-purple-dark;
+        background: -moz-linear-gradient(0deg, rgba(86,67,150,0.90) 0%, rgba(118,95,196,0.90) 100%);
         background: -webkit-linear-gradient(0deg, rgba(86,67,150,0.90) 0%, rgba(118,95,196,0.90) 100%);
         background: linear-gradient(0deg, rgba(86,67,150,0.90) 0%, rgba(118,95,196,0.90) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#564396",endColorstr="#765fc4",GradientType=1);

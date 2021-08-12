@@ -1,4 +1,6 @@
 .card-requirement {
+    max-width: 380px;
+    
     .card-requirement-thumbnail {
         position: relative;
         width: 60px;
@@ -11,6 +13,7 @@
         background: -webkit-linear-gradient(0deg, rgba(87,69,153,1) 0%, rgba(97,94,182,1) 100%);
         background: linear-gradient(0deg, rgba(87,69,153,1) 0%, rgba(97,94,182,1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#574599",endColorstr="#615eb6",GradientType=1);
+        box-shadow: 0 5px 15px rgba(158, 61, 208, 0.5);
         @include media-breakpoint-up(lg) {
             width: 72px;
             height: 72px;
@@ -23,8 +26,6 @@
         }
 
         .card-requirement-media {
-            width: auto;
-            height: auto;
             max-width: calc(100% - 6px);
             max-height: calc(100% - 6px);
 
