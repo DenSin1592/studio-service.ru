@@ -68,6 +68,7 @@ return [
                 'html/js/fancybox.js',
                 'html/js/tooltip.js',
                 'html/js/twentytwenty.js',
+                'html/js/swiper_helpers.js',
                 /*'js/client/header.js',
                 'js/client/sliders.js',
                 'js/client/forms.js',

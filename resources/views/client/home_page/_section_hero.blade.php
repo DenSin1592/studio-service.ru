@@ -31,8 +31,9 @@
                                             <a href="https://t.me/+79160640600"
                                                class="hero-social-link d-flex align-items-center justify-content-center"
                                                target="_blank">
-                                                <img src="{{asset('images/icons/general/png/icon-telegram.png')}}"
-                                                     width="22" height="18" alt="Telegram" class="hero-social-media">
+                                                <svg class="hero-social-media" width="22" height="22">
+                                                    <use xlink:href="{{asset('images/icons/sprite.svg#icon-telegram')}}"></use>
+                                                </svg>
                                             </a>
                                         </li>
 
@@ -40,8 +41,9 @@
                                             <a href="https://wa.me/+79160640600"
                                                class="hero-social-link d-flex align-items-center justify-content-center"
                                                target="_blank">
-                                                <img src="{{asset('images/icons/general/png/icon-whatsapp.png')}}"
-                                                     width="27" height="27" alt="Whatsapp" class="hero-social-media">
+                                                <svg class="hero-social-media" width="31" height="31">
+                                                    <use xlink:href="{{asset('images/icons/sprite.svg#icon-whatsapp')}}"></use>
+                                                </svg>
                                             </a>
                                         </li>
                                     </ul>
