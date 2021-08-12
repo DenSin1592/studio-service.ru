@@ -1,8 +1,12 @@
 .section-project-hero {
+    position: relative;
     margin-top: 0;
     margin-bottom: 20px;
     padding-top: 70px;
     padding-bottom: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     color: $c-white;
     @include media-breakpoint-up(sm) {
         padding-top: 70px;
@@ -29,6 +33,16 @@
     @include media-breakpoint-up(xxl) {
         padding-top: 155px;
         padding-bottom: 45px;
+    }
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($c-primary-dark, .9);
+        content: '';
     }
 
     .breadcrumb-block {

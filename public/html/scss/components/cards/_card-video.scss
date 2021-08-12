@@ -98,7 +98,7 @@
         margin: 0;
         border-radius: 50%;
         background: $c-danger;
-        color: #fff;
+        color: $c-white;
         text-align: center;
         line-height: 70px;
         @include media-breakpoint-up(lg) {
@@ -176,11 +176,6 @@
             width: 28px;
             max-width: 28px;
             height: 28px;
-            margin: 0;
-            border-radius: 50%;
-            background: $c-danger;
-            color: #fff;
-            text-align: center;
             line-height: 28px;
             @include media-breakpoint-up(sm) {
                 flex: 0 0 42px;

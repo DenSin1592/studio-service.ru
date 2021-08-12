@@ -3,12 +3,11 @@
     display: block;
     width: 100%;
     padding: 15px 15px 15px;
-    background: #fff;
+    background: $c-white;
     color: $c-default;
     font-size: 14px;
     line-height: normal;
     text-decoration: none;
-    background: #fff;
     @include media-breakpoint-up(lg) {
         font-size: 15px;
     }

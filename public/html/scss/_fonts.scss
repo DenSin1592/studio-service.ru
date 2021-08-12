@@ -97,10 +97,18 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-minus:before {
+  content: "\e901";
+}
+.icon-plus:before {
+  content: "\e902";
+}
+.icon-check:before {
+  content: "\e904";
+}
+.icon-double-check:before {
+  content: "\e903";
+}
 .icon-paperclip:before {
   content: "\e900";
-}
-
-.icon-check:before {
-  content: "\f17b";
 }
