@@ -11,9 +11,19 @@
 {!! Form::tbCheckboxBlock('publish') !!}
 {!! Form::tbCheckboxBlock('on_home_page') !!}
 
-@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'icon'])
+<fieldset class="bordered-group">
+    <legend>Блок изображений</legend>
+    <p>
+        <em>Размер изображения от 660х1400. Отображается в каталоге "ЦА" только для родительских ЦА.</em>
+    </p>
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'background_image'])
+    <hr>
+    <p>
+        <em>Размер изображения от 50х50</em>
+    </p>
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'icon'])
+</fieldset>
 
-@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'background_image'])
 
 {!! Form::tbTinymceTextareaBlock('content_top', trans('validation.attributes.content_top')) !!}
 

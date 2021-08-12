@@ -6,13 +6,24 @@
 
 {!! Form::tbCheckboxBlock('on_home_page') !!}
 
-@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
+<fieldset class="bordered-group">
+    <legend>Блок изображений</legend>
+    <p>
+        <em>Размер изображения от 1000х800</em>
+    </p>
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
+    <hr>
+    <p>
+        <em>Размер изображения от 2000х600</em>
+    </p>
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'header_block_background_image'])
+</fieldset>
 
-@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'header_block_background_image'])
 
 {!! Form::tbTinymceTextareaBlock('preview', trans('validation.attributes.our_works_preview')) !!}
 
 {!! Form::tbTinymceTextareaBlock('content_before_slider', trans('validation.attributes.content_before_slider')) !!}
+
 
 <fieldset class="bordered-group">
     <legend>Галерея(слайдер)</legend>
@@ -26,7 +37,9 @@
     ])
 </fieldset>
 
+
 {!! Form::tbTinymceTextareaBlock('content_after_slider', trans('validation.attributes.content_after_slider')) !!}
+
 
 @include('admin.shared._relations._many_to_many._block', array_merge(
     \App\Http\Controllers\Admin\Relations\Reviews\ServicesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),

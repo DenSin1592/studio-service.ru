@@ -8,7 +8,14 @@
 
 {!! Form::tbTinymceTextareaBlock('text', trans('validation.attributes.review_content')) !!}
 
-@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
+
+<fieldset class="bordered-group">
+    <legend>Блок изображений</legend>
+    <p>
+        <em>Размер изображения от 700х500</em>
+    </p>
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
+</fieldset>
 
 {{--<fieldset class="bordered-group">
     <legend>Галерея</legend>

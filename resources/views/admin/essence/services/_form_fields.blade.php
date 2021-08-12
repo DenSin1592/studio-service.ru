@@ -6,7 +6,14 @@
 {!! Form::tbCheckboxBlock('publish') !!}
 {!! Form::tbCheckboxBlock('on_home_page') !!}
 
-@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
+
+<fieldset class="bordered-group">
+    <legend>Блок изображений</legend>
+    <p>
+        <em>Размер изображения от 400х300</em>
+    </p>
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
+</fieldset>
 
 @include('admin.shared._relations._many_to_many._block', array_merge(
     \App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
