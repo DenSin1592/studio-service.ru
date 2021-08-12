@@ -15,7 +15,7 @@ class OurWorkController extends BaseEssenceController
     protected const VIEW_FOR_SHOW = 'client.catalog_essence.our_work.show';
     protected const AUTH_EDIT_LINK = OurWorksController::ROUTE_EDIT;
 
-    public function show($url){
+    public function show(string $url){
         return parent::show($url)
             ->with('projects',$this->repository->getOtherModelsForModelByAlias($url));
     }
