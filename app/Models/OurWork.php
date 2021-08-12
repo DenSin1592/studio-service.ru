@@ -28,6 +28,8 @@ class OurWork extends Model
         'content_after_slider',
         'preview_image_file',
         'preview_image_remove',
+        'header_block_background_image_file',
+        'header_block_background_image_remove',
     ];
 
     protected $casts = [
@@ -54,11 +56,13 @@ class OurWork extends Model
         return route(\App\Http\Controllers\Client\EssenceControllers\OurWorkController::ROUTE_SHOW_ON_SITE, $this->alias);
     }
 
-    public function getImgPath(string $field, ?string $version, string $noImageVersion)
+    public function getImgPath(string $field, ?string $version, string $noImageVersion = '')
     {
         if($this->getAttachment($field)?->exists($version))
             return asset($this->getAttachment($field)->getUrl($version));
-        return asset('/images/common/no-image/' . $noImageVersion);
+        return ($noImageVersion === '')
+            ? $noImageVersion
+            : asset('/images/common/no-image/' . $noImageVersion);
     }
 
 
@@ -72,6 +76,16 @@ class OurWork extends Model
                 'uploads/our_works/preview_image', [
                 'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
                 'main' => new BoxVersion(1000, 800, ['quality' => 100]),
+            ], true
+            )
+        );
+
+        self::mountUploader(
+            'header_block_background_image',
+            UploaderIntegrator::getUploader(
+                'uploads/our_works/header_block_background_image', [
+                'thumb' => new BoxVersion(200, 85, ['quality' => 100]),
+                'main' => new BoxVersion(2000, 600, ['quality' => 100]),
             ], true
             )
         );

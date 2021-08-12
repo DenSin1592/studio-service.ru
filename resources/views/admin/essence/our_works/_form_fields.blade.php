@@ -8,6 +8,8 @@
 
 @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
 
+@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'header_block_background_image'])
+
 {!! Form::tbTinymceTextareaBlock('preview', trans('validation.attributes.our_works_preview')) !!}
 
 {!! Form::tbTinymceTextareaBlock('content_before_slider', trans('validation.attributes.content_before_slider')) !!}

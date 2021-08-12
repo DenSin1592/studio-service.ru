@@ -188,6 +188,7 @@ return [
         'allowed_ips' => 'Разрешённые IP адреса',
         'active' => 'Активность',
         'image_file' => 'Изображение',
+        'header_block_background_image_file' => 'Фон для блока с заголовком',
 
         'position' => 'Позиция',
         'publish' => 'Публикация',

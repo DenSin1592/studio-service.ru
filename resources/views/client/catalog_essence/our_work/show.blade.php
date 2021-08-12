@@ -7,7 +7,7 @@
 @section('content')
 
     <section class="section-project">
-        <section class="section-project-hero section-dark">
+        <section class="section-project-hero section-dark" style="background-image: url({{$model->getImgPath('header_block_background_image', 'main')}})">
             <div class="container">
                 <div class="row">
                     <div class="col-xxl-10 offset-xxl-1">
