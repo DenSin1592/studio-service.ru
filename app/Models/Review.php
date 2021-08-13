@@ -65,7 +65,7 @@ class Review extends Model
             UploaderIntegrator::getUploader(
                 'uploads/reviews/preview_image', [
                 'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
-                'main' => new BoxVersion(700, 500, ['quality' => 100]),
+                'main' => new BoxVersion(668, 451, ['quality' => 100]),
             ], true
             )
         );
