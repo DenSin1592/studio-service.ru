@@ -1,5 +1,5 @@
 <fieldset class="bordered-group">
-    <legend>Блок "Задачи, которые решает"</legend>
+    <legend>Задачи</legend>
 
     <ul class="grouped-field-list content-block-list" data-element-list="container" id="{{$relation}}-list">
         @foreach ($formData[$relation] as $key => $element)

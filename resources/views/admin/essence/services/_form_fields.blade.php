@@ -36,11 +36,17 @@
     ])
 
 <hr>
+<fieldset class="bordered-group">
+    <legend>Управление блоком задач</legend>
 
+    {!! Form::tbTextBlock('section_tasks_name') !!}
+    {!! Form::tbCheckboxBlock('section_tasks_publish') !!}
+    <hr>
 @include('admin.essence.services._tasks._content_blocks',[
     'routeCreate' => route(\App\Http\Controllers\Admin\Relations\Services\TasksController::ROUTE_CREATE),
     'relation' => \App\Http\Controllers\Admin\Relations\Services\TasksController::RELATIONS_NAME,
     ])
+</fieldset>
 <hr>
 
 @include('admin.shared._relations._many_to_many._block', array_merge(

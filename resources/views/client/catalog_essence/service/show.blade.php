@@ -26,6 +26,10 @@
         @endif
     @endforeach
 
+    @if($model->tasks->count() > 0)
+        @include('client.catalog_essence.service._section_tasks')
+    @endif
+
 --}}
 
 <section class="section-service section-dark" style="background-image: url('{{$model->getImgPath('header_block_background_image', 'main')}}')" >
@@ -97,6 +101,16 @@
             @include('client.catalog_essence.service._content_block_image_left')
         @endif
     @endforeach
+
+
+<section class="section-unite section-dark overflow-hidden">
+
+    @if($model->section_tasks_publish && $model->tasks->count() > 0)
+        @include('client.catalog_essence.service._section_tasks')
+    @endif
+</section>
+
+
 @stop
 
 

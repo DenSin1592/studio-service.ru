@@ -17,6 +17,8 @@ class AddFieldInServicesTable extends Migration
             $table->string('header_block_background_image')->nullable();
             $table->string('image_right_from_header')->nullable();
             $table->text('achievements_block')->nullable();
+            $table->string('section_tasks_name')->nullable();
+            $table->boolean('section_tasks_publish')->default(false);
         });
 
 
@@ -48,6 +50,8 @@ class AddFieldInServicesTable extends Migration
         Schema::dropIfExists('service_content_blocks');
 
         Schema::table('services', function (Blueprint $table) {
+            $table->dropColumn('section_tasks_name');
+            $table->dropColumn('section_tasks_publish');
             $table->dropColumn('achievements_block');
             $table->dropColumn('image_right_from_header');
             $table->dropColumn('header_block_background_image');
