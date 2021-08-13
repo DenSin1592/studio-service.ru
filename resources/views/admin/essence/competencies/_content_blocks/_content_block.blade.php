@@ -11,7 +11,7 @@
 
     <div class="short-info">
         <div class="loaded-image image-thumb-wrapper">
-            {!! Form::tbTextBlock("{$relation}[{$key}][name]", trans('validation.attributes.name')) !!}
+            {!! Form::tbTextBlock("{$relation}[{$key}][name]", trans('validation.attributes.name'), $element->name, ['disabled' => true]) !!}
         </div>
     </div>
 
@@ -19,7 +19,7 @@
     <div class="full-info">
 
         <div class="form-group">
-            {!! Form::tbTextBlock("{$relation}[{$key}][name]", trans('validation.attributes.name')) !!}
+            {!! Form::tbTextBlock("{$relation}[{$key}][name]", trans('validation.attributes.name'), $element->name) !!}
         </div>
         <div class="form-group">
             {{ Form::tbLabel("{$relation}[{$key}][content]", trans('validation.attributes.content')) }}
