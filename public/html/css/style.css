@@ -3315,7 +3315,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 
 #modalMessage .modal-body { font-size: 30px; line-height: 30px; }
 
-.header-box { position: absolute; z-index: 99; top: 0; left: 0; width: 100%; padding: 10px 0; -webkit-transition: padding-top 100ms ease-in-out, padding-bottom 100ms ease-in-out; transition: padding-top 100ms ease-in-out, padding-bottom 100ms ease-in-out; }
+.header-box { position: absolute; z-index: 99; top: 0; left: 0; right: 0; padding: 10px 0; -webkit-transition: padding-top 100ms ease-in-out, padding-bottom 100ms ease-in-out; transition: padding-top 100ms ease-in-out, padding-bottom 100ms ease-in-out; }
 @media (min-width: 750px) { .header-box { padding: 32px 0; } }
 @media (min-width: 970px) { .header-box { padding: 25px 0; } }
 @media (min-width: 1680px) { .header-box { padding: 40px 0; } }
