@@ -5,7 +5,7 @@
 <hr>
 
 
-@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image', 'description' => 'Размер изображения от 380х293'])
+@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image', 'description' => 'Размер изображения - 380х293'])
 <hr>
 
 
@@ -17,20 +17,22 @@
     {!! Form::tbText('header') !!}
     {!! Form::tbFormGroupClose() !!}
     <hr>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'header_block_background_image','description' => 'Размер изображения от 1920х900'])
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'header_block_background_image','description' => 'Размер изображения - 1920х900'])
     <hr>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'image_right_from_header','description' => 'Размер изображения от 664х558'])
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'image_right_from_header','description' => 'Размер изображения - 664х558'])
     <hr>
     {!! Form::tbTinymceTextareaBlock('achievements_block') !!}
 
 </fieldset>
 
+<hr>
 
 @include('admin.essence.services._tasks._content_blocks',[
     'elements' => $formData[\App\Http\Controllers\Admin\Relations\Services\TasksController::RELATIONS_NAME],
     'route' => route(\App\Http\Controllers\Admin\Relations\Services\TasksController::ROUTE_CREATE),
     'relation' => \App\Http\Controllers\Admin\Relations\Services\TasksController::RELATIONS_NAME,
     ])
+<hr>
 
 @include('admin.shared._relations._many_to_many._block', array_merge(
     \App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
@@ -39,6 +41,7 @@
 
 
 @if(resolve('acl')->checkSeo())
+    <hr>
     <fieldset class="bordered-group">
         <legend>Блок мета-данных</legend>
 
