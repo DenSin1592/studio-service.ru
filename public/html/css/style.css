@@ -3178,6 +3178,7 @@ form a:hover { border-color: transparent; color: #8174af; text-decoration: none;
 .disc-list { margin: 0 0 20px; }
 @media (min-width: 480px) { .disc-list { margin-bottom: 10px; } }
 @media (min-width: 970px) { .disc-list { margin-bottom: 15px; } }
+@media (min-width: 1680px) { .disc-list { margin-bottom: 20px; } }
 .disc-list > li { position: relative; padding: 0 0 0 20px; }
 .disc-list > li::before { position: absolute; top: 4px; left: 0; width: 10px; height: 10px; border-radius: 50%; background: #574497; content: ''; }
 .disc-list > li:not(:last-child) { margin-bottom: 20px; }
@@ -3245,29 +3246,39 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 .swiper-gallery { margin-bottom: -50px; }
 .swiper-gallery > .swiper-wrapper > .swiper-slide { padding-bottom: 50px; }
 
-.card-accordion { position: relative; margin: 0 0 20px; padding: 15px; border-radius: 10px; background: #e9eff8; font-size: 15px; line-height: 20px; }
-@media (min-width: 480px) { .card-accordion { padding: 10px; } }
-@media (min-width: 970px) { .card-accordion { padding: 10px 20px; } }
-.card-accordion-title { cursor: pointer; position: relative; display: block; width: 100%; min-height: 50px; margin: 0; padding: 0 0 0 50px; border: none; border-radius: 0; background: none; font-weight: 600; text-align: left; }
+.card-accordion { position: relative; min-height: 80px; margin: 0 0 20px; padding-top: 15px; padding-bottom: 15px; border-radius: 10px; background: #e9eff8; font-size: 15px; line-height: 20px; }
+@media (min-width: 480px) { .card-accordion { padding-top: 20px; padding-bottom: 20px; } }
+@media (min-width: 1200px) { .card-accordion { padding-top: 30px; padding-bottom: 30px; font-size: 16px; line-height: 20px; } }
+@media (min-width: 1680px) { .card-accordion { padding-top: 40px; padding-bottom: 40px; font-size: 18px; line-height: 20px; } }
+.card-accordion-header { margin-top: -15px; margin-bottom: -15px; }
+@media (min-width: 480px) { .card-accordion-header { margin-top: -20px; margin-bottom: -20px; } }
+@media (min-width: 1200px) { .card-accordion-header { margin-top: -30px; margin-bottom: -30px; } }
+@media (min-width: 1680px) { .card-accordion-header { margin-top: -40px; margin-bottom: -40px; } }
+.card-accordion-content { padding-left: 15px; padding-right: 15px; }
+@media (min-width: 480px) { .card-accordion-content { padding-left: 65px; padding-right: 15px; } }
+@media (min-width: 750px) { .card-accordion-content { margin-top: 15px; margin-bottom: 0; } }
+@media (min-width: 970px) { .card-accordion-content { margin-top: 5px; margin-bottom: 0; padding-left: 70px; padding-right: 15px; } }
+@media (min-width: 1200px) { .card-accordion-content { margin-top: 20px; margin-bottom: 0; padding-left: 80px; padding-right: 15px; } }
+@media (min-width: 1680px) { .card-accordion-content { margin-top: 35px; margin-bottom: 0; padding-left: 85px; padding-right: 15px; } }
+.card-accordion-typogrpahy-container > :first-child { margin-top: 0 !important; }
+.card-accordion-typogrpahy-container > :last-child { margin-bottom: 0 !important; }
+.card-accordion-title { cursor: pointer; position: relative; display: block; width: 100%; min-height: 80px; margin: 0; padding: 15px 15px 15px 65px; border: none; border-radius: 0; background: none; font-weight: 600; text-align: left; }
 @media (max-width: 479.98px) { .card-accordion-title { font-size: 22px; line-height: 25px; } }
-@media (min-width: 480px) { .card-accordion-title { min-height: 60px; } }
-@media (min-width: 970px) { .card-accordion-title { min-height: 80px; } }
-@media (min-width: 1200px) { .card-accordion-title { padding: 0 0 0 70px; } }
-.card-accordion-title::before { position: absolute; top: 50%; left: 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #c5cad6; -webkit-transform: translateY(-50%); transform: translateY(-50%); color: #fff; font-family: 'icomoon'; font-size: 16px; text-align: center; line-height: 40px; }
+@media (min-width: 970px) { .card-accordion-title { min-height: 100px; padding: 15px 15px 15px 70px; } }
+@media (min-width: 1200px) { .card-accordion-title { padding: 15px 15px 15px 80px; } }
+@media (min-width: 1680px) { .card-accordion-title { padding: 15px 15px 15px 85px; } }
+.card-accordion-title::before { position: absolute; top: 50%; left: 15px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: #c5cad6; -webkit-transform: translateY(-50%); transform: translateY(-50%); color: #fff; font-family: 'icomoon'; font-size: 16px; text-align: center; line-height: 40px; }
+@media (min-width: 970px) { .card-accordion-title::before { left: 20px; } }
 @media (min-width: 1200px) { .card-accordion-title::before { width: 50px; height: 50px; font-size: 21px; line-height: 50px; } }
 .card-accordion-title[aria-expanded="true"]::before { content: '\e901'; }
 .card-accordion-title[aria-expanded="false"]::before { content: '\e902'; }
 .card-accordion-thumbnail { position: relative; height: 158px; margin: 0 0 10px; }
 @media (min-width: 750px) { .card-accordion-thumbnail { height: auto; } }
 .card-accordion-media { width: auto; height: auto; max-width: 100%; max-height: 100%; }
-@media (min-width: 480px) { .card-accordion-content { padding: 0 0 10px 55px; } }
-@media (min-width: 1200px) { .card-accordion-content { padding: 0 0 20px 75px; } }
-.card-accordion-typogrpahy-container > :first-child { margin-top: 0 !important; }
-.card-accordion-typogrpahy-container > :last-child { margin-bottom: 0 !important; }
 .card-accordion .text-lead { margin: 0 0 10px; font-size: 15px; font-weight: 600; line-height: 20px; }
 @media (min-width: 970px) { .card-accordion .text-lead { margin-bottom: 0; font-size: 16px; line-height: 25px; } }
 @media (min-width: 1200px) { .card-accordion .text-lead { margin-bottom: 20px; font-size: 18px; line-height: 25px; } }
-@media (min-width: 1680px) { .card-accordion .text-lead { font-size: 22px; line-height: 30px; } }
+@media (min-width: 1680px) { .card-accordion .text-lead { margin-bottom: 15px; font-size: 22px; line-height: 30px; } }
 
 .twentytwenty-cover { position: relative; margin-top: -20px; margin-bottom: -30px; padding-top: 20px; padding-bottom: 30px; }
 @media (min-width: 1200px) { .twentytwenty-cover { margin-top: -20px; margin-bottom: -50px; padding-top: 20px; padding-bottom: 50px; } }

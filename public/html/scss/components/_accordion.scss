@@ -1,16 +1,86 @@
 .card-accordion {
     position: relative;
+    min-height: 80px;
     margin: 0 0 20px;
-    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     border-radius: 10px;
     background: $c-purple-light;
     font-size: 15px;
     line-height: 20px;
     @include media-breakpoint-up(sm) {
-        padding: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
-    @include media-breakpoint-up(lg) {
-        padding: 10px 20px;
+    @include media-breakpoint-up(xl) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    @include media-breakpoint-up(xxl) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    &-header {
+        margin-top: -15px;
+        margin-bottom: -15px;
+        @include media-breakpoint-up(sm) {
+            margin-top: -20px;
+            margin-bottom: -20px;
+        }
+        @include media-breakpoint-up(xl) {
+            margin-top: -30px;
+            margin-bottom: -30px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin-top: -40px;
+            margin-bottom: -40px;
+        }
+    }
+
+    &-content {
+        padding-left: 15px;
+        padding-right: 15px;
+        @include media-breakpoint-up(sm) {
+            padding-left: 65px;
+            padding-right: 15px;
+        }
+        @include media-breakpoint-up(md) {
+            margin-top: 15px;
+            margin-bottom: 0;
+        }
+        @include media-breakpoint-up(lg) {
+            margin-top: 5px;
+            margin-bottom: 0;
+            padding-left: 70px;
+            padding-right: 15px;
+        }
+        @include media-breakpoint-up(xl) {
+            margin-top: 20px;
+            margin-bottom: 0;
+            padding-left: 80px;
+            padding-right: 15px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin-top: 35px;
+            margin-bottom: 0;
+            padding-left: 85px;
+            padding-right: 15px;
+        }
+    }
+
+    &-typogrpahy-container {
+        > :first-child {
+            margin-top: 0 !important;
+        }
+
+        > :last-child {
+            margin-bottom: 0 !important;
+        }
     }
 
     &-title {
@@ -18,9 +88,9 @@
         position: relative;
         display: block;
         width: 100%;
-        min-height: 50px;
+        min-height: 80px;
         margin: 0;
-        padding: 0 0 0 50px;
+        padding: 15px 15px 15px 65px;
         border: none;
         border-radius: 0;
         background: none;
@@ -30,20 +100,21 @@
             font-size: 22px;
             line-height: 25px;
         }
-        @include media-breakpoint-up(sm) {
-            min-height: 60px;
-        }
         @include media-breakpoint-up(lg) {
-            min-height: 80px;
+            min-height: 100px;
+            padding: 15px 15px 15px 70px;
         }
         @include media-breakpoint-up(xl) {
-            padding: 0 0 0 70px;
+            padding: 15px 15px 15px 80px;
+        }
+        @include media-breakpoint-up(xxl) {
+            padding: 15px 15px 15px 85px;
         }
 
         &::before {
             position: absolute;
             top: 50%;
-            left: 0;
+            left: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -57,7 +128,9 @@
             font-size: 16px;
             text-align: center;
             line-height: 40px;
-
+            @include media-breakpoint-up(lg) {
+                left: 20px;
+            }
             @include media-breakpoint-up(xl) {
                 width: 50px;
                 height: 50px;
@@ -95,26 +168,6 @@
         max-height: 100%;
     }
 
-
-    &-content {
-        @include media-breakpoint-up(sm) {
-            padding: 0 0 10px 55px;
-        }
-        @include media-breakpoint-up(xl) {
-            padding: 0 0 20px 75px;
-        }
-    }
-
-    &-typogrpahy-container {
-        > :first-child {
-            margin-top: 0 !important;
-        }
-
-        > :last-child {
-            margin-bottom: 0 !important;
-        }
-    }
-
     .text-lead {
         margin: 0 0 10px;
         font-size: 15px;
@@ -131,6 +184,7 @@
             line-height: 25px;
         }
         @include media-breakpoint-up(xxl) {
+            margin-bottom: 15px;
             font-size: 22px;
             line-height: 30px;
         }
