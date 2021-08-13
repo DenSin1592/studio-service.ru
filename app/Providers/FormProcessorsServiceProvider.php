@@ -110,6 +110,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
                  );
                  $formProcessor->addSubProcessor(\App(Competencies::class));
                  $formProcessor->addSubProcessor(\App(Tasks::class));
+                 $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Service\SubProcessor\ContentBlocks::class));
                  return $formProcessor;
              }
         );

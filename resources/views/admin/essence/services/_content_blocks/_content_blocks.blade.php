@@ -1,14 +1,14 @@
 <fieldset class="bordered-group">
-    <legend>Блок "Задачи, которые решает"</legend>
+    <legend>Блок управления контентом</legend>
 
     <ul class="grouped-field-list content-block-list" data-element-list="container" id="{{$relation}}-list">
         @foreach ($formData[$relation] as $key => $element)
-            @include('admin.essence.services._tasks._content_block')
+            @include('admin.essence.services._content_blocks._content_block')
         @endforeach
     </ul>
 
     <span class="btn btn-default btn-xs grouped-field-list-add"
           data-element-list="add"
           data-element-list-target="#{{$relation}}-list"
-          data-load-element-url="{{{ $routeCreate }}}">Добавить блок содержимого</span>
+          data-load-element-url="{{{ $routeCreate }}}">Добавить блок контента</span>
 </fieldset>

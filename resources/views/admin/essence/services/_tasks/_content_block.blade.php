@@ -12,7 +12,7 @@
     <div class="short-info">
         <div class="loaded-image image-thumb-wrapper">
             @if ($element->getAttachment('icon')->exists())
-                <a href="{{{ $element->getAttachment('icon')->getRelativePath() }}}" target="_blank" rel="prettyPhoto">
+                <a href="{{{ $element->getAttachment('icon')->getRelativePath() }}}" target="_blank" rel="prettyPhoto" data-fancybox="">
                     <img src="{{{ $element->getAttachment('icon')->getRelativePath('thumb') }}}" alt="" />
                 </a>
             @else
@@ -40,13 +40,11 @@
             </div>
         {!!  Form::tbFormGroupClose() !!}
 
-
-
         {!!   Form::tbFormGroupOpen("{$relation}.{$key}.icon_file") !!}
             {{ Form::tbLabel("{$relation}[{$key}][icon]", trans('validation.attributes.icon_file')) }}
             @if ($element->getAttachment('icon')->exists())
                 <div class="loaded-image">
-                    <a href="{{{ $element->getAttachment('icon')->getRelativePath() }}}" target="_blank" rel="prettyPhoto">
+                    <a href="{{{ $element->getAttachment('icon')->getRelativePath() }}}" target="_blank" rel="prettyPhoto" data-fancybox="">
                         <img src="{{{ $element->getAttachment('icon')->getRelativePath('thumb') }}}" alt="" />
                     </a>
                     <label>

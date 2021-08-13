@@ -18,6 +18,24 @@ class AddFieldInServicesTable extends Migration
             $table->string('image_right_from_header')->nullable();
             $table->text('achievements_block')->nullable();
         });
+
+
+
+        Schema::create('service_content_blocks', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('name')->nullable();
+            $table->integer('position')->default(0);
+            $table->boolean('publish')->default(false);
+            $table->text('content')->nullable();
+            $table->string('image')->nullable();
+            $table->boolean('image_right')->default(false);
+            $table->unsignedInteger('service_id')->nullable();
+
+            $table->foreign('service_id', 'content_service_fk')->references('id')->on('services');
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -27,6 +45,8 @@ class AddFieldInServicesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('service_content_blocks');
+
         Schema::table('services', function (Blueprint $table) {
             $table->dropColumn('achievements_block');
             $table->dropColumn('image_right_from_header');

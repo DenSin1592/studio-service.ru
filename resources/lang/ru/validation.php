@@ -194,6 +194,7 @@ return [
 
         'position' => 'Позиция',
         'publish' => 'Публикация',
+        'image_right' => 'Изображение справа',
         'menu_top' => 'В верхнем меню',
         'menu_bottom' => 'В нижнем меню',
         'alias' => 'Псевдоним URL',

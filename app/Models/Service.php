@@ -63,6 +63,12 @@ class Service extends Model
     }
 
 
+    public function contentBlocks()
+    {
+        return $this->hasMany(ServiceContentBlock::class);
+    }
+
+
     public function offers()
     {
         return $this->hasMany(Offer::class);
@@ -112,6 +118,7 @@ class Service extends Model
                 $model->reviews()->detach();
                 $model->ourWorks()->detach();
                 DeleteHelpers::deleteRelatedAll($model->tasks());
+                DeleteHelpers::deleteRelatedAll($model->contentBlocks());
                 DeleteHelpers::removeCommunicationAll($model->offers(), 'service_id');
             });
         });

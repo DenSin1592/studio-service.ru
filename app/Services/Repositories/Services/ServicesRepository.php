@@ -18,7 +18,9 @@ class ServicesRepository extends BaseFeatureRepository
     public function getModelsForHomePage()
     {
         return $this->getModel()
-            ->with('tasks')
+            ->with([
+                'tasks' => static function ($q) {$q->orderBy('position')->where('publish', true);},
+            ])
             ->where('on_home_page', true)
             ->where('publish', true)
             ->orderBy('position')
@@ -28,11 +30,22 @@ class ServicesRepository extends BaseFeatureRepository
     public function getModelsForServicePage()
     {
         return $this->getModel()
-            ->with(['tasks' => static function($q){
-                $q->orderBy('position');
-            }])
+            ->with([
+                'tasks' => static function ($q) {$q->orderBy('position')->where('publish', true);},
+            ])
             ->where('publish', true)
             ->orderBy('position')
             ->get();
+    }
+
+    public function getModelforShowByAliasOrFail(string $alias)
+    {
+        return $this->getModel()
+            ->with([
+                'tasks' => static function ($q) {$q->orderBy('position')->where('publish', true);},
+                'contentBlocks' => static function ($q) {$q->where('publish', true)->orderBy('position');}])
+            ->where('alias', $alias)
+            ->where('publish', true)
+            ->firstOrFail();
     }
 }

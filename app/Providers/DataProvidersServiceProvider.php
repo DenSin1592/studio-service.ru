@@ -97,6 +97,7 @@ DataProvidersServiceProvider extends ServiceProvider
                 $form = new ServiceForm();
                 $form->addSubForm(\App(Competencies::class));
                 $form->addSubForm(\App(Tasks::class));
+                $form->addSubForm(\App(\App\Services\DataProviders\ServiceForm\ServiceSubForm\ContentBlocks::class));
                 return $form;
             });
 

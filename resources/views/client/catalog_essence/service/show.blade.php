@@ -17,6 +17,15 @@
 
     {{$model->getImgPath('image_right_from_header', 'main')}}
 
+
+    @foreach($model->contentBlocks as $element)
+        @if($element->image_right)
+            @include('client.catalog_essence.service._content_block_image_right')
+        @else
+            @include('client.catalog_essence.service._content_block_image_left')
+        @endif
+    @endforeach
+
 --}}
 
 <section class="section-service section-dark" style="background-image: url('{{$model->getImgPath('header_block_background_image', 'main')}}')" >
@@ -80,6 +89,14 @@
         </div>
     </div>
 </section>
+
+    @foreach($model->contentBlocks as $element)
+        @if($element->image_right)
+            @include('client.catalog_essence.service._content_block_image_right')
+        @else
+            @include('client.catalog_essence.service._content_block_image_left')
+        @endif
+    @endforeach
 @stop
 
 

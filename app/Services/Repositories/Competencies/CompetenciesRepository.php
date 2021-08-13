@@ -29,7 +29,7 @@ class CompetenciesRepository extends BaseFeatureRepository
             ->with([
                 'services' => static function ($q) {
                     $q->with(['tasks' => static function($qu){
-                        $qu->orderBy('position');
+                        $qu->orderBy('position')->where('publish', true);
                     }])->where('publish', true)->orderBy('position');
                 },
                 'contentBlocks' => static function ($q) {
