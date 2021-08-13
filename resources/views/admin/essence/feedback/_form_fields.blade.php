@@ -34,7 +34,7 @@
 
 {!! Form::tbSelectBlock('status', \App\Models\Feedback::STATUS_LIST) !!}
 
-{!! Form::tbTinymceTextareaBlock('admin_comment') !!}
+{!! Form::tbTextareaBlock('admin_comment') !!}
 
 @include('admin.shared._model_timestamps', ['model' => $formData[$essenceName]])
 
