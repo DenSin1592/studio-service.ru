@@ -214,8 +214,12 @@ return [
         'icon_file' => 'Иконка',
         'preview_image_file' => 'Изображение для превью',
         'background_image_file' => 'Изображение фона',
-        'section_tasks_publish' => 'Публикация блока задач',
+        'section_tasks_publish' => 'Публикация',
         'section_tasks_name' => 'Заголовок блока задач',
+        'section_video_name' => 'Текст ссылки',
+        'section_video_link_youtube' => 'Ссылка Youtube',
+        'section_video_publish' => 'Публикация',
+        'section_video_image_file' => 'Изображение',
 
 
         'device_type' => 'Тип устройства',

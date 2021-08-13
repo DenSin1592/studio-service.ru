@@ -19,6 +19,11 @@ class AddFieldInServicesTable extends Migration
             $table->text('achievements_block')->nullable();
             $table->string('section_tasks_name')->nullable();
             $table->boolean('section_tasks_publish')->default(false);
+            $table->string('section_video_name')->nullable();
+            $table->string('section_video_link_youtube')->nullable();
+            $table->boolean('section_video_publish')->default(false);
+            $table->string('section_video_image')->nullable();
+
         });
 
 
@@ -50,6 +55,10 @@ class AddFieldInServicesTable extends Migration
         Schema::dropIfExists('service_content_blocks');
 
         Schema::table('services', function (Blueprint $table) {
+            $table->dropColumn('section_video_image');
+            $table->dropColumn('section_video_name');
+            $table->dropColumn('section_video_link_youtube');
+            $table->dropColumn('section_video_publish');
             $table->dropColumn('section_tasks_name');
             $table->dropColumn('section_tasks_publish');
             $table->dropColumn('achievements_block');

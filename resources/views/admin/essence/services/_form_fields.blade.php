@@ -41,11 +41,21 @@
 
     {!! Form::tbTextBlock('section_tasks_name') !!}
     {!! Form::tbCheckboxBlock('section_tasks_publish') !!}
-    <hr>
+
 @include('admin.essence.services._tasks._content_blocks',[
     'routeCreate' => route(\App\Http\Controllers\Admin\Relations\Services\TasksController::ROUTE_CREATE),
     'relation' => \App\Http\Controllers\Admin\Relations\Services\TasksController::RELATIONS_NAME,
     ])
+</fieldset>
+<hr>
+<fieldset class="bordered-group">
+    <legend>Управление видео-блоком</legend>
+    {!! Form::tbTextBlock('section_video_name') !!}
+    {!! Form::tbTextBlock('section_video_link_youtube') !!}
+    {!! Form::tbCheckboxBlock('section_video_publish') !!}
+    <hr>
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'section_video_image','description' => 'Размер изображения - 949х394'])
+
 </fieldset>
 <hr>
 
