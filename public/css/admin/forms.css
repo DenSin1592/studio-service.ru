@@ -215,6 +215,7 @@ fieldset.bordered-group > legend {
     color: gray;
     font-size: 13px;
     line-height: 1.2;
+    display: block;
 }
 
 .control-label + .field-hint-block {

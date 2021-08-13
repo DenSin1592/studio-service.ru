@@ -27,6 +27,11 @@ class Service extends Model
         'meta_title',
         'meta_description',
         'meta_keywords',
+        'header_block_background_image_file',
+        'header_block_background_image_remove',
+        'image_right_from_header_file',
+        'image_right_from_header_remove',
+        'achievements_block',
     ];
 
     protected $casts = [
@@ -78,7 +83,25 @@ class Service extends Model
             UploaderIntegrator::getUploader(
                 'uploads/services/preview_image', [
                 'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
-                'main' => new BoxVersion(400, 300, ['quality' => 100]),
+                'main' => new BoxVersion(380, 293, ['quality' => 100]),
+            ], true
+            )
+        );
+        self::mountUploader(
+            'header_block_background_image',
+            UploaderIntegrator::getUploader(
+                'uploads/services/header_block_background_image', [
+                'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
+                'main' => new BoxVersion(1920, 900, ['quality' => 100]),
+            ], true
+            )
+        );
+        self::mountUploader(
+            'image_right_from_header',
+            UploaderIntegrator::getUploader(
+                'uploads/services/image_right_from_header_file', [
+                'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
+                'main' => new BoxVersion(664, 558, ['quality' => 100]),
             ], true
             )
         );
