@@ -92,7 +92,7 @@ class TargetAudience extends Model
             'background_image',
             UploaderIntegrator::getUploader(
                 'uploads/target_audience/background_images', [
-                    'main' => new BoxVersion(660, 1400, ['quality' => 100]),
+                    'main' => new BoxVersion(654, 1363, ['quality' => 100]),
                     'thumb' => new BoxVersion(85, 85, ['quality' => 100])
                 ], true
             )

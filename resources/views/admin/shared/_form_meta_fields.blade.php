@@ -1,7 +1,7 @@
 @if(resolve('acl')->checkSeo())
 
     <fieldset class="bordered-group">
-        <legend>Блок мета-данных</legend>
+        <legend>Блок управления мета-данными</legend>
 
     {!! Form::tbFormGroupOpen('header') !!}
         {!! Form::tbLabel('header', trans('validation.attributes.header')) !!}
