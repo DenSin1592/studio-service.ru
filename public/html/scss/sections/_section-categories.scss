@@ -26,6 +26,8 @@
 }
 
 .swiper-categories {
+    margin-top: -15px;
+    margin-bottom: -15px;
     @include media-breakpoint-up(md) {
         margin-left: 30px;
         margin-right: 30px;
@@ -34,15 +36,17 @@
         margin-left: 35px;
         margin-right: 35px;
     }
-    @include media-breakpoint-up(xxl) {
-        margin-left: 35px;
-        margin-right: 35px;
-    }
+    // @include media-breakpoint-up(xxl) {
+    //     margin-left: 35px;
+    //     margin-right: 35px;
+    // }
 
     > .swiper-wrapper {
         margin: 0;
 
         > .swiper-slide {
+            padding-top: 15px;
+            padding-bottom: 15px;
             @include media-breakpoint-up(xxl) {
                 padding-left: 50px;
                 padding-right: 50px;
