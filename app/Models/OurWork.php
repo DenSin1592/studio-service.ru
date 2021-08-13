@@ -22,12 +22,17 @@ class OurWork extends Model
         'on_home_page',
         'position',
         'preview',
+        'header',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
         'content_before_slider',
         'content_after_slider',
         'preview_image_file',
         'preview_image_remove',
         'header_block_background_image_file',
         'header_block_background_image_remove',
+
     ];
 
     protected $casts = [
