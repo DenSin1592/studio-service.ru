@@ -64,7 +64,7 @@ class Competence extends Model
             UploaderIntegrator::getUploader(
                 'uploads/competencies/preview_image', [
                 'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
-                'main' => new BoxVersion(350, 450, ['quality' => 100]),
+                'main' => new BoxVersion(324, 424, ['quality' => 100]),
             ], true
             )
         );

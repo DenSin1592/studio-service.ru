@@ -20,7 +20,7 @@
 
                     <div class="row">
                         <div class="display-typography-container col-12">
-                            <div class="display-description">{!! $model->description !!}</div>
+                            <div class="display-description">{{$model->description}}</div>
                         </div>
                     </div>
                 </div>
