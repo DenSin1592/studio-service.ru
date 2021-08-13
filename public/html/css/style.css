@@ -3523,7 +3523,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 .card-project .card-project-thumnbnail { position: relative; margin: 0; margin-left: -15px; margin-right: -15px; padding: 0 0 82%; }
 @media (min-width: 480px) { .card-project .card-project-thumnbnail { padding: 0 0 80%; } }
 @media (min-width: 750px) { .card-project .card-project-thumnbnail { width: 50vw; height: 100%; min-height: 530px; margin: 0; padding: 0; } }
-.card-project .card-project-thumnbnail .card-project-media { position: absolute; top: 0; left: 0; width: 100%; height: 100%; max-width: none; max-height: none; -o-object-fit: cover; object-fit: cover; -o-object-position: center; object-position: center; }
+.card-project .card-project-thumnbnail .card-project-media { position: absolute; top: 0; left: 0; width: 100%; height: 100%; max-width: none; max-height: none; -o-object-fit: cover; object-fit: cover; -o-object-position: left center; object-position: left center; }
 .card-project .card-project-title { display: block; margin: 0 0 5px; color: inherit; }
 @media (min-width: 480px) { .card-project .card-project-title { margin: 0 0 10px; } }
 @media (min-width: 970px) { .card-project .card-project-title { margin: 0; } }
@@ -4180,6 +4180,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 750px) { .swiper-presentation .swiper-presentation-typography-container { padding-top: 25px; padding-bottom: 25px; } }
 @media (min-width: 970px) { .swiper-presentation .swiper-presentation-typography-container { padding-top: 20px; padding-bottom: 20px; } }
 @media (min-width: 1200px) { .swiper-presentation .swiper-presentation-typography-container { padding-top: 30px; padding-bottom: 30px; } }
+@media (min-width: 1680px) { .swiper-presentation .swiper-presentation-typography-container { padding-top: 125px; padding-bottom: 125px; } }
 .swiper-presentation .swiper-presentation-controls-container { position: absolute; left: 0; bottom: 268px; width: 100%; }
 @media (min-width: 480px) { .swiper-presentation .swiper-presentation-controls-container { bottom: 295px; } }
 @media (min-width: 750px) { .swiper-presentation .swiper-presentation-controls-container { bottom: 50px; } }
@@ -4204,6 +4205,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 750px) { .swiper-presentation .swiper-presentation-title { margin-bottom: 15px; } }
 @media (min-width: 970px) { .swiper-presentation .swiper-presentation-title { margin-bottom: 10px; } }
 @media (min-width: 1200px) { .swiper-presentation .swiper-presentation-title { margin-bottom: 20px; } }
+@media (min-width: 1680px) { .swiper-presentation .swiper-presentation-title { margin-bottom: 25px; } }
 .swiper-presentation .swiper-presentation-description { margin: 0 0 70px; }
 @media (min-width: 480px) { .swiper-presentation .swiper-presentation-description { margin-bottom: 80px; } }
 .swiper-presentation .swiper-presentation-figure { position: relative; z-index: 1; -webkit-box-flex: 0; -ms-flex: 0 0 378px; flex: 0 0 378px; width: 378px; max-width: 378px; height: 248px; margin: 0; }
@@ -4211,7 +4213,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 970px) { .swiper-presentation .swiper-presentation-figure { -webkit-box-flex: 0; -ms-flex: 0 0 525px; flex: 0 0 525px; width: 525px; max-width: 525px; height: 345px; } }
 @media (min-width: 1200px) { .swiper-presentation .swiper-presentation-figure { -webkit-box-flex: 0; -ms-flex: 0 0 670px; flex: 0 0 670px; width: 670px; max-width: 670px; height: 430px; } }
 @media (min-width: 1680px) { .swiper-presentation .swiper-presentation-figure { -webkit-box-flex: 0; -ms-flex: 0 0 1015px; flex: 0 0 1015px; width: 1015px; max-width: 1015px; height: 670px; } }
-.swiper-presentation .swiper-presentation-figure::before { position: absolute; z-index: -1; top: 0; left: 0; right: 0; bottom: 8%; background: conic-gradient(from 90deg, #944547, #5b4a90, #506c90, #944547); -webkit-filter: blur(10px); filter: blur(10px); border-radius: 20px; content: ''; }
+.swiper-presentation .swiper-presentation-figure::before { position: absolute; z-index: -1; top: 0; left: 0; right: 0; bottom: 8%; background: #944547; background: -webkit-gradient(linear, left top, right top, from(#944547), color-stop(59%, #4c31c2), to(#4bc5ca)); background: linear-gradient(90deg, #944547 0%, #4c31c2 59%, #4bc5ca 100%); -webkit-filter: blur(10px); filter: blur(10px); border-radius: 20px; content: ''; }
 .swiper-presentation .swiper-presentation-figure .swiper-presentation-media { width: auto; height: auto; max-width: none; max-height: 100%; }
 
 .presentation-cta-block { position: relative; z-index: 1; }

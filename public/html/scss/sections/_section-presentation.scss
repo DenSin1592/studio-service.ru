@@ -247,6 +247,10 @@
             padding-top: 30px;
             padding-bottom: 30px;
         }
+        @include media-breakpoint-up(xxl) {
+            padding-top: 125px;
+            padding-bottom: 125px;
+        }
     }
 
     .swiper-presentation-controls-container {
@@ -352,6 +356,9 @@
         @include media-breakpoint-up(xl) {
             margin-bottom: 20px;
         }
+        @include media-breakpoint-up(xxl) {
+            margin-bottom: 25px;
+        }
     }
 
     .swiper-presentation-description {
@@ -401,13 +408,10 @@
             left: 0;
             right: 0;
             bottom: 8%;
-            background: conic-gradient(
-                from 90deg,
-                #944547,
-                #5b4a90,
-                #506c90,
-                #944547
-            );
+            background: rgb(148,69,71);
+            background: -moz-linear-gradient(90deg, rgba(148,69,71,1) 0%, rgba(76,49,194,1) 59%, rgba(75,197,202,1) 100%);
+            background: -webkit-linear-gradient(90deg, rgba(148,69,71,1) 0%, rgba(76,49,194,1) 59%, rgba(75,197,202,1) 100%);
+            background: linear-gradient(90deg, rgba(148,69,71,1) 0%, rgba(76,49,194,1) 59%, rgba(75,197,202,1) 100%);
             filter: blur(10px);
             border-radius: 20px;
             content: '';
