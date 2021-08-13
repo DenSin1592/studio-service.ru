@@ -46,7 +46,7 @@ class OurWorkImage extends Model
 
         self::mountUploader('image', UploaderIntegrator::getUploader('uploads/our_works/images', [
             'thumb' => new OutBoundVersion(85, 85),
-            'main'  => new OutBoundVersion(1500, 1000),
+            'main'  => new OutBoundVersion(1403, 931),
         ], false));
     }
 

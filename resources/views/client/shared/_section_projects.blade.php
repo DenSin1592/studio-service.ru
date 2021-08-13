@@ -63,13 +63,11 @@
                                                     <a href="{{$element->url}}"
                                                        class="card-project-title title-h3">{{$element->name}}</a>
 
-                                                    <div class="card-project-description">{{mb_strimwidth($element->preview, 0, 240, '...')}}
-                                                    </div>
+                                                    <div class="card-project-description">{{$element->preview}}</div>
 
                                                     @if($element->services->count() > 0)
                                                         <div class="card-project-services-block">
-                                                            <div class="card-project-services-title">Оказанные услуги
-                                                            </div>
+                                                            <div class="card-project-services-title">Оказанные услуги</div>
 
                                                             <ul class="card-project-services-list list-unstyled check-list">
 

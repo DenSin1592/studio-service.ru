@@ -1,34 +1,29 @@
 {!! Form::tbTextBlock('name') !!}
-
 {!! Form::tbTextBlock('alias') !!}
-
 {!! Form::tbCheckboxBlock('publish') !!}
-
 {!! Form::tbCheckboxBlock('on_home_page') !!}
+
+<hr>
 
 <fieldset class="bordered-group">
     <legend>Блок изображений</legend>
-    <p>
-        <em>Размер изображения от 1000х800</em>
-    </p>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
+
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image', 'description' => 'Размер изображения - 960х719'])
     <hr>
-    <p>
-        <em>Размер изображения от 2000х600</em>
-    </p>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'header_block_background_image'])
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'header_block_background_image', 'description' => 'Размер изображения - 1939х532'])
 </fieldset>
 
+<hr>
 
-{!! Form::tbTinymceTextareaBlock('preview', trans('validation.attributes.our_works_preview')) !!}
-
+{!! Form::tbTextareaBlock('preview', trans('validation.attributes.our_works_preview')) !!}
+<hr>
 {!! Form::tbTinymceTextareaBlock('content_before_slider', trans('validation.attributes.content_before_slider')) !!}
-
+<hr>
 
 <fieldset class="bordered-group">
     <legend>Галерея(слайдер)</legend>
     <p>
-        <em>Размеры изображений от 1400х900</em>
+        <em>Размеры изображений - 1403х931</em>
     </p>
     @include('admin.shared._images._images', [
         'elements' => $formData[\App\Http\Controllers\Admin\Relations\OurWorks\ImagesController::RELATIONS_NAME],
@@ -37,15 +32,18 @@
     ])
 </fieldset>
 
+<hr>
 
 {!! Form::tbTinymceTextareaBlock('content_after_slider', trans('validation.attributes.content_after_slider')) !!}
 
-
+<hr>
 @include('admin.shared._relations._many_to_many._block', array_merge(
     \App\Http\Controllers\Admin\Relations\Reviews\ServicesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
     ['models' => $formData[\App\Http\Controllers\Admin\Relations\Reviews\ServicesController::RELATIONS_NAME]]
     )
 )
+
+<hr>
 
 @include('admin.shared._form_meta_fields')
 

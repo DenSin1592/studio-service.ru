@@ -68,7 +68,7 @@ class OurWork extends Model
             UploaderIntegrator::getUploader(
                 'uploads/our_works/preview_image', [
                 'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
-                'main' => new BoxVersion(1000, 800, ['quality' => 100]),
+                'main' => new BoxVersion(960, 719, ['quality' => 100]),
             ], true
             )
         );
@@ -78,7 +78,7 @@ class OurWork extends Model
             UploaderIntegrator::getUploader(
                 'uploads/our_works/header_block_background_image', [
                 'thumb' => new BoxVersion(200, 85, ['quality' => 100]),
-                'main' => new BoxVersion(2000, 600, ['quality' => 100]),
+                'main' => new BoxVersion(1939, 532, ['quality' => 100]),
             ], true
             )
         );
