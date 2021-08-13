@@ -11,10 +11,7 @@
 
 <fieldset class="bordered-group">
     <legend>Блок изображений</legend>
-    <p>
-        <em>Размер изображения от 400х350</em>
-    </p>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image'])
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image', 'description' => 'Размер изображения от 380х293'])
 </fieldset>
 
 
