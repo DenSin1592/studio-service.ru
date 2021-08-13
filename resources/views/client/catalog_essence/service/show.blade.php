@@ -114,7 +114,7 @@
 </section>
 @endif
 
-
+<section class="section-categories section-dark"></section>
 
 @stop
 
