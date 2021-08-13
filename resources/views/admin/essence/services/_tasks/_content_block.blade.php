@@ -69,7 +69,7 @@
     <div class="full-info">
         <div class="form-group">
             {{ Form::tbLabel("{$relation}[{$key}][text]", trans('validation.attributes.text')) }}
-            {{ Form::tbTinymceTextarea("{$relation}[{$key}][text]", $element->text, ['rows' => 3]) }}
+            {{ Form::tbTextarea("{$relation}[{$key}][text]", $element->text, ['rows' => 3]) }}
         </div>
     </div>
 
