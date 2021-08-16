@@ -36,6 +36,13 @@
     }
 
     &:hover {
+        @media (hover: hover) {
+            background: rgba($c-default-heading, 0.2);
+            color: $c-white;
+        }
+    }
+
+    &:active {
         background: rgba($c-default-heading, 0.2);
         color: $c-white;
     }
