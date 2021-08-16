@@ -3064,12 +3064,11 @@ blockquote { margin: 0; padding: 10px 15px; border-radius: 20px; background-colo
 .swiper-button-prev, .swiper-button-next { cursor: pointer; position: absolute; z-index: 1; width: 30px; height: 30px; padding: 0; border: none; border-radius: 50%; background: #1f1f39; -webkit-transition: background-color 300ms ease; transition: background-color 300ms ease; color: #fff; text-align: center; }
 @media (min-width: 1200px) { .swiper-button-prev, .swiper-button-next { width: 50px; height: 50px; } }
 @media (hover: hover) { .swiper-button-prev:hover, .swiper-button-next:hover { background: rgba(31, 31, 57, 0.2); color: #fff; } }
-.swiper-button-prev:active, .swiper-button-next:active { background: rgba(31, 31, 57, 0.2); color: #fff; }
 .swiper-button-prev .swiper-button-prev-media, .swiper-button-prev .swiper-button-next-media, .swiper-button-next .swiper-button-prev-media, .swiper-button-next .swiper-button-next-media { width: 14px; height: 14px; color: currentColor; fill: currentColor; }
 @media (min-width: 1200px) { .swiper-button-prev .swiper-button-prev-media, .swiper-button-prev .swiper-button-next-media, .swiper-button-next .swiper-button-prev-media, .swiper-button-next .swiper-button-next-media { width: 19px; height: 19px; } }
 
 .swiper-button-light, .swiper-button-light { background-color: rgba(255, 255, 255, 0.2); color: #1f1f39; }
-.swiper-button-light:hover, .swiper-button-light:hover { background-color: #fff; color: #1f1f39; }
+@media (hover: hover) { .swiper-button-light:hover, .swiper-button-light:hover { background-color: #fff; color: #1f1f39; } }
 
 .swiper-navigation-wrapper { height: 35px; margin-left: -2px; margin-right: -2px; }
 .swiper-navigation-wrapper .swiper-button-prev, .swiper-navigation-wrapper .swiper-button-next { position: static; margin: 0 2px; -webkit-transform: translate(0); transform: translate(0); }
@@ -3079,7 +3078,7 @@ blockquote { margin: 0; padding: 10px 15px; border-radius: 20px; background-colo
 .swiper-pagination-fraction { position: static; margin: 0; font-size: 17px; font-weight: 600; line-height: 1; color: #000; }
 
 .swiper-light .swiper-button-prev, .swiper-light .swiper-button-next { background-color: rgba(255, 255, 255, 0.2); color: #1f1f39; }
-.swiper-light .swiper-button-prev:hover, .swiper-light .swiper-button-next:hover { background-color: #fff; color: #1f1f39; }
+@media (hover: hover) { .swiper-light .swiper-button-prev:hover, .swiper-light .swiper-button-next:hover { background-color: #fff; color: #1f1f39; } }
 
 .nav.nav-tabs { margin: 0 0 15px; border: none; }
 @media (min-width: 750px) { .nav.nav-tabs { margin-bottom: 20px; } }

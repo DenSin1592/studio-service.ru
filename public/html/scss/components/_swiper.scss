@@ -42,11 +42,6 @@
         }
     }
 
-    &:active {
-        background: rgba($c-default-heading, 0.2);
-        color: $c-white;
-    }
-
     .swiper-button-prev-media,
     .swiper-button-next-media {
         width: 14px;
@@ -66,8 +61,10 @@
     color: $c-default-heading;
 
     &:hover {
-        background-color: $c-white;
-        color: $c-default-heading;
+        @media (hover: hover) {
+            background-color: $c-white;
+            color: $c-default-heading;
+        }
     }
 }
 
@@ -105,8 +102,10 @@
         color: $c-default-heading;
 
         &:hover {
-            background-color: $c-white;
-            color: $c-default-heading;
+            @media (hover: hover) {
+                background-color: $c-white;
+                color: $c-default-heading;
+            }
         }
     }
 }
