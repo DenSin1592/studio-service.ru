@@ -52,11 +52,11 @@
 }
 
 .swiper-gallery {
-    margin-bottom: -50px;
+    margin: 0 #{-$grid-gutter-width/2} -50px;
     
     > .swiper-wrapper {
         > .swiper-slide {
-            padding-bottom: 50px;
+            padding: 0 #{$grid-gutter-width/2} 50px;
         }
     }
 }

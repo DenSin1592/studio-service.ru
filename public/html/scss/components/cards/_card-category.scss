@@ -48,8 +48,8 @@
             background: -moz-linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
             background: -webkit-linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
             background: linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
-            filter: blur(10px);
             border-radius: 50%;
+            filter: blur(10px);
         }
 
         &::after {
