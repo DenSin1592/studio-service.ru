@@ -3425,10 +3425,10 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 1200px) { .card-service .card-service-thumbnail { margin: 0 0 20px; } }
 @media (min-width: 1680px) { .card-service .card-service-thumbnail { margin: 0 0 25px; } }
 .card-service .card-service-thumbnail .card-service-media { position: absolute; top: 0; left: 0; width: 100%; height: 100%; -o-object-position: center; object-position: center; -o-object-fit: cover; object-fit: cover; pointer-events: none; }
-.card-service .card-service-title { min-height: 60px; margin: 0 0 10px; font-size: 15px; font-weight: 600; line-height: 20px; color: #1f1f39; }
-@media (min-width: 970px) { .card-service .card-service-title { min-height: 66px; margin: 0 0 15px; font-size: 17px; line-height: 22px; } }
-@media (min-width: 1200px) { .card-service .card-service-title { min-height: 75px; margin: 0 0 20px; font-size: 20px; line-height: 25px; } }
-@media (min-width: 1680px) { .card-service .card-service-title { min-height: 90px; margin: 0 0 12px; font-size: 25px; line-height: 30px; } }
+.card-service .card-service-title { margin: 0 0 10px; font-size: 15px; font-weight: 600; line-height: 20px; color: #1f1f39; }
+@media (min-width: 970px) { .card-service .card-service-title { margin: 0 0 15px; font-size: 17px; line-height: 22px; } }
+@media (min-width: 1200px) { .card-service .card-service-title { font-size: 20px; line-height: 25px; } }
+@media (min-width: 1680px) { .card-service .card-service-title { font-size: 25px; line-height: 30px; } }
 .card-service .card-service-include-block { margin: 0 0 10px; }
 @media (min-width: 1680px) { .card-service .card-service-include-block { margin: 0 0 25px; } }
 .card-service .card-service-include-block .card-service-include-title { margin: 0 0 12px; }
@@ -3444,7 +3444,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 .card-service .card-service-include-block .card-service-include-list.card-service-include-pills-list .card-service-include-item::before, .card-service .card-service-include-block .card-service-include-list.card-service-include-pills-list .card-service-include-item::after { position: absolute; z-index: -1; top: 0; left: 0; right: 0; bottom: 0; border-radius: inherit; content: ''; }
 .card-service .card-service-include-block .card-service-include-list.card-service-include-pills-list .card-service-include-item::before { background: conic-gradient(from 90deg, #944547, #5b4a90, #506c90, #944547); -webkit-filter: blur(5px); filter: blur(5px); content: ''; }
 .card-service .card-service-include-block .card-service-include-list.card-service-include-pills-list .card-service-include-item::after { background: inherit; }
-.card-service .card-service-cta { width: 40px; height: 40px; border: 1px solid #cacaca; border-radius: 50%; -webkit-transition: background 150ms linear, border-color 150ms linear; transition: background 150ms linear, border-color 150ms linear; text-align: center; line-height: 40px; }
+.card-service .card-service-cta { width: 40px; height: 40px; margin: auto 0 0; border: 1px solid #cacaca; border-radius: 50%; -webkit-transition: background 150ms linear, border-color 150ms linear; transition: background 150ms linear, border-color 150ms linear; text-align: center; line-height: 40px; }
 @media (min-width: 1680px) { .card-service .card-service-cta { width: 50px; height: 50px; line-height: 50px; } }
 .card-service .card-service-cta .card-service-cta-media { color: currentColor; fill: currentColor; }
 .card-service:hover { color: #3f3f3f; text-decoration: none; }
