@@ -78,6 +78,13 @@
     {!! Form::tbCheckboxBlock('section_requirements_publish') !!}
 </fieldset>
 <hr>
+
+<fieldset class="bordered-group">
+    <legend>Управление блоком FAQ</legend>
+    {!! Form::tbTextBlock('section_faq_name') !!}
+    {!! Form::tbCheckboxBlock('section_faq_publish') !!}
+</fieldset>
+<hr>
 @include('admin.shared._relations._many_to_many._block', array_merge(
     \App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
     ['models' => $formData[\App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATIONS_NAME]

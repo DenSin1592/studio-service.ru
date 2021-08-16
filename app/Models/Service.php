@@ -45,6 +45,8 @@ class Service extends Model
         'section_requirements_name',
         'section_requirements_content',
         'section_requirements_publish',
+        'section_faq_name',
+        'section_faq_publish',
     ];
 
     protected $casts = [

@@ -122,6 +122,10 @@
     @include('client.catalog_essence.service._section_requirements')
 @endif
 
+@if($model->section_faq_publish)
+    @include('client.catalog_essence.service._section_faq')
+@endif
+
 <section class="section-categories section-dark"></section>
 
 @stop

@@ -227,6 +227,8 @@ return [
         'section_requirements_name' => 'Заголовок',
         'section_requirements_content' => 'Контент',
         'section_requirements_publish' => 'Публикация',
+        'section_faq_name' => 'Заголовок',
+        'section_faq_publish' => 'Публикация',
 
         'device_type' => 'Тип устройства',
         'user_agent' => 'Заголовок браузера',
