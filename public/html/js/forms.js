@@ -12,12 +12,17 @@
                 event.preventDefault();
 
                 let hash = targetSection;
+                let headerContainer = $('.header-box');
+                $(headerContainer).addClass('is-sticky');
 
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top - $('.header-box').outerHeight()
-                }, 800, function(){
-                    window.location.hash = hash;
-                });
+                setTimeout(() => {
+                    // wait to get height of fixed header
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - $(headerContainer).outerHeight()
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }, 100);
             }
         })
     });
