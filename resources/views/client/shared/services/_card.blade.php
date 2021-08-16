@@ -1,3 +1,4 @@
+<div class="card-service-overlay"></div>
 <a href="{{$model->url}}" class="card-service d-flex flex-column">
     <div class="card-service-thumbnail">
         <img loading="lazy"
@@ -6,7 +7,7 @@
              class="card-service-media">
     </div>
 
-    <div class="card-service-title flex-grow-1">
+    <div class="card-service-title">
         {{$model->name}}
     </div>
 
