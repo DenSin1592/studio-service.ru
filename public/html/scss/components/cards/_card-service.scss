@@ -1,5 +1,6 @@
 .card-service {
     position: relative;
+    z-index: 1;
     display: block;
     width: 100%;
     padding: 15px 15px 15px;
@@ -19,10 +20,15 @@
         padding: 35px 25px 30px;
         font-size: 17px;
     }
-    
-    &::before {
+
+    &::before,
+    &::after {
         position: absolute;
         z-index: -1;
+        content: '';
+    }
+    
+    &::before {
         opacity: 0.5;
         top: 10px;
         left: 5px;
@@ -40,7 +46,7 @@
         background: -webkit-linear-gradient(90deg, rgba(94,63,201,1) 0%, rgba(60,191,198,1) 100%);
         background: linear-gradient(90deg, rgba(94,63,201,1) 0%, rgba(60,191,198,1) 100%);
         filter: blur(10px);
-        content: '';
+        
         @include media-breakpoint-up(sm) {
             opacity: 0.75;
         }
@@ -63,6 +69,14 @@
             border-radius: 20px;
             filter: blur(15px);
         }
+    }
+
+    &::after {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
     }
 
     .card-service-thumbnail {

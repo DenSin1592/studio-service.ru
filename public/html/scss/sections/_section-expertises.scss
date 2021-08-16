@@ -109,4 +109,10 @@
             right: -80px;
         }
     }
+
+    .card-expertise {
+        &::before {
+            display: none;
+        }
+    }
 }

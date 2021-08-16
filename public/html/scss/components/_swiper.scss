@@ -42,8 +42,14 @@
 
     .swiper-button-prev-media,
     .swiper-button-next-media {
+        width: 14px;
+        height: 14px;
         color: currentColor;
         fill: currentColor;
+        @include media-breakpoint-up(xl) {
+            width: 19px;
+            height: 19px;
+        }
     }
 }
 

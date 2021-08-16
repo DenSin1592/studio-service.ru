@@ -17,6 +17,7 @@
             color: $c-purple;
             font-weight: 600;
             text-decoration: none;
+            transition: border-color 150ms linear;
 
             &:hover {
                 border-bottom-color: transparent;
