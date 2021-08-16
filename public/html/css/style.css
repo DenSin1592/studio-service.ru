@@ -3169,7 +3169,8 @@ form a:hover { border-color: transparent; color: #8174af; text-decoration: none;
 @media (min-width: 1680px) { .btn.btn-xl { padding: 22px 68px; font-size: 40px; line-height: 50px; } }
 
 .btn-primary { background: #564396; background: -webkit-gradient(linear, left bottom, left top, from(#564396), to(#765fc4)); background: linear-gradient(0deg, #564396 0%, #765fc4 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#564396",endColorstr="#765fc4",GradientType=1); border-color: #574497; -webkit-box-shadow: 0 7px 20px rgba(255, 64, 244, 0.4); box-shadow: 0 7px 20px rgba(255, 64, 244, 0.4); color: #fff; }
-.btn-primary:hover, .btn-primary:active, .btn-primary:focus { border-color: #574497; background: -webkit-gradient(linear, left bottom, left top, from(rgba(86, 67, 150, 0.9)), to(rgba(118, 95, 196, 0.9))); background: linear-gradient(0deg, rgba(86, 67, 150, 0.9) 0%, rgba(118, 95, 196, 0.9) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#564396",endColorstr="#765fc4",GradientType=1); -webkit-box-shadow: 0 7px 20px rgba(255, 64, 244, 0.4); box-shadow: 0 7px 20px rgba(255, 64, 244, 0.4); color: #fff; }
+.btn-primary:hover, .btn-primary:active { border-color: #574497; background: -webkit-gradient(linear, left bottom, left top, from(rgba(86, 67, 150, 0.9)), to(rgba(118, 95, 196, 0.9))); background: linear-gradient(0deg, rgba(86, 67, 150, 0.9) 0%, rgba(118, 95, 196, 0.9) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#564396",endColorstr="#765fc4",GradientType=1); -webkit-box-shadow: 0 7px 20px rgba(255, 64, 244, 0.4); box-shadow: 0 7px 20px rgba(255, 64, 244, 0.4); color: #fff; }
+.btn-primary:focus { background: #564396; background: -webkit-gradient(linear, left bottom, left top, from(#564396), to(#765fc4)); background: linear-gradient(0deg, #564396 0%, #765fc4 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#564396",endColorstr="#765fc4",GradientType=1); border-color: #574497; -webkit-box-shadow: 0 7px 20px rgba(255, 64, 244, 0.4); box-shadow: 0 7px 20px rgba(255, 64, 244, 0.4); color: #fff; }
 
 .btn-outline-secondary { border-color: #d2a277; color: #3f3f3f; }
 .btn-outline-secondary:hover, .btn-outline-secondary:focus, .btn-outline-secondary:active { border-color: #d2a277; background-color: #d2a277; color: #fff; }
@@ -3872,6 +3873,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 .swiper-categories { margin-top: -15px; margin-bottom: -15px; }
 @media (min-width: 750px) { .swiper-categories { margin-left: 45px; margin-right: 45px; } }
 @media (min-width: 970px) { .swiper-categories { margin-left: 50px; margin-right: 50px; } }
+@media (min-width: 1680px) { .swiper-categories { margin-left: 35px; margin-right: 35px; } }
 .swiper-categories > .swiper-wrapper { margin: 0; }
 .swiper-categories > .swiper-wrapper > .swiper-slide { padding-top: 15px; padding-bottom: 15px; }
 @media (min-width: 1680px) { .swiper-categories > .swiper-wrapper > .swiper-slide { padding-left: 50px; padding-right: 50px; } }
