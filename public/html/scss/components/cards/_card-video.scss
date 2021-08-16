@@ -8,6 +8,8 @@
     font-weight: 600;
     line-height: 25px;
     color: $c-white;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
     @include media-breakpoint-up(lg) {
         font-size: 17px;
         line-height: 25px;
@@ -21,33 +23,26 @@
         line-height: 40px;
     }
 
-    &::before,
-    &::after {
+    &::before {
         position: absolute;
         z-index: -1;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        content: '';
-    }
-
-    &::before {
-        background: conic-gradient(
-            from 90deg,
-            #944547,
-            #5b4a90,
-            #506c90,
-            #944547
-        );
-        filter: blur(10px);
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 20%;
+        background: rgb(188,205,255);
+        filter: blur(15px);
         border-radius: 0;
+        content: '';
+        @include media-breakpoint-up(lg) {
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+            filter: blur(30px);
+        }
     }
-
-    // &::after {
-    //     background-color: rgba($c-black, .8);
-    //     transition: background-color 150ms linear;
-    // }
 
     .card-video-figure {
         position: relative;

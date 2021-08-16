@@ -3723,12 +3723,12 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 .card-social.card-social-telegram { background-color: #2b5e77; }
 .card-social.card-social-telegram::before { left: 100%; }
 
-.card-video { cursor: pointer; position: relative; z-index: 1; display: block; width: 100%; font-size: 15px; font-weight: 600; line-height: 25px; color: #fff; }
+.card-video { cursor: pointer; position: relative; z-index: 1; display: block; width: 100%; font-size: 15px; font-weight: 600; line-height: 25px; color: #fff; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; }
 @media (min-width: 970px) { .card-video { font-size: 17px; line-height: 25px; } }
 @media (min-width: 1200px) { .card-video { font-size: 20px; line-height: 30px; } }
 @media (min-width: 1680px) { .card-video { font-size: 30px; line-height: 40px; } }
-.card-video::before, .card-video::after { position: absolute; z-index: -1; top: 0; left: 0; right: 0; bottom: 0; content: ''; }
-.card-video::before { background: conic-gradient(from 90deg, #944547, #5b4a90, #506c90, #944547); -webkit-filter: blur(10px); filter: blur(10px); border-radius: 0; }
+.card-video::before { position: absolute; z-index: -1; top: 15px; left: 15px; right: 15px; bottom: 15px; border-radius: 20%; background: #bccdff; -webkit-filter: blur(15px); filter: blur(15px); border-radius: 0; content: ''; }
+@media (min-width: 970px) { .card-video::before { top: 30px; left: 30px; right: 30px; bottom: 30px; -webkit-filter: blur(30px); filter: blur(30px); } }
 .card-video .card-video-figure { position: relative; z-index: 1; margin: 0; padding: 0 0 65.5%; }
 @media (min-width: 750px) { .card-video .card-video-figure { padding: 0 0 64.5%; } }
 .card-video .card-video-figure .card-video-media { position: absolute; top: 0; left: 0; width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; -o-object-position: center; object-position: center; }
@@ -4189,7 +4189,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 1200px) { .swiper-presentation-nav .swiper-presentation-nav-link .swiper-presentation-nav-thumbnail { position: absolute; top: 0; left: 0; -webkit-transform: translate(0, -80%); transform: translate(0, -80%); } }
 @media (min-width: 1680px) { .swiper-presentation-nav .swiper-presentation-nav-link .swiper-presentation-nav-thumbnail { top: 50%; left: 0; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); } }
 .swiper-presentation-nav .swiper-presentation-nav-link .swiper-presentation-nav-thumbnail::before, .swiper-presentation-nav .swiper-presentation-nav-link .swiper-presentation-nav-thumbnail::after { position: absolute; z-index: -1; top: 0; left: 0; right: 0; bottom: 0; border-radius: inherit; content: ''; }
-.swiper-presentation-nav .swiper-presentation-nav-link .swiper-presentation-nav-thumbnail::before { background: conic-gradient(from 90deg, #944547, #5b4a90, #506c90, #944547); -webkit-filter: blur(5px); filter: blur(5px); content: ''; }
+.swiper-presentation-nav .swiper-presentation-nav-link .swiper-presentation-nav-thumbnail::before { background: #62539c; background: linear-gradient(130deg, #62539c 0%, #944547 50%, #506c90 100%); -webkit-filter: blur(5px); filter: blur(5px); content: ''; }
 .swiper-presentation-nav .swiper-presentation-nav-link .swiper-presentation-nav-thumbnail::after { background: inherit; }
 
 .swiper-presentation-cover { margin-bottom: 40px; }
@@ -4202,7 +4202,7 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 970px) { .swiper-presentation { font-size: 16px; line-height: 25px; } }
 @media (min-width: 1200px) { .swiper-presentation { font-size: 18px; line-height: 25px; } }
 @media (min-width: 1680px) { .swiper-presentation { font-size: 22px; line-height: 30px; } }
-.swiper-presentation > .swiper-wrapper > .swiper-slide { overflow: hidden; }
+.swiper-presentation > .swiper-wrapper > .swiper-slide { overflow: hidden; -webkit-transform: translate3d(0, 0, 0); -webkit-backface-visibility: hidden; }
 @media (min-width: 750px) { .swiper-presentation .swiper-presentation-typography-container { padding-top: 25px; padding-bottom: 25px; } }
 @media (min-width: 970px) { .swiper-presentation .swiper-presentation-typography-container { padding-top: 20px; padding-bottom: 20px; } }
 @media (min-width: 1200px) { .swiper-presentation .swiper-presentation-typography-container { padding-top: 30px; padding-bottom: 30px; } }
