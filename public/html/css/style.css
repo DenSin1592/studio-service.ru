@@ -3425,10 +3425,10 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 1200px) { .card-service .card-service-thumbnail { margin: 0 0 20px; } }
 @media (min-width: 1680px) { .card-service .card-service-thumbnail { margin: 0 0 25px; } }
 .card-service .card-service-thumbnail .card-service-media { position: absolute; top: 0; left: 0; width: 100%; height: 100%; -o-object-position: center; object-position: center; -o-object-fit: cover; object-fit: cover; pointer-events: none; }
-.card-service .card-service-title { margin: 0 0 10px; font-size: 15px; font-weight: 600; line-height: 20px; color: #1f1f39; }
-@media (min-width: 970px) { .card-service .card-service-title { margin: 0 0 15px; font-size: 17px; line-height: 22px; } }
-@media (min-width: 1200px) { .card-service .card-service-title { margin: 0 0 20px; font-size: 20px; line-height: 25px; } }
-@media (min-width: 1680px) { .card-service .card-service-title { margin: 0 0 12px; font-size: 25px; line-height: 30px; } }
+.card-service .card-service-title { min-height: 60px; margin: 0 0 10px; font-size: 15px; font-weight: 600; line-height: 20px; color: #1f1f39; }
+@media (min-width: 970px) { .card-service .card-service-title { min-height: 66px; margin: 0 0 15px; font-size: 17px; line-height: 22px; } }
+@media (min-width: 1200px) { .card-service .card-service-title { min-height: 75px; margin: 0 0 20px; font-size: 20px; line-height: 25px; } }
+@media (min-width: 1680px) { .card-service .card-service-title { min-height: 90px; margin: 0 0 12px; font-size: 25px; line-height: 30px; } }
 .card-service .card-service-include-block { margin: 0 0 10px; }
 @media (min-width: 1680px) { .card-service .card-service-include-block { margin: 0 0 25px; } }
 .card-service .card-service-include-block .card-service-include-title { margin: 0 0 12px; }

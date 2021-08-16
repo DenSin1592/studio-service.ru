@@ -104,22 +104,26 @@
 
 
     .card-service-title {
+        min-height: 60px;
         margin: 0 0 10px;
         font-size: 15px;
         font-weight: 600;
         line-height: 20px;
         color: $c-default-heading;
         @include media-breakpoint-up(lg) {
+            min-height: 66px;
             margin: 0 0 15px;
             font-size: 17px;
             line-height: 22px;
         }
         @include media-breakpoint-up(xl) {
+            min-height: 75px;
             margin: 0 0 20px;
             font-size: 20px;
             line-height: 25px;
         }
         @include media-breakpoint-up(xxl) {
+            min-height: 90px;
             margin: 0 0 12px;
             font-size: 25px;
             line-height: 30px;
