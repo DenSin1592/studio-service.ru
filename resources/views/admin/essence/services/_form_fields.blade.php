@@ -59,6 +59,18 @@
 </fieldset>
 <hr>
 
+<fieldset class="bordered-group">
+    <legend>Управление блоком с табами</legend>
+    {!! Form::tbTextBlock('section_tabs_name') !!}
+    {!! Form::tbTextareaBlock('section_tabs_description') !!}
+    {!! Form::tbCheckboxBlock('section_tabs_publish') !!}
+
+    @include('admin.essence.services._tabs._content_blocks',[
+    'routeCreate' => route(\App\Http\Controllers\Admin\Relations\Services\TabsController::ROUTE_CREATE),
+    'relation' => \App\Http\Controllers\Admin\Relations\Services\TabsController::RELATIONS_NAME,
+    ])
+</fieldset>
+<hr>
 @include('admin.shared._relations._many_to_many._block', array_merge(
     \App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
     ['models' => $formData[\App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATIONS_NAME]

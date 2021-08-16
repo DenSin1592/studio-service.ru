@@ -39,6 +39,9 @@ class Service extends Model
         'section_video_publish',
         'section_video_image_file',
         'section_video_image_remove',
+        'section_tabs_name',
+        'section_tabs_description' ,
+        'section_tabs_publish',
     ];
 
     protected $casts = [
@@ -73,6 +76,11 @@ class Service extends Model
     public function contentBlocks()
     {
         return $this->hasMany(ServiceContentBlock::class);
+    }
+
+    public function tabs()
+    {
+        return $this->hasMany(ServiceTab::class);
     }
 
 
@@ -135,6 +143,7 @@ class Service extends Model
                 $model->ourWorks()->detach();
                 DeleteHelpers::deleteRelatedAll($model->tasks());
                 DeleteHelpers::deleteRelatedAll($model->contentBlocks());
+                DeleteHelpers::deleteRelatedAll($model->tabs());
                 DeleteHelpers::removeCommunicationAll($model->offers(), 'service_id');
             });
         });

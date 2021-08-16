@@ -23,7 +23,9 @@ class AddFieldInServicesTable extends Migration
             $table->string('section_video_link_youtube')->nullable();
             $table->boolean('section_video_publish')->default(false);
             $table->string('section_video_image')->nullable();
-
+            $table->string('section_tabs_name')->nullable();
+            $table->string('section_tabs_description')->nullable();
+            $table->boolean('section_tabs_publish')->default(false);
         });
 
 
@@ -43,6 +45,20 @@ class AddFieldInServicesTable extends Migration
 
             $table->timestamps();
         });
+
+        Schema::create('service_tabs_block_tabs', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('tab_name')->nullable();
+            $table->integer('position')->default(0);
+            $table->boolean('publish')->default(false);
+            $table->text('content')->nullable();
+            $table->unsignedInteger('service_id')->nullable();
+
+            $table->foreign('service_id', 'tab_service_fk')->references('id')->on('services');
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -52,9 +68,14 @@ class AddFieldInServicesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('service_tabs_block_tabs');
+
         Schema::dropIfExists('service_content_blocks');
 
         Schema::table('services', function (Blueprint $table) {
+            $table->dropColumn('section_tabs_name');
+            $table->dropColumn('section_tabs_description');
+            $table->dropColumn('section_tabs_publish');
             $table->dropColumn('section_video_image');
             $table->dropColumn('section_video_name');
             $table->dropColumn('section_video_link_youtube');

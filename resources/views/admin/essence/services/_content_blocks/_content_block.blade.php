@@ -10,9 +10,7 @@
     {{ Form::hidden("{$relation}[{$key}][id]", $element->id) }}
 
     <div class="short-info">
-        <div class="loaded-image image-thumb-wrapper">
             {!! Form::tbTextBlock("{$relation}[{$key}][name]", trans('validation.attributes.name'), $element->name, ['disabled' => true]) !!}
-        </div>
     </div>
 
 

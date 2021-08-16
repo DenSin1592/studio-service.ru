@@ -21,5 +21,9 @@ Route::prefix('services')->name('services.')->group(function () {
         Route::get('create', 'ContentBlocksController@create')->name('create');
     });
 
+    Route::prefix('tabs')->name('tabs.')->namespace('Relations\Services')->group(function () {
+        Route::get('create', 'TabsController@create')->name('create');
+    });
+
 });
 Route::resource('services', 'EssenceControllers\ServicesController')->except('show');

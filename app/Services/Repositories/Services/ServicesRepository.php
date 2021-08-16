@@ -40,12 +40,21 @@ class ServicesRepository extends BaseFeatureRepository
 
     public function getModelforShowByAliasOrFail(string $alias)
     {
-        return $this->getModel()
+        $model = $this->getModel()
             ->with([
-                'tasks' => static function ($q) {$q->orderBy('position')->where('publish', true);},
-                'contentBlocks' => static function ($q) {$q->where('publish', true)->orderBy('position');}])
+                'contentBlocks' => static function ($q) {$q->where('publish', true)->orderBy('position');
+            }])
             ->where('alias', $alias)
             ->where('publish', true)
             ->firstOrFail();
+
+        if($model->section_tasks_publish){
+            $model->load(['tasks' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
+        }
+
+        if($model->section_tabs_publish)
+            $model->load(['tabs' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
+
+        return $model;
     }
 }

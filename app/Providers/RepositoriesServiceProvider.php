@@ -22,6 +22,7 @@ use App\Services\Repositories\Review\ReviewImage\ReviewImageRepository;
 use App\Services\Repositories\Review\ReviewRepository;
 use App\Services\Repositories\Services\ServiceContentBlock\ServiceContentBlockRepository;
 use App\Services\Repositories\Services\ServicesRepository;
+use App\Services\Repositories\Services\ServiceTab\ServiceTabRepository;
 use App\Services\Repositories\Setting\SettingRepository;
 use App\Services\Repositories\Services\ServiceTask\ServiceTaskRepository;
 use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
@@ -106,6 +107,11 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->app->singleton(
             ServiceTaskRepository::class,
             fn() => new ServiceTaskRepository()
+        );
+
+        $this->app->singleton(
+            ServiceTabRepository::class,
+            fn() => new ServiceTabRepository()
         );
 
         $this->app->singleton(
