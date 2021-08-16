@@ -34,13 +34,6 @@
         left: 5px;
         right: 5px;
         bottom: 0;
-        // background: conic-gradient(
-        //     from 90deg,
-        //     #944547,
-        //     #5b4a90,
-        //     #506c90,
-        //     #944547
-        // );
         background: rgb(94,63,201);
         background: -moz-linear-gradient(90deg, rgba(94,63,201,1) 0%, rgba(60,191,198,1) 100%);
         background: -webkit-linear-gradient(90deg, rgba(94,63,201,1) 0%, rgba(60,191,198,1) 100%);
@@ -78,6 +71,7 @@
         bottom: 0;
         background: inherit;
     }
+
 
     .card-service-thumbnail {
         position: relative;
