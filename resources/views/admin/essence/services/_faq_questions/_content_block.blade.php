@@ -22,12 +22,13 @@
         </div>
         <div class="form-group">
             {{ Form::tbLabel("{$relation}[{$key}][content]", trans('validation.attributes.content')) }}
-            {{ Form::tbTextarea("{$relation}[{$key}][content]", $element->content, ['rows' => 3]) }}
+            {{ Form::tbTinymceTextarea("{$relation}[{$key}][content]", $element->content, ['rows' => 3]) }}
         </div>
+
 
     {!! Form::tbFormGroupOpen("{$relation}.{$key}.image_file") !!}
     {{ Form::tbLabel("{$relation}[{$key}][image]", trans('validation.attributes.image_file')) }}
-        <div class="field-hint-block">Размер изображения - 558х383</div>
+        <div class="field-hint-block">Размер изображения - 323х247</div>
     @if ($element->getAttachment('image')->exists())
         <div class="loaded-image">
             <a href="{{{ $element->getAttachment('image')->getRelativePath() }}}" target="_blank" rel="prettyPhoto">
@@ -44,7 +45,6 @@
     </div>
     {!!  Form::tbFormGroupClose() !!}
 
-        {!! Form::tbCheckboxBlock("{$relation}[{$key}][image_right]", trans('validation.attributes.image_right'), $element->image_right) !!}
         {!! Form::tbCheckboxBlock("{$relation}[{$key}][publish]", trans('validation.attributes.publish'), $element->publish) !!}
 
         {{ Form::tbLabel("{$relation}[{$key}][position]", trans('validation.attributes.position')) }}

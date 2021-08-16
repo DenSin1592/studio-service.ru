@@ -94,6 +94,11 @@ class Service extends Model
         return $this->hasMany(Offer::class);
     }
 
+    public function faqQuestions()
+    {
+        return $this->hasMany(ServiceFaqQuestion::class);
+    }
+
     public function getUrlAttribute(): string
     {
         return route(\App\Http\Controllers\Client\EssenceControllers\ServiceController::ROUTE_SHOW_ON_SITE, $this->alias);
@@ -149,6 +154,7 @@ class Service extends Model
                 DeleteHelpers::deleteRelatedAll($model->tasks());
                 DeleteHelpers::deleteRelatedAll($model->contentBlocks());
                 DeleteHelpers::deleteRelatedAll($model->tabs());
+                DeleteHelpers::deleteRelatedAll($model->faqQuestions());
                 DeleteHelpers::removeCommunicationAll($model->offers(), 'service_id');
             });
         });

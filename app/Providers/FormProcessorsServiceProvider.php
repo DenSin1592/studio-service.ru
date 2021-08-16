@@ -14,6 +14,7 @@ use App\Services\FormProcessors\Review\ReviewFormProcessor;
 use App\Services\FormProcessors\Review\SubProcessor\Images;
 use App\Services\FormProcessors\Service\ServiceFormProcessor;
 use App\Services\FormProcessors\Service\SubProcessor\Competencies;
+use App\Services\FormProcessors\Service\SubProcessor\FaqQuestions;
 use App\Services\FormProcessors\Service\SubProcessor\Tabs;
 use App\Services\FormProcessors\Service\SubProcessor\Tasks;
 use App\Services\FormProcessors\Settings\SettingsFormProcessor;
@@ -112,6 +113,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
                  $formProcessor->addSubProcessor(\App(Competencies::class));
                  $formProcessor->addSubProcessor(\App(Tasks::class));
                  $formProcessor->addSubProcessor(\App(Tabs::class));
+                 $formProcessor->addSubProcessor(\App(FaqQuestions::class));
                  $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Service\SubProcessor\ContentBlocks::class));
                  return $formProcessor;
              }

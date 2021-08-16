@@ -64,6 +64,21 @@ class AddFieldInServicesTable extends Migration
 
             $table->timestamps();
         });
+
+        Schema::create('service_faq_questions', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('name')->nullable();
+            $table->integer('position')->default(0);
+            $table->boolean('publish')->default(false);
+            $table->text('content')->nullable();
+            $table->string('image')->nullable();
+            $table->unsignedInteger('service_id')->nullable();
+
+            $table->foreign('service_id', 'faq_service_fk')->references('id')->on('services');
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -73,6 +88,8 @@ class AddFieldInServicesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('service_faq_questions');
+
         Schema::dropIfExists('service_tabs_block_tabs');
 
         Schema::dropIfExists('service_content_blocks');

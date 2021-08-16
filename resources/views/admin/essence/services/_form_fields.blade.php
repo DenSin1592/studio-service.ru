@@ -83,6 +83,11 @@
     <legend>Управление блоком FAQ</legend>
     {!! Form::tbTextBlock('section_faq_name') !!}
     {!! Form::tbCheckboxBlock('section_faq_publish') !!}
+    <hr>
+    @include('admin.essence.services._faq_questions._content_blocks',[
+    'routeCreate' => route(\App\Http\Controllers\Admin\Relations\Services\FaqQuestionsController::ROUTE_CREATE),
+    'relation' => \App\Http\Controllers\Admin\Relations\Services\FaqQuestionsController::RELATIONS_NAME,
+    ])
 </fieldset>
 <hr>
 @include('admin.shared._relations._many_to_many._block', array_merge(
