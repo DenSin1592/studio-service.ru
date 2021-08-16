@@ -229,6 +229,9 @@ return [
         'section_requirements_publish' => 'Публикация',
         'section_faq_name' => 'Заголовок',
         'section_faq_publish' => 'Публикация',
+        'section_prices_name' => 'Заголовок',
+        'section_prices_content' => 'Контент',
+        'section_prices_publish' => 'Публикация',
 
         'device_type' => 'Тип устройства',
         'user_agent' => 'Заголовок браузера',

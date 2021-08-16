@@ -90,6 +90,14 @@
     ])
 </fieldset>
 <hr>
+
+<fieldset class="bordered-group">
+    <legend>Управление блоком цен</legend>
+    {!! Form::tbTextBlock('section_prices_name') !!}
+    {!! Form::tbTinymceTextareaBlock('section_prices_content') !!}
+    {!! Form::tbCheckboxBlock('section_prices_publish') !!}
+</fieldset>
+<hr>
 @include('admin.shared._relations._many_to_many._block', array_merge(
     \App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
     ['models' => $formData[\App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATIONS_NAME]
