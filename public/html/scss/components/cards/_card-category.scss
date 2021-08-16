@@ -87,17 +87,6 @@
         transition: border-color 300ms ease;
     }
 
-
-    &:hover {
-        color: $c-white;
-        text-decoration: none;
-
-        .card-category-title {
-            color: $c-white;
-            border-bottom-color: transparent;
-        }
-    }
-
     &.card-category-sm {
         font-size: 18px;
         line-height: 20px;
@@ -145,6 +134,21 @@
             height: 40px;
             margin: 0;
             line-height: 40px;
+        }
+    }
+
+
+    &:hover {
+        color: $c-white;
+        text-decoration: none;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            .card-category-title {
+                color: $c-white;
+                border-bottom-color: transparent;
+            }
         }
     }
 }

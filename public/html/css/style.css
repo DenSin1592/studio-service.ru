@@ -3397,8 +3397,6 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 .card-category .card-category-thumbnail::after { border: 1px solid #414342; border-radius: 5px; background: #2f2f2f; }
 .card-category .card-category-thumbnail .card-category-media { position: absolute; top: 5px; left: 5px; right: 5px; bottom: 5px; width: auto; height: auto; max-width: calc(100% - 10px); max-height: calc(100% - 10px); margin: auto; }
 .card-category .card-category-title { display: inline; margin: 0; padding: 0 0 2px; border-bottom: 2px solid #8174af; -webkit-transition: border-color 300ms ease; transition: border-color 300ms ease; }
-.card-category:hover { color: #fff; text-decoration: none; }
-.card-category:hover .card-category-title { color: #fff; border-bottom-color: transparent; }
 .card-category.card-category-sm { font-size: 18px; line-height: 20px; }
 @media (min-width: 970px) { .card-category.card-category-sm { font-size: 20px; line-height: 25px; } }
 @media (min-width: 1200px) { .card-category.card-category-sm { font-size: 22px; line-height: 30px; } }
@@ -3407,6 +3405,8 @@ table td { padding-top: 10px; padding-bottom: 10px; }
 @media (min-width: 970px) { .card-category.card-category-sm .card-category-thumbnail { -webkit-box-flex: 0; -ms-flex: 0 0 65px; flex: 0 0 65px; width: 65px; max-width: 65px; height: 65px; margin-right: 15px; line-height: 65px; } }
 .card-category.card-category-xs { font-size: 17px; line-height: 20px; }
 .card-category.card-category-xs .card-category-thumbnail { position: relative; -webkit-box-flex: 0; -ms-flex: 0 0 40px; flex: 0 0 40px; width: 40px; max-width: 40px; height: 40px; margin: 0; line-height: 40px; }
+.card-category:hover { color: #fff; text-decoration: none; }
+@media (hover: hover) { .card-category:hover .card-category-title { color: #fff; border-bottom-color: transparent; } }
 
 .card-service { position: relative; z-index: 1; display: block; width: 100%; padding: 15px 15px 15px; background: #fff; color: #3f3f3f; font-size: 14px; line-height: normal; text-decoration: none; }
 @media (min-width: 970px) { .card-service { font-size: 15px; } }
