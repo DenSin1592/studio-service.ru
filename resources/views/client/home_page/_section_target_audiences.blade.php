@@ -38,11 +38,11 @@
                             <div class="swiper-wrapper row flex-nowrap">
 
                                 @foreach($targetAudiences as $element)
-                                    <div class="swiper-slide col-6 col-sm-4 col-md-3 col-xxl-auto">
+                                    <div class="swiper-slide col-6 col-sm-4 col-md-3 d-flex justify-content-center">
                                         <a href="{{ $element->url}}" class="card-category text-center text-xxl-left">
                                             <div
-                                                class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
-                                                <div class="card-category-media-container col-12 col-xxl-auto">
+                                                class="row align-items-center justify-content-center flex-xxl-nowrap">
+                                                <div class="card-category-media-container col-12 col-xxl flex-grow-0">
                                                     <div class="card-category-thumbnail">
                                                         <img loading="lazy"
                                                              src="{{{ $element->getImgPath('icon', 'main', 'no-image-40x40.png') }}}"

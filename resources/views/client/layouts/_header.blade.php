@@ -1,4 +1,4 @@
-<header class="header-box is-fixed">
+<header class="header-box is-fixed compensate-for-scrollbar">
     <div class="container">
         <div class="row flex-nowrap align-items-center">
             <div class="header-nav-container col-auto col-md order-md-1">
