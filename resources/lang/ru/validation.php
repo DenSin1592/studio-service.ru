@@ -224,8 +224,9 @@ return [
         'section_tabs_description' => 'Описание',
         'section_tabs_publish' => 'Публикация',
         'tab_name' => 'Название',
-
-
+        'section_requirements_name' => 'Заголовок',
+        'section_requirements_content' => 'Контент',
+        'section_requirements_publish' => 'Публикация',
 
         'device_type' => 'Тип устройства',
         'user_agent' => 'Заголовок браузера',

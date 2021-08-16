@@ -71,6 +71,13 @@
     ])
 </fieldset>
 <hr>
+<fieldset class="bordered-group">
+    <legend>Управление блоком с требованиями</legend>
+    {!! Form::tbTextBlock('section_requirements_name') !!}
+    {!! Form::tbTinymceTextareaBlock('section_requirements_content') !!}
+    {!! Form::tbCheckboxBlock('section_requirements_publish') !!}
+</fieldset>
+<hr>
 @include('admin.shared._relations._many_to_many._block', array_merge(
     \App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
     ['models' => $formData[\App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATIONS_NAME]

@@ -26,6 +26,9 @@ class AddFieldInServicesTable extends Migration
             $table->string('section_tabs_name')->nullable();
             $table->string('section_tabs_description')->nullable();
             $table->boolean('section_tabs_publish')->default(false);
+            $table->string('section_requirements_name')->nullable();
+            $table->text('section_requirements_content')->nullable();
+            $table->boolean('section_requirements_publish')->default(false);
         });
 
 
@@ -73,6 +76,9 @@ class AddFieldInServicesTable extends Migration
         Schema::dropIfExists('service_content_blocks');
 
         Schema::table('services', function (Blueprint $table) {
+            $table->dropColumn('section_requirements_name');
+            $table->dropColumn('section_requirements_content');
+            $table->dropColumn('section_requirements_publish');
             $table->dropColumn('section_tabs_name');
             $table->dropColumn('section_tabs_description');
             $table->dropColumn('section_tabs_publish');
