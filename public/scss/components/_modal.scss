@@ -1,0 +1,99 @@
+.modal {
+    color: $c-white;
+
+    &-close {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background: none;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 45px;
+            height: 45px;
+            transform: translate(-50%, -50%);
+            content: '';
+        }
+
+        &-media {
+            color: $c-white;
+            fill: $c-white;
+        }
+    }
+
+    &-dialog {
+        max-width: 100%;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        @include media-breakpoint-up(sm) {
+            margin-top: 45px;
+            margin-bottom: 45px;
+        }
+        @include media-breakpoint-up(md) {
+            margin-top: 65px;
+            margin-bottom: 65px;
+        }
+        @include media-breakpoint-up(xl) {
+            margin-top: 125px;
+            margin-bottom: 125px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin-top: 145px;
+            margin-bottom: 145px;
+        }
+    }
+
+    &-content {
+        border: none;
+        border-radius: 0;
+        background: none;
+    }
+
+    &-header,
+    &-body,
+    &-footer {
+        padding: 0;
+        border: none;
+    }
+
+    &-header {
+        margin-bottom: 30px;
+        @include media-breakpoint-up(xl) {
+            margin-bottom: 45px;
+        }
+    }
+
+    .form-control {
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active { 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: $c-white !important;
+            border-color: $c-white;
+        }
+    }
+
+    .custom-file {
+        &-label {
+            color: currentColor;
+        }
+    }
+}
+
+.modal-backdrop {
+    &.show {
+        opacity: 0.97;
+        background-color: $c-primary;
+    }
+}
+
+
+#modalMessage .modal-body {
+    font-size: 30px;
+    line-height: 30px;
+}

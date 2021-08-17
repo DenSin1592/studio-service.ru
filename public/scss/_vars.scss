@@ -1,0 +1,32 @@
+ $grid-breakpoints: (
+	xs: 0,
+	sm: 480px,
+	md: 750px,
+	lg: 970px,
+	xl: 1200px,
+	xxl: 1680px
+);
+
+// container width
+$container-lg: 970px;
+$container-xl: 1175px;
+$container-xxl: 1720px;
+
+// colors
+$c-default: #3f3f3f;
+$c-default-heading: #1f1f39;
+$c-secondary: #d2a277;
+$c-purple: #8174af;
+$c-purple-light: #e9eff8;
+$c-purple-dark: #574497;
+$c-black: #000;
+$c-white: #fff;
+$c-light: #96a4bf;
+$c-primary: #00173a;
+$c-primary-dark: #08172f;
+$c-danger: #d50d0d;
+
+
+// fonts
+$f-default: 'Futura';
+$f-secondary: 'Proxima Nova', sans-serif;

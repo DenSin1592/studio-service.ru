@@ -2,8 +2,16 @@
 <html lang="ru">
 
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta name="theme-color" content="#634ead">
+        <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+        <link rel="icon" href="favicon.svg">
+        <link rel="mask-icon" href="mask-icon.svg" color="#ffffff">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="manifest" href="manifest.json">
 
         <title>{{$metaData['meta_title'] ?? 'studio-service.ru'}}</title>
 

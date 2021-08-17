@@ -1,0 +1,29 @@
+.footer-studio-block {
+    color: inherit;
+    font-size: 15px;
+    line-height: 1;
+    text-decoration: none;
+    @include media-breakpoint-up(xl) {
+        font-size: 17px;
+        line-height: 20px;
+    }
+    @include media-breakpoint-up(xxl) {
+        font-size: 20px;
+        line-height: 1.25;
+    }
+
+    &:hover {
+        color: $c-white;
+        text-decoration: none;
+    }
+
+    .footer-studio-thumbnail {
+        flex: 0 0 66px;
+        width: 66px;
+        max-width: 66px;
+    }
+
+    .footer-studio-title {
+        margin: 0 0 8px;
+    }
+}

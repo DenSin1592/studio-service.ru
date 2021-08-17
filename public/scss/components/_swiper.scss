@@ -1,0 +1,117 @@
+.swiper-cover {
+    position: relative;
+
+    > .swiper-container {
+        position: static;
+    }
+}
+
+
+.swiper-slide {
+    height: auto;
+}
+
+.swiper-button-sm {
+    width: 30px !important;
+    height: 30px !important;
+
+    .swiper-button-prev-media,
+    .swiper-button-next-media {
+        width: 14px !important;
+        height: 14px !important;
+    }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: $c-default-heading;
+    transition: background-color 300ms ease;
+    color: $c-white;
+    text-align: center;
+    @include media-breakpoint-up(xl) {
+        width: 50px;
+        height: 50px;
+    }
+
+    &:hover {
+        @media (hover: hover) {
+            background: rgba($c-default-heading, 0.2);
+            color: $c-white;
+        }
+    }
+
+    .swiper-button-prev-media,
+    .swiper-button-next-media {
+        width: 14px;
+        height: 14px;
+        color: currentColor;
+        fill: currentColor;
+        @include media-breakpoint-up(xl) {
+            width: 19px;
+            height: 19px;
+        }
+    }
+}
+
+.swiper-button-light,
+.swiper-button-light {
+    background-color: rgba($c-white, .2);
+    color: $c-default-heading;
+
+    &:hover {
+        @media (hover: hover) {
+            background-color: $c-white;
+            color: $c-default-heading;
+        }
+    }
+}
+
+.swiper-navigation-wrapper {
+    height: 35px;
+    margin-left: -2px;
+    margin-right: -2px;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        position: static;
+        margin: 0 2px;
+        transform: translate(0);
+    }
+}
+
+
+.swiper-pagination-wrapper {
+    margin: 0 15px 0 0;
+}
+
+.swiper-pagination-fraction {
+    position: static;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1;
+    color: $c-black;
+}
+
+.swiper-light {
+    .swiper-button-prev,
+    .swiper-button-next {
+        background-color: rgba($c-white, .2);
+        color: $c-default-heading;
+
+        &:hover {
+            @media (hover: hover) {
+                background-color: $c-white;
+                color: $c-default-heading;
+            }
+        }
+    }
+}

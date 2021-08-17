@@ -1,0 +1,47 @@
+.social-list {
+    margin: 0 -5px;
+    
+    .social-item {
+        margin: 0 5px;
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #35354c;
+            color: $c-white;
+            text-align: center;
+            line-height: 70px;
+            transition: background 300ms ease;
+            @include media-breakpoint-up(md) {
+                width: 55px;
+                height: 55px;
+            }
+            @include media-breakpoint-up(xl) {
+                width: 70px;
+                height: 70px;
+            }
+
+            &:hover {
+                background: darken(#35354c, 10%);
+                text-decoration: none;
+            }
+
+
+            .social-media {
+                max-width: 18px;
+                max-height: 18px;
+                color: currentColor;
+                fill: currentColor;
+                @include media-breakpoint-up(md) {
+                    max-width: 22px;
+                    max-height: 22px;
+                }
+                @include media-breakpoint-up(xl) {
+                    max-width: 28px;
+                    max-height: 28px;
+                }
+            }
+        }
+    }
+}

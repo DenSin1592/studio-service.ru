@@ -1,0 +1,24 @@
+.section-overlay {
+    position: relative;
+    padding: 0 0 100px;
+    @include media-breakpoint-up(md) {
+        padding: 0 0 120px;
+    }
+    @include media-breakpoint-up(xl) {
+        padding: 0 0 200px;
+    }
+    @include media-breakpoint-up(xxl) {
+        padding: 0 0 250px;
+    }
+
+    .section-overlay-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        object-position: center;
+        object-fit: cover;
+    }
+}

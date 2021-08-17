@@ -1,0 +1,465 @@
+.section-presentation {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    @include media-breakpoint-up(sm) {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    @include media-breakpoint-up(md) {
+        margin-top: 45px;
+        margin-bottom: 45px;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+    @include media-breakpoint-up(xl) {
+        margin-top: 75px;
+        margin-bottom: 75px;
+    }
+    @include media-breakpoint-up(xxl) {
+        margin-top: 160px;
+        margin-bottom: 160px;
+    }
+
+    .section-header {
+        margin-bottom: 20px;
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 25px;
+        }
+        @include media-breakpoint-up(xl) {
+            margin-bottom: 80px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            @include media-breakpoint-up(xxl) {
+                font-size: 60px;
+                line-height: 70px;
+            }
+        }
+    }
+}
+
+.swiper-presentation-nav-cover {
+    position: relative;
+    z-index: 9;
+    margin-bottom: 15px;
+    @include media-breakpoint-up(sm) {
+        margin-bottom: 20px;
+    }
+    @include media-breakpoint-up(md) {
+        margin-bottom: 15px;
+    }
+    @include media-breakpoint-up(xl) {
+        margin-bottom: -115px;
+    }
+    @include media-breakpoint-up(xxl) {
+        margin-bottom: 25px;
+    }
+}
+
+.swiper-presentation-nav {
+    margin: -25px #{-$grid-gutter-width/3};
+    
+    @include media-breakpoint-up(md) {
+        margin-left: -$grid-gutter-width/6;
+        margin-right: -$grid-gutter-width/6;
+    }
+    @include media-breakpoint-up(xl) {
+        margin: -55px #{-$grid-gutter-width} -25px;
+        padding: 55px #{$grid-gutter-width/4} 25px;
+    }
+    
+    > .swiper-wrapper {
+        > .swiper-slide {
+            padding-top: 25px;
+            padding-bottom: 25px;
+            padding-left: $grid-gutter-width/3;
+            padding-right: $grid-gutter-width/3;
+            @include media-breakpoint-up(md) {
+                padding-left: $grid-gutter-width/6;
+                padding-right: $grid-gutter-width/6;
+            }
+            @include media-breakpoint-up(xl) {
+                padding-left: $grid-gutter-width/4;
+                padding-right: $grid-gutter-width/4;
+            }
+
+            &.active {
+                .swiper-presentation-nav-link {
+                    @include media-breakpoint-up(xl) {
+                        background-color: #212e44;
+                        box-shadow: 0 0 20px rgba(145, 129, 191, 0.5);
+                    }
+
+                    .swiper-presentation-nav-thumbnail {
+                        @include media-breakpoint-down(lg) {
+                            background-color: $c-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .swiper-presentation-nav-link {
+        cursor: pointer;
+        position: relative;
+        max-width: 110px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background: none;
+        transition: background-color 150ms linear, box-shadow 150ms linear;
+        color: currentColor;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 18px;
+        text-align: left;
+        @include media-breakpoint-up(lg) {
+            max-width: none;
+            font-size: 15px;
+            line-height: 20px;
+        }
+        @include media-breakpoint-up(xl) {
+            padding: 20px;
+            border: 1px solid #2c3544;
+            border-radius: 10px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin-left: 55px;
+            padding: 25px 15px 25px 40px;
+            font-size: 18px;
+            line-height: 25px;
+        }
+
+        &:hover {
+            @include media-breakpoint-up(xl) {
+                background-color:rgba(#212e44, .5);
+                box-shadow: 0 0 20px rgba(145, 129, 191, 0.25);
+            }
+        }
+
+        .swiper-presentation-nav-thumbnail {
+            position: relative;
+            width: 62px;
+            height: 62px;
+            margin: 0 0 20px;
+            border: 1px solid #414342;
+            border-radius: 8px;
+            background-color: #2f2f2f;
+            @include media-breakpoint-up(xl) {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translate(0, -80%);
+            }
+            @include media-breakpoint-up(xxl) {
+                top: 50%;
+                left: 0;
+                transform: translate(-50%, -50%);
+            }
+
+            &::before,
+            &::after {
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border-radius: inherit;
+                content: '';
+            }
+
+            &::before {
+                background: rgb(98,83,156);
+                background: -moz-linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
+                background: -webkit-linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
+                background: linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
+                filter: blur(10px);
+                content: '';
+            }
+
+            &::after {
+                background: inherit;
+            }
+        }
+    }
+}
+
+
+.swiper-presentation-cover {
+    margin-bottom: 40px;
+    @include media-breakpoint-up(md) {
+        margin-bottom: 30px;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 65px;
+    }
+    @include media-breakpoint-up(xl) {
+        margin-bottom: 60px;
+    }
+    @include media-breakpoint-up(xxl) {
+        margin-bottom: 100px;
+    }
+}
+
+.swiper-presentation {
+    margin-top: -100px;
+    margin-bottom: -100px;
+    color: $c-light;
+    font-size: 15px;
+    line-height: 20px;
+    @include media-breakpoint-up(lg) {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    @include media-breakpoint-up(xl) {
+        font-size: 18px;
+        line-height: 25px;
+    }
+    @include media-breakpoint-up(xxl) {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    > .swiper-wrapper {
+        > .swiper-slide {
+            overflow: hidden;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            -webkit-transform: translate3d(0, 0, 0);
+            -webkit-backface-visibility: hidden;
+        }
+    }
+
+    .swiper-presentation-typography-container {
+        @include media-breakpoint-up(md) {
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+        @include media-breakpoint-up(lg) {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        @include media-breakpoint-up(xl) {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        @include media-breakpoint-up(xxl) {
+            padding-top: 125px;
+            padding-bottom: 125px;
+        }
+    }
+
+    .swiper-presentation-controls-container {
+        position: absolute;
+        z-index: 9;
+        left: 0;
+        bottom: 370px;
+        width: 100%;
+        @include media-breakpoint-up(sm) {
+            bottom: 395px;
+        }
+        @include media-breakpoint-up(md) {
+            bottom: 150px;
+        }
+        @include media-breakpoint-up(lg) {
+            bottom: 155px;
+        }
+        @include media-breakpoint-up(xl) {
+            bottom: 175px;
+        }
+        @include media-breakpoint-up(xxl) {
+            bottom: 250px;
+        }
+    }
+
+    .swiper-presentation-navigation-wrapper {
+        height: 40px;
+        @include media-breakpoint-up(xl) {
+            height: 50px;
+        }
+    }
+
+    .swiper-presentation-button-prev,
+    .swiper-presentation-button-next {
+        @include media-breakpoint-down(lg) {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        } 
+    }
+
+    .swiper-presentation-counter {
+        position: relative;
+        font-size: 63px;
+        line-height: 1;
+        letter-spacing: -10px;
+        @include media-breakpoint-up(xl) {
+            font-size: 93px;
+        }
+        @include media-breakpoint-up(xxl) {
+            font-size: 200px;
+        }
+
+        &::before {
+            display: block;
+            width: 31px;
+            height: 29px;
+            margin: 0 0 10px;
+            background: url('../images/icons/general/svg/icon-double-check-stars.svg') no-repeat 0 0;
+            background-size: contain;
+            content: '';
+            @include media-breakpoint-up(sm) {
+                float: left;
+                margin: 8px 0;
+            }
+            @include media-breakpoint-up(xl) {
+                width: 46px;
+                height: 43px;
+            }
+            @include media-breakpoint-up(xxl) {
+                width: 98px;
+                height: 93px;
+            }
+        }
+    }
+
+    .swiper-presentation-title,
+    .swiper-presentation-description {
+        @include media-breakpoint-up(xxl) {
+            max-width: 480px;
+        }
+    }
+
+    .swiper-presentation-title {
+        margin: 0 0 10px;
+        font-weight: 600;
+        @include media-breakpoint-down(md) {
+            font-size: 25px;
+            line-height: 30px;
+        }
+        @include media-breakpoint-down(xs) {
+            font-size: 22px;
+            line-height: 25px;
+        }
+        @include media-breakpoint-up(sm) {
+            margin-bottom: 10px;
+        }
+        @include media-breakpoint-up(md) {
+            margin-bottom: 15px;
+        }
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 10px;
+        }
+        @include media-breakpoint-up(xl) {
+            margin-bottom: 20px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin-bottom: 25px;
+        }
+    }
+
+    .swiper-presentation-description {
+        margin: 0 0 70px;
+        @include media-breakpoint-up(sm) {
+            margin-bottom: 80px;
+        }
+    }
+
+    .swiper-presentation-figure {
+        position: relative;
+        z-index: 1;
+        flex: 0 0 378px;
+        width: 378px;
+        max-width: 378px;
+        height: 248px;
+        margin: 0;
+        @include media-breakpoint-up(sm) {
+            flex: 0 0 420px;
+            width: 420px;
+            max-width: 420px;
+            height: 275px;
+        }
+        @include media-breakpoint-up(lg) {
+            flex: 0 0 525px;
+            width: 525px;
+            max-width: 525px;
+            height: 345px;
+        }
+        @include media-breakpoint-up(xl) {
+            flex: 0 0 670px;
+            width: 670px;
+            max-width: 670px;
+            height: 430px;
+        }
+        @include media-breakpoint-up(xxl) {
+            flex: 0 0 1015px;
+            width: 1015px;
+            max-width: 1015px;
+            height: 670px;
+        }
+
+        &::before {
+            position: absolute;
+            z-index: -1;
+            top: 10%;
+            left: 0;
+            right: 0;
+            bottom: 20%;
+            background: rgb(148,69,71);
+            background: -moz-linear-gradient(90deg, rgba(148,69,71,1) 0%, rgba(76,49,194,1) 59%, rgba(75,197,202,1) 100%);
+            background: -webkit-linear-gradient(90deg, rgba(148,69,71,1) 0%, rgba(76,49,194,1) 59%, rgba(75,197,202,1) 100%);
+            background: linear-gradient(90deg, rgba(148,69,71,1) 0%, rgba(76,49,194,1) 59%, rgba(75,197,202,1) 100%);
+            border-radius: 20px;
+            filter: blur(40px);
+            content: '';
+            @include media-breakpoint-up(xl) {
+                top: 10%;
+                bottom: 20%;
+                filter: blur(60px);
+            }
+            @include media-breakpoint-up(xxl) {
+                top: 5%;
+                bottom: 10%;
+                border-radius: 35%;
+                filter: blur(60px);
+            }
+        }
+
+        .swiper-presentation-media {
+            width: auto;
+            height: auto;
+            max-width: none;
+            max-height: 100%;
+        }
+    }
+}
+
+.presentation-cta-block {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        opacity: 0.5;
+        position: absolute;
+        z-index: -1;
+        top: 30%;
+        left: 0;
+        right: 0;
+        bottom: 30%;
+        border-radius: 50%;
+        background: rgb(91,74,144);
+        background: -moz-linear-gradient(90deg, rgba(91,74,144,1) 0%, rgba(80,108,144,1) 30%, rgba(148,69,71,1) 100%);
+        background: -webkit-linear-gradient(90deg, rgba(91,74,144,1) 0%, rgba(80,108,144,1) 30%, rgba(148,69,71,1) 100%);
+        background: linear-gradient(90deg, rgba(91,74,144,1) 0%, rgba(80,108,144,1) 30%, rgba(148,69,71,1) 100%);
+        filter: blur(10px);
+        content: '';
+    }
+}

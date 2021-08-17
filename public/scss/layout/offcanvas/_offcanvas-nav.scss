@@ -1,0 +1,24 @@
+.offcanvas-navigation {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.offcanvas-nav-list {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 600;
+
+    .offcanvas-nav-item {
+        .offcanvas-nav-link {
+            display: block;
+            padding-top: 14px;
+            padding-bottom: 14px;
+        }
+
+        &.active {
+            .offcanvas-nav-link {
+                color: $c-secondary;
+            }
+        }
+    }
+}

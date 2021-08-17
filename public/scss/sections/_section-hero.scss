@@ -1,0 +1,238 @@
+.section-hero {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    padding: 105px 0 45px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    @include media-breakpoint-up(md) {
+        padding: 150px 0 65px;
+    }
+    @include media-breakpoint-up(lg) {
+        padding: 170px 0 90px;
+    }
+    @include media-breakpoint-up(xl) {
+        padding: 175px 0 120px;
+    }
+    @include media-breakpoint-up(xxl) {
+        padding: 185px 0 200px;
+    }
+
+    &::before {
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100px;
+        background: rgb(34,193,195);
+        background: -moz-linear-gradient(0deg, #10203c 50%, rgba(#10203c, 0) 100%);
+        background: -webkit-linear-gradient(0deg, #10203c 50%, rgba(#10203c, 0) 100%);
+        background: linear-gradient(0deg, #10203c 50%, rgba(#10203c, 0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#10203c",endColorstr="#10203c",GradientType=1);
+        content: '';
+
+        @include media-breakpoint-up(xl) {
+            background: -moz-linear-gradient(0deg, #10203c 0%, rgba(#10203c, 0) 100%);
+            background: -webkit-linear-gradient(0deg, #10203c 0%, rgba(#10203c, 0) 100%);
+            background: linear-gradient(0deg, #10203c 0%, rgba(#10203c, 0) 100%);
+        }
+        @include media-breakpoint-up(xxl) {
+            height: 200px;
+        }
+    }
+
+    .hero-media-container {
+        position: absolute;
+        z-index: -2;
+        left: 30%;
+        bottom: 0;
+        height: 100%;
+        @include media-breakpoint-up(md) {
+            left: 0;
+            bottom: -65px;
+        }
+        @include media-breakpoint-up(xl) {
+            left: 30px;
+            bottom: -115px;
+        }
+        @include media-breakpoint-up(xxl) {
+            left: 200px;
+            bottom: -185px;
+        }
+    }
+}
+
+
+.hero-title {
+    margin: 0 0 15px;
+    font-size: 18px;
+    line-height: 25px;
+    @include media-breakpoint-up(sm) {
+        font-size: 20px;
+    }
+    @include media-breakpoint-up(md) {
+        max-width: 93.5%;
+        font-size: 25px;
+        line-height: 30px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    @include media-breakpoint-up(xl) {
+        max-width: 100%;
+        margin: 0 0 25px;
+        font-size: 38px;
+    }
+    @include media-breakpoint-up(xxl) {
+        font-size: 50px;
+        line-height: 60px;
+    }
+
+    .text-lead {
+        display: block;
+        margin: 0 0 5px;
+        font-family: 'Proxima Nova';
+        font-size: 30px;
+        line-height: 40px;
+        text-transform: uppercase;
+        @include media-breakpoint-up(sm) {
+            font-size: 35px;
+            line-height: 40px;
+        }
+        @include media-breakpoint-up(md) {
+            margin: 0 0 15px;
+            font-size: 40px;
+            line-height: 1;
+        }
+        @include media-breakpoint-up(lg) {
+            font-size: 45px;
+        }
+        @include media-breakpoint-up(xl) {
+            margin: 0 0 20px;
+            font-size: 55px;
+            line-height: 60px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin: 0;
+            font-size: 80px;
+            line-height: normal;
+        }
+    }
+}
+
+.hero-description {
+    margin: 0 0 20px;
+    font-size: 15px;
+    line-height: 22px;
+    @include media-breakpoint-up(sm) {
+        margin: 0 0 45px;
+    }
+    @include media-breakpoint-up(md) {
+        margin: 0 0 20px;
+        font-size: 17px;
+        line-height: 25px;
+    }
+    @include media-breakpoint-up(lg) {
+        margin: 0 0 35px;
+        font-size: 20px;
+        line-height: 28px;
+    }
+    @include media-breakpoint-up(xl) {
+        margin: 0 0 50px;
+        font-size: 22px;
+        line-height: 30px;
+    }
+    @include media-breakpoint-up(xxl) {
+        max-width: 80%;
+        font-size: 25px;
+        line-height: 35px;
+    }
+}
+
+.hero-social-list {
+    margin: 0 -5px;
+    
+    .hero-social-item {
+        margin: 0 5px;
+
+        .hero-social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #35354c;
+            color: $c-white;
+            text-align: center;
+            line-height: 70px;
+            transition: background 300ms ease;
+            @include media-breakpoint-up(md) {
+                width: 55px;
+                height: 55px;
+            }
+            @include media-breakpoint-up(xl) {
+                width: 70px;
+                height: 70px;
+            }
+
+            &:hover {
+                background: darken(#35354c, 10%);
+                text-decoration: none;
+            }
+
+
+            .hero-social-media {
+                max-width: 18px;
+                max-height: 18px;
+                color: currentColor;
+                fill: currentColor;
+                @include media-breakpoint-up(md) {
+                    max-width: 22px;
+                    max-height: 22px;
+                }
+                @include media-breakpoint-up(xl) {
+                    max-width: 28px;
+                    max-height: 28px;
+                }
+            }
+        }
+    }
+}
+
+.hero-media-figure {
+    flex: 0 0 422px;
+    width: 422px;
+    height: 370px;
+    margin: 0;
+    @include media-breakpoint-up(sm) {
+        flex: 0 0 342px;
+        width: 342px;
+        height: 300px;
+    }
+    @include media-breakpoint-up(md) {
+        flex: 0 0 490px;
+        width: 490px;
+        height: 430px;
+    }
+    @include media-breakpoint-up(lg) {
+        flex: 0 0 507px;
+        width: 507px;
+        height: 445px;
+    }
+    @include media-breakpoint-up(xl) {
+        flex: 0 0 627px;
+        width: 627px;
+        height: 550px;
+    }
+    @include media-breakpoint-up(xxl) {
+        flex: 0 0 860px;
+        width: 860px;
+        height: 755px;
+    }
+
+    .hero-media {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}

@@ -1,0 +1,79 @@
+.disc-list {
+    margin: 0 0 20px;
+    @include media-breakpoint-up(sm) {
+        margin-bottom: 10px;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 15px;
+    }
+    @include media-breakpoint-up(xxl) {
+        margin-bottom: 20px;
+    }
+
+    > li {
+        position: relative;
+        padding: 0 0 0 20px;
+
+        &::before {
+            position: absolute;
+            top: 4px;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: $c-purple-dark;
+            content: '';
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.check-list {
+    margin: 0;
+
+    .list-item {
+        position: relative;
+        padding: 0 0 0 25px;
+        @include media-breakpoint-up(sm) {
+            padding: 0 0 0 40px;
+        }
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 18px;
+            color: $c-secondary;
+            font-family: 'icomoon';
+            font-size: 18px;
+            font-weight: 400;
+            content: '\e903';
+            @include media-breakpoint-up(sm) {
+                width: 25px;
+                font-size: 25px;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+            @include media-breakpoint-up(sm) {
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    .list-link {
+        border-bottom: 2px solid $c-purple;
+        color: currentColor;
+        text-decoration: none;
+        
+        &:hover {
+            border-bottom-color: transparent;
+            color: currentColor;
+            text-decoration: none;
+        }
+    }
+}

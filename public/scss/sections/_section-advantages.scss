@@ -1,0 +1,89 @@
+.section-advantages {
+    margin: 45px 0 50px;
+    @include media-breakpoint-up(md) {
+        margin: 60px 0 75px;
+    }
+    @include media-breakpoint-up(lg) {
+        margin: 80px 0 75px;
+    }
+    @include media-breakpoint-up(xl) {
+        margin: 80px 0 95px;
+    }
+    @include media-breakpoint-up(xxl) {
+        margin: 135px 0 145px;
+    }
+
+    .section-header {
+        margin-bottom: 20px;
+        @include media-breakpoint-up(sm) {
+            margin-bottom: 15px;
+        }
+        @include media-breakpoint-up(md) {
+            margin-bottom: 25px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin-bottom: 5px;
+        }
+
+        .section-title {
+            margin-bottom: 12px;
+            @include media-breakpoint-up(sm) {
+                margin-bottom: 5px;
+            }
+            @include media-breakpoint-up(md) {
+                margin-bottom: 15px;
+            }
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .advantages-text-lead {
+        margin: 0 0 15px;
+        @include media-breakpoint-up(sm) {
+            margin: 0 0 20px;
+        }
+        @include media-breakpoint-up(md) {
+            margin: 0 0 15px;
+        }
+        @include media-breakpoint-up(lg) {
+            margin: 0 0 10px;
+        }
+        @include media-breakpoint-up(xl) {
+            margin: 0 0 30px;
+        }
+        @include media-breakpoint-up(xxl) {
+            margin: 0 0 65px;
+        }
+    }
+}
+
+.advantages-grid {
+    margin-bottom: 12px;
+    @include media-breakpoint-up(sm) {
+        margin-bottom: -10px;
+    }
+    @include media-breakpoint-up(md) {
+        margin-bottom: 10px;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-bottom: -10px;
+    }
+    @include media-breakpoint-up(xl) {
+        margin-bottom: 5px;
+    }
+    @include media-breakpoint-up(xxl) {
+        margin-bottom: -5px;
+    }
+
+    .advantage-item {
+        margin-bottom: 12px;
+        @include media-breakpoint-up(sm) {
+            margin-bottom: 17px;
+        }
+        @include media-breakpoint-up(md) {
+            margin-bottom: 25px;
+        }
+    }
+}

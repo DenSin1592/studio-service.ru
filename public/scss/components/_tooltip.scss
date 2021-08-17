@@ -1,0 +1,33 @@
+.tooltip {
+    .tooltip-inner {
+        opacity: 1;
+        padding: 18px 15px;
+        border-radius: 20px;
+        background: $c-white;
+        box-shadow: 0 0 20px rgba(145, 129, 191, 0.5);
+        color: $c-black;
+        font-size: 17px;
+        line-height: 25px;
+        text-align: left;
+    }
+
+    
+
+    &.bs-tooltip-top, 
+    &.bs-tooltip-auto[x-placement^="top"] {
+        .arrow {
+            &::before {
+                border-top-color: $c-white;
+            }
+        }
+    }
+
+    &.bs-tooltip-bottom, 
+    &.bs-tooltip-auto[x-placement^="bottom"] {
+        .arrow {
+            &::before {
+                border-bottom-color: $c-white;
+            }
+        }
+    }
+}

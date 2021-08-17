@@ -1,0 +1,20 @@
+.section-video {
+    margin-top: 50px;
+    margin-bottom: 55px;
+    @include media-breakpoint-up(md) {
+        margin-top: 70px;
+        margin-bottom: 65px;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-top: 90px;
+        margin-bottom: 95px;
+    }
+    @include media-breakpoint-up(xl) {
+        margin-top: 110px;
+        margin-bottom: 120px;
+    }
+    @include media-breakpoint-up(xxl) {
+        margin-top: 180px;
+        margin-bottom: 190px;
+    }
+}
