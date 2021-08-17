@@ -234,6 +234,8 @@ return [
         'section_prices_name' => 'Заголовок',
         'section_prices_content' => 'Контент',
         'section_prices_publish' => 'Публикация',
+        'section_advantages_content' => 'Контент',
+        'section_advantages_publish' => 'Публикация',
 
         'device_type' => 'Тип устройства',
         'user_agent' => 'Заголовок браузера',

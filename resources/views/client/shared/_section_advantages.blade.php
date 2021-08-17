@@ -3,12 +3,12 @@
         <div class="row">
             <div class="col-xxl-10 offset-xxl-1">
 
-                {!! $page->block_advantages !!}
+                {!! $block_advantages !!}
 
-                @if($beforeAfterImages->count() > 0)
+                @if($elements->count() > 0)
                     <div class="advantages-gallery-block">
                         <div class="gallery-block">
-                            @if($beforeAfterImages->count() > 1)
+                            @if($elements->count() > 1)
                                 <div class="gallery-controls-container d-flex align-items-center justify-content-sm-end">
                                     <div class="swiper-gallery-pagination-wrapper swiper-pagination-wrapper">
                                         <div class="swiper-gallery-pagination swiper-pagination swiper-pagination-fraction">
@@ -39,7 +39,7 @@
                                 <div class="swiper-gallery swiper-container">
                                     <div class="swiper-wrapper">
 
-                                        @foreach($beforeAfterImages as $element)
+                                        @foreach($elements as $element)
                                             <div class="swiper-slide">
                                                 <div
                                                     class="gallery-header-container d-flex flex-column justify-content-center">

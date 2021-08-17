@@ -137,6 +137,10 @@
         @include('client.catalog_essence.service._section_prices')
     @endif
 
+    @if(!empty($model->section_advantages_publish))
+        @include('client.shared._section_advantages', ['block_advantages' => $model->section_advantages_content, 'elements' => new \Illuminate\Database\Eloquent\Collection()])
+    @endif
+
     <section class="section-categories section-dark"></section>
 
 @stop

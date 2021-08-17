@@ -50,6 +50,8 @@ class Service extends Model
         'section_prices_name',
         'section_prices_content',
         'section_prices_publish',
+        'section_advantages_content',
+        'section_advantages_publish',
     ];
 
     protected $casts = [

@@ -23,7 +23,7 @@
     @endif
 
     @if(!empty($page->block_advantages))
-        @include('client.home_page._section_advantages')
+        @include('client.shared._section_advantages', ['block_advantages' => $page->block_advantages, 'elements' => $beforeAfterImages])
     @endif
 
     @include('client.shared._section_social')
