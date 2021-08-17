@@ -139,15 +139,15 @@
         @include('client.catalog_essence.service._section_prices')
     @endif
 
-    @if(!empty($model->section_advantages_publish))
+    @if($model->section_advantages_publish)
         @include('client.shared._section_advantages', ['block_advantages' => $model->section_advantages_content, 'elements' => $model->beforeAfterImages])
     @endif
 
-    @if(!empty($model->section_feedback_publish))
+    @if($model->section_feedback_publish)
         @include('client.catalog_essence.service._section_feedback')
     @endif
 
-    @if(!empty($model->section_competencies_publish))
+    @if($model->section_competencies_publish)
         @include('client.shared._section_competencies',
             [
                 'header' => $model->section_competencies_name,
@@ -157,16 +157,17 @@
             ])
     @endif
 
-   {{-- @if(!empty($model->section_services_publish))
+    @if($model->section_services_publish && $model->otherServices()->count() > 0)
         @include('client.shared._section_services',
             [
                 'header' => $model->section_services_name,
                 'visibleSeeAllLink' => false,
-                'elements' => $model->competencies,
+                'elements' => $model->otherServices(),
 
             ])
-    @endif--}}
-    {{--@if(!empty($model->section_target_audiences_publish))
+    @endif
+
+    {{--@if($model->section_target_audiences_publish)
         @include('client.shared._section_target_audiences',
             [
                 'header' => $model->section_target_audiences_name,
@@ -175,7 +176,7 @@
             ])
     @endif--}}
 
-    @if(!empty($model->section_reviews_publish && $model->reviews->count() > 0))
+    @if($model->section_reviews_publish && $model->reviews->count() > 0)
             @include('client.shared._section_reviews',
             [
                 'header' => 'Отзывы',
@@ -183,7 +184,7 @@
             ])
     @endif
 
-    @if(!empty($model->section_projects_publish && $model->ourWorks->count() > 0))
+    @if($model->section_projects_publish && $model->ourWorks->count() > 0)
         @include('client.shared._section_projects',
         [
             'header' => 'Проекты',

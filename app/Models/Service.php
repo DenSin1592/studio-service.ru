@@ -118,6 +118,19 @@ class Service extends Model
         return $this->belongsToMany(BeforeAfterImage::class)->withPivot('position');
     }
 
+    public function otherServices()
+    {
+        return $this->query()
+            ->whereNotIn('id', [$this->id])
+            ->where('publish', true)
+            ->with([
+                'tasks' => static function ($q) {$q->orderBy('position')->where('publish', true);},
+            ])
+            ->orderBy('position')
+            ->get();
+    }
+
+
     public function getUrlAttribute(): string
     {
         return route(\App\Http\Controllers\Client\EssenceControllers\ServiceController::ROUTE_SHOW_ON_SITE, $this->alias);

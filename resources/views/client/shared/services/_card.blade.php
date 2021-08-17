@@ -11,7 +11,7 @@
         {{$model->name}}
     </div>
 
-    @if(count($model->tasks) > 0)
+    @if($model->tasks->count() > 0)
         <div class="card-service-include-block">
             <div class="card-service-include-title">Какие задачи решает:</div>
 
