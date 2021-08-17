@@ -19,10 +19,8 @@
                     // wait to get height of fixed header
                     $('html, body').animate({
                         scrollTop: $(hash).offset().top - $(headerContainer).outerHeight()
-                    }, 800, function(){
-                        window.location.hash = hash;
-                    });
-                }, 100);
+                    }, 800);
+                }, 200);
             }
         })
     });
