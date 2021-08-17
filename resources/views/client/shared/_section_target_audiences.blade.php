@@ -5,7 +5,7 @@
                 <div class="section-header">
                     <div class="row">
                         <div class="section-header-typography-container col">
-                            <div class="section-title title-h1">Для кого работаем</div>
+                            <div class="section-title title-h1">{{$header}}</div>
                         </div>
 
                         <div class="section-header-controls-container col-auto d-md-none align-self-end">
@@ -35,7 +35,7 @@
                     <div class="swiper-categories swiper-container swiper-light">
                         <div class="swiper-wrapper row flex-nowrap">
 
-                            @foreach($targetAudiences as $element)
+                            @foreach($elements as $element)
                                 <div class="swiper-slide col-6 col-sm-4 col-md-3 d-flex justify-content-center">
                                     <a href="{{ $element->url}}" class="card-category text-center text-xxl-left">
                                         <div

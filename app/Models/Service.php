@@ -52,8 +52,17 @@ class Service extends Model
         'section_prices_publish',
         'section_advantages_content',
         'section_advantages_publish',
+        'section_feedback_name',
+        'section_feedback_publish',
+        'section_competencies_name',
+        'section_competencies_publish',
+        'section_services_name',
+        'section_services_publish',
+        'section_target_audiences_name',
+        'section_target_audiences_publish',
+        'section_reviews_publish',
+        'section_projects_publish',
     ];
-
     protected $casts = [
         'publish' => 'boolean',
     ];

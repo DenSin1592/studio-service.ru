@@ -11,15 +11,31 @@
     @include('client.home_page._section_about')
 
     @if($targetAudiences->count() > 0)
-        @include('client.home_page._section_target_audiences')
+        @include('client.shared._section_target_audiences',
+           [
+               'header' => 'Для кого работаем',
+               'elements' => $targetAudiences,
+           ])
     @endif
 
     @if($services->count() > 0)
-        @include('client.home_page._section_services')
+        @include('client.shared._section_services',
+            [
+                'header' => 'Услуги',
+                'visibleSeeAllLink' => true,
+                'elements' => $services,
+
+            ])
     @endif
 
     @if($competencies->count() > 0)
-        @include('client.home_page._section_competencies')
+        @include('client.shared._section_competencies',
+            [
+                'header' => 'Наши компетенции',
+                'visibleSeeAllLink' => true,
+                'elements' => $competencies,
+
+            ])
     @endif
 
     @if(!empty($page->block_advantages))
@@ -29,11 +45,19 @@
     @include('client.shared._section_social')
 
     @if($reviews->count() > 0)
-        @include('client.home_page._section_reviews')
+        @include('client.shared._section_reviews',
+        [
+            'header' => 'Отзывы',
+            'elements' => $reviews
+        ])
     @endif
 
     @if($projects->count() > 0)
-        @include('client.shared._section_projects', ['h1' => 'Проекты'])
+        @include('client.shared._section_projects',
+        [
+            'header' => 'Проекты',
+            'elements' => $projects,
+        ])
     @endif
 
 @stop

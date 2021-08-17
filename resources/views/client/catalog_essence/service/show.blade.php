@@ -129,6 +129,8 @@
         @include('client.catalog_essence.service._section_requirements')
     @endif
 
+    @include('client.shared._section_social')
+
     @if($model->section_faq_publish)
         @include('client.catalog_essence.service._section_faq')
     @endif
@@ -141,7 +143,53 @@
         @include('client.shared._section_advantages', ['block_advantages' => $model->section_advantages_content, 'elements' => $model->beforeAfterImages])
     @endif
 
-    <section class="section-categories section-dark"></section>
+    @if(!empty($model->section_feedback_publish))
+        @include('client.catalog_essence.service._section_feedback')
+    @endif
+
+    @if(!empty($model->section_competencies_publish))
+        @include('client.shared._section_competencies',
+            [
+                'header' => $model->section_competencies_name,
+                'visibleSeeAllLink' => false,
+                'elements' => $model->competencies,
+
+            ])
+    @endif
+
+   {{-- @if(!empty($model->section_services_publish))
+        @include('client.shared._section_services',
+            [
+                'header' => $model->section_services_name,
+                'visibleSeeAllLink' => false,
+                'elements' => $model->competencies,
+
+            ])
+    @endif--}}
+    {{--@if(!empty($model->section_target_audiences_publish))
+        @include('client.shared._section_target_audiences',
+            [
+                'header' => $model->section_target_audiences_name,
+                'elements' => $targetAudiences,
+
+            ])
+    @endif--}}
+
+    @if(!empty($model->section_reviews_publish && $model->reviews->count() > 0))
+            @include('client.shared._section_reviews',
+            [
+                'header' => 'Отзывы',
+                'elements' => $model->reviews
+            ])
+    @endif
+
+    @if(!empty($model->section_projects_publish && $model->ourWorks->count() > 0))
+        @include('client.shared._section_projects',
+        [
+            'header' => 'Проекты',
+            'elements' => $model->ourWorks
+        ])
+    @endif
 
 @stop
 

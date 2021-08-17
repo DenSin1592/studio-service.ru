@@ -16,6 +16,16 @@ class AddFieldsInServicesTable extends Migration
         Schema::table('services', function (Blueprint $table) {
             $table->text('section_advantages_content')->nullable();
             $table->boolean('section_advantages_publish')->default(false);
+            $table->string('section_feedback_name')->nullable();
+            $table->boolean('section_feedback_publish')->default(false);
+            $table->string('section_competencies_name')->nullable();
+            $table->boolean('section_competencies_publish')->default(false);
+            $table->string('section_services_name')->nullable();
+            $table->boolean('section_services_publish')->default(false);
+            $table->string('section_target_audiences_name')->nullable();
+            $table->boolean('section_target_audiences_publish')->default(false);
+            $table->boolean('section_reviews_publish')->default(false);
+            $table->boolean('section_projects_publish')->default(false);
         });
 
         Schema::create('before_after_image_service', function (Blueprint $table) {
@@ -44,6 +54,16 @@ class AddFieldsInServicesTable extends Migration
         Schema::dropIfExists('before_after_image_service');
 
         Schema::table('services', function (Blueprint $table) {
+            $table->dropColumn('section_reviews_publish');
+            $table->dropColumn('section_projects_publish');
+            $table->dropColumn('section_target_audiences_name');
+            $table->dropColumn('section_target_audiences_publish');
+            $table->dropColumn('section_services_name');
+            $table->dropColumn('section_services_publish');
+            $table->dropColumn('section_competencies_name');
+            $table->dropColumn('section_competencies_publish');
+            $table->dropColumn('section_feedback_name');
+            $table->dropColumn('section_feedback_publish');
             $table->dropColumn('section_advantages_publish');
             $table->dropColumn('section_advantages_content');
         });

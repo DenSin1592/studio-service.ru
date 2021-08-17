@@ -6,7 +6,7 @@
                     <div class="row">
                         <div
                             class="section-header-typography-container col d-flex flex-wrap align-items-center">
-                            <div class="section-title title-h1">{{$h1}}</div>
+                            <div class="section-title title-h1">{{$header}}</div>
                         </div>
 
                         <div
@@ -40,7 +40,7 @@
         <div class="swiper-projects swiper-container swiper-light">
             <div class="swiper-wrapper">
 
-                @foreach($projects as $element)
+                @foreach($elements as $element)
                     <div class="swiper-slide">
                         <div class="card-project">
                             <div class="container">

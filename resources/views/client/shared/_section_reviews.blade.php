@@ -5,7 +5,7 @@
                 <div class="section-header">
                     <div class="row">
                         <div class="section-header-typography-container col d-flex flex-wrap align-items-center">
-                            <div class="section-title title-h1">Отзывы</div>
+                            <div class="section-title title-h1">{{$header}}</div>
                         </div>
 
                         <div
@@ -47,7 +47,7 @@
                     <div class="swiper-testimonials swiper-container">
                         <div class="swiper-wrapper row flex-nowrap">
 
-                            @foreach($reviews as $element)
+                            @foreach($elements as $element)
                                 <div class="swiper-slide col-12">
                                     <div class="card-testimonial">
                                         <div class="row">

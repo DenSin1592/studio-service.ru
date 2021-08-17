@@ -202,7 +202,11 @@
     @include('client.shared._section_social')
 
     @if($projects->count() > 0)
-        @include('client.shared._section_projects', ['h1' => 'Другие проекты'])
+        @include('client.shared._section_projects',
+        [
+            'header' => 'Другие проекты',
+            'elements' => $projects,
+        ])
     @endif
 
 @stop

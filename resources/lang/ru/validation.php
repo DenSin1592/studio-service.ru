@@ -237,6 +237,18 @@ return [
         'section_advantages_content' => 'Контент',
         'section_advantages_publish' => 'Публикация',
 
+        'section_feedback_name' => 'Заголовок',
+        'section_feedback_publish' => 'Публикация',
+        'section_competencies_name' => 'Заголовок',
+        'section_competencies_publish' => 'Публикация',
+
+        'section_services_name' => 'Заголовок',
+        'section_services_publish' => 'Публикация',
+        'section_target_audiences_name' => 'Заголовок',
+        'section_target_audiences_publish' => 'Публикация',
+        'section_reviews_publish' => 'Публикация блока \'Отзывы\'',
+        'section_projects_publish' => 'Публикация блока \'Проекты\'',
+
         'device_type' => 'Тип устройства',
         'user_agent' => 'Заголовок браузера',
 

@@ -111,10 +111,45 @@
 </fieldset>
 <hr>
 
-@include('admin.shared._relations._many_to_many._block', array_merge(
+
+<fieldset class="bordered-group">
+    <legend>Управление блоком обратной связи</legend>
+    {!! Form::tbTextBlock('section_feedback_name') !!}
+    {!! Form::tbCheckboxBlock('section_feedback_publish') !!}
+</fieldset>
+<hr>
+
+
+<fieldset class="bordered-group">
+    <legend>Управление блоком компетенций</legend>
+    {!! Form::tbTextBlock('section_competencies_name') !!}
+    {!! Form::tbCheckboxBlock('section_competencies_publish') !!}
+    <hr>
+    @include('admin.shared._relations._many_to_many._block', array_merge(
     \App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
     ['models' => $formData[\App\Http\Controllers\Admin\Relations\Services\CompetenciesController::RELATIONS_NAME]
     ]))
+</fieldset>
+<hr>
+
+
+<fieldset class="bordered-group">
+    <legend>Управление блоком 'Другие услуги'</legend>
+    {!! Form::tbTextBlock('section_services_name') !!}
+    {!! Form::tbCheckboxBlock('section_services_publish') !!}
+</fieldset>
+<hr>
+
+
+<fieldset class="bordered-group">
+    <legend>Управление блоком ЦА</legend>
+    {!! Form::tbTextBlock('section_target_audiences_name') !!}
+    {!! Form::tbCheckboxBlock('section_target_audiences_publish') !!}
+</fieldset>
+<hr>
+
+{!! Form::tbCheckboxBlock('section_reviews_publish') !!}
+{!! Form::tbCheckboxBlock('section_projects_publish') !!}
 
 
 @if(resolve('acl')->checkSeo())

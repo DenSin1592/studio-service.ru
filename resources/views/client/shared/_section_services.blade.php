@@ -5,9 +5,13 @@
                 <div class="section-header">
                     <div class="row">
                         <div class="section-header-typography-container col d-flex flex-wrap align-items-center">
-                            <div class="section-title title-h1">Услуги</div>
-                            <a href="{{route('services')}}" class="section-header-cta btn btn-outline-secondary">Смотреть
-                                все</a>
+                            <div class="section-title title-h1">{{$header}}</div>
+
+                            @if ($visibleSeeAllLink)
+                                <a href="{{route('competencies')}}"
+                                   class="section-header-cta btn btn-outline-secondary">Смотреть все</a>
+                            @endif
+
                         </div>
 
                         <div class="section-header-controls-container col-auto d-md-none align-self-end">
@@ -37,7 +41,7 @@
                     <div class="swiper-services swiper-container">
                         <div class="swiper-wrapper row flex-nowrap m-0">
 
-                            @foreach($services as $model)
+                            @foreach($elements as $model)
                                 <div class="swiper-slide col-auto col-sm-6 col-md-4 col-xl-4 d-flex">
 
                                     @include('client.shared.services._card', ['blackTaskIcon' => false])
