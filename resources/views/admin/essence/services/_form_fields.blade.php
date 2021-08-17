@@ -1,6 +1,3 @@
-
-
-
 {!! Form::tbTextBlock('name') !!}
 {!! Form::tbTextBlock('alias') !!}
 {!! Form::tbCheckboxBlock('publish') !!}
@@ -25,17 +22,17 @@
     @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'image_right_from_header','description' => 'Размер изображения - 664х558'])
     <hr>
     {!! Form::tbTinymceTextareaBlock('achievements_block') !!}
-
 </fieldset>
-
 <hr>
+
 
 @include('admin.essence.services._content_blocks._content_blocks',[
     'routeCreate' => route(\App\Http\Controllers\Admin\Relations\Services\ContentBlocksController::ROUTE_CREATE),
     'relation' => \App\Http\Controllers\Admin\Relations\Services\ContentBlocksController::RELATIONS_NAME,
     ])
-
 <hr>
+
+
 <fieldset class="bordered-group">
     <legend>Управление блоком задач</legend>
 
@@ -48,6 +45,8 @@
     ])
 </fieldset>
 <hr>
+
+
 <fieldset class="bordered-group">
     <legend>Управление видео-блоком</legend>
     {!! Form::tbTextBlock('section_video_name') !!}
@@ -58,6 +57,7 @@
 
 </fieldset>
 <hr>
+
 
 <fieldset class="bordered-group">
     <legend>Управление блоком с табами</legend>
@@ -71,6 +71,8 @@
     ])
 </fieldset>
 <hr>
+
+
 <fieldset class="bordered-group">
     <legend>Управление блоком с требованиями</legend>
     {!! Form::tbTextBlock('section_requirements_name') !!}
@@ -78,6 +80,7 @@
     {!! Form::tbCheckboxBlock('section_requirements_publish') !!}
 </fieldset>
 <hr>
+
 
 <fieldset class="bordered-group">
     <legend>Управление блоком FAQ</legend>
@@ -91,6 +94,7 @@
 </fieldset>
 <hr>
 
+
 <fieldset class="bordered-group">
     <legend>Управление блоком цен</legend>
     {!! Form::tbTextBlock('section_prices_name') !!}
@@ -98,6 +102,7 @@
     {!! Form::tbCheckboxBlock('section_prices_publish') !!}
 </fieldset>
 <hr>
+
 
 <fieldset class="bordered-group">
     <legend>Управление блоком преимуществ</legend>
@@ -145,8 +150,14 @@
     <legend>Управление блоком ЦА</legend>
     {!! Form::tbTextBlock('section_target_audiences_name') !!}
     {!! Form::tbCheckboxBlock('section_target_audiences_publish') !!}
+    <hr>
+    @include('admin.shared._relations._many_to_many._block', array_merge(
+    \App\Http\Controllers\Admin\Relations\Services\TargetAudiencesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
+    ['models' => $formData[\App\Http\Controllers\Admin\Relations\Services\TargetAudiencesController::RELATIONS_NAME]
+    ]))
 </fieldset>
 <hr>
+
 
 {!! Form::tbCheckboxBlock('section_reviews_publish') !!}
 {!! Form::tbCheckboxBlock('section_projects_publish') !!}

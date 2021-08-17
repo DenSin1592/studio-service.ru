@@ -22,6 +22,7 @@ use App\Services\DataProviders\ServiceForm\ServiceSubForm\BeforeAfterImages;
 use App\Services\DataProviders\ServiceForm\ServiceSubForm\Competencies;
 use App\Services\DataProviders\ServiceForm\ServiceSubForm\FaqQuestions;
 use App\Services\DataProviders\ServiceForm\ServiceSubForm\Tabs;
+use App\Services\DataProviders\ServiceForm\ServiceSubForm\TargetAudiences;
 use App\Services\DataProviders\ServiceForm\ServiceSubForm\Tasks;
 use App\Services\DataProviders\SettingsForm\SettingsForm;
 use App\Services\DataProviders\TargetAudienceForm\TargetAudienceForm;
@@ -112,6 +113,7 @@ DataProvidersServiceProvider extends ServiceProvider
                 $form->addSubForm(\App(FaqQuestions::class));
                 $form->addSubForm(\App(BeforeAfterImages::class));
                 $form->addSubForm(\App(\App\Services\DataProviders\ServiceForm\ServiceSubForm\ContentBlocks::class));
+                $form->addSubForm(\App(TargetAudiences::class));
                 return $form;
             });
 

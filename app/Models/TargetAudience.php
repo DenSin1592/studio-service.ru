@@ -57,6 +57,10 @@ class TargetAudience extends Model
         return $this->hasMany(Offer::class);
     }
 
+    public function services()
+    {
+        return $this->belongsToMany(Service::class)->withPivot('position');
+    }
 
     public function getUrlAttribute(): string
     {
@@ -73,6 +77,7 @@ class TargetAudience extends Model
 
         static::deleting(function (self $model) {
             \DB::transaction(function() use ($model){
+                $model->services()->detach();
                 DeleteHelpers::deleteRelatedAll($model->children());
                 DeleteHelpers::removeCommunicationAll($model->offers(), 'target_audience_id');
             });

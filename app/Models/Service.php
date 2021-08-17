@@ -118,6 +118,11 @@ class Service extends Model
         return $this->belongsToMany(BeforeAfterImage::class)->withPivot('position');
     }
 
+    public function targetAudiences()
+    {
+        return $this->belongsToMany(TargetAudience::class)->withPivot('position');
+    }
+
     public function otherServices()
     {
         return $this->query()
@@ -184,6 +189,7 @@ class Service extends Model
                 $model->reviews()->detach();
                 $model->ourWorks()->detach();
                 $model->beforeAfterImages()->detach();
+                $model->targetAudiences()->detach();
                 DeleteHelpers::deleteRelatedAll($model->tasks());
                 DeleteHelpers::deleteRelatedAll($model->contentBlocks());
                 DeleteHelpers::deleteRelatedAll($model->tabs());

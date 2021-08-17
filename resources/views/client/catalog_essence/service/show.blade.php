@@ -167,14 +167,14 @@
             ])
     @endif
 
-    {{--@if($model->section_target_audiences_publish)
+    @if($model->section_target_audiences_publish && $model->targetAudiences->count() > 0)
         @include('client.shared._section_target_audiences',
             [
                 'header' => $model->section_target_audiences_name,
-                'elements' => $targetAudiences,
+                'elements' => $model->targetAudiences,
 
             ])
-    @endif--}}
+    @endif
 
     @if($model->section_reviews_publish && $model->reviews->count() > 0)
             @include('client.shared._section_reviews',

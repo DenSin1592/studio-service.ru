@@ -18,6 +18,7 @@ use App\Services\FormProcessors\Service\SubProcessor\BeforeAfterImages;
 use App\Services\FormProcessors\Service\SubProcessor\Competencies;
 use App\Services\FormProcessors\Service\SubProcessor\FaqQuestions;
 use App\Services\FormProcessors\Service\SubProcessor\Tabs;
+use App\Services\FormProcessors\Service\SubProcessor\TargetAudiences;
 use App\Services\FormProcessors\Service\SubProcessor\Tasks;
 use App\Services\FormProcessors\Settings\SettingsFormProcessor;
 use App\Services\FormProcessors\TargetAudience\TargetAudienceFormProcessor;
@@ -132,6 +133,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
                  $formProcessor->addSubProcessor(\App(FaqQuestions::class));
                  $formProcessor->addSubProcessor(\App(BeforeAfterImages::class));
                  $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Service\SubProcessor\ContentBlocks::class));
+                 $formProcessor->addSubProcessor(\App(TargetAudiences::class));
                  return $formProcessor;
              }
         );

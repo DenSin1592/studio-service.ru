@@ -37,6 +37,14 @@ Route::prefix('services')->name('services.')->group(function () {
             Route::get('rebuild-current', 'BeforeAfterImagesController@rebuildCurrent')
                 ->name('rebuild-current');
         });
+
+        Route::prefix('target-audience')->name('target-audience.')->group(function () {
+            Route::get('available', 'TargetAudiencesController@available')
+                ->name('available');
+
+            Route::get('rebuild-current', 'TargetAudiencesController@rebuildCurrent')
+                ->name('rebuild-current');
+        });
     });
 });
 Route::resource('services', 'EssenceControllers\ServicesController')->except('show');
