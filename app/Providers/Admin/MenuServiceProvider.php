@@ -4,6 +4,7 @@ namespace App\Providers\Admin;
 
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
+use App\Http\Controllers\Admin\EssenceControllers\BeforeAfterImagesController;
 use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
 use App\Http\Controllers\Admin\EssenceControllers\FeedbackController;
 use App\Http\Controllers\Admin\EssenceControllers\OffersController;
@@ -75,6 +76,18 @@ class MenuServiceProvider extends ServiceProvider
                         'glyphicon-usd',
                         route(OffersController::ROUTE_INDEX),
                         [OffersController::class]
+                    )
+                );
+
+
+                $groupReferenceBooks = new MenuGroup('Справочники', 'glyphicon-folder-open');
+                $menu->addMenuGroup($groupReferenceBooks);
+                $groupReferenceBooks->addMenuElement(
+                    new MenuElement(
+                        'Изображения \'До/После\'',
+                        'glyphicon-picture',
+                        route(BeforeAfterImagesController::ROUTE_INDEX),
+                        [BeforeAfterImagesController::class]
                     )
                 );
 

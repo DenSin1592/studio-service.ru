@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Services\FormProcessors\AdminRole\AdminRoleFormProcessor;
 use App\Services\FormProcessors\AdminUser\AdminUserFormProcessor;
+use App\Services\FormProcessors\BeforeAfterImage\BeforeAfterImageFormProcessor;
 use App\Services\FormProcessors\Competence\CompetenceFormProcessor;
 use App\Services\FormProcessors\Competence\SubProcessor\ContentBlocks;
 use App\Services\FormProcessors\Feedback\FeedbackFormProcessor;
@@ -21,6 +22,7 @@ use App\Services\FormProcessors\Settings\SettingsFormProcessor;
 use App\Services\FormProcessors\TargetAudience\TargetAudienceFormProcessor;
 use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use App\Services\Repositories\AdminUser\AdminUserRepository;
+use App\Services\Repositories\BeforeAfterImages\BeforeAfterImagesRepository;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Feedback\FeedbackRepository;
 use App\Services\Repositories\Node\NodeRepository;
@@ -31,6 +33,7 @@ use App\Services\Repositories\Services\ServicesRepository;
 use App\Services\Repositories\Setting\SettingRepository;
 use App\Services\Validation\AdminRole\AdminRoleValidator;
 use App\Services\Validation\AdminUser\AdminUserValidator;
+use App\Services\Validation\BeforeAfterImage\BeforeAfterImageValidator;
 use App\Services\Validation\Competence\CompetenceValidator;
 use App\Services\Validation\Feedback\FeedbackValidator;
 use App\Services\Validation\Node\NodeValidator;
@@ -69,6 +72,18 @@ class FormProcessorsServiceProvider extends ServiceProvider
                     $this->app->make(AdminRoleRepository::class)
                 );
                 $formProcessor->addSubProcessor($this->app->make(\App\Services\FormProcessors\AdminRole\SubProcessor\Creator::class));
+                return $formProcessor;
+            }
+        );
+
+
+        $this->app->bind(
+            BeforeAfterImageFormProcessor::class,
+            function () {
+                $formProcessor =  new BeforeAfterImageFormProcessor(
+                    $this->app->make(BeforeAfterImageValidator::class),
+                    $this->app->make(BeforeAfterImagesRepository::class)
+                );
                 return $formProcessor;
             }
         );

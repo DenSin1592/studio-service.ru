@@ -6,6 +6,7 @@ use App\Services\DataProviders\AdminRoleForm\AdminRoleForm;
 use App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm\Abilities;
 use App\Services\DataProviders\AdminUserForm\AdminUserForm;
 use App\Services\DataProviders\AdminUserForm\AdminUserSubForm\Roles;
+use App\Services\DataProviders\BeforeAfterImageForm\BeforeAfterImageForm;
 use App\Services\DataProviders\CompetenceForm\CompetenceForm;
 use App\Services\DataProviders\CompetenceForm\CompetenceSubForm\ContentBlocks;
 use App\Services\DataProviders\FeedbackForm\FeedbackForm;
@@ -42,6 +43,13 @@ DataProvidersServiceProvider extends ServiceProvider
             static function() {
                 $form = new AdminUserForm();
                 $form->addSubForm(\App(Roles::class));
+                return $form;
+            });
+
+
+        $this->app->bind(BeforeAfterImageForm::class,
+            static function() {
+                $form = new BeforeAfterImageForm();
                 return $form;
             });
 

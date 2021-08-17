@@ -239,3 +239,9 @@ a.edit-multilingual-field {
 a.edit-multilingual-field:hover {
     border-bottom-color: #af294d;
 }
+
+.header-container .publish-status,
+.header-container .control {
+    text-align: center;
+}
+

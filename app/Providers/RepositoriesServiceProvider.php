@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use App\Services\Repositories\AdminUser\AdminUserRepository;
+use App\Services\Repositories\BeforeAfterImages\BeforeAfterImagesRepository;
 use App\Services\Repositories\Competencies\CompetenceContentBlock\CompetenceContentBlockRepository;
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Feedback\FeedbackRepository;
@@ -43,6 +44,12 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->app->singleton(
             AdminUserRepository::class,
             fn() => new AdminUserRepository()
+        );
+
+
+        $this->app->singleton(
+            BeforeAfterImagesRepository::class,
+            fn() => new BeforeAfterImagesRepository()
         );
 
 

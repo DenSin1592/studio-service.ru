@@ -2,6 +2,7 @@
 
 namespace App\Providers\Admin;
 
+use App\Http\Controllers\Admin\EssenceControllers\BeforeAfterImagesController;
 use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
 use App\Http\Controllers\Admin\EssenceControllers\FeedbackController;
 use App\Http\Controllers\Admin\EssenceControllers\OffersController;
@@ -94,8 +95,48 @@ class BreadcrumbsServiceProvider extends ServiceProvider
         );
 
 
+        $breadcrumbs->addBuilder(
+            FeedbackController::BREADCRUMBS_CREATE,
+            function () {
+                $path = new Path();
+                $path->add(FeedbackController::INDEX_TITLE, route(FeedbackController::ROUTE_INDEX));
+                $path->add('Создание');
+                return $path;
+            }
+        );
+        $breadcrumbs->addBuilder(
+            FeedbackController::BREADCRUMBS_EDIT,
+            function () {
+                $path = new Path();
+                $path->add(FeedbackController::INDEX_TITLE, route(FeedbackController::ROUTE_INDEX));
+                $path->add('Редактирование');
+                return $path;
+            }
+        );
 
-        (static function(Breadcrumbs $breadcrumbs){   //Каталоги
+
+        $breadcrumbs->addBuilder(
+            BeforeAfterImagesController::BREADCRUMBS_CREATE,
+            function () {
+                $path = new Path();
+                $path->add(BeforeAfterImagesController::INDEX_TITLE, route(BeforeAfterImagesController::ROUTE_INDEX));
+                $path->add('Создание');
+                return $path;
+            }
+        );
+        $breadcrumbs->addBuilder(
+            BeforeAfterImagesController::BREADCRUMBS_EDIT,
+            function () {
+                $path = new Path();
+                $path->add(BeforeAfterImagesController::INDEX_TITLE, route(BeforeAfterImagesController::ROUTE_INDEX));
+                $path->add('Редактирование');
+                return $path;
+            }
+        );
+
+
+        //Каталоги
+        (static function(Breadcrumbs $breadcrumbs){
             $breadcrumbs->addBuilder(
                 TargetAudiencesController::BREADCRUMBS_CREATE,
                 function () {
@@ -130,26 +171,6 @@ class BreadcrumbsServiceProvider extends ServiceProvider
                 function () {
                     $path = new Path();
                     $path->add(CompetenciesController::INDEX_TITLE, route(CompetenciesController::ROUTE_INDEX));
-                    $path->add('Редактирование');
-                    return $path;
-                }
-            );
-
-
-            $breadcrumbs->addBuilder(
-                FeedbackController::BREADCRUMBS_CREATE,
-                function () {
-                    $path = new Path();
-                    $path->add(FeedbackController::INDEX_TITLE, route(FeedbackController::ROUTE_INDEX));
-                    $path->add('Создание');
-                    return $path;
-                }
-            );
-            $breadcrumbs->addBuilder(
-                FeedbackController::BREADCRUMBS_EDIT,
-                function () {
-                    $path = new Path();
-                    $path->add(FeedbackController::INDEX_TITLE, route(FeedbackController::ROUTE_INDEX));
                     $path->add('Редактирование');
                     return $path;
                 }

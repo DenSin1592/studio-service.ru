@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Services\Validation\Competence;
+namespace App\Services\Validation\BeforeAfterImage;
 
 use App\Services\Validation\AbstractLaravelValidator;
 use Illuminate\Validation\Factory as ValidatorFactory;
 use Illuminate\Validation\Rule;
 
-class CompetenceValidator extends AbstractLaravelValidator
+class BeforeAfterImageValidator extends AbstractLaravelValidator
 {
     protected function getRules(): array
     {
