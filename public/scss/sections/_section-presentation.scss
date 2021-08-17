@@ -63,7 +63,7 @@
 
 .swiper-presentation-nav {
     margin: -25px #{-$grid-gutter-width/3};
-    
+
     @include media-breakpoint-up(md) {
         margin-left: -$grid-gutter-width/6;
         margin-right: -$grid-gutter-width/6;
@@ -72,7 +72,7 @@
         margin: -55px #{-$grid-gutter-width} -25px;
         padding: 55px #{$grid-gutter-width/4} 25px;
     }
-    
+
     > .swiper-wrapper {
         > .swiper-slide {
             padding-top: 25px;
@@ -293,7 +293,7 @@
             width: 40px;
             height: 40px;
             line-height: 40px;
-        } 
+        }
     }
 
     .swiper-presentation-counter {
@@ -313,7 +313,7 @@
             width: 31px;
             height: 29px;
             margin: 0 0 10px;
-            background: url('../images/icons/general/svg/icon-double-check-stars.svg') no-repeat 0 0;
+            background: url('../../images/icons/general/svg/icon-double-check-stars.svg') no-repeat 0 0;
             background-size: contain;
             content: '';
             @include media-breakpoint-up(sm) {

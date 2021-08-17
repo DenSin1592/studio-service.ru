@@ -1,11 +1,20 @@
-.loader {
+.loader-white {
     color: transparent;
-    background-image: url('images/common/loaders/loading-white.svg');
+    background-image: url('../../images/common/loaders/loading-white.svg');
     background-repeat: no-repeat;
     background-size: auto 60%;
     background-position: center center;
 }
 
-.loader * {
+.loader-black {
+    color: transparent;
+    background-image: url('../../images/common/loaders/loading-black.svg');
+    background-repeat: no-repeat;
+    background-size: auto 60%;
+    background-position: center center;
+}
+
+.loader-white *,
+.loader-black *, {
     opacity: 0;
 }

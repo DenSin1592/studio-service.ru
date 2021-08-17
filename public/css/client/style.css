@@ -9912,14 +9912,22 @@ table {
   .twentytwenty-horizontal .twentytwenty-handle .twentytwenty-right-arrow {
     display: none; }
 
-.loader {
+.loader-white {
   color: transparent;
-  background-image: url("images/common/loaders/loading-white.svg");
+  background-image: url("../../images/common/loaders/loading-white.svg");
   background-repeat: no-repeat;
   background-size: auto 60%;
   background-position: center center; }
 
-.loader * {
+.loader-black {
+  color: transparent;
+  background-image: url("../../images/common/loaders/loading-black.svg");
+  background-repeat: no-repeat;
+  background-size: auto 60%;
+  background-position: center center; }
+
+.loader-white *,
+.loader-black * {
   opacity: 0; }
 
 .tooltip .tooltip-inner {
@@ -13011,7 +13019,7 @@ table {
     width: 164px;
     height: 164px;
     transform: translate(-50%, -50%);
-    background: url("../images/sections/section-service/section-service-title-bg.png");
+    background: url("../../images/sections/section-service/section-service-title-bg.png");
     content: ''; }
 
 .service-achievements-block {
@@ -13459,7 +13467,7 @@ table {
       width: 31px;
       height: 29px;
       margin: 0 0 10px;
-      background: url("../images/icons/general/svg/icon-double-check-stars.svg") no-repeat 0 0;
+      background: url("../../images/icons/general/svg/icon-double-check-stars.svg") no-repeat 0 0;
       background-size: contain;
       content: ''; }
       @media (min-width: 480px) {

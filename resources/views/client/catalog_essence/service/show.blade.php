@@ -28,7 +28,7 @@
                                     <div class="col-auto">
                                         <button type="button" class="service-cta-btn btn btn-lg btn-primary anchor-button" data-target="section-feedback">
                                             <svg class="btn-icon" width="31" height="22">
-                                                <use xlink:href="images/icons/sprite.svg#icon-arrow-to-right"></use>
+                                                <use xlink:href="{{asset('/images/icons/sprite.svg#icon-arrow-to-right')}}"></use>
                                             </svg>
                                             Отправить заявку
                                         </button>
@@ -166,9 +166,8 @@
 @stop
 
 
-{{--@section('modal')
+@section('modal')
 
-    @include('client.shared.modals._modal_callback')
     @include('client.shared.modals._modal_message')
 
-@stop--}}
+@stop

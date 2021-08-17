@@ -9,7 +9,7 @@
                 targetSection = '#' + target.attr('data-target');
 
             if(targetSection !== "") {
-                event.preventDefault();
+                e.preventDefault();
 
                 let hash = targetSection;
                 let headerContainer = $('.header-box');
