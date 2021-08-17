@@ -135,6 +135,13 @@ form {
     &-label {
         height: inherit;
     }
+
+    &-input {
+        cursor: pointer;
+        &::-webkit-file-upload-button {
+            cursor: pointer; 
+        }
+    }
     
     &-label {
         margin: 0;
@@ -142,9 +149,9 @@ form {
         border: none;
         border-radius: 0;
         background: none;
-        color: currentColor;
+        color: $c-purple-dark;
         font-size: 16px;
-        font-weight: 400;
+        font-weight: 600;
         line-height: 35px;
         @include media-breakpoint-up(lg) {
             font-size: 17px;

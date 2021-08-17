@@ -50,3 +50,13 @@
         }
     }
 }
+
+.swiper-gallery {
+    margin: 0 #{-$grid-gutter-width/2} -50px;
+    
+    > .swiper-wrapper {
+        > .swiper-slide {
+            padding: 0 #{$grid-gutter-width/2} 50px;
+        }
+    }
+}

@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="theme-color" content="#634ead">
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.svg">
+    <link rel="mask-icon" href="mask-icon.svg" color="#ffffff">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+
     <title>Studio-service</title>
 
     <link rel="stylesheet" href="vendor/swiper-4.5.1/dist/css/swiper.min.css">
@@ -12,7 +20,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="page-home page-extended d-flex flex-column" >
-    <header class="header-box is-fixed">
+    <header class="header-box is-fixed compensate-for-scrollbar">
         <div class="container">
             <div class="row flex-nowrap align-items-center">
                 <div class="header-nav-container col-auto col-md order-md-1">
@@ -226,65 +234,97 @@
                         <div class="swiper-categories-cover swiper-cover">
                             <div class="swiper-categories swiper-container swiper-light">
                                 <div class="swiper-wrapper row flex-nowrap">
-                                    <div class="swiper-slide col-6 col-sm-4 col-md-3 col-xxl-auto">
+                                    <div class="swiper-slide col-6 col-sm-4 col-md-3 d-flex justify-content-center">
                                         <a href="#link" class="card-category text-center text-xxl-left">
-                                            <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                            <div class="row align-items-center justify-content-center flex-xxl-nowrap">
                                                 <div class="card-category-media-container col-12 col-xxl-auto">
                                                     <div class="card-category-thumbnail">
                                                         <img loading="lazy" src="images/icons/categories/icon-category-tv.svg" width="48" height="40" alt="Телерадиокомпании" class="card-category-media">
                                                     </div>
                                                 </div>
 
-                                                <div class="card-category-typography-container col-12 col-xxl">
+                                                <div class="card-category-typography-container col-12 col-xxl flex-grow-0">
                                                     <div class="card-category-title">Телерадиокомпании</div>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
 
-                                    <div class="swiper-slide col-6 col-sm-4 col-md-3 col-xxl-auto">
+                                    <div class="swiper-slide col-6 col-sm-4 col-md-3 d-flex justify-content-center">
                                         <a href="#link" class="card-category text-center text-xxl-left">
-                                            <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                            <div class="row align-items-center justify-content-center flex-xxl-nowrap">
                                                 <div class="card-category-media-container col-12 col-xxl-auto">
                                                     <div class="card-category-thumbnail">
                                                         <img loading="lazy" src="images/icons/categories/icon-category-industry.svg" width="42" height="57" alt="Промышленность" class="card-category-media">
                                                     </div>
                                                 </div>
 
-                                                <div class="card-category-typography-container col-12 col-xxl">
+                                                <div class="card-category-typography-container col-12 col-xxl flex-grow-0">
                                                     <div class="card-category-title">Промышленность</div>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
 
-                                    <div class="swiper-slide col-6 col-sm-4 col-md-3 col-xxl-auto">
+                                    <div class="swiper-slide col-6 col-sm-4 col-md-3 d-flex justify-content-center">
                                         <a href="#link" class="card-category text-center text-xxl-left">
-                                            <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                            <div class="row align-items-center justify-content-center flex-xxl-nowrap">
                                                 <div class="card-category-media-container col-12 col-xxl-auto">
                                                     <div class="card-category-thumbnail">
                                                         <img loading="lazy" src="images/icons/categories/icon-category-bank.svg" width="45" height="39" alt="Банки" class="card-category-media">
                                                     </div>
                                                 </div>
 
-                                                <div class="card-category-typography-container col-12 col-xxl">
+                                                <div class="card-category-typography-container col-12 col-xxl flex-grow-0">
                                                     <div class="card-category-title">Банки</div>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
 
-                                    <div class="swiper-slide col-6 col-sm-4 col-md-3 col-xxl-auto">
+                                    <div class="swiper-slide col-6 col-sm-4 col-md-3 d-flex justify-content-center">
                                         <a href="#link" class="card-category text-center text-xxl-left">
-                                            <div class="row align-items-center justify-content-center justify-content-xxl-start flex-xxl-nowrap">
+                                            <div class="row align-items-center justify-content-center flex-xxl-nowrap">
                                                 <div class="card-category-media-container col-12 col-xxl-auto">
                                                     <div class="card-category-thumbnail">
                                                         <img loading="lazy" src="images/icons/categories/icon-category-school.svg" width="49" height="38" alt="Школы" class="card-category-media">
                                                     </div>
                                                 </div>
 
-                                                <div class="card-category-typography-container col-12 col-xxl">
+                                                <div class="card-category-typography-container col-12 col-xxl flex-grow-0">
                                                     <div class="card-category-title">Школы</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="swiper-slide col-6 col-sm-4 col-md-3 d-flex justify-content-center">
+                                        <a href="#link" class="card-category text-center text-xxl-left">
+                                            <div class="row align-items-center justify-content-center flex-xxl-nowrap">
+                                                <div class="card-category-media-container col-12 col-xxl-auto">
+                                                    <div class="card-category-thumbnail">
+                                                        <img loading="lazy" src="images/icons/categories/icon-category-finance.svg" width="41" height="42" alt="Финансовые организации" class="card-category-media">
+                                                    </div>
+                                                </div>
+
+                                                <div class="card-category-typography-container col-12 col-xxl flex-grow-0">
+                                                    <div class="card-category-title">Финансовые организации</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="swiper-slide col-6 col-sm-4 col-md-3 d-flex justify-content-center">
+                                        <a href="#link" class="card-category text-center text-xxl-left">
+                                            <div class="row align-items-center justify-content-center flex-xxl-nowrap">
+                                                <div class="card-category-media-container col-12 col-xxl-auto">
+                                                    <div class="card-category-thumbnail">
+                                                        <img loading="lazy" src="images/icons/categories/icon-category-university.png" width="49" height="32" alt="Университеты" class="card-category-media">
+                                                    </div>
+                                                </div>
+
+                                                <div class="card-category-typography-container col-12 col-xxl flex-grow-0">
+                                                    <div class="card-category-title">Университеты</div>
                                                 </div>
                                             </div>
                                         </a>
@@ -343,11 +383,13 @@
                                 <div class="swiper-wrapper row flex-nowrap m-0">
                                     <div class="swiper-slide col-auto col-sm-6 col-md-4 col-xl-4 d-flex">
                                         <a href="service.html" class="card-service d-flex flex-column">
+                                            <div class="card-service-overlay"></div>
+                                            
                                             <div class="card-service-thumbnail">
                                                 <img loading="lazy" src="uploads/services/service-item-1.jpg" alt="Организация и оснащение телестудий для записи и трансляции новостей и событий" class="card-service-media">
                                             </div>
 
-                                            <div class="card-service-title flex-grow-1">Организация и оснащение телестудий для записи и трансляции новостей и событий</div>
+                                            <div class="card-service-title">Организация и оснащение телестудий для записи и трансляции новостей и событий</div>
 
                                             <div class="card-service-include-block">
                                                 <div class="card-service-include-title">Какие задачи решает:</div>
@@ -384,11 +426,13 @@
 
                                     <div class="swiper-slide col-auto col-sm-6 col-md-4 col-xl-4 d-flex">
                                         <a href="service.html" class="card-service d-flex flex-column">
+                                            <div class="card-service-overlay"></div>
+                                            
                                             <div class="card-service-thumbnail">
                                                 <img loading="lazy" src="uploads/services/service-item-2.jpg" alt="Оснащение переговорных комнат и конференц-залов" class="card-service-media">
                                             </div>
 
-                                            <div class="card-service-title flex-grow-1">Оснащение переговорных комнат и конференц-залов</div>
+                                            <div class="card-service-title">Оснащение переговорных комнат и конференц-залов</div>
 
                                             <div class="card-service-include-block">
                                                 <div class="card-service-include-title">Какие задачи решает:</div>
@@ -416,11 +460,13 @@
 
                                     <div class="swiper-slide col-auto col-sm-6 col-md-4 col-xl-4 d-flex">
                                         <a href="service.html" class="card-service d-flex flex-column">
+                                            <div class="card-service-overlay"></div>
+                                            
                                             <div class="card-service-thumbnail">
                                                 <img loading="lazy" src="uploads/services/service-item-3.jpg" alt="Оборудование аппаратных" class="card-service-media">
                                             </div>
 
-                                            <div class="card-service-title flex-grow-1">Оборудование аппаратных</div>
+                                            <div class="card-service-title">Оборудование аппаратных</div>
 
                                             <div class="card-service-include-block">
                                                 <div class="card-service-include-title">Какие задачи решает:</div>
@@ -451,11 +497,13 @@
 
                                     <div class="swiper-slide col-auto col-sm-6 col-md-4 col-xl-4 d-flex">
                                         <a href="service.html" class="card-service d-flex flex-column">
+                                            <div class="card-service-overlay"></div>
+                                            
                                             <div class="card-service-thumbnail">
                                                 <img loading="lazy" src="uploads/services/service-item-2.jpg" alt="Оснащение переговорных комнат и конференц-залов" class="card-service-media">
                                             </div>
 
-                                            <div class="card-service-title flex-grow-1">Оснащение переговорных комнат и конференц-залов</div>
+                                            <div class="card-service-title">Оснащение переговорных комнат и конференц-залов</div>
 
                                             <div class="card-service-include-block">
                                                 <div class="card-service-include-title">Какие задачи решает:</div>
@@ -684,7 +732,7 @@
 
                         <div class="advantages-gallery-block">
                             <div class="gallery-block">
-                                <div class="gallery-controls-container d-flex align-items-center justify-content-sm-end">
+                                <div class="gallery-controls-container d-flex align-items-center justify-content-end">
                                     <div class="swiper-gallery-pagination-wrapper swiper-pagination-wrapper">
                                         <div class="swiper-gallery-pagination swiper-pagination swiper-pagination-fraction">
                                             <span class="swiper-gallery-pagination-current swiper-pagination-current"></span>
@@ -714,8 +762,8 @@
                                                 <div class="gallery-header-container d-flex flex-column justify-content-center">
                                                     <div class="gallery-description"><b>Пример:</b> Проложенные трассы по виду одного из наших проектов</div>
                                                 </div>
-
-                                                <div class="twentytwenty-container">
+                                                
+                                                <div class="twentytwenty-cover">
                                                     <div class="twentytwenty-block">
                                                         <img src="uploads/examples/example-item-1-before.jpg" class="twentytwenty-media" alt="">
                                                         <img src="uploads/examples/example-item-1-after.jpg" class="twentytwenty-media" alt="">
@@ -728,7 +776,7 @@
                                                     <div class="gallery-description"><b>Пример:</b> Проложенные трассы по виду одного из наших проектов</div>
                                                 </div>
 
-                                                <div class="twentytwenty-container">
+                                                <div class="twentytwenty-cover">
                                                     <div class="twentytwenty-block">
                                                         <img src="uploads/examples/example-item-1-before.jpg" class="twentytwenty-media" alt="">
                                                         <img src="uploads/examples/example-item-1-after.jpg" class="twentytwenty-media" alt="">

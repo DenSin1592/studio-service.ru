@@ -1,13 +1,25 @@
 .section-social {
     overflow: hidden;
     margin: 0;
-    // margin: 45px 0;
     padding: 0;
 }
 
 .social-grid {
     margin-left: -$grid-gutter-width/2 !important;
     margin-right: -$grid-gutter-width/2 !important;
+    @include media-breakpoint-up(lg) {
+        margin-left: -30px !important;
+        margin-right: -30px !important;
+    }
+    @include media-breakpoint-up(xl) {
+        margin-left: -40px !important;
+        margin-right: -40px !important;
+    }
+    @include media-breakpoint-up(xxl) {
+        margin-left: -60px !important;
+        margin-right: -60px !important;
+    }
+
     .social-item {
         position: relative;
         z-index: 1;

@@ -1,5 +1,6 @@
 .card-service {
     position: relative;
+    z-index: 1;
     display: block;
     width: 100%;
     padding: 15px 15px 15px;
@@ -19,29 +20,58 @@
         padding: 35px 25px 30px;
         font-size: 17px;
     }
-    
-    &::before {
+
+    &::before,
+    &::after {
         position: absolute;
         z-index: -1;
+        content: '';
+    }
+    
+    &::before {
         opacity: 0.5;
         top: 10px;
+        left: 5px;
+        right: 5px;
+        bottom: 0;
+        background: rgb(94,63,201);
+        background: -moz-linear-gradient(90deg, rgba(94,63,201,1) 0%, rgba(60,191,198,1) 100%);
+        background: -webkit-linear-gradient(90deg, rgba(94,63,201,1) 0%, rgba(60,191,198,1) 100%);
+        background: linear-gradient(90deg, rgba(94,63,201,1) 0%, rgba(60,191,198,1) 100%);
+        filter: blur(10px);
+        
+        @include media-breakpoint-up(sm) {
+            opacity: 0.75;
+        }
+        @include media-breakpoint-up(lg) {
+            top: 15px;
+        } 
+        @include media-breakpoint-up(xl) {
+            top: 10px;
+            left: 5px;
+            right: 5px;
+            bottom: 0;
+            border-radius: 20px;
+            filter: blur(10px);
+        }
+        @include media-breakpoint-up(xxl) {
+            top: 20px;
+            left: 8px;
+            right: 8px;
+            bottom: 0;
+            border-radius: 20px;
+            filter: blur(15px);
+        }
+    }
+
+    &::after {
+        top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: conic-gradient(
-            from 90deg,
-            #944547,
-            #5b4a90,
-            #506c90,
-            #944547
-        );
-        filter: blur(10px);
-        content: '';
-        @include media-breakpoint-up(xxl) {
-            opacity: 1;
-            top: 0;
-        }
+        background: inherit;
     }
+
 
     .card-service-thumbnail {
         position: relative;
@@ -74,23 +104,25 @@
 
 
     .card-service-title {
+        min-height: 60px;
         margin: 0 0 10px;
         font-size: 15px;
         font-weight: 600;
         line-height: 20px;
         color: $c-default-heading;
         @include media-breakpoint-up(lg) {
+            min-height: 66px;
             margin: 0 0 15px;
             font-size: 17px;
             line-height: 22px;
         }
         @include media-breakpoint-up(xl) {
-            margin: 0 0 20px;
+            min-height: 75px;
             font-size: 20px;
             line-height: 25px;
         }
         @include media-breakpoint-up(xxl) {
-            margin: 0 0 12px;
+            min-height: 90px;
             font-size: 25px;
             line-height: 30px;
         }
@@ -127,8 +159,6 @@
                 }
 
                 .card-service-include-media {
-                    height: auto;
-                    width: auto;
                     max-width: 28px;
                     max-height: 28px;
                     object-fit: contain;
@@ -162,14 +192,12 @@
                     }
 
                     &::before {
-                        background: conic-gradient(
-                            from 90deg,
-                            #944547,
-                            #5b4a90,
-                            #506c90,
-                            #944547
-                        );
-                        filter: blur(5px);
+                        background: rgb(98,83,156);
+                        background: -moz-linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
+                        background: -webkit-linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
+                        background: linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
+                        border-radius: 50%;
+                        filter: blur(10px);
                         content: '';
                     }
 
@@ -184,6 +212,7 @@
     .card-service-cta {
         width: 40px;
         height: 40px;
+        margin: auto 0 0;
         border: 1px solid #cacaca;
         border-radius: 50%;
         transition: background 150ms linear, border-color 150ms linear;

@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="theme-color" content="#634ead">
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.svg">
+    <link rel="mask-icon" href="/mask-icon.svg" color="#ffffff">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+
     <title>Studio-service</title>
 
     <link rel="stylesheet" href="vendor/swiper-4.5.1/dist/css/swiper.min.css">
@@ -12,7 +20,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="page-service page-extended d-flex flex-column" >
-    <header class="header-box is-fixed">
+    <header class="header-box is-fixed compensate-for-scrollbar">
         <div class="container">
             <div class="row flex-nowrap align-items-center">
                 <div class="header-nav-container col-auto col-md order-md-1">
@@ -498,7 +506,7 @@
                                     <div class="form-row">
                                         <div class="col-10 col-md-6 offset-2 offset-md-0">
                                             <div class="form-row">
-                                                <div class="col-md-9 col-xxl-8 offset-md-3 offset-xxl-4">
+                                                <div class="col-md-9 col-xxl-8 offset-md-3 offset-xl-4">
                                                     <div class="swiper-presentation-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
                                                         <button type="button" class="swiper-presentation-button-prev swiper-button-prev d-flex align-items-center justify-content-center" >
                                                             <svg class="swiper-button-prev-media" width="19" height="19">
@@ -761,7 +769,7 @@
                                         <div class="form-row">
                                             <div class="card-requirement-media-container col-auto">
                                                 <div class="card-requirement-thumbnail d-flex align-items-center justify-content-center">
-                                                    <img loading="lazy" src="images/icons/requirements/icon-requirement-purpose.png" width="61" height="61" alt="" class="card-requirement-media">
+                                                    <img loading="lazy" src="images/icons/requirements/icon-requirement-purpose.svg" width="61" height="61" alt="" class="card-requirement-media">
                                                 </div>
                                             </div>
 
@@ -777,7 +785,7 @@
                                         <div class="form-row">
                                             <div class="card-requirement-media-container col-auto">
                                                 <div class="card-requirement-thumbnail d-flex align-items-center justify-content-center">
-                                                    <img loading="lazy" src="images/icons/requirements/icon-requirement-network.png" width="63" height="55" alt="" class="card-requirement-media">
+                                                    <img loading="lazy" src="images/icons/requirements/icon-requirement-network.svg" width="63" height="55" alt="" class="card-requirement-media">
                                                 </div>
                                             </div>
 
@@ -793,7 +801,7 @@
                                         <div class="form-row">
                                             <div class="card-requirement-media-container col-auto">
                                                 <div class="card-requirement-thumbnail d-flex align-items-center justify-content-center">
-                                                    <img loading="lazy" src="images/icons/requirements/icon-requirement-location.png" width="60" height="60" alt="" class="card-requirement-media">
+                                                    <img loading="lazy" src="images/icons/requirements/icon-requirement-location.svg" width="60" height="60" alt="" class="card-requirement-media">
                                                 </div>
                                             </div>
 
@@ -866,29 +874,31 @@
                             <div class="card-accordion">
                                 <div class="card-accordion-header" id="faq-heading-1">
                                     <button class="card-accordion-title title-h3 d-flex align-items-center" type="button" data-toggle="collapse"
-                                        data-target="#faq-collapse-1" aria-expanded="true" aria-controls="faq-collapse-1">
+                                        data-target="#faq-collapse-1" aria-expanded="false" aria-controls="faq-collapse-1">
                                         Что показывать?
                                     </button>
                                 </div>
                         
-                                <div id="faq-collapse-1" class="card-accordion-content collapse show" aria-labelledby="faq-heading-1" data-parent="#faq-accordion">
-                                    <div class="row">
-                                        <div class="card-accordion-media-container col-md-4 col-xl-4 col-xxl-5 order-md-1">
-                                            <div class="card-accordion-thumbnail">
-                                                <img loading="lazy" src="images/sections/section-faq/faq-media-tv.png"  width="474" height="362" alt="" class="card-accordion-media">
+                                <div id="faq-collapse-1" class="card-accordion-collapse collapse" aria-labelledby="faq-heading-1">
+                                    <div class="card-accordion-content">
+                                        <div class="row">
+                                            <div class="card-accordion-media-container col-md-4 col-xl-4 col-xxl-5 order-md-1">
+                                                <div class="card-accordion-thumbnail">
+                                                    <img loading="lazy" src="images/sections/section-faq/faq-media-tv.png"  width="474" height="362" alt="" class="card-accordion-media">
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="card-accordion-typogrpahy-container col-md-8 col-xl-8 col-xxl-7 order-md-0">
-                                            <p class="text-lead" >В зависимости от ваших целей, вы можете транслировать следующие виды контента:</p>
-                                            <ul class="disc-list list-unstyled">
-                                                <li>новости - самый ходовой и рейтинговый вид контента</li>
-                                                <li>инфографика о работе компании</li>
-                                                <li>интервью с первыми лицами предприятий, начальниками отделов с консультациями по общим вопросам, например, от планирования развития компании, заканчивая особенностями оформления декретных отпусков</li>
-                                                <li>истории о жизни и работе других филиалов, это способствует формированию лояльности</li>
-                                                <li>история успеха компании</li>
-                                            </ul>
-                                            <p class="text-lead" >У нас есть большой опыт во внедрении корпоративного телевидения, поэтому мы сможем порекомендовать вам виды контента при внедрении корпоративного телевидения.</p>
+                                            <div class="card-accordion-typogrpahy-container col-md-8 col-xl-8 col-xxl-7 order-md-0">
+                                                <p class="text-lead" >В зависимости от ваших целей, вы можете транслировать следующие виды контента:</p>
+                                                <ul class="disc-list list-unstyled">
+                                                    <li>новости - самый ходовой и рейтинговый вид контента</li>
+                                                    <li>инфографика о работе компании</li>
+                                                    <li>интервью с первыми лицами предприятий, начальниками отделов с консультациями по общим вопросам, например, от планирования развития компании, заканчивая особенностями оформления декретных отпусков</li>
+                                                    <li>истории о жизни и работе других филиалов, это способствует формированию лояльности</li>
+                                                    <li>история успеха компании</li>
+                                                </ul>
+                                                <p class="text-lead" >У нас есть большой опыт во внедрении корпоративного телевидения, поэтому мы сможем порекомендовать вам виды контента при внедрении корпоративного телевидения.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -902,24 +912,26 @@
                                     </button>
                                 </div>
                         
-                                <div id="faq-collapse-2" class="card-accordion-content collapse" aria-labelledby="faq-heading-2" data-parent="#faq-accordion">
-                                    <div class="row">
-                                        <div class="card-accordion-media-container col-md-4 col-xl-4 col-xxl-5 order-md-1">
-                                            <div class="card-accordion-thumbnail">
-                                                <img loading="lazy" src="images/sections/section-faq/faq-media-tv.png"  width="474" height="362" alt="" class="card-accordion-media">
+                                <div id="faq-collapse-2" class="card-accordion-collapse collapse" aria-labelledby="faq-heading-2">
+                                    <div class="card-accordion-content">
+                                        <div class="row">
+                                            <div class="card-accordion-media-container col-md-4 col-xl-4 col-xxl-5 order-md-1">
+                                                <div class="card-accordion-thumbnail">
+                                                    <img loading="lazy" src="images/sections/section-faq/faq-media-tv.png"  width="474" height="362" alt="" class="card-accordion-media">
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="card-accordion-typogrpahy-container col-md-8 col-xl-8 col-xxl-7 order-md-0">
-                                            <p class="text-lead" >В зависимости от ваших целей, вы можете транслировать следующие виды контента:</p>
-                                            <ul class="disc-list list-unstyled">
-                                                <li>новости - самый ходовой и рейтинговый вид контента</li>
-                                                <li>инфографика о работе компании</li>
-                                                <li>интервью с первыми лицами предприятий, начальниками отделов с консультациями по общим вопросам, например, от планирования развития компании, заканчивая особенностями оформления декретных отпусков</li>
-                                                <li>истории о жизни и работе других филиалов, это способствует формированию лояльности</li>
-                                                <li>история успеха компании</li>
-                                            </ul>
-                                            <p class="text-lead" >У нас есть большой опыт во внедрении корпоративного телевидения, поэтому мы сможем порекомендовать вам виды контента при внедрении корпоративного телевидения.</p>
+                                            <div class="card-accordion-typogrpahy-container col-md-8 col-xl-8 col-xxl-7 order-md-0">
+                                                <p class="text-lead" >В зависимости от ваших целей, вы можете транслировать следующие виды контента:</p>
+                                                <ul class="disc-list list-unstyled">
+                                                    <li>новости - самый ходовой и рейтинговый вид контента</li>
+                                                    <li>инфографика о работе компании</li>
+                                                    <li>интервью с первыми лицами предприятий, начальниками отделов с консультациями по общим вопросам, например, от планирования развития компании, заканчивая особенностями оформления декретных отпусков</li>
+                                                    <li>истории о жизни и работе других филиалов, это способствует формированию лояльности</li>
+                                                    <li>история успеха компании</li>
+                                                </ul>
+                                                <p class="text-lead" >У нас есть большой опыт во внедрении корпоративного телевидения, поэтому мы сможем порекомендовать вам виды контента при внедрении корпоративного телевидения.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -933,24 +945,26 @@
                                     </button>
                                 </div>
                         
-                                <div id="faq-collapse-3" class="card-accordion-content collapse" aria-labelledby="faq-heading-3" data-parent="#faq-accordion">
-                                    <div class="row">
-                                        <div class="card-accordion-media-container col-md-4 col-xl-4 col-xxl-5 order-md-1">
-                                            <div class="card-accordion-thumbnail">
-                                                <img loading="lazy" src="images/sections/section-faq/faq-media-tv.png"  width="474" height="362" alt="" class="card-accordion-media">
+                                <div id="faq-collapse-3" class="card-accordion-collapse collapse" aria-labelledby="faq-heading-3">
+                                    <div class="card-accordion-content">
+                                        <div class="row">
+                                            <div class="card-accordion-media-container col-md-4 col-xl-4 col-xxl-5 order-md-1">
+                                                <div class="card-accordion-thumbnail">
+                                                    <img loading="lazy" src="images/sections/section-faq/faq-media-tv.png"  width="474" height="362" alt="" class="card-accordion-media">
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="card-accordion-typogrpahy-container col-md-8 col-xl-8 col-xxl-7 order-md-0">
-                                            <p class="text-lead" >В зависимости от ваших целей, вы можете транслировать следующие виды контента:</p>
-                                            <ul class="disc-list list-unstyled">
-                                                <li>новости - самый ходовой и рейтинговый вид контента</li>
-                                                <li>инфографика о работе компании</li>
-                                                <li>интервью с первыми лицами предприятий, начальниками отделов с консультациями по общим вопросам, например, от планирования развития компании, заканчивая особенностями оформления декретных отпусков</li>
-                                                <li>истории о жизни и работе других филиалов, это способствует формированию лояльности</li>
-                                                <li>история успеха компании</li>
-                                            </ul>
-                                            <p class="text-lead" >У нас есть большой опыт во внедрении корпоративного телевидения, поэтому мы сможем порекомендовать вам виды контента при внедрении корпоративного телевидения.</p>
+                                            <div class="card-accordion-typogrpahy-container col-md-8 col-xl-8 col-xxl-7 order-md-0">
+                                                <p class="text-lead" >В зависимости от ваших целей, вы можете транслировать следующие виды контента:</p>
+                                                <ul class="disc-list list-unstyled">
+                                                    <li>новости - самый ходовой и рейтинговый вид контента</li>
+                                                    <li>инфографика о работе компании</li>
+                                                    <li>интервью с первыми лицами предприятий, начальниками отделов с консультациями по общим вопросам, например, от планирования развития компании, заканчивая особенностями оформления декретных отпусков</li>
+                                                    <li>истории о жизни и работе других филиалов, это способствует формированию лояльности</li>
+                                                    <li>история успеха компании</li>
+                                                </ul>
+                                                <p class="text-lead" >У нас есть большой опыт во внедрении корпоративного телевидения, поэтому мы сможем порекомендовать вам виды контента при внедрении корпоративного телевидения.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -964,24 +978,26 @@
                                     </button>
                                 </div>
                         
-                                <div id="faq-collapse-4" class="card-accordion-content collapse" aria-labelledby="faq-heading-4" data-parent="#faq-accordion">
-                                    <div class="row">
-                                        <div class="card-accordion-media-container col-md-4 col-xl-4 col-xxl-5 order-md-1">
-                                            <div class="card-accordion-thumbnail">
-                                                <img loading="lazy" src="images/sections/section-faq/faq-media-tv.png"  width="474" height="362" alt="" class="card-accordion-media">
+                                <div id="faq-collapse-4" class="card-accordion-collapse collapse" aria-labelledby="faq-heading-4">
+                                    <div class="card-accordion-content">
+                                        <div class="row">
+                                            <div class="card-accordion-media-container col-md-4 col-xl-4 col-xxl-5 order-md-1">
+                                                <div class="card-accordion-thumbnail">
+                                                    <img loading="lazy" src="images/sections/section-faq/faq-media-tv.png"  width="474" height="362" alt="" class="card-accordion-media">
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="card-accordion-typogrpahy-container col-md-8 col-xl-8 col-xxl-7 order-md-0">
-                                            <p class="text-lead" >В зависимости от ваших целей, вы можете транслировать следующие виды контента:</p>
-                                            <ul class="disc-list list-unstyled">
-                                                <li>новости - самый ходовой и рейтинговый вид контента</li>
-                                                <li>инфографика о работе компании</li>
-                                                <li>интервью с первыми лицами предприятий, начальниками отделов с консультациями по общим вопросам, например, от планирования развития компании, заканчивая особенностями оформления декретных отпусков</li>
-                                                <li>истории о жизни и работе других филиалов, это способствует формированию лояльности</li>
-                                                <li>история успеха компании</li>
-                                            </ul>
-                                            <p class="text-lead" >У нас есть большой опыт во внедрении корпоративного телевидения, поэтому мы сможем порекомендовать вам виды контента при внедрении корпоративного телевидения.</p>
+                                            <div class="card-accordion-typogrpahy-container col-md-8 col-xl-8 col-xxl-7 order-md-0">
+                                                <p class="text-lead" >В зависимости от ваших целей, вы можете транслировать следующие виды контента:</p>
+                                                <ul class="disc-list list-unstyled">
+                                                    <li>новости - самый ходовой и рейтинговый вид контента</li>
+                                                    <li>инфографика о работе компании</li>
+                                                    <li>интервью с первыми лицами предприятий, начальниками отделов с консультациями по общим вопросам, например, от планирования развития компании, заканчивая особенностями оформления декретных отпусков</li>
+                                                    <li>истории о жизни и работе других филиалов, это способствует формированию лояльности</li>
+                                                    <li>история успеха компании</li>
+                                                </ul>
+                                                <p class="text-lead" >У нас есть большой опыт во внедрении корпоративного телевидения, поэтому мы сможем порекомендовать вам виды контента при внедрении корпоративного телевидения.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1296,7 +1312,7 @@
 
                         <div class="advantages-gallery-block">
                             <div class="gallery-block">
-                                <div class="gallery-controls-container d-flex align-items-center justify-content-sm-end">
+                                <div class="gallery-controls-container d-flex align-items-center justify-content-end">
                                     <div class="swiper-gallery-pagination-wrapper swiper-pagination-wrapper">
                                         <div class="swiper-gallery-pagination swiper-pagination swiper-pagination-fraction">
                                             <span class="swiper-gallery-pagination-current swiper-pagination-current"></span>
@@ -1555,7 +1571,7 @@
                                                 <img loading="lazy" src="uploads/services/service-item-1.jpg" alt="Организация и оснащение телестудий для записи и трансляции новостей и событий" class="card-service-media">
                                             </div>
 
-                                            <div class="card-service-title flex-grow-1">Организация и оснащение телестудий для записи и трансляции новостей и событий</div>
+                                            <div class="card-service-title">Организация и оснащение телестудий для записи и трансляции новостей и событий</div>
 
                                             <div class="card-service-include-block">
                                                 <div class="card-service-include-title">Какие задачи решает:</div>
@@ -1596,7 +1612,7 @@
                                                 <img loading="lazy" src="uploads/services/service-item-2.jpg" alt="Оснащение переговорных комнат и конференц-залов" class="card-service-media">
                                             </div>
 
-                                            <div class="card-service-title flex-grow-1">Оснащение переговорных комнат и конференц-залов</div>
+                                            <div class="card-service-title">Оснащение переговорных комнат и конференц-залов</div>
 
                                             <div class="card-service-include-block">
                                                 <div class="card-service-include-title">Какие задачи решает:</div>
@@ -1628,7 +1644,7 @@
                                                 <img loading="lazy" src="uploads/services/service-item-3.jpg" alt="Оборудование аппаратных" class="card-service-media">
                                             </div>
 
-                                            <div class="card-service-title flex-grow-1">Оборудование аппаратных</div>
+                                            <div class="card-service-title">Оборудование аппаратных</div>
 
                                             <div class="card-service-include-block">
                                                 <div class="card-service-include-title">Какие задачи решает:</div>
@@ -1663,7 +1679,7 @@
                                                 <img loading="lazy" src="uploads/services/service-item-2.jpg" alt="Оснащение переговорных комнат и конференц-залов" class="card-service-media">
                                             </div>
 
-                                            <div class="card-service-title flex-grow-1">Оснащение переговорных комнат и конференц-залов</div>
+                                            <div class="card-service-title">Оснащение переговорных комнат и конференц-залов</div>
 
                                             <div class="card-service-include-block">
                                                 <div class="card-service-include-title">Какие задачи решает:</div>

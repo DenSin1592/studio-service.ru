@@ -43,6 +43,31 @@
         @include media-breakpoint-up(xxl) {
             margin-bottom: 30px;
         }
+
+        .section-title {
+            position: relative;
+            z-index: 1;
+            
+
+            &::before {
+                @include media-breakpoint-up(lg) {
+                    position: absolute;
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+                    width: 104px;
+                    height: 95px;
+                    transform: translate(-50%, -35%);
+                    background: url('../images/logo-purple.png') no-repeat 0 0;
+                    background-size: contain;
+                    content: '';
+                }
+                @include media-breakpoint-up(xxl) {
+                    width: 138px;
+                    height: 127px;
+                }
+            }
+        }
     }
 }
 
@@ -61,6 +86,25 @@
 
 .about-presentation-block {
     .card-video {
+        &::before {
+            top: 5%;
+            left: 5%;
+            right: 5%;
+            bottom: 5%;
+            border-radius: 20%;
+            background: rgb(188,205,255);
+            background: -moz-linear-gradient(145deg, rgba(188,205,255,1) 0%, rgba(182,249,209,1) 50%, rgba(230,162,235,1) 100%);
+            background: -webkit-linear-gradient(145deg, rgba(188,205,255,1) 0%, rgba(182,249,209,1) 50%, rgba(230,162,235,1) 100%);
+            background: linear-gradient(145deg, rgba(188,205,255,1) 0%, rgba(182,249,209,1) 50%, rgba(230,162,235,1) 100%);
+            filter: blur(15px);
+            @include media-breakpoint-up(lg) {
+                filter: blur(30px);
+            }
+            @include media-breakpoint-up(xxl) {
+                filter: blur(40px);
+            }
+        }
+
         .card-video-figure {
             &::before,
             &::after {

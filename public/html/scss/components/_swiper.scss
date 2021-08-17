@@ -14,6 +14,12 @@
 .swiper-button-sm {
     width: 30px !important;
     height: 30px !important;
+
+    .swiper-button-prev-media,
+    .swiper-button-next-media {
+        width: 14px !important;
+        height: 14px !important;
+    }
 }
 
 .swiper-button-prev,
@@ -36,14 +42,22 @@
     }
 
     &:hover {
-        background: rgba($c-default-heading, 0.2);
-        color: $c-white;
+        @media (hover: hover) {
+            background: rgba($c-default-heading, 0.2);
+            color: $c-white;
+        }
     }
 
     .swiper-button-prev-media,
     .swiper-button-next-media {
+        width: 14px;
+        height: 14px;
         color: currentColor;
         fill: currentColor;
+        @include media-breakpoint-up(xl) {
+            width: 19px;
+            height: 19px;
+        }
     }
 }
 
@@ -53,8 +67,10 @@
     color: $c-default-heading;
 
     &:hover {
-        background-color: $c-white;
-        color: $c-default-heading;
+        @media (hover: hover) {
+            background-color: $c-white;
+            color: $c-default-heading;
+        }
     }
 }
 
@@ -92,8 +108,10 @@
         color: $c-default-heading;
 
         &:hover {
-            background-color: $c-white;
-            color: $c-default-heading;
+            @media (hover: hover) {
+                background-color: $c-white;
+                color: $c-default-heading;
+            }
         }
     }
 }

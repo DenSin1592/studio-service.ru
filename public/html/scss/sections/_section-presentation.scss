@@ -44,25 +44,25 @@
 }
 
 .swiper-presentation-nav-cover {
-    margin-bottom: 45px;
+    position: relative;
+    z-index: 9;
+    margin-bottom: 15px;
     @include media-breakpoint-up(sm) {
-        margin-bottom: 45px;
+        margin-bottom: 20px;
     }
     @include media-breakpoint-up(md) {
-        margin-bottom: 35px;
+        margin-bottom: 15px;
     }
     @include media-breakpoint-up(xl) {
-        margin-bottom: 30px;
+        margin-bottom: -115px;
     }
     @include media-breakpoint-up(xxl) {
-        margin-bottom: 75px;
+        margin-bottom: 25px;
     }
 }
 
 .swiper-presentation-nav {
-    margin: -15px #{-$grid-gutter-width/3};
-    padding-top: 15px;
-    padding-bottom: 15px;
+    margin: -25px #{-$grid-gutter-width/3};
     
     @include media-breakpoint-up(md) {
         margin-left: -$grid-gutter-width/6;
@@ -75,6 +75,8 @@
     
     > .swiper-wrapper {
         > .swiper-slide {
+            padding-top: 25px;
+            padding-bottom: 25px;
             padding-left: $grid-gutter-width/3;
             padding-right: $grid-gutter-width/3;
             @include media-breakpoint-up(md) {
@@ -175,14 +177,11 @@
             }
 
             &::before {
-                background: conic-gradient(
-                    from 90deg,
-                    #944547,
-                    #5b4a90,
-                    #506c90,
-                    #944547
-                );
-                filter: blur(5px);
+                background: rgb(98,83,156);
+                background: -moz-linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
+                background: -webkit-linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
+                background: linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
+                filter: blur(10px);
                 content: '';
             }
 
@@ -211,10 +210,11 @@
 }
 
 .swiper-presentation {
+    margin-top: -100px;
+    margin-bottom: -100px;
     color: $c-light;
     font-size: 15px;
     line-height: 20px;
-    
     @include media-breakpoint-up(lg) {
         font-size: 16px;
         line-height: 25px;
@@ -231,6 +231,10 @@
     > .swiper-wrapper {
         > .swiper-slide {
             overflow: hidden;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            -webkit-transform: translate3d(0, 0, 0);
+            -webkit-backface-visibility: hidden;
         }
     }
 
@@ -247,27 +251,32 @@
             padding-top: 30px;
             padding-bottom: 30px;
         }
+        @include media-breakpoint-up(xxl) {
+            padding-top: 125px;
+            padding-bottom: 125px;
+        }
     }
 
     .swiper-presentation-controls-container {
         position: absolute;
+        z-index: 9;
         left: 0;
-        bottom: 268px;
+        bottom: 370px;
         width: 100%;
         @include media-breakpoint-up(sm) {
-            bottom: 295px;
+            bottom: 395px;
         }
         @include media-breakpoint-up(md) {
-            bottom: 50px;
+            bottom: 150px;
         }
         @include media-breakpoint-up(lg) {
-            bottom: 55px;
+            bottom: 155px;
         }
         @include media-breakpoint-up(xl) {
-            bottom: 75px;
+            bottom: 175px;
         }
         @include media-breakpoint-up(xxl) {
-            bottom: 150px;
+            bottom: 250px;
         }
     }
 
@@ -352,6 +361,9 @@
         @include media-breakpoint-up(xl) {
             margin-bottom: 20px;
         }
+        @include media-breakpoint-up(xxl) {
+            margin-bottom: 25px;
+        }
     }
 
     .swiper-presentation-description {
@@ -397,20 +409,28 @@
         &::before {
             position: absolute;
             z-index: -1;
-            top: 0;
+            top: 10%;
             left: 0;
             right: 0;
-            bottom: 8%;
-            background: conic-gradient(
-                from 90deg,
-                #944547,
-                #5b4a90,
-                #506c90,
-                #944547
-            );
-            filter: blur(10px);
+            bottom: 20%;
+            background: rgb(148,69,71);
+            background: -moz-linear-gradient(90deg, rgba(148,69,71,1) 0%, rgba(76,49,194,1) 59%, rgba(75,197,202,1) 100%);
+            background: -webkit-linear-gradient(90deg, rgba(148,69,71,1) 0%, rgba(76,49,194,1) 59%, rgba(75,197,202,1) 100%);
+            background: linear-gradient(90deg, rgba(148,69,71,1) 0%, rgba(76,49,194,1) 59%, rgba(75,197,202,1) 100%);
             border-radius: 20px;
+            filter: blur(40px);
             content: '';
+            @include media-breakpoint-up(xl) {
+                top: 10%;
+                bottom: 20%;
+                filter: blur(60px);
+            }
+            @include media-breakpoint-up(xxl) {
+                top: 5%;
+                bottom: 10%;
+                border-radius: 35%;
+                filter: blur(60px);
+            }
         }
 
         .swiper-presentation-media {
@@ -435,13 +455,10 @@
         right: 0;
         bottom: 30%;
         border-radius: 50%;
-        background: conic-gradient(
-            from 90deg,
-            #944547,
-            #5b4a90,
-            #506c90,
-            #944547
-        );
+        background: rgb(91,74,144);
+        background: -moz-linear-gradient(90deg, rgba(91,74,144,1) 0%, rgba(80,108,144,1) 30%, rgba(148,69,71,1) 100%);
+        background: -webkit-linear-gradient(90deg, rgba(91,74,144,1) 0%, rgba(80,108,144,1) 30%, rgba(148,69,71,1) 100%);
+        background: linear-gradient(90deg, rgba(91,74,144,1) 0%, rgba(80,108,144,1) 30%, rgba(148,69,71,1) 100%);
         filter: blur(10px);
         content: '';
     }

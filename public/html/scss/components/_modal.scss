@@ -77,6 +77,12 @@
             border-color: $c-white;
         }
     }
+
+    .custom-file {
+        &-label {
+            color: currentColor;
+        }
+    }
 }
 
 .modal-backdrop {

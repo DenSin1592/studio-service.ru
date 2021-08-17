@@ -25,14 +25,6 @@
                         slidesPerView: 4,
                         slidesPerGroup: 4,
                         loop: slides.length > 4 ? true : false,
-                    },
-                    // when window width is >= 1680px
-                    1680: {
-                        loop: true,
-                        slidesPerView: 'auto',
-                        // slidesPerGroup: 1,
-                        loopedSlides: slides.length,
-                        // loop: slides.length > 2 ? true : false,
                     }
                 },
 
