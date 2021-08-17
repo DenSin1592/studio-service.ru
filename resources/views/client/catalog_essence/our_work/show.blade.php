@@ -7,7 +7,8 @@
 @section('content')
 
     <section class="section-project">
-        <section class="section-project-hero section-dark" style="background-image: url({{$model->getImgPath('header_block_background_image', 'main')}})">
+        <section class="section-project-hero section-dark"
+                 style="background-image: url({{$model->getImgPath('header_block_background_image', 'main')}})">
             <div class="container">
                 <div class="row">
                     <div class="col-xxl-10 offset-xxl-1">
@@ -62,24 +63,33 @@
 
                             @if($model->images->count() > 0)
                                 <div class="gallery-block">
-                                    <div class="gallery-controls-container d-flex align-items-center justify-content-sm-end">
+                                    <div
+                                        class="gallery-controls-container d-flex align-items-center justify-content-sm-end">
                                         <div class="swiper-gallery-pagination-wrapper swiper-pagination-wrapper">
-                                            <div class="swiper-gallery-pagination swiper-pagination swiper-pagination-fraction">
-                                                <span class="swiper-gallery-pagination-current swiper-pagination-current"></span>
-                                                <span class="swiper-gallery-pagination-total swiper-pagination-total"></span>
+                                            <div
+                                                class="swiper-gallery-pagination swiper-pagination swiper-pagination-fraction">
+                                                <span
+                                                    class="swiper-gallery-pagination-current swiper-pagination-current"></span>
+                                                <span
+                                                    class="swiper-gallery-pagination-total swiper-pagination-total"></span>
                                             </div>
                                         </div>
 
-                                        <div class="swiper-gallery-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
-                                            <button type="button" class="swiper-gallery-button-prev swiper-button-prev swiper-button-sm d-flex align-items-center justify-content-center" >
+                                        <div
+                                            class="swiper-gallery-navigation-wrapper swiper-navigation-wrapper d-flex align-items-center">
+                                            <button type="button"
+                                                    class="swiper-gallery-button-prev swiper-button-prev swiper-button-sm d-flex align-items-center justify-content-center">
                                                 <svg class="swiper-button-prev-media" width="14" height="14">
-                                                    <use xlink:href="{{asset('/images/icons/sprite.svg#icon-angle-left')}}"></use>
+                                                    <use
+                                                        xlink:href="{{asset('/images/icons/sprite.svg#icon-angle-left')}}"></use>
                                                 </svg>
                                             </button>
 
-                                            <button type="button" class="swiper-gallery-button-next swiper-button-next swiper-button-sm d-flex align-items-center justify-content-center" >
+                                            <button type="button"
+                                                    class="swiper-gallery-button-next swiper-button-next swiper-button-sm d-flex align-items-center justify-content-center">
                                                 <svg class="swiper-button-next-media" width="14" height="14">
-                                                    <use xlink:href="{{asset('/images/icons/sprite.svg#icon-angle-right')}}"></use>
+                                                    <use
+                                                        xlink:href="{{asset('/images/icons/sprite.svg#icon-angle-right')}}"></use>
                                                 </svg>
                                             </button>
                                         </div>
@@ -91,14 +101,18 @@
 
                                                 @foreach($model->images as $element)
                                                     <div class="swiper-slide">
-                                                    <div class="gallery-header-container d-flex flex-column justify-content-center">
-                                                        <div class="gallery-description">{{$element->name}}</div>
-                                                    </div>
+                                                        <div
+                                                            class="gallery-header-container d-flex flex-column justify-content-center">
+                                                            <div class="gallery-description">{{$element->name}}</div>
+                                                        </div>
 
-                                                    <div class="gallery-thumbnail">
-                                                        <img src="{{$element->getImgPath('image', 'main', 'no-image-800x800.png')}}" width="1403" height="931" alt="{{$element->name}}" class="gallery-media">
+                                                        <div class="gallery-thumbnail">
+                                                            <img
+                                                                src="{{$element->getImgPath('image', 'main', 'no-image-800x800.png')}}"
+                                                                width="1403" height="931" alt="{{$element->name}}"
+                                                                class="gallery-media">
+                                                        </div>
                                                     </div>
-                                                </div>
                                                 @endforeach
 
                                             </div>
@@ -187,6 +201,8 @@
 
     @include('client.shared._section_social')
 
-    @include('client.shared._section_projects', ['h1' => 'Другие проекты'])
+    @if($projects->count() > 0)
+        @include('client.shared._section_projects', ['h1' => 'Другие проекты'])
+    @endif
 
 @stop

@@ -10,19 +10,32 @@
 
     @include('client.home_page._section_about')
 
-    @include('client.home_page._section_target_audiences')
+    @if($targetAudiences->count() > 0)
+        @include('client.home_page._section_target_audiences')
+    @endif
 
-    @include('client.home_page._section_services')
+    @if($services->count() > 0)
+        @include('client.home_page._section_services')
+    @endif
 
-    @include('client.home_page._section_competencies')
+    @if($competencies->count() > 0)
+        @include('client.home_page._section_competencies')
+    @endif
 
-    @include('client.home_page._section_advantages')
+    @if(!empty($page->block_advantages))
+        @include('client.home_page._section_advantages')
+    @endif
 
     @include('client.shared._section_social')
 
-    @include('client.home_page._section_reviews')
+    @if($reviews->count() > 0)
+        @include('client.home_page._section_reviews')
+    @endif
 
-    @include('client.shared._section_projects', ['h1' => 'Проекты'])
+    @if($projects->count() > 0)
+        @include('client.shared._section_projects', ['h1' => 'Проекты'])
+    @endif
+
 @stop
 
 @section('modal')

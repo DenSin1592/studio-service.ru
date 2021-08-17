@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client\PageControllers;
 
 use App\Http\Controllers\Client\BasePagesController;
+use App\Http\Controllers\Client\EssenceControllers\BeforeAfterImageController;
 use App\Http\Controllers\Client\EssenceControllers\CompetenceController;
 use App\Http\Controllers\Client\EssenceControllers\OurWorkController;
 use App\Http\Controllers\Client\EssenceControllers\ReviewController;
@@ -19,6 +20,7 @@ final class HomePageController extends BasePagesController
     {
         return parent::show()
             ->with('targetAudiences', resolve(TargetAudienceController::class)->getModelsForHomePage())
+            ->with('beforeAfterImages', resolve(BeforeAfterImageController::class)->getModelsForHomePage())
             ->with('services', resolve(ServiceController::class)->getModelsForHomePage())
             ->with('competencies', resolve(CompetenceController::class)->getModelsForHomePage())
             ->with('reviews', resolve(ReviewController::class)->getModelsForHomePage())
