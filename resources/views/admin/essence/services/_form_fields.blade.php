@@ -103,6 +103,11 @@
     <legend>Управление блоком преимуществ</legend>
     {!! Form::tbTinymceTextareaBlock('section_advantages_content') !!}
     {!! Form::tbCheckboxBlock('section_advantages_publish') !!}
+    <hr>
+    @include('admin.shared._relations._many_to_many._block', array_merge(
+    \App\Http\Controllers\Admin\Relations\Services\BeforeAfterImagesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
+    ['models' => $formData[\App\Http\Controllers\Admin\Relations\Services\BeforeAfterImagesController::RELATIONS_NAME]
+    ]))
 </fieldset>
 <hr>
 

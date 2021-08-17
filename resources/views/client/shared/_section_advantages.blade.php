@@ -21,14 +21,14 @@
                                         <button type="button"
                                                 class="swiper-gallery-button-prev swiper-button-prev swiper-button-sm d-flex align-items-center justify-content-center">
                                             <svg class="swiper-button-prev-media" width="14" height="14">
-                                                <use xlink:href="images/icons/sprite.svg#icon-angle-left"></use>
+                                                <use xlink:href="{{asset('images/icons/sprite.svg#icon-angle-left')}}"></use>
                                             </svg>
                                         </button>
 
                                         <button type="button"
                                                 class="swiper-gallery-button-next swiper-button-next swiper-button-sm d-flex align-items-center justify-content-center">
                                             <svg class="swiper-button-next-media" width="14" height="14">
-                                                <use xlink:href="images/icons/sprite.svg#icon-angle-right"></use>
+                                                <use xlink:href="{{asset('images/icons/sprite.svg#icon-angle-right')}}"></use>
                                             </svg>
                                         </button>
                                     </div>

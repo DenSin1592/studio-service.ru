@@ -18,6 +18,7 @@ use App\Services\DataProviders\ReviewForm\ReviewForm;
 use App\Services\DataProviders\ReviewForm\ReviewSubForm\Images;
 use App\Services\DataProviders\ReviewForm\ReviewSubForm\Services;
 use App\Services\DataProviders\ServiceForm\ServiceForm;
+use App\Services\DataProviders\ServiceForm\ServiceSubForm\BeforeAfterImages;
 use App\Services\DataProviders\ServiceForm\ServiceSubForm\Competencies;
 use App\Services\DataProviders\ServiceForm\ServiceSubForm\FaqQuestions;
 use App\Services\DataProviders\ServiceForm\ServiceSubForm\Tabs;
@@ -109,6 +110,7 @@ DataProvidersServiceProvider extends ServiceProvider
                 $form->addSubForm(\App(Tasks::class));
                 $form->addSubForm(\App(Tabs::class));
                 $form->addSubForm(\App(FaqQuestions::class));
+                $form->addSubForm(\App(BeforeAfterImages::class));
                 $form->addSubForm(\App(\App\Services\DataProviders\ServiceForm\ServiceSubForm\ContentBlocks::class));
                 return $form;
             });

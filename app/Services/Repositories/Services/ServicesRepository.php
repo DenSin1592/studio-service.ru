@@ -60,6 +60,10 @@ class ServicesRepository extends BaseFeatureRepository
             $model->load(['faqQuestions' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
         }
 
+        if($model->section_advantages_publish){
+            $model->load(['beforeAfterImages' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
+        }
+
 
         return $model;
     }

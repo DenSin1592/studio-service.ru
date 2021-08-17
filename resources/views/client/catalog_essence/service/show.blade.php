@@ -138,7 +138,7 @@
     @endif
 
     @if(!empty($model->section_advantages_publish))
-        @include('client.shared._section_advantages', ['block_advantages' => $model->section_advantages_content, 'elements' => new \Illuminate\Database\Eloquent\Collection()])
+        @include('client.shared._section_advantages', ['block_advantages' => $model->section_advantages_content, 'elements' => $model->beforeAfterImages])
     @endif
 
     <section class="section-categories section-dark"></section>

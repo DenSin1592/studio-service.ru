@@ -31,10 +31,10 @@ class BeforeAfterImage extends Model
     ];
 
 
-    /*public function services()
+    public function services()
     {
         return $this->belongsToMany(Service::class)->withPivot('position');
-    }*/
+    }
 
 
     protected static function boot(): void
@@ -61,10 +61,10 @@ class BeforeAfterImage extends Model
             )
         );
 
-        /*static::deleting(function (self $model) {
+        static::deleting(function (self $model) {
             \DB::transaction(function () use ($model) {
                 $model->services()->detach();
             });
-        });*/
+        });
     }
 }

@@ -104,6 +104,11 @@ class Service extends Model
         return $this->hasMany(ServiceFaqQuestion::class);
     }
 
+    public function beforeAfterImages()
+    {
+        return $this->belongsToMany(BeforeAfterImage::class)->withPivot('position');
+    }
+
     public function getUrlAttribute(): string
     {
         return route(\App\Http\Controllers\Client\EssenceControllers\ServiceController::ROUTE_SHOW_ON_SITE, $this->alias);
@@ -156,6 +161,7 @@ class Service extends Model
                 $model->competencies()->detach();
                 $model->reviews()->detach();
                 $model->ourWorks()->detach();
+                $model->beforeAfterImages()->detach();
                 DeleteHelpers::deleteRelatedAll($model->tasks());
                 DeleteHelpers::deleteRelatedAll($model->contentBlocks());
                 DeleteHelpers::deleteRelatedAll($model->tabs());
