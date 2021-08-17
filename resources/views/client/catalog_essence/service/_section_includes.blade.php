@@ -19,14 +19,15 @@
 
                 <div class="includes-nav-hint text-center">{{$model->section_tabs_description}}</div>
 
-
                 <div class="includes-tab-content tab-content">
+
                     @foreach($model->tabs as $element)
                         <div class="tab-pane fade @if($loop->first) active show @endif" id="include-{{$element->id}}"
                              role="tabpanel" aria-labelledby="include-tab{{$element->id}}">
                             {!! $element->content !!}
                         </div>
                     @endforeach
+
                 </div>
             </div>
         </div>

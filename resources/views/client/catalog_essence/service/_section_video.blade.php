@@ -11,7 +11,7 @@
                         <div class="form-row align-items-center">
                             <div class="card-video-icon-container col-auto">
                                 <div class="card-video-icon d-flex align-items-center justify-content-center">
-                                    <img loading="lazy" src="images/icons/general/png/icon-play.png" width="27" height="41" alt="" class="card-video-icon-media">
+                                    <img loading="lazy" src="{{asset('/images/icons/general/png/icon-play.png')}}" width="27" height="41" alt="" class="card-video-icon-media">
                                 </div>
                             </div>
 
