@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Models\TargetAudience;
 use App\Services\Breadcrumbs\Factory as Breadcrumbs;
 use App\Services\Repositories\BaseRepository;
 use App\Services\Seo\MetaHelper;
@@ -29,6 +30,9 @@ abstract class BaseEssenceController
     public function show(string $url)
     {
         $model = $this->repository->getModelforShowByAliasOrFail($url);
+
+        if($model instanceof TargetAudience && $model->parent_id === null)
+            \Abort(404);
 
         $metaData = $this->metaHelper->getRule()->metaForObject($model);
 

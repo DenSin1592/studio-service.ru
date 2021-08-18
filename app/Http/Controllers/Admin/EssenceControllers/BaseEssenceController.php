@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\EssenceControllers;
 use App\Http\Controllers\Admin\Features\ToggleFlags;
 use App\Http\Controllers\Admin\Features\UpdatePositions;
 use App\Http\Controllers\Controller;
+use App\Models\TargetAudience;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
 use App\Services\DataProviders\BaseDataProvider;
 use App\Services\FormProcessors\BaseFormProcessor;
@@ -82,6 +83,9 @@ abstract class BaseEssenceController extends Controller
     public function edit($id)
     {
         $model = $this->repository->findByIdOrFail($id);
+        if($model instanceof TargetAudience && $model->parent_id === null){
+            $this->urlShowONSite = null;
+        }
 
         $formData = $this->formDataProvider->provideData($model, old());
         $breadcrumbs = $this->breadcrumbs->getFor(static::BREADCRUMBS_EDIT, $model);
