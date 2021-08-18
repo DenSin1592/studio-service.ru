@@ -17,6 +17,7 @@ class ServiceTask extends Model
         'title',
         'publish',
         'text',
+        'description',
         'position',
         'icon_file',
         'icon_remove',

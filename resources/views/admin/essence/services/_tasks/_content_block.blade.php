@@ -63,14 +63,17 @@
     </div>
 
     <div class="full-info">
-        {{ Form::tbLabel("{$relation}[{$key}][title]", trans('validation.attributes.title')) }}
+        {{ Form::tbLabel("{$relation}[{$key}][title]", 'Задача') }}
         {{ Form::tbText("{$relation}[{$key}][title]", $element->title) }}
     </div>
 
     <div class="full-info">
         <div class="form-group">
-            {{ Form::tbLabel("{$relation}[{$key}][text]", trans('validation.attributes.text')) }}
+            {{ Form::tbLabel("{$relation}[{$key}][text]", 'Решение') }}
             {{ Form::tbTextarea("{$relation}[{$key}][text]", $element->text, ['rows' => 3]) }}
+
+            {{ Form::tbLabel("{$relation}[{$key}][description]", 'Описание') }}
+            {{ Form::tbTextarea("{$relation}[{$key}][description]", $element->description, ['rows' => 3]) }}
         </div>
     </div>
 

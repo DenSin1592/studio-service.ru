@@ -19,7 +19,7 @@
                 @foreach($model->tasks as $elem)
                     <li class="card-service-include-item d-flex align-items-center justify-content-center"
                         data-toggle="tooltip" data-placement="bottom"
-                        title="{{$elem->title}}">
+                        title="{{$elem->text}}">
                         <img loading="lazy"
                              src="{{$elem->getImgPath('icon', null, 'no-image-40x40.png')}}" alt=""
                              width="35" height="29" class="card-service-include-media">

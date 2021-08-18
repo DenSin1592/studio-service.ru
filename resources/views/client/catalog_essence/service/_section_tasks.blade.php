@@ -55,8 +55,8 @@
                                         </div>
 
                                         <div class="swiper-presentation-content-cotainer col-10 col-sm-8 col-md-9 col-xl-8">
-                                            <div class="swiper-presentation-title title-h3">{{$element->title}}</div>
-                                            <div class="swiper-presentation-description">{{$element->text}}</div>
+                                            <div class="swiper-presentation-title title-h3">{{$element->text}}</div>
+                                            <div class="swiper-presentation-description">{{$element->description}}</div>
                                         </div>
                                     </div>
                                 </div>
