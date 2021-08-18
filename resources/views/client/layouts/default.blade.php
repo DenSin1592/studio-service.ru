@@ -7,7 +7,6 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <meta name="theme-color" content="#634ead">
-        <link type="image/x-icon" rel="shortcut icon" href="{{asset('/favicon.ico')}}">
         <link rel="icon" href="{{asset('/favicon.svg')}}">
         <link rel="mask-icon" href="{{asset('/mask-icon.svg')}}" color="#ffffff">
         <link rel="apple-touch-icon" href="{{asset('/apple-touch-icon.png')}}">
