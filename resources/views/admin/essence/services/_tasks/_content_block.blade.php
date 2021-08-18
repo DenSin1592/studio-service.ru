@@ -24,7 +24,7 @@
     <div class="full-info">
         {!! Form::tbFormGroupOpen("{$relation}.{$key}.image_file") !!}
             {{ Form::tbLabel("{$relation}[{$key}][image]", trans('validation.attributes.image_file')) }}
-        <div class="field-hint-block">Рекомендуемый размер изображения - 652х430</div>
+        <div class="field-hint-block">Рекомендуемый размер изображения - 1012х667</div>
             @if ($element->getAttachment('image')->exists())
                 <div class="loaded-image">
                     <a href="{{{ $element->getAttachment('image')->getRelativePath() }}}" target="_blank" rel="prettyPhoto">
