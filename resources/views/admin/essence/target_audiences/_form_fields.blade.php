@@ -16,7 +16,7 @@
     <legend>Блок управления изображениями</legend>
     @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'background_image', 'description' => 'Размер изображения - 654х1363. Отображается в каталоге "ЦА" только для родительских ЦА.'])
     <hr>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'icon', 'description' => 'Размер изображения - 50х50'])
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'icon', 'description' => 'Размер изображения - 50х50. Формат - svg' , 'format' => 'svg'])
 </fieldset>
 <hr>
 @include('admin.shared._form_meta_fields')

@@ -66,7 +66,7 @@
                                                         data-toggle="tooltip" data-placement="bottom"
                                                         title="{{$elem->title}}">
                                                         <img loading="lazy"
-                                                             src="{{$elem->getImgPath('icon', 'main', 'no-image-40x40.png')}}" alt=""
+                                                             src="{{$elem->getImgPath('icon', null, 'no-image-40x40.png')}}" alt=""
                                                              width="35" height="29" class="card-service-include-media">
                                                     </li>
                                                 @endforeach

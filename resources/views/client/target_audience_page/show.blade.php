@@ -78,7 +78,7 @@
                                                                 <div class="card-category-media-container col-auto">
                                                                     <div class="card-category-thumbnail">
                                                                         <img loading="lazy"
-                                                                             src="{{$subModel->getImgPath('icon', 'main', 'no-image-40x40.png') }}"
+                                                                             src="{{$subModel->getImgPath('icon', null, 'no-image-40x40.png') }}"
                                                                              width="49" height="42"
                                                                              alt="{{$subModel->name}}"
                                                                              class="card-category-media">
@@ -151,7 +151,7 @@
                                                                     <div class="card-category-media-container col-auto">
                                                                         <div class="card-category-thumbnail">
                                                                             <img loading="lazy"
-                                                                                 src="{{$subModel->getImgPath('icon', 'main', 'no-image-40x40.png') }}"
+                                                                                 src="{{$subModel->getImgPath('icon', null, 'no-image-40x40.png') }}"
                                                                                  width="49" height="42"
                                                                                  alt="{{$subModel->name}}"
                                                                                  class="card-category-media">

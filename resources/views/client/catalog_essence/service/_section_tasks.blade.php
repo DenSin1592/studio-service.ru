@@ -21,7 +21,7 @@
                                 <div class="form-row">
                                     <div class="swiper-presentation-nav-media-container col-12 col-xxl-auto position-static">
                                         <div class="swiper-presentation-nav-thumbnail d-flex align-items-center justify-content-center">
-                                            <img loading="lazy" src="{{$element->getImgPath('icon', 'main', 'no-image-40x40.png')}}" width="47" height="37" alt="" class="swiper-presentation-nav-media">
+                                            <img loading="lazy" src="{{$element->getImgPath('icon', null, 'no-image-40x40.png')}}" width="47" height="37" alt="" class="swiper-presentation-nav-media">
                                         </div>
                                     </div>
 

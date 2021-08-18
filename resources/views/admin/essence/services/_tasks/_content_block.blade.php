@@ -13,7 +13,7 @@
         <div class="loaded-image image-thumb-wrapper">
             @if ($element->getAttachment('icon')->exists())
                 <a href="{{{ $element->getAttachment('icon')->getRelativePath() }}}" target="_blank" rel="prettyPhoto" data-fancybox="">
-                    <img src="{{{ $element->getAttachment('icon')->getRelativePath('thumb') }}}" alt="" />
+                    <img src="{{{ $element->getAttachment('icon')->getRelativePath() }}}" alt=""  width="50" height="50"/>
                 </a>
             @else
                 <img src="/images/common/no-image/no-image-100x100.png" alt="" />
@@ -43,10 +43,11 @@
 
         {!!   Form::tbFormGroupOpen("{$relation}.{$key}.icon_file") !!}
             {{ Form::tbLabel("{$relation}[{$key}][icon]", trans('validation.attributes.icon_file')) }}
+                <div class="field-hint-block">Необходимы изображения в формате svg</div>
             @if ($element->getAttachment('icon')->exists())
                 <div class="loaded-image">
                     <a href="{{{ $element->getAttachment('icon')->getRelativePath() }}}" target="_blank" rel="prettyPhoto" data-fancybox="">
-                        <img src="{{{ $element->getAttachment('icon')->getRelativePath('thumb') }}}" alt="" />
+                        <img src="{{{ $element->getAttachment('icon')->getRelativePath() }}}" alt="" width="50" height="50"/>
                     </a>
                     <label>
                         {{ Form::checkbox("{$relation}[{$key}][icon_remove]", 1) }}

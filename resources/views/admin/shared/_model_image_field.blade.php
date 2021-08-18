@@ -10,7 +10,11 @@
 @if (!is_null($model->$field))
     <div class="loaded-image">
         <a href="{{{ $model->getAttachment($field)->getRelativePath() }}}" target="_blank" data-fancybox="">
-            <img src="{{{ $model->getAttachment($field)->getRelativePath('thumb') }}}"/>
+            @if(isset($format) && $format==='svg')
+                <img src="{{{ $model->getAttachment($field)->getRelativePath() }}}" alt=""  width="50" height="50"/>
+            @else
+                <img src="{{{ $model->getAttachment($field)->getRelativePath('thumb') }}}" alt=""/>
+            @endif
         </a>
         <label>
             {!! Form::checkbox("{$field}_remove", 1) !!}
