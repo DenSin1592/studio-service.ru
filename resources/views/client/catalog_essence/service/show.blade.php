@@ -37,7 +37,7 @@
                                     <div class="col-auto">
                                         <ul class="service-social-list social-list list-unstyled d-flex flex-wrap">
                                             <li class="social-item">
-                                                <a href="https://t.me/+79160640600" class="social-link d-flex align-items-center justify-content-center">
+                                                <a href="https://t.me/{!! Setting::get("site_content.telegram_phone") !!}" class="social-link d-flex align-items-center justify-content-center">
                                                     <svg class="social-media" width="22" height="22">
                                                         <use xlink:href="{{asset('/images/icons/sprite.svg#icon-telegram')}}"></use>
                                                     </svg>
@@ -45,7 +45,7 @@
                                             </li>
 
                                             <li class="social-item">
-                                                <a href="https://wa.me/+79160640600" class="social-link d-flex align-items-center justify-content-center">
+                                                <a href="https://wa.me/{!! Setting::get("site_content.wa_phone") !!}" class="social-link d-flex align-items-center justify-content-center">
                                                     <svg class="social-media" width="31" height="31">
                                                         <use xlink:href="{{asset('/images/icons/sprite.svg#icon-whatsapp')}}"></use>
                                                     </svg>

@@ -41,6 +41,36 @@ class SettingsServiceProvider extends ServiceProvider
                     )
                 );
 
+                $general->addSettingValue(
+                    new SettingValue(
+                        'site_content.phone',
+                        'Номер телефона',
+                        '+7(495) 933-3439',
+                        '',
+                        SettingValue::TYPE_TEXT
+                    )
+                );
+
+                $general->addSettingValue(
+                    new SettingValue(
+                        'site_content.wa_phone',
+                        'Номер WhatsApp',
+                        '+79160640600',
+                        '',
+                        SettingValue::TYPE_TEXT
+                    )
+                );
+
+                $general->addSettingValue(
+                    new SettingValue(
+                        'site_content.telegram_phone',
+                        'Номер Telegram',
+                        '+79160640600',
+                        '',
+                        SettingValue::TYPE_TEXT
+                    )
+                );
+
                 $notifications = new SettingGroup('Уведомления');
                 $settingContainer->addSettingGroup($notifications);
 
@@ -107,19 +137,6 @@ class SettingsServiceProvider extends ServiceProvider
                     )
                 );*/
 
-
-                $siteContent = new SettingGroup('Содержимое сайта');
-                $settingContainer->addSettingGroup($siteContent);
-
-                $siteContent->addSettingValue(
-                    new SettingValue(
-                        'site_content.phone',
-                        'Номер телефона',
-                        '+7(495) 933-3439',
-                        '',
-                        SettingValue::TYPE_TEXT
-                    )
-                );
 
                 $admin = new SettingGroup('Система администрирования');
                 $settingContainer->addSettingGroup($admin);

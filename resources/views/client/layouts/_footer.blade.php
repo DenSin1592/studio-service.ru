@@ -48,14 +48,14 @@
                         <div class="footer-social-block">
                             <ul class="footer-social-list list-unstyled d-flex flex-wrap justify-content-end justify-content-md-start">
                                 <li class="footer-social-item">
-                                    <a href="https://wa.me/+79160640600" class="footer-social-link" target="_blank">
+                                    <a href="https://t.me/{!! Setting::get("site_content.telegram_phone") !!}" class="footer-social-link" target="_blank">
                                         <img src="{{asset('images/icons/social/icon-social-telegram.svg')}}" width="40" height="40"
                                              alt="Telegram" class="footer-social-media">
                                     </a>
                                 </li>
 
                                 <li class="footer-social-item">
-                                    <a href="https://wa.me/+79160640600" class="footer-social-link" target="_blank">
+                                    <a href="https://wa.me/{!! Setting::get("site_content.wa_phone") !!}" class="footer-social-link" target="_blank">
                                         <img src="{{asset('images/icons/social/icon-social-whatsapp.svg')}}" width="40" height="40"
                                              alt="Whatsapp" class="footer-social-media">
                                     </a>

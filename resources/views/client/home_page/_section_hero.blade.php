@@ -28,7 +28,7 @@
                                 <div class="col-auto">
                                     <ul class="hero-social-list list-unstyled d-flex flex-wrap">
                                         <li class="hero-social-item">
-                                            <a href="https://t.me/+79160640600"
+                                            <a href="https://t.me/{!! Setting::get("site_content.telegram_phone") !!}"
                                                class="hero-social-link d-flex align-items-center justify-content-center"
                                                target="_blank">
                                                 <svg class="hero-social-media" width="22" height="22">
@@ -38,7 +38,7 @@
                                         </li>
 
                                         <li class="hero-social-item">
-                                            <a href="https://wa.me/+79160640600"
+                                            <a href="https://wa.me/{!! Setting::get("site_content.wa_phone") !!}"
                                                class="hero-social-link d-flex align-items-center justify-content-center"
                                                target="_blank">
                                                 <svg class="hero-social-media" width="31" height="31">
