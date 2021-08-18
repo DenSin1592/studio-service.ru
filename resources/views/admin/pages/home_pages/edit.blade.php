@@ -13,15 +13,15 @@
 
     @include('admin.shared._form_meta_fields')
 
-    {!! Form::tbTinymceTextareaBlock('description_after_header', trans('validation.attributes.description_after_header')) !!}
+    {!! Form::tbTextareaBlock('description_after_header', trans('validation.attributes.description_after_header')) !!}
 
     {!! Form::tbTextBlock('youtube_link_about', null, null, ['hint' => 'Ссылка вида "поделиться"(например: https://youtu.be/K73-hmaHPHY)']) !!}
 
     {!! Form::tbTextBlock('link_about') !!}
 
-    {!! Form::tbTinymceTextareaBlock('short_about', trans('validation.attributes.short_about')) !!}
+    {!! Form::tbTextareaBlock('short_about', trans('validation.attributes.short_about')) !!}
 
-    {!! Form::tbTinymceTextareaBlock('block_advantages', trans('validation.attributes.block_advantages')) !!}
+    {!! Form::tbTinymceTextareaBlock('block_advantages', trans('validation.attributes.block_advantages'), null, ['hint' => 'Изображения "До/После" находятся в разделе справочники']) !!}
 
     @include('admin.shared._model_timestamps', ['model' => $page])
 

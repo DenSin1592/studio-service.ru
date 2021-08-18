@@ -273,7 +273,7 @@ return [
         'title' => "Название",
         'text' => "Текст",
 
-        'block_advantages' => "Блок \"Наши примущества\"  (Слайды)",
+        'block_advantages' => "Блок \"Наши примущества\"",
         'youtube_link' => "Ссылка Youtube",
         'youtube_link_about' => "Ссылка Youtube - \"Видео о нас\"",
         'short_about' => "Текст \"Коротко о нас\"",
