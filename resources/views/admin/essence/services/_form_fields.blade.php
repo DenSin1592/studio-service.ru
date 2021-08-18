@@ -5,7 +5,7 @@
 <hr>
 
 
-@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image', 'description' => 'Размер изображения - 380х293'])
+@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image', 'description' => 'Рекомендуемый размер изображения - 380х293'])
 <hr>
 
 
@@ -17,9 +17,9 @@
     {!! Form::tbText('header') !!}
     {!! Form::tbFormGroupClose() !!}
     <hr>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'header_block_background_image','description' => 'Размер изображения - 1920х900'])
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'header_block_background_image','description' => 'Рекомендуемый размер изображения - 1920х900'])
     <hr>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'image_right_from_header','description' => 'Размер изображения - 664х558'])
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'image_right_from_header','description' => 'Рекомендуемый размер изображения - 664х558'])
     <hr>
     {!! Form::tbTinymceTextareaBlock('achievements_block') !!}
 </fieldset>
@@ -53,7 +53,7 @@
     {!! Form::tbTextBlock('section_video_link_youtube') !!}
     {!! Form::tbCheckboxBlock('section_video_publish') !!}
     <hr>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'section_video_image','description' => 'Размер изображения - 949х394'])
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'section_video_image','description' => 'Рекомендуемый размер изображения - 949х394'])
 
 </fieldset>
 <hr>

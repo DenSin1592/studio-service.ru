@@ -4,7 +4,7 @@
 {!! Form::tbCheckboxBlock('on_home_page') !!}
 
 <hr>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image', 'description' => 'Размер изображения - 334х424'])
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image', 'description' => 'Рекомендуемый размер изображения - 334х424'])
 {!! Form::tbCheckboxBlock('black_header_preview') !!}
 <hr>
 

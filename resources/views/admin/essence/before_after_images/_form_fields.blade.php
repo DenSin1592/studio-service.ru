@@ -5,11 +5,11 @@
 
 <hr>
 
-@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'image_before', 'description' => 'Размер изображения - 1145х435'])
+@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'image_before', 'description' => 'Рекомендуемый размер изображения - 1145х435'])
 
 <hr>
 
-@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'image_after', 'description' => 'Размер изображения - 1145х435'])
+@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'image_after', 'description' => 'Рекомендуемый размер изображения - 1145х435'])
 
 <hr>
 
