@@ -158,8 +158,17 @@
 </fieldset>
 <hr>
 
+<fieldset class="bordered-group">
+    <legend>Управление блоком компетенций</legend>
+    {!! Form::tbCheckboxBlock('section_reviews_publish') !!}
+    <hr>
+    @include('admin.shared._relations._many_to_many._block', array_merge(
+    \App\Http\Controllers\Admin\Relations\Services\ReviewsController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
+    ['models' => $formData[\App\Http\Controllers\Admin\Relations\Services\ReviewsController::RELATIONS_NAME]
+    ]))
+</fieldset>
+<hr>
 
-{!! Form::tbCheckboxBlock('section_reviews_publish') !!}
 {!! Form::tbCheckboxBlock('section_projects_publish') !!}
 
 

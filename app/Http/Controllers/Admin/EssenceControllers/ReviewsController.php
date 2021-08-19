@@ -11,7 +11,7 @@ final class ReviewsController extends BaseEssenceController
     public const  ROUTE_INDEX = 'cc.reviews.index';
     protected const  ROUTE_CREATE = 'cc.reviews.create';
     protected const  ROUTE_STORE = 'cc.reviews.store';
-    protected const  ROUTE_EDIT = 'cc.reviews.edit';
+    public const  ROUTE_EDIT = 'cc.reviews.edit';
     protected const  ROUTE_UPDATE = 'cc.reviews.update';
     protected const  ROUTE_DESTROY = 'cc.reviews.destroy';
     protected const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.reviews.toggle-attribute';
