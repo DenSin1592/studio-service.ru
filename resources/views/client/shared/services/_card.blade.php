@@ -1,4 +1,3 @@
-<div class="card-service-overlay"></div>
 <a href="{{$model->url}}" class="card-service d-flex flex-column">
     <div class="card-service-thumbnail">
         <img loading="lazy"
@@ -31,7 +30,7 @@
 
     <div class="card-service-cta d-flex align-items-center justify-content-center">
         <svg class="card-service-cta-media" width="19" height="19">
-            <use xlink:href="{{asset('images/icons/sprite.svg#icon-arrow-right')}}"></use>
+            <use xlink:href="{{asset('images/icons/sprite.svg#icon-arrow-to-right')}}"></use>
         </svg>
     </div>
 </a>

@@ -44,10 +44,11 @@
 
                             <div class="section-header-switch-container col-auto">
                                 <button type="button" class="section-header-cta btn btn-primary" data-toggle="modal"
-                                        data-target="#modalTarget"><img loading="lazy"
-                                                                        src="{{asset('images/icons/general/png/icon-bars.png')}}"
-                                                                        class="btn-icon" width="21" height="15"
-                                                                        alt=""><span class="d-none d-sm-inline">Смотреть списком</span>
+                                        data-target="#modalTarget">
+                                        <svg class="btn-icon" width="22" height="22" >
+                                            <use xlink:href="{{asset('images/icons/sprite.svg#icon-bars')}}"></use>
+                                        </svg>
+                                        <span class="d-none d-sm-inline">Смотреть списком</span>
                                 </button>
                             </div>
                         </div>

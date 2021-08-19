@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="display-media-container col-3 col-sm-2 col-xl-1">
                         <div class="display-thumnbail">
-                            <img src="{{asset('images/icons/general/png/icon-services.png')}}" alt="" width="104"
+                            <img src="{{asset('images/icons/general/svg/icon-services.svg')}}" alt="" width="104"
                                  height="104" class="display-media">
                         </div>
                     </div>

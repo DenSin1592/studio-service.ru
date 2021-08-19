@@ -44,7 +44,7 @@
                                             <div class="gallery-description">{!! $element->description !!}</div>
                                         </div>
 
-                                        <div class="twentytwenty-container">
+                                        <div class="twentytwenty-cover">
                                             <div class="twentytwenty-block">
                                                 <img src="{{$element->getImgPath('image_before', 'main')}}" class="twentytwenty-media" alt="">
                                                 <img src="{{$element->getImgPath('image_after', 'main')}}" class="twentytwenty-media" alt="">

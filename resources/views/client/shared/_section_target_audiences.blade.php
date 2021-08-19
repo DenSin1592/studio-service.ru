@@ -40,7 +40,7 @@
                                     <a href="{{ $element->url}}" class="card-category text-center text-xxl-left">
                                         <div
                                             class="row align-items-center justify-content-center flex-xxl-nowrap">
-                                            <div class="card-category-media-container col-12 col-xxl flex-grow-0">
+                                            <div class="card-category-media-container col-12 col-xxl-auto">
                                                 <div class="card-category-thumbnail">
                                                     <img loading="lazy"
                                                          src="{{{ $element->getImgPath('icon', null, 'no-image-40x40.png') }}}"
@@ -49,7 +49,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="card-category-typography-container col-12 col-xxl">
+                                            <div class="card-category-typography-container col-12 col-xxl flex-grow-0">
                                                 <div class="card-category-title">{{$element->name}}</div>
                                             </div>
                                         </div>
