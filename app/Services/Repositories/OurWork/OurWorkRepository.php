@@ -20,6 +20,7 @@ class OurWorkRepository extends BaseFeatureRepository
         return $this->getModel()
             ->with('services')
             ->where('on_home_page', true)
+            ->where('publish', true)
             ->orderBy('position')
             ->get();
     }
