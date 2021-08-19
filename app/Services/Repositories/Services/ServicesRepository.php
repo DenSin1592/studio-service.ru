@@ -69,7 +69,7 @@ class ServicesRepository extends BaseFeatureRepository
         }
 
         if($model->section_projects_publish){
-            $model->load(['projects' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
+            $model->load(['ourWorks' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
         }
 
 
