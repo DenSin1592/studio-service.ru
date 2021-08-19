@@ -55,10 +55,10 @@ Route::prefix('services')->name('services.')->group(function () {
         });
 
         Route::prefix('our-works')->name('our-works.')->group(function () {
-            Route::get('available', 'OurWorksController@available')
+            Route::get('available', 'ProjectsController@available')
                 ->name('available');
 
-            Route::get('rebuild-current', 'OurWorksController@rebuildCurrent')
+            Route::get('rebuild-current', 'ProjectsController@rebuildCurrent')
                 ->name('rebuild-current');
         });
     });
