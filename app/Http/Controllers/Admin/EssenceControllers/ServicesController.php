@@ -27,7 +27,7 @@ final class ServicesController extends BaseEssenceController
 
     public const INDEX_TITLE = 'Каталог Услуг';
 
-    protected const CREATE_MESSAGE = 'Услуга создан';
+    protected const CREATE_MESSAGE = 'Услуга создана';
     protected const EDIT_MESSAGE = 'Услуга обновлена';
     protected const DESTROY_MESSAGE = 'Услуга удалена';
 

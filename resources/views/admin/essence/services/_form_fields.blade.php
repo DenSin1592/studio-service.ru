@@ -120,7 +120,7 @@
 <fieldset class="bordered-group">
     <legend>Управление блоком обратной связи</legend>
     {!! Form::tbTextBlock('section_feedback_name') !!}
-    {!! Form::tbCheckboxBlock('section_feedback_publish') !!}
+    {{--{!! Form::tbCheckboxBlock('section_feedback_publish') !!}--}}
 </fieldset>
 <hr>
 

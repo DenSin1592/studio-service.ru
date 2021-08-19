@@ -214,7 +214,7 @@ return [
         'sorting' => 'Сортировка',
         'url' => 'Ссылка',
         'icon_file' => 'Иконка',
-        'preview_image_file' => 'Изображение для превью',
+        'preview_image_file' => 'Изображение для списка',
         'background_image_file' => 'Изображение фона',
         'section_tasks_publish' => 'Публикация',
         'section_tasks_name' => 'Заголовок',

@@ -114,9 +114,8 @@
             ])
     @endif
 
-    @if($model->section_feedback_publish)
-        @include('client.catalog_essence.service._section_feedback')
-    @endif
+    @include('client.catalog_essence.service._section_feedback')
+
 
     @if($model->section_competencies_publish)
         @include('client.shared._section_competencies',
