@@ -53,6 +53,14 @@ Route::prefix('services')->name('services.')->group(function () {
             Route::get('rebuild-current', 'ReviewsController@rebuildCurrent')
                 ->name('rebuild-current');
         });
+
+        Route::prefix('our-works')->name('our-works.')->group(function () {
+            Route::get('available', 'OurWorksController@available')
+                ->name('available');
+
+            Route::get('rebuild-current', 'OurWorksController@rebuildCurrent')
+                ->name('rebuild-current');
+        });
     });
 });
 Route::resource('services', 'EssenceControllers\ServicesController')->except('show');
