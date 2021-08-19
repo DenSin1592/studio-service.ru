@@ -22,7 +22,6 @@
             <meta name="keywords" content="{{ $metaData['meta_keywords'] }}"/>
         @endif
 
-        @include('client.layouts._favicon')
 
         <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
