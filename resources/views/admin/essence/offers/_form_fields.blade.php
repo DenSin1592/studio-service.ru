@@ -68,6 +68,19 @@
 <hr>
 
 
+<fieldset class="bordered-group">
+    <legend>Управление блоком задач</legend>
+
+    {!! Form::tbTextBlock('section_tasks_name') !!}
+    {!! Form::tbCheckboxBlock('section_tasks_publish') !!}
+
+    <p>
+        <em>Набор задач происходит у услуги.</em>
+    </p>
+</fieldset>
+<hr>
+
+
 @if(resolve('acl')->checkSeo())
 
     <fieldset class="bordered-group">

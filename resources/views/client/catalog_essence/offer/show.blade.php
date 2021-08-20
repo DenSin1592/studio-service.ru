@@ -16,4 +16,16 @@
         @endif
     @endforeach
 
+    @if($model->section_tasks_publish || $model->section_video_publish)
+        <section class="section-unite section-dark overflow-hidden">
+
+            @if($model->section_tasks_publish && $model->service->tasks->count() > 0)
+                @include('client.catalog_essence.offer._section_tasks')
+            @endif
+            {{--@if($model->section_video_publish)
+                @include('client.catalog_essence.offer._section_video')
+            @endif--}}
+        </section>
+    @endif
+
 @stop

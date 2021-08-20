@@ -35,6 +35,8 @@ class Offer extends Model
         'image_right_from_header_file',
         'image_right_from_header_remove',
         'achievements_block',
+        'section_tasks_name',
+        'section_tasks_publish'
     ];
 
     protected $casts = [
