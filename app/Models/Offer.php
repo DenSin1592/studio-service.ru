@@ -36,7 +36,12 @@ class Offer extends Model
         'image_right_from_header_remove',
         'achievements_block',
         'section_tasks_name',
-        'section_tasks_publish'
+        'section_tasks_publish',
+        'section_video_name',
+        'section_video_link_youtube',
+        'section_video_publish',
+        'section_video_image_file',
+        'section_video_image_remove',
     ];
 
     protected $casts = [
@@ -94,6 +99,15 @@ class Offer extends Model
                 'uploads/offers/image_right_from_header_file', [
                 'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
                 'main' => new BoxVersion(664, 558, ['quality' => 100]),
+            ], true
+            )
+        );
+        self::mountUploader(
+            'section_video_image',
+            UploaderIntegrator::getUploader(
+                'uploads/offers/section_video_image', [
+                'thumb' => new BoxVersion(85, 85, ['quality' => 100]),
+                'main' => new BoxVersion(949, 394, ['quality' => 100]),
             ], true
             )
         );

@@ -22,9 +22,9 @@
             @if($model->section_tasks_publish && $model->service->tasks->count() > 0)
                 @include('client.catalog_essence.offer._section_tasks')
             @endif
-            {{--@if($model->section_video_publish)
+            @if($model->section_video_publish)
                 @include('client.catalog_essence.offer._section_video')
-            @endif--}}
+            @endif
         </section>
     @endif
 
