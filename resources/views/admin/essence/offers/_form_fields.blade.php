@@ -7,9 +7,8 @@
 
 <fieldset class="bordered-group">
     <legend>Предмет оффера</legend>
-    <p>
-        <em>Пересечение Услуги и ЦА</em>
-    </p>
+    <p><em>Пересечение Услуги и ЦА.</em></p>
+    <p><em>Если услуга или ЦА не опубликованы, оффер также не выводиться на сайте.</em></p>
 
     {!! Form::tbFormGroupOpen(\App\Http\Controllers\Admin\Relations\Offers\ServicesController::FIELD_NAME) !!}
 
@@ -23,6 +22,7 @@
             'routeSearch' => \App\Http\Controllers\Admin\Relations\Offers\ServicesController::ROUTE_SEARCH,
             'routeEdit' => \App\Http\Controllers\Admin\Relations\Offers\ServicesController::ROUTE_EDIT,
             'routeShowOnSite' => \App\Http\Controllers\Admin\Relations\Offers\ServicesController::ROUTE_SHOW_ON_SITE,
+            'errorPublishMessage' => '(Не опубликованно! Оффер не будет выведен!)',
             ])
     {!! Form::tbFormGroupClose() !!}
     <hr/>
@@ -38,6 +38,7 @@
             'routeSearch' => \App\Http\Controllers\Admin\Relations\Offers\TargetAudiencesController::ROUTE_SEARCH,
             'routeEdit' => \App\Http\Controllers\Admin\Relations\Offers\TargetAudiencesController::ROUTE_EDIT,
             'routeShowOnSite' => \App\Http\Controllers\Admin\Relations\Offers\TargetAudiencesController::ROUTE_SHOW_ON_SITE,
+            'errorPublishMessage' => '(Не опубликованно! Оффер не будет выведен!)',
             ])
     {!! Form::tbFormGroupClose() !!}
 </fieldset>

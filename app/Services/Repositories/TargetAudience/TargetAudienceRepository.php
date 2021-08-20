@@ -30,18 +30,18 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
     }
 
 
-   public function getModelsForTargetAudiencePage()
-   {
-      return $this->getModel()
-          ->where('publish', true)
-          ->where('parent_id', null)
-          ->orderBy('position')
-          ->with(['children' => static function($q){
-              $q->where('publish', true)
-                  ->orderBy('position');
-          }])
-          ->get();
-   }
+    public function getModelsForTargetAudiencePage()
+    {
+        return $this->getModel()
+            ->where('publish', true)
+            ->where('parent_id', null)
+            ->orderBy('position')
+            ->with(['children' => static function ($q) {
+                $q->where('publish', true)
+                    ->orderBy('position');
+            }])
+            ->get();
+    }
 
 
     public function getModelforShowByAliasOrFail(string $alias)
@@ -49,11 +49,14 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
         return $this->getModel()
             ->with([
                 'offers' => static function ($q) {
-                    $q->with(['service' => static function($q){
-                        $q->with(['tasks' => static function($q){
-                            $q->orderBy('position');
-                        }])->orderBy('position');
-                    }])->where('publish', true)->orderBy('position');
+                    $q->whereHas('service', static function ($qu) {$qu->where('publish', true);})
+                        ->with(['service' => static function ($qu) {
+                            $qu->where('publish', true)
+                                ->with(['tasks' => static function ($que) {
+                                    $que->where('publish', true)
+                                        ->orderBy('position');
+                                }])->orderBy('position');
+                        }])->where('publish', true)->orderBy('position');
                 },
             ])
             ->where('alias', $alias)
@@ -64,7 +67,7 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
     public function getModelsForHomePage()
     {
         return $this->getModel()
-            ->whereHas('parent', function ($query) {
+            ->whereHas('parent', static function ($query) {
                 $query->where('publish', true);
             })
             ->orWhere('parent_id', null)

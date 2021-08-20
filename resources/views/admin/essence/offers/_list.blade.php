@@ -22,6 +22,7 @@
                            "
                     >
                         {{ $model->service?->name ?? "Не выбрано" }}
+                        {!!  $model->service?->publish ? '' : '<span style=\'color: red\'>(Не опубликовано)</span>' !!}
                     </a>
                 </div>
 

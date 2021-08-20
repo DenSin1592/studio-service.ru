@@ -19,6 +19,8 @@ class OfferRepository extends BaseFeatureRepository
     public function getModelforShowByAliasOrFail(string $alias)
     {
         $model = $this->getModel()
+         ->whereHas('service', static function ($q) { $q->where('publish', true); })
+         ->whereHas('targetAudience', function ($q) { $q->where('publish', true); })
             ->with([
                 'contentBlocks' => static function ($q) {$q->where('publish', true)->orderBy('position');
                 }])
