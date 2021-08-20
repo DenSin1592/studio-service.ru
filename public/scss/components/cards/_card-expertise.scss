@@ -3,6 +3,7 @@
     z-index: 1;
     display: block;
     width: 100%;
+    background-color: $c-white;
     font-size: 15px;
     line-height: 20px;
     color: $c-default;
@@ -84,6 +85,7 @@
     }
 
     &.card-expertise-dark {
+        background-color: $c-black;
         color: $c-white;
         &:hover {
             color: $c-white;

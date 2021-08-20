@@ -9706,6 +9706,7 @@ table {
         margin-top: -40px;
         margin-bottom: -40px; } }
   .card-accordion-content {
+    overflow: hidden;
     padding-left: 15px;
     padding-right: 15px; }
     @media (min-width: 480px) {
@@ -10535,6 +10536,7 @@ table {
   z-index: 1;
   display: block;
   width: 100%;
+  background-color: #fff;
   font-size: 15px;
   line-height: 20px;
   color: #3f3f3f;
@@ -10605,6 +10607,7 @@ table {
       opacity: 0.05;
       visibility: visible; }
   .card-expertise.card-expertise-dark {
+    background-color: #000;
     color: #fff; }
     .card-expertise.card-expertise-dark:hover {
       color: #fff; }
@@ -11045,6 +11048,7 @@ table {
   width: 100%;
   min-height: 305px;
   padding: 20px 15px;
+  background-color: #000;
   background-position: center 30%;
   background-size: cover;
   font-size: 18px;
