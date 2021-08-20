@@ -44,4 +44,12 @@
         @include('client.catalog_essence.offer._section_prices')
     @endif
 
+    @if($model->section_advantages_publish)
+        @include('client.shared._section_advantages',
+            [
+                'block_advantages' => $model->section_advantages_content,
+                'elements' => $model->beforeAfterImages
+            ])
+    @endif
+
 @stop

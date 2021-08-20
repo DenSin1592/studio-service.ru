@@ -22,8 +22,6 @@ class Offer extends Model
         'service_id',
         'target_audience_id',
         'position',
-        //'youtube_link',
-        //'block_advantages',
         'preview_image_file',
         'preview_image_remove',
         'header',
@@ -53,6 +51,8 @@ class Offer extends Model
         'section_prices_name',
         'section_prices_content',
         'section_prices_publish',
+        'section_advantages_content',
+        'section_advantages_publish',
     ];
 
     protected $casts = [
@@ -83,6 +83,11 @@ class Offer extends Model
     public function faqQuestions()
     {
         return $this->hasMany(OfferFaqQuestion::class);
+    }
+
+    public function beforeAfterImages()
+    {
+        return $this->belongsToMany(BeforeAfterImage::class)->withPivot('position');
     }
 
 
@@ -142,6 +147,7 @@ class Offer extends Model
                 DeleteHelpers::deleteRelatedAll($model->contentBlocks());
                 DeleteHelpers::deleteRelatedAll($model->tabs());
                 DeleteHelpers::deleteRelatedAll($model->faqQuestions());
+                $model->beforeAfterImages()->detach();
             });
         });
     }
