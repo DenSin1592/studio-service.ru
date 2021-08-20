@@ -5,6 +5,10 @@
     При обработке запроса возникла ошибка!
 @stop
 
+@section('body_class')
+    class="d-flex flex-column"
+@stop
+
 @section('content')
     <p>
         Приносим извинения за причиненные неудобства.

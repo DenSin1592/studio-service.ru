@@ -6,8 +6,12 @@
 $breadcrumbs = resolve(Factory::class)->init();
 $breadcrumbs->add('Страница не найдена');*/
 ?>
-{{--todo:сделать 404--}}
+
 @section('title', 'Страница не найдена')
+
+@section('body_class')
+    class="d-flex flex-column"
+@stop
 
 @section('content')
     <div class="page-content page-article">
