@@ -10,17 +10,21 @@ $breadcrumbs->add('Страница не найдена');*/
 @section('title', 'Страница не найдена')
 
 @section('content')
-    <div class="page-content page-article">
-      {{--  @include('client.layouts._breadcrumbs')--}}
-
+    <section class="section-article">
         <div class="container">
-            <article class="article">
-                <h1 class="display-title">Страница не найдена</h1>
-                <div>
-                    Запрашиваемая вами страница не существует или была удалена.<br/>
-                    Вы можете вернуться на {{ link_to_route('home', 'главную страницу') }}.
+            <div class="row">
+                <div class="col-xxl-10 offset-xxl-1">
+                    {{--  @include('client.layouts._breadcrumbs')--}}
+
+                    <article class="article">
+                        <h1 class="display-title">Страница не найдена</h1>
+                        <div>
+                            Запрашиваемая вами страница не существует или была удалена.<br/>
+                            Вы можете вернуться на {{ link_to_route('home', 'главную страницу') }}.
+                        </div>
+                    </article>
                 </div>
-            </article>
+            </div>
         </div>
-    </div>
+    </section>
 @stop
