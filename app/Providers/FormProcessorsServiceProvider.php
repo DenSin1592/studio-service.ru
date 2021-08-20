@@ -158,10 +158,14 @@ class FormProcessorsServiceProvider extends ServiceProvider
 
         $this->app->bind(
             OfferFormProcessor::class,
-            fn() => new OfferFormProcessor(
-                $this->app->make(OfferValidator::class),
-                $this->app->make(OfferRepository::class)
-            )
+            function () {
+                $formProcessor = new OfferFormProcessor(
+                    $this->app->make(OfferValidator::class),
+                    $this->app->make(OfferRepository::class)
+                );
+                $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Offer\SubProcessor\ContentBlocks::class));
+                return $formProcessor;
+            }
         );
 
 

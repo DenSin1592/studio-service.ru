@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Features\AutoPublish;
 use App\Models\Features\Glue;
 use App\Models\Helpers\AliasHelpers;
+use App\Models\Helpers\DeleteHelpers;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\BoxVersion;
 use Illuminate\Database\Eloquent\Model;
@@ -51,6 +52,11 @@ class Offer extends Model
         return $this->belongsTo(TargetAudience::class);
     }
 
+    public function contentBlocks()
+    {
+        return $this->hasMany(OfferContentBlock::class);
+    }
+
 
     public function getUrlAttribute(): string
     {
@@ -92,6 +98,12 @@ class Offer extends Model
 
         self::saving(function (self $model) {
             AliasHelpers::setAlias($model);
+        });
+
+        static::deleting(function (self $model) {
+            \DB::transaction(function() use ($model){
+                DeleteHelpers::deleteRelatedAll($model->contentBlocks());
+            });
         });
     }
 }

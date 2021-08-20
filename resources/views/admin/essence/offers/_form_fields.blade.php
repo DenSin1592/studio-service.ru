@@ -61,6 +61,13 @@
 <hr>
 
 
+@include('admin.essence.offers._content_blocks._content_blocks',[
+    'routeCreate' => route(\App\Http\Controllers\Admin\Relations\Offers\ContentBlocksController::ROUTE_CREATE),
+    'relation' => \App\Http\Controllers\Admin\Relations\Offers\ContentBlocksController::RELATIONS_NAME,
+    ])
+<hr>
+
+
 @if(resolve('acl')->checkSeo())
 
     <fieldset class="bordered-group">

@@ -31,6 +31,7 @@ use App\Services\DataProviders\TargetAudienceForm\TargetAudienceForm;
 use Illuminate\Support\ServiceProvider;
 
 class
+
 DataProvidersServiceProvider extends ServiceProvider
 {
     public function register()
@@ -93,6 +94,7 @@ DataProvidersServiceProvider extends ServiceProvider
                 $form = new OfferForm();
                 $form->addSubForm(\App(\App\Services\DataProviders\OfferForm\OfferSubForm\Services::class));
                 $form->addSubForm(\App(\App\Services\DataProviders\OfferForm\OfferSubForm\TargetAudiences::class));
+                $form->addSubForm(\App(\App\Services\DataProviders\OfferForm\OfferSubForm\ContentBlocks::class));
                 return $form;
             });
 

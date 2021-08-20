@@ -9,6 +9,7 @@ use App\Services\Repositories\Competencies\CompetenceContentBlock\CompetenceCont
 use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Feedback\FeedbackRepository;
 use App\Services\Repositories\Node\NodeRepository;
+use App\Services\Repositories\Offer\OfferContentBlock\OfferContentBlockRepository;
 use App\Services\Repositories\Offer\OfferRepository;
 use App\Services\Repositories\OurWork\OurWorkImage\OurWorkImageRepository;
 use App\Services\Repositories\OurWork\OurWorkRepository;
@@ -94,6 +95,10 @@ class RepositoriesServiceProvider extends ServiceProvider
             fn() => new OfferRepository()
         );
 
+        $this->app->singleton(
+            OfferContentBlockRepository::class,
+            fn() => new OfferContentBlockRepository()
+        );
 
         $this->app->singleton(
             OurWorkRepository::class,
