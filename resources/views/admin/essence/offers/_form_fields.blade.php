@@ -1,18 +1,8 @@
 {!! Form::tbTextBlock('name') !!}
-
 {!! Form::tbTextBlock('alias') !!}
-
 {!! Form::tbCheckboxBlock('publish') !!}
 
-{!! Form::tbTextBlock('youtube_link', null, null, ['hint' => 'Ссылка вида "поделиться"(например: https://youtu.be/o_l4Ab5FRwM)']) !!}
-
-{!! Form::tbTinymceTextareaBlock('block_advantages', trans('validation.attributes.block_advantages')) !!}
-
-
-<fieldset class="bordered-group">
-    <legend>Блок изображений</legend>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image', 'description' => 'Размер изображения от 380х293'])
-</fieldset>
+@include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image', 'description' => 'Размер изображения от 380х293'])
 
 
 <fieldset class="bordered-group">
@@ -35,7 +25,6 @@
             'routeShowOnSite' => \App\Http\Controllers\Admin\Relations\Offers\ServicesController::ROUTE_SHOW_ON_SITE,
             ])
     {!! Form::tbFormGroupClose() !!}
-
     <hr/>
 
     {!! Form::tbFormGroupOpen(\App\Http\Controllers\Admin\Relations\Offers\TargetAudiencesController::FIELD_NAME) !!}
@@ -52,8 +41,47 @@
             ])
     {!! Form::tbFormGroupClose() !!}
 </fieldset>
+<hr/>
 
 
-@include('admin.shared._form_meta_fields')
+<fieldset class="bordered-group">
+    <legend>Блок-заголовок</legend>
+    {!! Form::tbFormGroupOpen('header') !!}
+    {!! Form::tbLabel('header', trans('validation.attributes.header')) !!}
+    <div class="field-hint-block">Если заголовок не заполнен - выводиться название</div>
+    {!! Form::tbText('header') !!}
+    {!! Form::tbFormGroupClose() !!}
+    <hr>
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'header_block_background_image','description' => 'Рекомендуемый размер изображения - 1920х900'])
+    <hr>
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'image_right_from_header','description' => 'Рекомендуемый размер изображения - 664х558'])
+    <hr>
+    {!! Form::tbTinymceTextareaBlock('achievements_block') !!}
+</fieldset>
+<hr>
+
+
+@if(resolve('acl')->checkSeo())
+
+    <fieldset class="bordered-group">
+        <legend>Блок управления мета-данными</legend>
+
+        {!! Form::tbFormGroupOpen('meta_title') !!}
+        {!! Form::tbLabel('meta_title', trans('validation.attributes.meta_title')) !!}
+        {!! Form::tbText('meta_title') !!}
+        {!! Form::tbFormGroupClose() !!}
+
+        {!! Form::tbFormGroupOpen('meta_description') !!}
+        {!! Form::tbLabel('meta_description', trans('validation.attributes.meta_description')) !!}
+        {!! Form::tbText('meta_description') !!}
+        {!! Form::tbFormGroupClose() !!}
+
+        {!! Form::tbFormGroupOpen('meta_keywords') !!}
+        {!! Form::tbLabel('meta_keywords', trans('validation.attributes.meta_keywords')) !!}
+        {!! Form::tbText('meta_keywords') !!}
+        {!! Form::tbFormGroupClose() !!}
+
+    </fieldset>
+@endif
 
 @include('admin.shared._model_timestamps', ['model' => $formData[$essenceName]])

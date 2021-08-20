@@ -1,11 +1,11 @@
 @extends('client.layouts.default')
 
 @section('body_class')
-    {{--todo:added class--}}
+    class="page-service page-extended d-flex flex-column"
 @stop
 
 @section('content')
 
-    <h1>{!! $metaData['h1'] !!}</h1>
+@include('client.catalog_essence.offer._section_header')
 
 @stop
