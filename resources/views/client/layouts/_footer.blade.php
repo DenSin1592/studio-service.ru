@@ -81,6 +81,14 @@
                                      class="footer-studio-media">
                             </div>
                         </a>
+
+                        <div class="footer-sitemap-block">
+                            <a href="{{route('map')}}" class="footer-sitemap-link d-flex align-items-center justify-content-center" >
+                                <svg class="footer-sitemap-icon" width="22" height="22" >
+                                    <use xlink:href="{{asset('images/icons/sprite.svg#icon-sitemap')}}"></use>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

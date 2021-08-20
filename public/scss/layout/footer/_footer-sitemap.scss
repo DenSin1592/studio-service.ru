@@ -1,0 +1,31 @@
+.footer-sitemap-block {
+    color: currentColor;
+
+    .footer-sitemap-link {
+        position: relative;
+        width: 22px;
+        height: 22px;
+        color: currentColor;
+        line-height: 1;
+        text-decoration: none;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 42px;
+            height: 42px;
+            transform: translate(-50%, -50%);
+            content: '';
+        }
+
+        &:hover {
+            color: $c-white;
+        }
+
+        .footer-sitemap-icon {
+            color: currentColor;
+            fill: currentColor;
+        }
+    }
+}
