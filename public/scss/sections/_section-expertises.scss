@@ -1,5 +1,8 @@
 .section-expertises {
     padding: 35px 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     @include media-breakpoint-up(sm) {
         padding: 35px 0 50px;
     }
