@@ -36,4 +36,8 @@
         @include('client.catalog_essence.offer._section_requirements')
     @endif
 
+    @if($model->section_faq_publish)
+        @include('client.catalog_essence.offer._section_faq')
+    @endif
+
 @stop

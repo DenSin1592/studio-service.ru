@@ -19,6 +19,34 @@ Route::prefix('offers')->name('offers.')->group(function () {
             Route::get('create', 'TabsController@create')->name('create');
         });
 
+        Route::prefix('faq-questions')->name('faq-questions.')->group(function () {
+            Route::get('create', 'FaqQuestionsController@create')->name('create');
+        });
+
+        Route::prefix('before-after-images')->name('before-after-images.')->group(function () {
+            Route::get('available', 'BeforeAfterImagesController@available')
+                ->name('available');
+
+            Route::get('rebuild-current', 'BeforeAfterImagesController@rebuildCurrent')
+                ->name('rebuild-current');
+        });
+
+        Route::prefix('reviews')->name('reviews.')->group(function () {
+            Route::get('available', 'ReviewsController@available')
+                ->name('available');
+
+            Route::get('rebuild-current', 'ReviewsController@rebuildCurrent')
+                ->name('rebuild-current');
+        });
+
+        Route::prefix('our-works')->name('our-works.')->group(function () {
+            Route::get('available', 'ProjectsController@available')
+                ->name('available');
+
+            Route::get('rebuild-current', 'ProjectsController@rebuildCurrent')
+                ->name('rebuild-current');
+        });
+
     });
 
 });

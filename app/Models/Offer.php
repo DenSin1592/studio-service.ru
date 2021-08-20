@@ -48,6 +48,8 @@ class Offer extends Model
         'section_requirements_name',
         'section_requirements_content',
         'section_requirements_publish',
+        'section_faq_name',
+        'section_faq_publish',
     ];
 
     protected $casts = [
@@ -73,6 +75,11 @@ class Offer extends Model
     public function tabs()
     {
         return $this->hasMany(OfferTab::class);
+    }
+
+    public function faqQuestions()
+    {
+        return $this->hasMany(OfferFaqQuestion::class);
     }
 
 
@@ -131,6 +138,7 @@ class Offer extends Model
             \DB::transaction(function() use ($model){
                 DeleteHelpers::deleteRelatedAll($model->contentBlocks());
                 DeleteHelpers::deleteRelatedAll($model->tabs());
+                DeleteHelpers::deleteRelatedAll($model->faqQuestions());
             });
         });
     }

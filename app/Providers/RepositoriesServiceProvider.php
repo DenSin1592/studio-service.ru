@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\OfferFaqQuestion;
 use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use App\Services\Repositories\AdminUser\AdminUserRepository;
 use App\Services\Repositories\BeforeAfterImages\BeforeAfterImagesRepository;
@@ -99,6 +100,11 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->app->singleton(
             OfferContentBlockRepository::class,
             fn() => new OfferContentBlockRepository()
+        );
+
+        $this->app->singleton(
+            OfferFaqQuestion::class,
+            fn() => new OfferFaqQuestion()
         );
 
         $this->app->singleton(

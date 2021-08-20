@@ -117,6 +117,18 @@
 <hr>
 
 
+<fieldset class="bordered-group">
+    <legend>Управление блоком FAQ</legend>
+    {!! Form::tbTextBlock('section_faq_name') !!}
+    {!! Form::tbCheckboxBlock('section_faq_publish') !!}
+    <hr>
+    @include('admin.essence.offers._faq_questions._content_blocks',[
+    'routeCreate' => route(\App\Http\Controllers\Admin\Relations\Offers\FaqQuestionsController::ROUTE_CREATE),
+    'relation' => \App\Http\Controllers\Admin\Relations\Offers\FaqQuestionsController::RELATIONS_NAME,
+    ])
+</fieldset>
+<hr>
+
 
 @if(resolve('acl')->checkSeo())
 
