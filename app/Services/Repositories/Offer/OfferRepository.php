@@ -36,13 +36,13 @@ class OfferRepository extends BaseFeatureRepository
             $model->load(['tabs' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
         }
 
-        /*if($model->section_faq_publish){
+        if($model->section_faq_publish){
             $model->load(['faqQuestions' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
-        }*/
+        }
 
-        /*if($model->section_advantages_publish){
+        if($model->section_advantages_publish){
             $model->load(['beforeAfterImages' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
-        }*/
+        }
 
         /*if($model->section_reviews_publish){
             $model->load(['reviews' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
