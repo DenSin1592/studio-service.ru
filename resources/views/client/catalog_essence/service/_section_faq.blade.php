@@ -12,12 +12,12 @@
                         <div class="card-accordion">
                             <div class="card-accordion-header" id="faq-heading-{{$element->id}}">
                                 <button class="card-accordion-title title-h3 d-flex align-items-center" type="button" data-toggle="collapse"
-                                        data-target="#faq-collapse-{{$element->id}}" @if($loop->first) aria-expanded="true" @else aria-expanded="false" @endif aria-controls="faq-collapse-{{$element->id}}">
+                                        data-target="#faq-collapse-{{$element->id}}" aria-expanded="false" aria-controls="faq-collapse-{{$element->id}}">
                                     {{$element->name}}
                                 </button>
                             </div>
 
-                            <div id="faq-collapse-{{$element->id}}" class="card-accordion-content collapse @if($loop->first) show @endif" aria-labelledby="faq-heading-{{$element->id}}">
+                            <div id="faq-collapse-{{$element->id}}" class="card-accordion-collapse collapse" aria-labelledby="faq-heading-{{$element->id}}">
                                 <div class="card-accordion-content">
                                     <div class="row">
                                         <div class="card-accordion-media-container col-md-4 col-xl-4 col-xxl-5 order-md-1">
