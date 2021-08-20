@@ -51,9 +51,7 @@
 }
 
 .article {
-    // font-size: 20px;
     font-weight: 300;
-    // line-height: 30px;
 
     > :first-child {
         margin-top: 0;
@@ -193,6 +191,12 @@
                     margin-bottom: 25px;
                 }
             }
+        }
+
+        ul,
+        ol {
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
     }
 
