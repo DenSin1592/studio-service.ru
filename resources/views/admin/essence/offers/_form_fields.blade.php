@@ -108,6 +108,16 @@
 <hr>
 
 
+<fieldset class="bordered-group">
+    <legend>Управление блоком с требованиями</legend>
+    {!! Form::tbTextBlock('section_requirements_name') !!}
+    {!! Form::tbTinymceTextareaBlock('section_requirements_content') !!}
+    {!! Form::tbCheckboxBlock('section_requirements_publish') !!}
+</fieldset>
+<hr>
+
+
+
 @if(resolve('acl')->checkSeo())
 
     <fieldset class="bordered-group">
