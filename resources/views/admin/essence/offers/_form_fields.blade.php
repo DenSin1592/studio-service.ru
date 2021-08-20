@@ -130,6 +130,15 @@
 <hr>
 
 
+<fieldset class="bordered-group">
+    <legend>Управление блоком цен</legend>
+    {!! Form::tbTextBlock('section_prices_name') !!}
+    {!! Form::tbTinymceTextareaBlock('section_prices_content') !!}
+    {!! Form::tbCheckboxBlock('section_prices_publish') !!}
+</fieldset>
+<hr>
+
+
 @if(resolve('acl')->checkSeo())
 
     <fieldset class="bordered-group">

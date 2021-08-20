@@ -50,6 +50,9 @@ class Offer extends Model
         'section_requirements_publish',
         'section_faq_name',
         'section_faq_publish',
+        'section_prices_name',
+        'section_prices_content',
+        'section_prices_publish',
     ];
 
     protected $casts = [

@@ -40,4 +40,8 @@
         @include('client.catalog_essence.offer._section_faq')
     @endif
 
+    @if($model->section_prices_publish)
+        @include('client.catalog_essence.offer._section_prices')
+    @endif
+
 @stop
