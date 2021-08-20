@@ -42,6 +42,9 @@ class Offer extends Model
         'section_video_publish',
         'section_video_image_file',
         'section_video_image_remove',
+        'section_tabs_name',
+        'section_tabs_description' ,
+        'section_tabs_publish',
     ];
 
     protected $casts = [
@@ -62,6 +65,11 @@ class Offer extends Model
     public function contentBlocks()
     {
         return $this->hasMany(OfferContentBlock::class);
+    }
+
+    public function tabs()
+    {
+        return $this->hasMany(OfferTab::class);
     }
 
 
@@ -119,6 +127,7 @@ class Offer extends Model
         static::deleting(function (self $model) {
             \DB::transaction(function() use ($model){
                 DeleteHelpers::deleteRelatedAll($model->contentBlocks());
+                DeleteHelpers::deleteRelatedAll($model->tabs());
             });
         });
     }

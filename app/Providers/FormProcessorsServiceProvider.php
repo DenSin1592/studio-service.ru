@@ -164,6 +164,7 @@ class FormProcessorsServiceProvider extends ServiceProvider
                     $this->app->make(OfferRepository::class)
                 );
                 $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Offer\SubProcessor\ContentBlocks::class));
+                $formProcessor->addSubProcessor(\App(\App\Services\FormProcessors\Offer\SubProcessor\Tabs::class));
                 return $formProcessor;
             }
         );

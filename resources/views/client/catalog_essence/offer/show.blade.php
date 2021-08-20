@@ -28,4 +28,8 @@
         </section>
     @endif
 
+    @if($model->section_tabs_publish)
+        @include('client.catalog_essence.offer._section_includes')
+    @endif
+
 @stop

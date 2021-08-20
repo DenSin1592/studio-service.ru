@@ -93,6 +93,20 @@
 <hr>
 
 
+<fieldset class="bordered-group">
+    <legend>Управление блоком с табами</legend>
+    {!! Form::tbTextBlock('section_tabs_name') !!}
+    {!! Form::tbTextareaBlock('section_tabs_description') !!}
+    {!! Form::tbCheckboxBlock('section_tabs_publish') !!}
+
+    @include('admin.essence.offers._tabs._content_blocks',[
+    'routeCreate' => route(\App\Http\Controllers\Admin\Relations\Offers\TabsController::ROUTE_CREATE),
+    'relation' => \App\Http\Controllers\Admin\Relations\Offers\TabsController::RELATIONS_NAME,
+    ])
+</fieldset>
+<hr>
+
+
 @if(resolve('acl')->checkSeo())
 
     <fieldset class="bordered-group">

@@ -15,6 +15,9 @@ Route::prefix('offers')->name('offers.')->group(function () {
         Route::prefix('content-blocks')->name('content-blocks.')->group(function () {
             Route::get('create', 'ContentBlocksController@create')->name('create');
         });
+        Route::prefix('tabs')->name('tabs.')->group(function () {
+            Route::get('create', 'TabsController@create')->name('create');
+        });
 
     });
 

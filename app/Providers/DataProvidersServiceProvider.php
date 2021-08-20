@@ -95,6 +95,7 @@ DataProvidersServiceProvider extends ServiceProvider
                 $form->addSubForm(\App(\App\Services\DataProviders\OfferForm\OfferSubForm\Services::class));
                 $form->addSubForm(\App(\App\Services\DataProviders\OfferForm\OfferSubForm\TargetAudiences::class));
                 $form->addSubForm(\App(\App\Services\DataProviders\OfferForm\OfferSubForm\ContentBlocks::class));
+                $form->addSubForm(\App(\App\Services\DataProviders\OfferForm\OfferSubForm\Tabs::class));
                 return $form;
             });
 
