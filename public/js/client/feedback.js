@@ -164,7 +164,7 @@
                         modalMessageShow(res['title'], res['content']);
                         setTimeout(() => {
                             resetForm()
-                        }, 3000);
+                        }, 1000);
                         return false;
                     }
 

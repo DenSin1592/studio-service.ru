@@ -9,7 +9,7 @@
 
             setTimeout(()=>{
                 modalMessage.modal('show');
-            }, 650)
+            }, 500)
             setTimeout(()=>{
                 modalMessage.modal('hide');
             }, 3000)

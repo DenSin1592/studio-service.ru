@@ -52,4 +52,12 @@
             ])
     @endif
 
+    @include('client.catalog_essence.offer._section_feedback')
+
+@stop
+
+@section('modal')
+
+    @include('client.shared.modals._modal_message')
+
 @stop
