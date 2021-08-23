@@ -22,8 +22,8 @@ class OfferController extends BaseEssenceController
     protected function getBreadCrumbs(string $h1, Model $model)
     {
         $breadcrumbs = $this->breadcrumbs->init();
-        $breadcrumbs->add($model->service->name, route(ServiceController::ROUTE_SHOW_ON_SITE, $model->service->id));
-        $breadcrumbs->add($model->targetAudience->name, route(TargetAudienceController::ROUTE_SHOW_ON_SITE, $model->targetAudience->id));
+        $breadcrumbs->add($model->service->name, route(ServiceController::ROUTE_SHOW_ON_SITE, $model->service->alias));
+        $breadcrumbs->add($model->targetAudience->name, route(TargetAudienceController::ROUTE_SHOW_ON_SITE, $model->targetAudience->alias));
         $breadcrumbs->add($h1);
 
         return $breadcrumbs;
