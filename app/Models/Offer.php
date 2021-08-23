@@ -58,7 +58,8 @@ class Offer extends Model
         'section_competencies_name',
         'section_competencies_publish',
         'section_offers_name',
-        'section_offers_publish'
+        'section_offers_publish',
+        'section_reviews_publish'
     ];
 
     protected $casts = [
@@ -94,6 +95,11 @@ class Offer extends Model
     public function beforeAfterImages()
     {
         return $this->belongsToMany(BeforeAfterImage::class)->withPivot('position');
+    }
+
+    public function reviews()
+    {
+        return $this->belongsToMany(Review::class)->withPivot('position');
     }
 
 
@@ -169,6 +175,7 @@ class Offer extends Model
                 DeleteHelpers::deleteRelatedAll($model->tabs());
                 DeleteHelpers::deleteRelatedAll($model->faqQuestions());
                 $model->beforeAfterImages()->detach();
+                $model->reviews()->detach();
             });
         });
     }

@@ -74,6 +74,14 @@
             ])
     @endif
 
+    @if($model->section_reviews_publish && $model->reviews->count() > 0)
+        @include('client.shared._section_reviews',
+        [
+            'header' => 'Отзывы',
+            'elements' => $model->reviews
+        ])
+    @endif
+
 @stop
 
 @section('modal')
