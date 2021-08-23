@@ -10,12 +10,12 @@
         {{$model->name}}
     </div>
 
-    @if($model->services?->tasks->count() > 0)
+    @if($model->service?->tasks->count() > 0)
         <div class="card-service-include-block">
             <div class="card-service-include-title">Какие задачи решает:</div>
 
             <ul class="card-service-include-list @if($blackTaskIcon) card-service-include-pills-list @endif list-unstyled d-flex flex-wrap align-items-center">
-                @foreach($model->services->tasks as $elem)
+                @foreach($model->service->tasks as $elem)
                     <li class="card-service-include-item d-flex align-items-center justify-content-center"
                         data-toggle="tooltip" data-placement="bottom"
                         title="{{$elem->text}}">
