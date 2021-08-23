@@ -57,6 +57,8 @@ class Offer extends Model
         'section_feedback_publish',
         'section_competencies_name',
         'section_competencies_publish',
+        'section_offers_name',
+        'section_offers_publish'
     ];
 
     protected $casts = [
@@ -98,6 +100,21 @@ class Offer extends Model
     public function getUrlAttribute(): string
     {
         return route(\App\Http\Controllers\Client\EssenceControllers\OfferController::ROUTE_SHOW_ON_SITE, $this->alias);
+    }
+
+
+    public function otherOffers()
+    {
+        return $this->query()
+            ->whereHas('service', static function ($q) { $q->where('publish', true); })
+            ->whereHas('targetAudience', function ($q) { $q->where('publish', true); })
+            ->whereNotIn('id', [$this->id])
+            ->where('publish', true)
+            ->with([
+                'service.tasks' => static function ($q) {$q->orderBy('position')->where('publish', true);},
+            ])
+            ->orderBy('position')
+            ->get();
     }
 
 

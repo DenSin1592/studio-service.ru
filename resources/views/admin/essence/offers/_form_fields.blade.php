@@ -172,6 +172,14 @@
 <hr>
 
 
+<fieldset class="bordered-group">
+    <legend>Управление блоком 'Другие офферы'</legend>
+    {!! Form::tbTextBlock('section_offers_name') !!}
+    {!! Form::tbCheckboxBlock('section_offers_publish') !!}
+</fieldset>
+<hr>
+
+
 @if(resolve('acl')->checkSeo())
 
     <fieldset class="bordered-group">

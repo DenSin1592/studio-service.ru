@@ -64,6 +64,16 @@
             ])
     @endif
 
+    @if($model->section_offers_publish && $model->otherOffers()->count() > 0)
+        @include('client.catalog_essence.offer._section_offers',
+            [
+                'header' => $model->section_offers_name,
+                'visibleSeeAllLink' => false,
+                'elements' => $model->otherOffers(),
+
+            ])
+    @endif
+
 @stop
 
 @section('modal')

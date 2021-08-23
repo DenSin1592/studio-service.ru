@@ -244,6 +244,8 @@ return [
 
         'section_services_name' => 'Заголовок',
         'section_services_publish' => 'Публикация',
+        'section_offers_name' => 'Заголовок',
+        'section_offers_publish' => 'Публикация',
         'section_target_audiences_name' => 'Заголовок',
         'section_target_audiences_publish' => 'Публикация',
         'section_reviews_publish' => 'Публикация блока \'Отзывы\'',
