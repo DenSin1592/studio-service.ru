@@ -44,6 +44,10 @@ class OfferRepository extends BaseFeatureRepository
             $model->load(['beforeAfterImages' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
         }
 
+        if($model->section_competencies_publish){
+            $model->load(['service.competencies' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
+        }
+
         /*if($model->section_reviews_publish){
             $model->load(['reviews' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
         }*/

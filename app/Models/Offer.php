@@ -55,6 +55,8 @@ class Offer extends Model
         'section_advantages_publish',
         'section_feedback_name',
         'section_feedback_publish',
+        'section_competencies_name',
+        'section_competencies_publish',
     ];
 
     protected $casts = [

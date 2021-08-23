@@ -160,6 +160,18 @@
 <hr>
 
 
+<fieldset class="bordered-group">
+    <legend>Управление блоком компетенций</legend>
+    {!! Form::tbTextBlock('section_competencies_name') !!}
+    {!! Form::tbCheckboxBlock('section_competencies_publish') !!}
+    <hr>
+    <p>
+        <em>Набор компетенций происходит у услуги.</em>
+    </p>
+</fieldset>
+<hr>
+
+
 @if(resolve('acl')->checkSeo())
 
     <fieldset class="bordered-group">
