@@ -64,6 +64,14 @@ class ServicesRepository extends BaseFeatureRepository
             $model->load(['beforeAfterImages' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
         }
 
+        if($model->section_competencies_publish){
+            $model->load(['competencies' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
+        }
+
+        if($model->section_target_audiences_publish){
+            $model->load(['targetAudiences' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
+        }
+
         if($model->section_reviews_publish){
             $model->load(['reviews' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
         }
