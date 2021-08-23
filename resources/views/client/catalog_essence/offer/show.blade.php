@@ -82,6 +82,14 @@
         ])
     @endif
 
+    @if($model->section_projects_publish && $model->ourWorks->count() > 0)
+        @include('client.shared._section_projects',
+        [
+            'header' => 'Проекты',
+            'elements' => $model->ourWorks
+        ])
+    @endif
+
 @stop
 
 @section('modal')

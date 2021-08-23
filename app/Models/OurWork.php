@@ -53,6 +53,11 @@ class OurWork extends Model
         return $this->belongsToMany(Service::class)->withPivot('position');
     }
 
+    public function offers()
+    {
+        return $this->belongsToMany(Offer::class)->withPivot('position');
+    }
+
 
     public function getUrlAttribute(): string
     {
@@ -88,6 +93,7 @@ class OurWork extends Model
                 \DB::transaction(function() use ($model){
                     DeleteHelpers::deleteRelatedAll($model->images());
                     $model->services()->detach();
+                    $model->offers()->detach();
                 });
             }
         );
