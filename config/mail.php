@@ -95,8 +95,8 @@ return [
     */
 
     'reply_to' => [
-        'address' => env('MAIL_REPLY_TO_ADDRESS', 'info@stellard.ru'),
-        'name' => env('MAIL_REPLY_TO_NAME', 'stellard.ru'),
+        'address' => env('MAIL_REPLY_TO_ADDRESS', 'msk@studio-service.ru'),
+        'name' => env('MAIL_REPLY_TO_NAME', 'studio-service.ru'),
     ],
 
     /*
