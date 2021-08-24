@@ -7,7 +7,7 @@
                 <div class="col-xxl-10 offset-xxl-1">
                     @include('client.shared.breadcrumbs._breadcrumbs')
 
-                    <article class="article" >
+                    <article class="article sitemap" >
                         <h1>{{ $metaData['h1'] }}</h1>
 
                         @include('client.sitemap._lvl', ['lvl' => $mapStructure])
