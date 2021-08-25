@@ -84,8 +84,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'noreply@studio-service.ru'),
+        'name' => env('MAIL_FROM_NAME', 'studio-service.ru'),
     ],
 
     /*
@@ -105,10 +105,10 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    /*'return_path' => [
+    'return_path' => [
         'address' => env('MAIL_RETURN_PATH', 'diol.tech.info@gmail.com'),
         'name' => null,
-    ],*/
+    ],
 
     /*
     |--------------------------------------------------------------------------
