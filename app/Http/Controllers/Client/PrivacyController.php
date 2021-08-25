@@ -22,6 +22,6 @@ class PrivacyController extends Controller
 
         return view('client.privacy.show')
             ->with('breadcrumbs', $breadcrumbs)
-            ->with($metaData);
+            ->with('metaData', $metaData);
     }
 }

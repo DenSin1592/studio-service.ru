@@ -15,7 +15,7 @@
         <section class="section-article">
             <div class="container">
                 <article class="article-box">
-                    <h1>{{ $h1 }}</h1>
+                    <h1>{{ $metaData['h1'] }}</h1>
 
                     @include('client.privacy._content')
                 </article>
