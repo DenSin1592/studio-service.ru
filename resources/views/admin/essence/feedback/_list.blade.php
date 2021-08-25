@@ -13,7 +13,7 @@
 
                 <div class="name">
                     <a href="{{ route($routeEdit, [$model->id]) }}">
-                        {{ $model->name ??  $model->phone }}
+                        {{ $model->name ??  'Имя не указано' }}
                     </a>
                 </div>
 
