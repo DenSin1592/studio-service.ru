@@ -9,7 +9,7 @@
 
                         <div class="row">
                             <div class="col-10 col-sm-8 col-md-12">
-                                <div class="service-title title-h1">{!! $metaData['h1'] !!}</div>
+                                <h1 class="service-title title-h1">{!! $metaData['h1'] !!}</h1>
                             </div>
                         </div>
 
