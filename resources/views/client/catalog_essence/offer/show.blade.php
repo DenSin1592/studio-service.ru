@@ -36,6 +36,8 @@
         @include('client.catalog_essence.offer._section_requirements')
     @endif
 
+    @include('client.shared._section_social')
+
     @if($model->section_faq_publish)
         @include('client.catalog_essence.offer._section_faq')
     @endif
