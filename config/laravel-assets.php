@@ -65,6 +65,7 @@ return [
                 'js/client/header.js',
                 'js/client/sliders.js',
                 'js/client/forms.js',
+                'js/client/services.js',
                 'js/client/offcanvas.js',
                 'js/client/fancybox.js',
                 'js/client/tooltip.js',
