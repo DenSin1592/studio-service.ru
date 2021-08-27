@@ -2,7 +2,7 @@
     <strong>{!! trans('validation.attributes.id') !!}</strong>: {!! $formData[$essenceName]->id !!}
 {!! Form::tbFormGroupClose() !!}
 
-{!! Form::tbTextBlock('name') !!}
+{!! Form::tbTextBlock('name', 'Имя') !!}
 
 {!! Form::tbTextBlock('email') !!}
 
