@@ -137,8 +137,10 @@ return [
                 'js/admin/element_list.js',
                 'js/admin/admin_users.js',
                 'js/admin/modal_associations.js',
-                'js/common/csrf.js',
                 'js/admin/model_search.js',
+
+                'js/common/csrf.js',
+                'js/common/inputmask.init.js',
             ],
             'filters' => ['js_min', 'end_with_semicolon'],
             //'async' => true,

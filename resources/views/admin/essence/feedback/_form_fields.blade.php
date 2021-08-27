@@ -6,7 +6,7 @@
 
 {!! Form::tbTextBlock('email') !!}
 
-{!! Form::tbTextBlock('phone', null, null, ['data-phone' => true]) !!}
+{!! Form::tbTextBlock('phone', null, null, ['data-phone' => true, 'data-client-phone-mask']) !!}
 
 @include('admin.shared._referral_url_field', ['model' => $formData[$essenceName]])
 
