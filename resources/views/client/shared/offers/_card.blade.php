@@ -17,8 +17,12 @@
             <ul class="card-service-include-list @if($blackTaskIcon) card-service-include-pills-list @endif list-unstyled d-flex flex-wrap align-items-center">
                 @foreach($model->service->tasks as $elem)
                     <li class="card-service-include-item d-flex align-items-center justify-content-center"
-                        data-toggle="tooltip" data-placement="bottom"
-                        title="{{$elem->text}}">
+                        @if($seeTaskDescriptionTooltip)
+                        data-toggle="tooltip"
+                        data-placement="bottom"
+                        title="{{$elem->text}}"
+                        @endif
+                    >
                         <img loading="lazy"
                              src="{{$elem->getImgPath('icon', null, 'no-image-40x40.png')}}" alt=""
                              width="35" height="29" class="card-service-include-media">
