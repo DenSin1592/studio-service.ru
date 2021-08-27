@@ -106,7 +106,7 @@ return [
     */
 
     'return_path' => [
-        'address' => env('MAIL_RETURN_PATH', 'diol.tech.info@gmail.com'),
+        'address' => env('MAIL_RETURN_PATH', 'diol-test@yandex.ru'),
         'name' => null,
     ],
 
