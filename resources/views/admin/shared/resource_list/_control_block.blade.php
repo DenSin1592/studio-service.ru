@@ -7,7 +7,7 @@
 <a class="glyphicon glyphicon-trash"
    title="{{ trans('interactions.delete') }}"
    data-method="delete"
-   data-confirm="Вы уверены, что хотите удалить данную запись??"
+   data-confirm="Вы уверены, что хотите удалить данную запись?"
    href="{{ $routeDestroy }}">
 </a>
 
