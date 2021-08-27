@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Exceptions\Handler;
 use App\Http\Controllers\Controller;
 use App\Mail\FeedbackCreated;
 use App\Services\FormProcessors\Feedback\FeedbackFormProcessor;
@@ -23,19 +24,19 @@ class FeedbackController extends Controller
             return \Response::json(['errors' => $this->formProcessor->errors()]);
 
 
-        try{
+        try {
             \Mail::queue(new FeedbackCreated($feedback));
-        } catch (\Swift_SwiftException $ex){
-            \Log::error($ex->getMessage());
-        } finally {
-            $title = 'Ваша заявка принята';
-            $content = 'В ближайшее время с Вами свяжется наш менеджер.';
-
-            return \Response::json([
-                'success' => true,
-                'title' => $title,
-                'content' => $content,
-            ]);
+        } catch (\Throwable $ex) {
+            resolve(Handler::class)->report($ex);
         }
+
+        $title = 'Ваша заявка принята';
+        $content = 'В ближайшее время с Вами свяжется наш менеджер.';
+
+        return \Response::json([
+            'success' => true,
+            'title' => $title,
+            'content' => $content,
+        ]);
     }
 }

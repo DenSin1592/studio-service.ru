@@ -85,7 +85,7 @@ class SettingsServiceProvider extends ServiceProvider
                     )
                 );
 
-                /*$notifications->addSettingValue(
+                $notifications->addSettingValue(
                     new SettingValue(
                         'mail.from.address',
                         'Е-mail отправителя (от кого)',
@@ -98,9 +98,9 @@ class SettingsServiceProvider extends ServiceProvider
                         SettingValue::TYPE_TEXT,
                         ['nullable', 'email']
                     )
-                );*/
+                );
 
-                /*$notifications->addSettingValue(
+                $notifications->addSettingValue(
                     new SettingValue(
                         'mail.from.name',
                         'Имя отправителя (от кого)',
@@ -113,9 +113,9 @@ class SettingsServiceProvider extends ServiceProvider
                         SettingValue::TYPE_TEXT,
                         ['nullable']
                     )
-                );*/
+                );
 
-                /*$notifications->addSettingValue(
+                $notifications->addSettingValue(
                     new SettingValue(
                         'mail.reply_to.address',
                         'Адрес для ответа в письмах посетителям сайта',
@@ -124,21 +124,21 @@ class SettingsServiceProvider extends ServiceProvider
                         SettingValue::TYPE_TEXT,
                         ['nullable', 'email']
                     )
-                );*/
+                );
 
-               /* $notifications->addSettingValue(
-                    new SettingValue(
-                        'mail.for_display.address',
-                        'Email для отображения на сайте и в футере писем',
-                        'diol-test@yandex.ru',
-                        '',
-                        SettingValue::TYPE_TEXT,
-                        ['required', 'email']
-                    )
-                );*/
+                /* $notifications->addSettingValue(
+                     new SettingValue(
+                         'mail.for_display.address',
+                         'Email для отображения на сайте и в футере писем',
+                         'diol-test@yandex.ru',
+                         '',
+                         SettingValue::TYPE_TEXT,
+                         ['required', 'email']
+                     )
+                 );*/
 
 
-               /* $admin = new SettingGroup('Система администрирования');
+                $admin = new SettingGroup('Система администрирования');
                 $settingContainer->addSettingGroup($admin);
 
                 $admin->addSettingValue(
@@ -154,7 +154,7 @@ class SettingsServiceProvider extends ServiceProvider
                         SettingValue::TYPE_TEXTAREA,
                         ['nullable']
                     )
-                );*/
+                );
 
                 return $settingContainer;
             }
