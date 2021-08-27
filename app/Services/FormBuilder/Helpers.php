@@ -77,9 +77,10 @@ class Helpers
         if (is_null($this->hintsCache)) {
             try {
                 $ymlParser = new Parser();
-                $fieldDescriptions = $ymlParser->parse(\Setting::get('admin.field_descriptions'));
-            } catch (ParseException $e) {
+                //$fieldDescriptions = $ymlParser->parse(\Setting::get('admin.field_descriptions'));
                 $fieldDescriptions = [];
+            } catch (ParseException $e) {
+
             }
 
             $this->hintsCache = (array)$fieldDescriptions;
