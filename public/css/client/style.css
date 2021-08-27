@@ -8947,6 +8947,11 @@ blockquote {
 .section-purple-light {
   background-color: #e9eff8; }
 
+button.disable,
+a.disable {
+  pointer-events: none;
+  cursor: default; }
+
 .swiper-cover {
   position: relative; }
   .swiper-cover > .swiper-container {

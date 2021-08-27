@@ -54,9 +54,13 @@
                                             <div
                                                 class="card-testimonial-media-container col-md-4 col-lg-5 col-xxl-6">
                                                 <div class="card-testimonial-thumbnail-cover">
-                                                    <a data-fancybox="testimonial-video"
-                                                       data-src="{{$element->youtube_link}}"
-                                                       class="card-testimonial-thumbnail card-testimonial-video-thumbnail">
+                                                    <a
+                                                        @if($element->youtube_link)
+                                                        data-fancybox="testimonial-video"
+                                                        data-src="{{$element->youtube_link}}"
+                                                        @endif
+
+                                                       class="card-testimonial-thumbnail card-testimonial-video-thumbnail @if(!$element->youtube_link) disable @endif">
                                                         <img
                                                             src="{{{ $element->getImgPath('preview_image', 'main', 'no-image-800x800.png') }}}"
                                                             alt="{{$element->name}}"

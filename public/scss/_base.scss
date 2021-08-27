@@ -345,3 +345,9 @@ blockquote {
 .section-purple-light {
     background-color: $c-purple-light;
 }
+
+button.disable ,
+a.disable {
+    pointer-events: none;
+    cursor: default;
+}
