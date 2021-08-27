@@ -8,7 +8,7 @@
                             <div class="section-title title-h1">{{$header}}</div>
 
                             @if ($visibleSeeAllLink)
-                                <a href="{{route('competencies')}}"
+                                <a href="{{route('services')}}"
                                    class="section-header-cta btn btn-outline-secondary">Смотреть все</a>
                             @endif
 
