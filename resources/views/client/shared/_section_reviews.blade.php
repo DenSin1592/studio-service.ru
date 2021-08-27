@@ -65,7 +65,7 @@
                                                             src="{{{ $element->getImgPath('preview_image', 'main', 'no-image-800x800.png') }}}"
                                                             alt="{{$element->name}}"
                                                             class="card-testimonial-media">
-
+                                                        @if($element->youtube_link)
                                                         <div
                                                             class="card-testimonial-icon-block d-flex align-items-center justify-content-center">
                                                             <img loading="lazy"
@@ -73,6 +73,7 @@
                                                                  width="27" height="41" alt=""
                                                                  class="card-testimonial-icon">
                                                         </div>
+                                                        @endif
                                                     </a>
                                                 </div>
                                             </div>
