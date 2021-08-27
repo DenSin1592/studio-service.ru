@@ -44,7 +44,7 @@
                         @foreach($modelList as $model)
                             <div class="service-item col-12 col-sm-6 col-md-4 d-flex">
 
-                                @include('client.shared.services._card', ['blackTaskIcon' => true])
+                                @include('client.shared.services._card', ['blackTaskIcon' => true, 'seeTaskDescriptionTooltip' => true])
 
                             </div>
                         @endforeach

@@ -172,7 +172,7 @@
 
                                     @foreach($model->services as $element)
                                         <div class="swiper-slide col-auto col-sm-6 col-md-4 col-xl-4 d-flex">
-                                            @include('client.shared.services._card', ['model'=> $element, 'blackTaskIcon' => false])
+                                            @include('client.shared.services._card', ['model'=> $element, 'blackTaskIcon' => false, 'seeTaskDescriptionTooltip' => false])
                                         </div>
                                     @endforeach
 
