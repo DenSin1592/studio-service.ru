@@ -1,6 +1,6 @@
 @extends('admin.layouts.inner')
 
-@section('title') {{ $formData[$essenceName]->name }} - редактирование @stop
+@section('title') {{ $formData[$essenceName]->name ?? ($formData[$essenceName]->phone ?? '')}} - редактирование @stop
 
 @section('content')
 
@@ -17,6 +17,7 @@
             ]) !!}
 
         {!! Form::hidden('admin', true) !!}
+    
         @include($viewFormFieldsName)
 
         <div class="action-bar">
