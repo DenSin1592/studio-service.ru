@@ -7,12 +7,18 @@ use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Admin\EssenceControllers\BeforeAfterImagesController;
 use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
 use App\Http\Controllers\Admin\EssenceControllers\FeedbackController;
+use App\Http\Controllers\Admin\EssenceControllers\OffersController;
 use App\Http\Controllers\Admin\EssenceControllers\OurWorksController;
 use App\Http\Controllers\Admin\EssenceControllers\StructureController;
 use App\Http\Controllers\Admin\EssenceControllers\TargetAudiencesController;
+use App\Http\Controllers\Admin\PageControllers\CompetencePageController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
 use App\Http\Controllers\Admin\EssenceControllers\ReviewsController;
 use App\Http\Controllers\Admin\EssenceControllers\ServicesController;
+use App\Http\Controllers\Admin\PageControllers\OurWorkPageController;
+use App\Http\Controllers\Admin\PageControllers\ReviewPageController;
+use App\Http\Controllers\Admin\PageControllers\ServicePageController;
+use App\Http\Controllers\Admin\PageControllers\TextPageController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
 use App\Models\AdminUser;
@@ -66,8 +72,20 @@ class AclServiceProvider extends ServiceProvider
             $acl->define('change-site-structure', [
                 StructureController::class,
                 HomePageController::class,
+                CompetencePageController::class,
+                OurWorkPageController::class,
+                ReviewPageController::class,
+                ServicePageController::class,
+                TextPageController::class,
                 TargetAudiencePageController::class,
             ], 'Структура сайта');
+
+            $acl->define('change-catalog', [
+                CompetenciesController::class,
+                ServicesController::class,
+                TargetAudiencesController::class,
+                OffersController::class,
+            ], 'Каталоги');
 
             $acl->define('change-reference-books', [
                 BeforeAfterImagesController::class
@@ -83,7 +101,7 @@ class AclServiceProvider extends ServiceProvider
 
             $acl->define('change-our-works', [
                 OurWorksController::class,
-            ], 'Наши работы');
+            ], 'Проекты');
 
             $acl->define('change-settings', [
                 SettingsController::class,
