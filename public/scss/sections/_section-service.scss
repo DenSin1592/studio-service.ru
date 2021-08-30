@@ -141,24 +141,56 @@
 }
 
 .service-achievements-list {
-    margin: 0 0 -10px;
+    margin-top: 0;
+    margin-bottom: -10px;
     color: $c-light;
     @include media-breakpoint-up(sm) {
-        margin: 0;
+        margin-top: 0;
+        margin-bottom: 0;
     }
     @include media-breakpoint-up(md) {
-        margin: 0 0 5px;
+        margin-top: 0;
+        margin-bottom: -5px;
     }
     @include media-breakpoint-up(xxl) {
-        margin: 0 0 12px;
+        margin-top: 0;
+        margin-bottom: 15px;
     }
 
     .service-achievement-item {
         position: relative;
         margin: 0 0 15px;
-        padding: 0;
         @include media-breakpoint-up(md) {
             margin: 0 0 5px;
+        }
+    }
+
+    .service-achievement-title {
+        position: relative;
+        margin: 0;
+        padding: 0 0 0 15px;
+        color: $c-white;
+        font-size: 22px;
+        line-height: 25px;
+        font-weight: 600;
+        @include media-breakpoint-up(sm) {
+            font-size: 25px;
+            line-height: 30px;
+        }
+        @include media-breakpoint-up(lg) {
+            font-size: 30px;
+            line-height: 40px;
+        }
+        @include media-breakpoint-up(xl) {
+            padding: 0 0 0 20px;
+            font-size: 40px;
+            line-height: 50px;
+        }
+        @include media-breakpoint-up(xxl) {
+            max-width: 275px;
+            margin: 0 0 -10px;
+            font-size: 50px;
+            line-height: 60px;
         }
 
         &::before {
@@ -189,39 +221,12 @@
         }
     }
 
-    .service-achievement-title {
-        margin: 0 0 0 15px;
-        color: $c-white;
-        font-size: 22px;
-        line-height: 25px;
-        font-weight: 600;
-        @include media-breakpoint-up(sm) {
-            font-size: 25px;
-            line-height: 30px;
-        }
-        @include media-breakpoint-up(lg) {
-            font-size: 30px;
-            line-height: 40px;
-        }
-        @include media-breakpoint-up(xl) {
-            margin-left: 20px;
-            font-size: 40px;
-            line-height: 50px;
-        }
-        @include media-breakpoint-up(xxl) {
-            margin: 0 0 -10px 20px;
-            font-size: 50px;
-            line-height: 60px;
-        }
-
-    }
-
     .service-achievement-description {
         @include media-breakpoint-up(sm) {
             max-width: 150px;
         }
         @include media-breakpoint-up(xxl) {
-            max-width: none;
+            max-width: 275px;
         }
     }
 }
