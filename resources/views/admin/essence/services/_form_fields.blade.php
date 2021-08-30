@@ -182,9 +182,8 @@
 </fieldset>
 <hr>
 
-
 @if(resolve('acl')->checkSeo())
-    <hr>
+
     <fieldset class="bordered-group">
         <legend>Блок мета-данных</legend>
 
