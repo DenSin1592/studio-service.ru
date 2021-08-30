@@ -24,12 +24,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Выбор компеценций</h4>
+                    <h4 class="modal-title">Терминал построения связей</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-xs-6">
-                            <div class="editor-block-title">Доступные компетенции</div>
+                            <div class="editor-block-title">Доступно</div>
                             <div class="editor-elements-search">
                                 <input class="form-control input-sm" type="text" placeholder="Поиск" data-editor-search="available" />
                             </div>
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="col-xs-6">
-                            <div class="editor-block-title">Выбранные компеценции</div>
+                            <div class="editor-block-title">Выбранно</div>
                             <div class="editor-elements-search">
                                 <input class="form-control input-sm" type="text" placeholder="Поиск" data-editor-search="current" />
                             </div>

@@ -13,9 +13,11 @@
     @yield('content')
 </div>
 
-@section('footer')
+{{--@section('footer')
     @include('emails.layouts._footer')
-@show
+@show--}}
+
+@yield('content')
 
 </body>
 </html>

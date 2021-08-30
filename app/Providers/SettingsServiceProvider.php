@@ -79,7 +79,7 @@ class SettingsServiceProvider extends ServiceProvider
                         'mail.feedback.address',
                         'Email обратной связи (кому)',
                         'msk@studio-service.ru',
-                        'Адрес выводится также в футере и шапке',
+                        'Адрес выводится также в футере',
                         SettingValue::TYPE_TEXT,
                         ['required', 'email']
                     )

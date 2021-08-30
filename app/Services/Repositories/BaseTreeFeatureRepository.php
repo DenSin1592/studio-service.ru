@@ -41,7 +41,7 @@ abstract class BaseTreeFeatureRepository extends BaseFeatureRepository
 
     public function getPublishedTree()
     {
-        return $this->treeBuilder->getTree($this->getModel(), null, function ($query) {
+        return $this->treeBuilder->getTree($this->getModel(), null, static function ($query) {
             $query->where('publish', true);
         });
     }

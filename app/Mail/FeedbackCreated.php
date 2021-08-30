@@ -4,7 +4,6 @@ namespace App\Mail;
 
 use App\Models\Feedback;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -21,6 +20,7 @@ class FeedbackCreated extends Mailable
         $subject = "Новая заявка на обратный звонок №{$this->feedback->id} на сайте " . route('home');
         $userData = [
             ['title' => 'ФИО', 'value' => $this->feedback->name],
+            ['title' => 'Почта', 'value' => $this->feedback->email],
             ['title' => 'Телефон', 'value' => $this->feedback->phone],
         ];
         $userData = array_filter($userData,

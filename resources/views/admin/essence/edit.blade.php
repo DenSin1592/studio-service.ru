@@ -17,7 +17,7 @@
             ]) !!}
 
         {!! Form::hidden('admin', true) !!}
-    
+
         @include($viewFormFieldsName)
 
         <div class="action-bar">
@@ -26,7 +26,7 @@
 
             <a class="btn btn-danger"
                data-method="delete"
-               data-confirm="Вы уверены, что хотите удалить данную компетенцию?"
+               data-confirm="Вы уверены, что хотите удалить данную запись?"
                href="{{ route($routeDestroy, [$formData[$essenceName]->id]) }}">{{ trans('interactions.delete') }}
             </a>
 

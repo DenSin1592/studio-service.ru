@@ -45,14 +45,7 @@ class Nodes implements MapPart
             $lvl[] = [
                 'name' => $node->name,
                 'url' => \TypeContainer::getClientUrl($node),
-                'children' => array_merge(
-                    $this->buildLvl($node->children, $node),
-                    match ($node->type) {
-                        Node::TYPE_TARGET_AUDIENCE_PAGE => $this->getCatalogElements(TargetAudienceRepository::class),
-                        Node::TYPE_SERVICE_PAGE => $this->getCatalogElements(ServicesRepository::class),
-                        Node::TYPE_COMPETENCE_PAGE => $this->getCatalogElements(CompetenciesRepository::class),
-                        default => []
-                    }),
+                'children' => $this->buildLvl($node->children, $node),
             ];
 
         }
@@ -86,22 +79,4 @@ class Nodes implements MapPart
 
         return $uniqueTypes;
     }
-
-
-    private function getCatalogElements(string $nameRepository): array
-    {
-        $modelList = resolve($nameRepository)->getModelsForSiteMap();
-        $lvl = [];
-        foreach ($modelList as $model) {
-            $lvl[] = [
-                'name' => $model->name,
-                'url' => $model->url,
-                'children' => []
-            ];
-
-        }
-        return $lvl;
-    }
-
-
 }
