@@ -82,9 +82,31 @@ class AclServiceProvider extends ServiceProvider
 
             $acl->define('change-catalog', [
                 CompetenciesController::class,
+                \App\Http\Controllers\Admin\Relations\Competencies\ContentBlocksController::class,
+
                 ServicesController::class,
+                \App\Http\Controllers\Admin\Relations\Services\BeforeAfterImagesController::class,
+                \App\Http\Controllers\Admin\Relations\Services\CompetenciesController::class,
+                \App\Http\Controllers\Admin\Relations\Services\ContentBlocksController::class,
+                \App\Http\Controllers\Admin\Relations\Services\FaqQuestionsController::class,
+                \App\Http\Controllers\Admin\Relations\Services\ProjectsController::class,
+                \App\Http\Controllers\Admin\Relations\Services\ReviewsController::class,
+                \App\Http\Controllers\Admin\Relations\Services\TabsController::class,
+                \App\Http\Controllers\Admin\Relations\Services\TargetAudiencesController::class,
+                \App\Http\Controllers\Admin\Relations\Services\TasksController::class,
+
                 TargetAudiencesController::class,
+
                 OffersController::class,
+                \App\Http\Controllers\Admin\Relations\Offers\BeforeAfterImagesController::class,
+                \App\Http\Controllers\Admin\Relations\Offers\ContentBlocksController::class,
+                \App\Http\Controllers\Admin\Relations\Offers\FaqQuestionsController::class,
+                \App\Http\Controllers\Admin\Relations\Offers\ProjectsController::class,
+                \App\Http\Controllers\Admin\Relations\Offers\ReviewsController::class,
+                \App\Http\Controllers\Admin\Relations\Offers\ServicesController::class,
+                \App\Http\Controllers\Admin\Relations\Offers\TabsController::class,
+                \App\Http\Controllers\Admin\Relations\Offers\TargetAudiencesController::class,
+
             ], 'Каталоги');
 
             $acl->define('change-reference-books', [
@@ -97,10 +119,14 @@ class AclServiceProvider extends ServiceProvider
 
             $acl->define('change-reviews', [
                 ReviewsController::class,
+                \App\Http\Controllers\Admin\Relations\Reviews\ImagesController::class,
+                \App\Http\Controllers\Admin\Relations\Reviews\ServicesController::class,
             ], 'Отзывы');
 
             $acl->define('change-our-works', [
                 OurWorksController::class,
+                \App\Http\Controllers\Admin\Relations\OurWorks\ImagesController::class,
+                \App\Http\Controllers\Admin\Relations\OurWorks\ServicesController::class,
             ], 'Проекты');
 
             $acl->define('change-settings', [
