@@ -16,6 +16,9 @@ class MapBuilder
     public function __construct()
     {
         $this->addMapPartBuilder(\App(Nodes::class));
+        $this->addMapPartBuilder(\App(Competencies::class));
+        $this->addMapPartBuilder(\App(Services::class));
+        $this->addMapPartBuilder(\App(TargetAudiences::class));
         $this->addMapPartBuilder(\App(Offers::class));
         $this->addMapPartBuilder(\App(Projects::class));
     }
