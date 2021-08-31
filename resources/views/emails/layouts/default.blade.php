@@ -17,7 +17,5 @@
     @include('emails.layouts._footer')
 @show--}}
 
-@yield('content')
-
 </body>
 </html>
