@@ -7,53 +7,54 @@
 @section('content')
 
     <section class="section-display">
-    <div class="container">
-        <div class="row">
-            <div class="col-xxl-10 offset-xxl-1">
-
-                @include('client.shared.breadcrumbs._breadcrumbs')
-
-                <div class="display-header">
-                    <h1 class="display-title title-h1">{!! $metaData['h1'] !!}</h1>
-                </div>
-
-                <div class="row">
-                    <div class="display-media-container col-3 col-sm-2 col-xl-1">
-                        <div class="display-thumnbail">
-                            <img src="{{asset('images/icons/general/svg/icon-services.svg')}}" alt="" width="104"
-                                 height="104" class="display-media">
-                        </div>
-                    </div>
-
-                    <div class="display-typography-container col-12 col-sm-10 col-xl-11">
-                        <div class="display-description">{!! $model->content_top !!}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </section>
-
-
-    <section class="section-services section-purple-light section-filled">
         <div class="container">
             <div class="row">
                 <div class="col-xxl-10 offset-xxl-1">
-                    <div class="services-grid row">
 
-                        @foreach($model->offers as $model)
-                            <div class="service-item col-12 col-sm-6 col-md-4 d-flex">
+                    @include('client.shared.breadcrumbs._breadcrumbs')
 
-                                @include('client.shared.offers._card', ['blackTaskIcon' => true, 'seeTaskDescriptionTooltip' => true])
+                    <div class="display-header">
+                        <h1 class="display-title title-h1">{!! $metaData['h1'] !!}</h1>
+                    </div>
 
+                    <div class="row">
+                        <div class="display-media-container col-3 col-sm-2 col-xl-1">
+                            <div class="display-thumnbail">
+                                <img src="{{asset('images/icons/general/svg/icon-services.svg')}}" alt="" width="104"
+                                     height="104" class="display-media">
                             </div>
-                        @endforeach
+                        </div>
 
+                        <div class="display-typography-container col-12 col-sm-10 col-xl-11">
+                            <div class="display-description">{!! $model->content_top !!}</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    @if($model->offers->count())
+        <section class="section-services section-purple-light section-filled">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xxl-10 offset-xxl-1">
+                        <div class="services-grid row">
+
+                            @foreach($model->offers as $model)
+                                <div class="service-item col-12 col-sm-6 col-md-4 d-flex">
+
+                                    @include('client.shared.offers._card', ['blackTaskIcon' => true, 'seeTaskDescriptionTooltip' => true])
+
+                                </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
 
     @include('client.shared._section_social')
 
