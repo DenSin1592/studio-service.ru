@@ -4,10 +4,7 @@ namespace App\Services\MapBuilder\MapPart;
 
 use App\Models\Node;
 use App\Services\MapBuilder\MapPart;
-use App\Services\Repositories\Competencies\CompetenciesRepository;
 use App\Services\Repositories\Node\NodeRepository;
-use App\Services\Repositories\Services\ServicesRepository;
-use App\Services\Repositories\TargetAudience\TargetAudienceRepository;
 
 class Nodes implements MapPart
 {
@@ -20,15 +17,6 @@ class Nodes implements MapPart
     {
         $nodeList = $this->repository->getPublishedTree();
         $lvl = $this->buildLvl($nodeList);
-        $types = $this->collectTypes($nodeList);
-        $missingTypes = $this->getMissedUniqueTypes($types);
-        foreach ($missingTypes as $type) {
-            $lvl[] = [
-                'name' => \TypeContainer::getTypeName($type),
-                'url' => \TypeContainer::getClientUrl($this->repository->newInstance(['type' => $type])),
-                'children' => [],
-            ];
-        }
 
         return $lvl;
     }
@@ -50,33 +38,5 @@ class Nodes implements MapPart
 
         }
         return $lvl;
-    }
-
-
-    private function collectTypes($nodeList, array $types = []): array
-    {
-        /** @var Node $node */
-        foreach ($nodeList as $node) {
-            $types = $this->collectTypes($node->children, $types);
-            if (!in_array($node->type, $types)) {
-                $types[] = $node->type;
-            }
-        }
-
-        return $types;
-    }
-
-
-    private function getMissedUniqueTypes(array $types): array
-    {
-        // Collect unique types
-        $uniqueTypes = [];
-        foreach (\TypeContainer::getTypeList() as $typeKey => $type) {
-            if ($type->getUnique() && !in_array($typeKey, $types)) {
-                $uniqueTypes[] = $typeKey;
-            }
-        }
-
-        return $uniqueTypes;
     }
 }
