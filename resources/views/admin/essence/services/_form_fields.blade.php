@@ -49,7 +49,7 @@
 
 <fieldset class="bordered-group">
     <legend>Управление видео-блоком</legend>
-    {!! Form::tbTextBlock('section_video_name') !!}
+    {!! Form::tbTextBlock('section_video_name', null, null, ['hint' => 'Ссылка вида "поделиться"(например: https://www.youtube.com/watch?v=-452p_9ESbM&t=247s)']) !!}
     {!! Form::tbTextBlock('section_video_link_youtube') !!}
     {!! Form::tbCheckboxBlock('section_video_publish') !!}
     <hr>
