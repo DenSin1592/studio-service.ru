@@ -84,7 +84,7 @@ abstract class BaseFeatureRepository extends BaseRepository
 
     public function getEssencesBySearchString($searchString, $page = 1, $limit = 20): array
     {
-        $query = $this->getModel();
+        $query = $this->getModel()->query();
 
         $searchString = trim($searchString);
         if (!($searchString === '' || empty($searchString))){

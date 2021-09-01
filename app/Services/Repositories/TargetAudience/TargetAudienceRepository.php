@@ -78,5 +78,30 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
             ->get();
     }
 
+
+    public function getEssencesBySearchString($searchString, $page = 1, $limit = 20): array
+    {
+        $query = $this->getModel()->query()->whereNotNull('parent_id');
+
+        $searchString = trim($searchString);
+        if (!($searchString === '' || empty($searchString))){
+            $query->where('name', 'like', "%{$searchString}%");
+        }
+
+        $totalCount = $this->selectProductCount($query);
+
+        $products = $query
+            ->skip($limit * ($page - 1))
+            ->take($limit)
+            ->get();
+
+        return [
+            'items' => $products,
+            'total' => $totalCount,
+            'page' => $page,
+            'limit' => $limit,
+        ];
+    }
+
 }
 
