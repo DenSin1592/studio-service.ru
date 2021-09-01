@@ -84,14 +84,14 @@ abstract class BaseFeatureRepository extends BaseRepository
 
     public function getEssencesBySearchString($searchString, $page = 1, $limit = 20): array
     {
+        $query = $this->getModel();
+
         $searchString = trim($searchString);
-        if ($searchString === '' || empty($searchString)){
-            $query = $this->getModel()->query();
-        }else{
-            $query = $this->getModel()->where('name', 'like', "%{$searchString}%");
+        if (!($searchString === '' || empty($searchString))){
+            $query->where('name', 'like', "%{$searchString}%");
         }
 
-        $total = $this->selectProductCount($query);
+        $totalCount = $this->selectProductCount($query);
 
         $products = $query
             ->skip($limit * ($page - 1))
@@ -100,7 +100,7 @@ abstract class BaseFeatureRepository extends BaseRepository
 
         return [
             'items' => $products,
-            'total' => $total,
+            'total' => $totalCount,
             'page' => $page,
             'limit' => $limit,
         ];
