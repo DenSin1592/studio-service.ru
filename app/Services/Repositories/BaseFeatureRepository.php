@@ -148,7 +148,7 @@ abstract class BaseFeatureRepository extends BaseRepository
     }
 
 
-    private function selectProductCount($query)
+    protected function selectProductCount($query)
     {
         return $query
             ->distinct()
