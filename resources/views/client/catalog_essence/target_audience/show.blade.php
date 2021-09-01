@@ -34,17 +34,17 @@
         </div>
     </section>
 
-    @if($model->offers->count())
+    @if($model->getOfferList()->count())
         <section class="section-services section-purple-light section-filled">
             <div class="container">
                 <div class="row">
                     <div class="col-xxl-10 offset-xxl-1">
                         <div class="services-grid row">
 
-                            @foreach($model->offers as $model)
+                            @foreach($model->getOfferList() as $offer)
                                 <div class="service-item col-12 col-sm-6 col-md-4 d-flex">
 
-                                    @include('client.shared.offers._card', ['blackTaskIcon' => true, 'seeTaskDescriptionTooltip' => true])
+                                    @include('client.shared.offers._card', ['blackTaskIcon' => true, 'seeTaskDescriptionTooltip' => true, 'model' => $offer])
 
                                 </div>
                             @endforeach

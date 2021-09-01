@@ -71,6 +71,12 @@ class TargetAudience extends Model
     }
 
 
+    public function getOfferList()
+    {
+        return $this->offers->merge($this->parent->offers);
+    }
+
+
     protected static function boot(): void
     {
         parent::boot();

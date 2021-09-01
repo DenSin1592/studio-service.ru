@@ -64,6 +64,7 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
             ->firstOrFail();
     }
 
+
     public function getModelsForHomePage()
     {
         return $this->getModel()
@@ -77,29 +78,5 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
             ->get();
     }
 
-
-    public function getEssencesBySearchString($searchString, $page = 1, $limit = 20): array
-    {
-        $searchString = trim($searchString);
-        if ($searchString === '' || empty($searchString)){
-            $query = $this->getModel()->query()->whereNotNull('parent_id');
-        }else{
-            $query = $this->getModel()->query()->whereNotNull('parent_id')->where('name', 'like', "%{$searchString}%");
-        }
-
-        $total = $this->selectProductCount($query);
-
-        $products = $query
-            ->skip($limit * ($page - 1))
-            ->take($limit)
-            ->get();
-
-        return [
-            'items' => $products,
-            'total' => $total,
-            'page' => $page,
-            'limit' => $limit,
-        ];
-    }
 }
 
