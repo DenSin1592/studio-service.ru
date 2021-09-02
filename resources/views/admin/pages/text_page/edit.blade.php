@@ -12,8 +12,6 @@
 
     @include('admin.shared._form_header')
 
-        {!! Form::tbTextareaBlock('content_top', trans('validation.attributes.content_top')) !!}
-
         {!! Form::tbTinymceTextareaBlock('content', trans('validation.attributes.content')) !!}
 
         @include('admin.shared._form_meta_fields')
