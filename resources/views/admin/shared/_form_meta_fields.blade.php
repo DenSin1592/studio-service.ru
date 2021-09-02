@@ -3,11 +3,6 @@
     <fieldset class="bordered-group">
         <legend>Мета-данные страницы</legend>
 
-    {!! Form::tbFormGroupOpen('header') !!}
-        {!! Form::tbLabel('header', trans('validation.attributes.header')) !!}
-        {!! Form::tbText('header') !!}
-    {!! Form::tbFormGroupClose() !!}
-
     {!! Form::tbFormGroupOpen('meta_title') !!}
         {!! Form::tbLabel('meta_title', trans('validation.attributes.meta_title')) !!}
         {!! Form::tbText('meta_title') !!}

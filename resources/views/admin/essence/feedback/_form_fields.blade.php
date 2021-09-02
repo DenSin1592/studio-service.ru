@@ -3,7 +3,7 @@
 {!! Form::tbFormGroupClose() !!}
 
 {!! Form::tbTextBlock('name', 'Имя') !!}
-
+@include('admin.shared._form_header')
 {!! Form::tbTextBlock('email') !!}
 
 {!! Form::tbTextBlock('phone', null, null, ['data-phone' => true, 'data-client-phone-mask']) !!}

@@ -1,5 +1,6 @@
 
 {!! Form::tbTextBlock('name') !!}
+@include('admin.shared._form_header')
 {!! Form::tbCheckboxBlock('publish') !!}
 {!! Form::tbCheckboxBlock('on_home_page') !!}
 <hr>
