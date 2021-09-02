@@ -99,6 +99,7 @@ class AclServiceProvider extends ServiceProvider
 
                 OffersController::class,
                 \App\Http\Controllers\Admin\Relations\Offers\BeforeAfterImagesController::class,
+                \App\Http\Controllers\Admin\Relations\Offers\CompetenciesController::class,
                 \App\Http\Controllers\Admin\Relations\Offers\ContentBlocksController::class,
                 \App\Http\Controllers\Admin\Relations\Offers\FaqQuestionsController::class,
                 \App\Http\Controllers\Admin\Relations\Offers\ProjectsController::class,

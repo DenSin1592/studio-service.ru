@@ -165,9 +165,10 @@
     {!! Form::tbTextBlock('section_competencies_name') !!}
     {!! Form::tbCheckboxBlock('section_competencies_publish') !!}
     <hr>
-    <p>
-        <em>Набор компетенций происходит у услуги.</em>
-    </p>
+    @include('admin.shared._relations._many_to_many._block', array_merge(
+    \App\Http\Controllers\Admin\Relations\Offers\CompetenciesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
+    ['models' => $formData[\App\Http\Controllers\Admin\Relations\Offers\CompetenciesController::RELATIONS_NAME]
+    ]))
 </fieldset>
 <hr>
 

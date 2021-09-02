@@ -56,12 +56,12 @@
 
     @include('client.catalog_essence.offer._section_feedback')
 
-    @if($model->section_competencies_publish && $model->service->competencies->count())
+    @if($model->section_competencies_publish && $model->competencies->count())
         @include('client.shared._section_competencies',
             [
                 'header' => $model->section_competencies_name,
                 'visibleSeeAllLink' => false,
-                'elements' => $model->service->competencies,
+                'elements' => $model->competencies,
 
             ])
     @endif

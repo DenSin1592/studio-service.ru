@@ -68,6 +68,11 @@ class Offer extends Model
     ];
 
 
+    public function competencies()
+    {
+        return $this->belongsToMany(Competence::class)->withPivot('position');
+    }
+
     public function service()
     {
         return $this->belongsTo(Service::class);
@@ -189,6 +194,7 @@ class Offer extends Model
                 $model->beforeAfterImages()->detach();
                 $model->reviews()->detach();
                 $model->ourWorks()->detach();
+                $model->competencies()->detach();
             });
         });
     }

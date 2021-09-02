@@ -6,6 +6,13 @@ Route::prefix('offers')->name('offers.')->group(function () {
 
     Route::namespace('Relations\Offers')->group(function () {
 
+        Route::prefix('competencies')->name('competencies.')->group(function () {
+            Route::get('available', 'CompetenciesController@available')
+                ->name('available');
+
+            Route::get('rebuild-current', 'CompetenciesController@rebuildCurrent')
+                ->name('rebuild-current');
+        });
         Route::prefix('services')->name('services.')->group(function () {
             Route::get('search', 'ServicesController@getSearchedValues')->name('search');
         });

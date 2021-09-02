@@ -43,6 +43,11 @@ class Competence extends Model
         return $this->belongsToMany(Service::class)->withPivot('position');
     }
 
+    public function offers()
+    {
+        return $this->belongsToMany(Offer::class)->withPivot('position');
+    }
+
     public function contentBlocks()
     {
         return $this->hasMany(CompetenceContentBlock::class);
@@ -72,6 +77,7 @@ class Competence extends Model
         static::deleting(function (self $model) {
             \DB::transaction(function () use ($model) {
                 $model->services()->detach();
+                $model->offers()->detach();
                 DeleteHelpers::deleteRelatedAll($model->contentBlocks());
             });
         });
