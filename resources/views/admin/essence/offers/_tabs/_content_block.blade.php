@@ -16,7 +16,9 @@
     <div class="full-info">
         {{ Form::tbLabel("{$relation}[{$key}][tab_name]", trans('validation.attributes.tab_name')) }}
         {{ Form::tbText("{$relation}[{$key}][tab_name]", $element->tab_name) }}
+    </div>
 
+    <div class="full-info">
         <div class="form-group">
             {{ Form::tbLabel("{$relation}[{$key}][content]", trans('validation.attributes.content')) }}
             {{ Form::tbTinymceTextarea("{$relation}[{$key}][content]", $element->content, ['rows' => 3]) }}

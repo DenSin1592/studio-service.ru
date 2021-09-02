@@ -17,10 +17,12 @@
 
 
     <div class="full-info">
-
         <div class="form-group">
             {!! Form::tbTextBlock("{$relation}[{$key}][name]", trans('validation.attributes.name'), $element->name) !!}
         </div>
+    </div>
+
+    <div class="full-info">
         <div class="form-group">
             {{ Form::tbLabel("{$relation}[{$key}][content]", trans('validation.attributes.content')) }}
             {{ Form::tbTinymceTextarea("{$relation}[{$key}][content]", $element->content, ['rows' => 3]) }}

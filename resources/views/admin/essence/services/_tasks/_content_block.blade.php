@@ -71,7 +71,10 @@
         <div class="form-group">
             {{ Form::tbLabel("{$relation}[{$key}][text]", 'Решение') }}
             {{ Form::tbTextarea("{$relation}[{$key}][text]", $element->text, ['rows' => 3]) }}
-
+        </div>
+    </div>
+    <div class="full-info">
+        <div class="form-group">
             {{ Form::tbLabel("{$relation}[{$key}][description]", 'Описание') }}
             {{ Form::tbTextarea("{$relation}[{$key}][description]", $element->description, ['rows' => 3]) }}
         </div>

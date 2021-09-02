@@ -15,15 +15,18 @@
 
 
     <div class="full-info">
-
         <div class="form-group">
-
             {!! Form::tbTextBlock("{$relation}[{$key}][name]", trans('validation.attributes.name'), $element->name) !!}
         </div>
+    </div>
+    <div class="full-info">
         <div class="form-group">
             {{ Form::tbLabel("{$relation}[{$key}][content]", trans('validation.attributes.content')) }}
             {{ Form::tbTextarea("{$relation}[{$key}][content]", $element->content, ['rows' => 3]) }}
         </div>
+    </div>
+
+    <div class="full-info">
 
     {!! Form::tbFormGroupOpen("{$relation}.{$key}.image_file") !!}
     {{ Form::tbLabel("{$relation}[{$key}][image]", trans('validation.attributes.image_file')) }}

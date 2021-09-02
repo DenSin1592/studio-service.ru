@@ -165,6 +165,7 @@ fieldset.bordered-group > legend {
     visibility: visible;
     height: auto;
     width: auto;
+    margin-bottom: 12px;
 }
 
 .grouped-field-list-add {
