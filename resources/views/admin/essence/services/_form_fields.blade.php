@@ -185,7 +185,7 @@
 @if(resolve('acl')->checkSeo())
 
     <fieldset class="bordered-group">
-        <legend>Блок мета-данных</legend>
+        <legend>Мета-данные страницы</legend>
 
         {!! Form::tbFormGroupOpen('meta_title') !!}
         {!! Form::tbLabel('meta_title', trans('validation.attributes.meta_title')) !!}
