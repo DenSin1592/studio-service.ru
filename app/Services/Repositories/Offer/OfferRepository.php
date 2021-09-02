@@ -29,7 +29,7 @@ class OfferRepository extends BaseFeatureRepository
             ->firstOrFail();
 
         if($model->section_tasks_publish){
-            $model->load(['service.tasks' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
+            $model->load(['tasks' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
         }
 
         if($model->section_tabs_publish){
@@ -45,16 +45,16 @@ class OfferRepository extends BaseFeatureRepository
         }
 
         if($model->section_competencies_publish){
-            $model->load(['service.competencies' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
+            $model->load(['competencies' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
         }
 
-        /*if($model->section_reviews_publish){
+        if($model->section_reviews_publish){
             $model->load(['reviews' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
-        }*/
+        }
 
-        /*if($model->section_projects_publish){
+        if($model->section_projects_publish){
             $model->load(['ourWorks' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
-        }*/
+        }
 
         return $model;
     }
