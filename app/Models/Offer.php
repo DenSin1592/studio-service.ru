@@ -88,6 +88,11 @@ class Offer extends Model
         return $this->hasMany(OfferTab::class);
     }
 
+    public function tasks()
+    {
+        return $this->hasMany(OfferTask::class);
+    }
+
     public function faqQuestions()
     {
         return $this->hasMany(OfferFaqQuestion::class);
@@ -180,6 +185,7 @@ class Offer extends Model
                 DeleteHelpers::deleteRelatedAll($model->contentBlocks());
                 DeleteHelpers::deleteRelatedAll($model->tabs());
                 DeleteHelpers::deleteRelatedAll($model->faqQuestions());
+                DeleteHelpers::deleteRelatedAll($model->tasks());
                 $model->beforeAfterImages()->detach();
                 $model->reviews()->detach();
                 $model->ourWorks()->detach();

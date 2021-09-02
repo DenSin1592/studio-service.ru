@@ -15,7 +15,7 @@
                 <div class="swiper-presentation-nav swiper-container">
                     <div class="swiper-wrapper d-flex flex-nowrap">
 
-                        @foreach($model->service->tasks as $element)
+                        @foreach($model->tasks as $element)
                             <div class="swiper-slide col-auto col-md-2 d-flex">
                             <button type="button" class="swiper-presentation-nav-link d-flex align-items-xl-center" >
                                 <div class="form-row">
@@ -42,7 +42,7 @@
             <div class="swiper-presentation swiper-container swiper-light">
                 <div class="swiper-wrapper d-flex flex-nowrap no-gutters">
 
-                    @foreach($model->service->tasks as $element)
+                    @foreach($model->tasks as $element)
                         <div class="swiper-slide col-12">
                         <div class="container">
                             <div class="form-row">

@@ -13,6 +13,7 @@ use App\Services\Repositories\Node\NodeRepository;
 use App\Services\Repositories\Offer\OfferContentBlock\OfferContentBlockRepository;
 use App\Services\Repositories\Offer\OfferRepository;
 use App\Services\Repositories\Offer\OfferTab\OfferTabRepository;
+use App\Services\Repositories\Offer\OfferTask\OfferTaskRepository;
 use App\Services\Repositories\OurWork\OurWorkImage\OurWorkImageRepository;
 use App\Services\Repositories\OurWork\OurWorkRepository;
 use App\Services\Repositories\Pages\CompetencePage\CompetencePageRepository;
@@ -110,6 +111,11 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->app->singleton(
             OfferTabRepository::class,
             fn() => new OfferTabRepository()
+        );
+
+        $this->app->singleton(
+            OfferTaskRepository::class,
+            fn() => new OfferTaskRepository()
         );
 
         $this->app->singleton(

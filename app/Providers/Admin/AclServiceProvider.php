@@ -106,6 +106,8 @@ class AclServiceProvider extends ServiceProvider
                 \App\Http\Controllers\Admin\Relations\Offers\ServicesController::class,
                 \App\Http\Controllers\Admin\Relations\Offers\TabsController::class,
                 \App\Http\Controllers\Admin\Relations\Offers\TargetAudiencesController::class,
+                \App\Http\Controllers\Admin\Relations\Offers\TasksController::class,
+
 
             ], 'Каталоги');
 

@@ -75,9 +75,10 @@
     {!! Form::tbTextBlock('section_tasks_name') !!}
     {!! Form::tbCheckboxBlock('section_tasks_publish') !!}
 
-    <p>
-        <em>Набор задач происходит у услуги.</em>
-    </p>
+    @include('admin.essence.offers._tasks._content_blocks',[
+    'routeCreate' => route(\App\Http\Controllers\Admin\Relations\Offers\TasksController::ROUTE_CREATE),
+    'relation' => \App\Http\Controllers\Admin\Relations\Offers\TasksController::RELATIONS_NAME,
+    ])
 </fieldset>
 <hr>
 

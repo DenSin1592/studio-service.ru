@@ -12,6 +12,9 @@ Route::prefix('offers')->name('offers.')->group(function () {
         Route::prefix('target-audiences')->name('target-audiences.')->group(function () {
             Route::get('search', 'TargetAudiencesController@getSearchedValues')->name('search');
         });
+        Route::prefix('tasks')->name('tasks.')->group(function () {
+            Route::get('create', 'TasksController@create')->name('create');
+        });
         Route::prefix('content-blocks')->name('content-blocks.')->group(function () {
             Route::get('create', 'ContentBlocksController@create')->name('create');
         });
