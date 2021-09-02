@@ -3,7 +3,7 @@
 {!! Form::tbCheckboxBlock('publish') !!}
 {!! Form::tbCheckboxBlock('on_home_page') !!}
 <hr>
-{!! Form::tbTextBlock('youtube_link', null, null, ['hint' => 'Ссылка вида "поделиться"(например: https://www.youtube.com/watch?v=-452p_9ESbM&t=247s)']) !!}
+{!! Form::tbTextBlock('youtube_link', null, null, ['hint' => 'Ссылка вида "поделиться"(например: https://youtu.be/...)']) !!}
 <hr>
 
 

@@ -15,7 +15,7 @@
 
     {!! Form::tbTextareaBlock('description_after_header', trans('validation.attributes.description_after_header')) !!}
 
-    {!! Form::tbTextBlock('youtube_link_about', null, null, ['hint' => 'Ссылка вида "поделиться"(например: https://www.youtube.com/watch?v=-452p_9ESbM&t=247s)']) !!}
+    {!! Form::tbTextBlock('youtube_link_about', null, null, ['hint' => 'Ссылка вида "поделиться"(например: https://youtu.be/...)']) !!}
 
     {!! Form::tbTextBlock('link_about') !!}
 
