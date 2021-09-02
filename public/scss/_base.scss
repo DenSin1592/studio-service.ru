@@ -340,6 +340,16 @@ blockquote {
     .btn {
         color: $c-white;
     }
+
+    .breadcrumb {
+        .breadcrumb-item {
+            .breadcrumb-link {
+                &:hover {
+                    color: $c-light;
+                }
+            }
+        }
+    }
 }
 
 .section-purple-light {
