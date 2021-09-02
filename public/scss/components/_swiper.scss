@@ -74,6 +74,12 @@
     }
 }
 
+
+.swiper-button-disabled {
+    opacity: 0;
+    visibility: hidden;
+}
+
 .swiper-navigation-wrapper {
     height: 35px;
     margin-left: -2px;
