@@ -45,7 +45,7 @@ class SettingsServiceProvider extends ServiceProvider
                     new SettingValue(
                         'site_content.phone',
                         'Номер телефона',
-                        '+7(495) 933-3439',
+                        '',
                         '',
                         SettingValue::TYPE_TEXT
                     )
@@ -55,7 +55,7 @@ class SettingsServiceProvider extends ServiceProvider
                     new SettingValue(
                         'site_content.wa_phone',
                         'Номер WhatsApp',
-                        '+79160640600',
+                        '',
                         '',
                         SettingValue::TYPE_TEXT
                     )
@@ -65,7 +65,7 @@ class SettingsServiceProvider extends ServiceProvider
                     new SettingValue(
                         'site_content.telegram_phone',
                         'Номер Telegram',
-                        '+79160640600',
+                        '',
                         '',
                         SettingValue::TYPE_TEXT
                     )
@@ -78,10 +78,9 @@ class SettingsServiceProvider extends ServiceProvider
                     new SettingValue(
                         'mail.feedback.address',
                         'Email обратной связи (кому)',
-                        'msk@studio-service.ru',
+                        '',
                         'Адрес выводится также в футере',
                         SettingValue::TYPE_TEXT,
-                        ['required', 'email']
                     )
                 );
 

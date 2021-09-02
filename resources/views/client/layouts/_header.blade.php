@@ -53,14 +53,14 @@
                 <div class="header-social-block">
                     <ul class="header-social-list d-flex flex-wrap list-unstyled">
                         <li class="header-social-item">
-                            <a href="https://t.me/{!! Setting::get("site_content.telegram_phone") !!}" class="header-social-link" target="_blank">
+                            <a {{Setting::get("site_content.telegram_phone") ? 'href=https://t.me/' . Setting::get("site_content.telegram_phone") .' '. 'target="_blank"' :'href=javascript:void(0);'}} class="header-social-link" >
                                 <img src="{{asset('images/icons/social/icon-social-telegram.svg')}}" width="40" height="40"
                                      alt="Telegram" class="header-social-media">
                             </a>
                         </li>
 
                         <li class="header-social-item">
-                            <a href="https://wa.me/{!! Setting::get("site_content.wa_phone") !!}" class="header-social-link" target="_blank">
+                            <a {{Setting::get("site_content.wa_phone") ? 'href=https://wa.me/' . Setting::get("site_content.wa_phone") .' '. 'target="_blank"' :'href=javascript:void(0);'}} class="header-social-link" >
                                 <img src="{{asset('images/icons/social/icon-social-whatsapp.svg')}}" width="40" height="40"
                                      alt="Whatsapp" class="header-social-media">
                             </a>

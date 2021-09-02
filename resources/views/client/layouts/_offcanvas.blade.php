@@ -34,13 +34,13 @@
                 <div class="offcanvas-social-container col-auto">
                     <ul class="offcanvas-social-list d-flex flex-wrap list-unstyled">
                         <li class="offcanvas-social-item">
-                            <a href="https://t.me/{!! Setting::get("site_content.telegram_phone") !!}" class="offcanvas-social-link" target="_blank">
+                            <a {{Setting::get("site_content.telegram_phone") ? 'href=https://t.me/' . Setting::get("site_content.telegram_phone") .' '. 'target="_blank"' :'href=javascript:void(0);'}} class="offcanvas-social-link">
                                 <img src="{{asset('images/icons/social/icon-social-telegram.svg')}}" width="35" height="35" alt="Telegram" class="offcanvas-social-media">
                             </a>
                         </li>
 
                         <li class="offcanvas-social-item">
-                            <a href="https://wa.me/{!! Setting::get("site_content.wa_phone") !!}" class="offcanvas-social-link" target="_blank">
+                            <a {{Setting::get("site_content.wa_phone") ? 'href=https://wa.me/' . Setting::get("site_content.wa_phone") .' '. 'target="_blank"' :'href=javascript:void(0);'}} class="offcanvas-social-link">
                                 <img src="{{asset('images/icons/social/icon-social-whatsapp.svg')}}" width="35" height="35" alt="Whatsapp" class="offcanvas-social-media">
                             </a>
                         </li>

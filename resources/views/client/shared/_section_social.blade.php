@@ -4,7 +4,7 @@
             <div class="col-xxl-10 offset-xxl-1">
                 <div class="social-grid row no-gutters">
                     <div class="social-item col-sm-6 d-flex">
-                        <a href="https://wa.me/{!! Setting::get("site_content.wa_phone") !!}" class="card-social card-social-whatsapp d-flex flex-column justify-content-center" target="_blank" >
+                        <a {{Setting::get("site_content.wa_phone") ? 'href=https://wa.me/' . Setting::get("site_content.wa_phone") .' '. 'target="_blank"' :'href=javascript:void(0);'}} class="card-social card-social-whatsapp d-flex flex-column justify-content-center">
                             <div class="row align-items-center">
                                 <div class="card-social-media-container col-auto">
                                     <div class="card-social-thumbnail">
@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="social-item col-sm-6 d-flex">
-                        <a href="https://t.me/{!! Setting::get("site_content.telegram_phone") !!}" class="card-social card-social-telegram d-flex flex-column justify-content-center" target="_blank" >
+                        <a {{Setting::get("site_content.telegram_phone") ? 'href=https://t.me/' . Setting::get("site_content.telegram_phone") .' '. 'target="_blank"' :'href=javascript:void(0);'}} class="card-social card-social-telegram d-flex flex-column justify-content-center">
                             <div class="row align-items-center">
                                 <div class="card-social-media-container col-auto">
                                     <div class="card-social-thumbnail">
