@@ -49,14 +49,10 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
         return $this->getModel()
             ->with([
                 'offers' => static function ($q) {
-                    $q->whereHas('service', static function ($qu) {$qu->where('publish', true);})
-                        ->with(['service' => static function ($qu) {
-                            $qu->where('publish', true)
-                                ->with(['tasks' => static function ($que) {
-                                    $que->where('publish', true)
-                                        ->orderBy('position');
-                                }])->orderBy('position');
-                        }])->where('publish', true)->orderBy('position');
+                   $q->with(['tasks' => static function ($q) {
+                       $q->where('publish', true)
+                           ->orderBy('position');
+                   }])->where('publish', true)->orderBy('position');
                 },
             ])
             ->where('alias', $alias)
