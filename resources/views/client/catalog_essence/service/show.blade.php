@@ -67,12 +67,12 @@
             ])
     @endif
 
-    @if($model->section_services_publish && $model->otherServices()->count() > 0)
+    @if($model->section_services_publish && $otherService = $model->otherServices())
         @include('client.shared._section_services',
             [
                 'header' => $model->section_services_name,
                 'visibleSeeAllLink' => false,
-                'elements' => $model->otherServices(),
+                'elements' => $otherService,
 
             ])
     @endif

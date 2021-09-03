@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Features\PasswordSetter;
 use App\Models\Features\TreeAncestors;
 use App\Services\Admin\Acl\AclUserInterface;
+use App\Services\DataProviders\AdminRoleForm\AdminRoleSubForm\Abilities;
 use Illuminate\Foundation\Auth\User;
 
 class AdminUser extends User implements AclUserInterface
@@ -19,6 +20,8 @@ class AdminUser extends User implements AclUserInterface
         'super' => 'boolean',
         'allowed_ips' => 'array',
     ];
+
+    private $abilities;
 
     public function isSuper(): bool
     {
@@ -42,11 +45,15 @@ class AdminUser extends User implements AclUserInterface
 
     public function getAbilities(): array
     {
+        if(!empty($this->abilities)){
+            return $this->abilities;
+        }
+
         $role = $this->role()->first();
         if ($role === null)
             return [];
-
-        return $role->abilities;
+        $this->abilities = $role->abilities;
+        return $this->abilities;
     }
 
     protected static function boot(): void

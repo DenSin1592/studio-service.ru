@@ -66,12 +66,12 @@
             ])
     @endif
 
-    @if($model->section_offers_publish && $model->otherOffers()->count() > 0)
+    @if($model->section_offers_publish && $otherOffer = $model->otherOffers())
         @include('client.catalog_essence.offer._section_offers',
             [
                 'header' => $model->section_offers_name,
                 'visibleSeeAllLink' => false,
-                'elements' => $model->otherOffers(),
+                'elements' => $otherOffer,
 
             ])
     @endif
