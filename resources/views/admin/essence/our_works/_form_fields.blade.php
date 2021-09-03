@@ -9,9 +9,9 @@
 <fieldset class="bordered-group">
     <legend>Блок изображений</legend>
 
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image', 'description' => 'Рекомендуемый размер изображения - 960х719'])
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'preview_image', 'description' => 'Рекомендуемый размер изображения - 960х719 px'])
     <hr>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'header_block_background_image', 'description' => 'Рекомендуемый размер изображения - 1939х532'])
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'header_block_background_image', 'description' => 'Рекомендуемый размер изображения - 1939х532 px'])
 </fieldset>
 
 <hr>

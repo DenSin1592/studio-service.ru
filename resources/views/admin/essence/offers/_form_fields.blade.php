@@ -89,7 +89,7 @@
     {!! Form::tbTextBlock('section_video_link_youtube', null, null, ['hint' => 'Ссылка вида "поделиться"(например: https://youtu.be/...)']) !!}
     {!! Form::tbCheckboxBlock('section_video_publish') !!}
     <hr>
-    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'section_video_image','description' => 'Рекомендуемый размер изображения - 949х394'])
+    @include('admin.shared._model_image_field', ['model' => $formData[$essenceName], 'field' => 'section_video_image','description' => 'Рекомендуемый размер изображения - 949х394 px'])
 
 </fieldset>
 <hr>

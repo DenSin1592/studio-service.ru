@@ -24,7 +24,7 @@
     <div class="full-info">
         {!! Form::tbFormGroupOpen("{$relation}.{$key}.image_file") !!}
             {{ Form::tbLabel("{$relation}[{$key}][image]", trans('validation.attributes.image_file')) }}
-        <div class="field-hint-block">Рекомендуемый размер изображения - 1012х667</div>
+        <div class="field-hint-block">Рекомендуемый размер изображения - 1012х667 px</div>
             @if ($element->getAttachment('image')->exists())
                 <div class="loaded-image">
                     <a href="{{{ $element->getAttachment('image')->getRelativePath() }}}" target="_blank" rel="prettyPhoto">
@@ -43,7 +43,7 @@
 
         {!!   Form::tbFormGroupOpen("{$relation}.{$key}.icon_file") !!}
             {{ Form::tbLabel("{$relation}[{$key}][icon]", trans('validation.attributes.icon_file')) }}
-                <div class="field-hint-block">Необходимы изображения в формате svg</div>
+                <div class="field-hint-block">Рекомендованы изображения в формате svg</div>
             @if ($element->getAttachment('icon')->exists())
                 <div class="loaded-image">
                     <a href="{{{ $element->getAttachment('icon')->getRelativePath() }}}" target="_blank" rel="prettyPhoto" data-fancybox="">
