@@ -23,6 +23,7 @@ use App\Services\FormProcessors\Service\SubProcessor\Tabs;
 use App\Services\FormProcessors\Service\SubProcessor\TargetAudiences;
 use App\Services\FormProcessors\Service\SubProcessor\Tasks;
 use App\Services\FormProcessors\Settings\SettingsFormProcessor;
+use App\Services\FormProcessors\TargetAudience\SubProcessor\Children;
 use App\Services\FormProcessors\TargetAudience\TargetAudienceFormProcessor;
 use App\Services\Repositories\AdminRole\AdminRoleRepository;
 use App\Services\Repositories\AdminUser\AdminUserRepository;
@@ -202,10 +203,14 @@ class FormProcessorsServiceProvider extends ServiceProvider
 
         $this->app->bind(
             TargetAudienceFormProcessor::class,
-            fn() => new TargetAudienceFormProcessor(
-                $this->app->make(TargetAudienceValidator::class),
-                $this->app->make(\App\Services\Repositories\TargetAudience\TargetAudienceRepository::class)
-            )
+            function () {
+                $formProcessor = new TargetAudienceFormProcessor(
+                    $this->app->make(TargetAudienceValidator::class),
+                    $this->app->make(\App\Services\Repositories\TargetAudience\TargetAudienceRepository::class)
+                );
+                $formProcessor->addSubProcessor(\App(Children::class));
+                return $formProcessor;
+            }
         );
 
     }

@@ -275,7 +275,7 @@ return [
         'title' => "Название",
         'text' => "Текст",
 
-        'block_advantages' => "Блок \"Наши примущества\"",
+        'block_advantages' => "Блок \"Наши преимущества\"",
         'youtube_link' => "Ссылка Youtube",
         'youtube_link_about' => "Ссылка Youtube - \"Видео о нас\"",
         'short_about' => "Текст \"Коротко о нас\"",

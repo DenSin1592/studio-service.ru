@@ -45,6 +45,7 @@
         @include('client.layouts._offcanvas')
 
         @yield('modal')
+
         @include('client.shared.modals._modal_message')
 
         {!! Asset::includeJS('client_js') !!}
