@@ -20,7 +20,7 @@
 
     {!! Form::tbTextareaBlock('short_about', trans('validation.attributes.short_about')) !!}
 
-    {!! Form::tbTinymceTextareaBlock('block_advantages', trans('validation.attributes.block_advantages'), null, ['hint' => 'Изображения "До/После" находятся в разделе справочники']) !!}
+    {!! Form::tbTinymceTextareaBlock('block_advantages', trans('validation.attributes.block_advantages')) !!}
 
     @include('admin.shared._form_meta_fields')
 

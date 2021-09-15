@@ -9,7 +9,7 @@
 <fieldset class="bordered-group">
     <legend>Предмет оффера</legend>
     <p><em>Пересечение Услуги и ЦА.</em></p>
-    <p><em>Если услуга или ЦА не опубликованы, оффер также не выводиться на сайте.</em></p>
+    <p><em>Если услуга или ЦА не опубликованы, оффер также не выводится на сайте.</em></p>
 
     {!! Form::tbFormGroupOpen(\App\Http\Controllers\Admin\Relations\Offers\ServicesController::FIELD_NAME) !!}
 
@@ -50,7 +50,7 @@
     <legend>Блок-заголовок</legend>
     {!! Form::tbFormGroupOpen('header') !!}
     {!! Form::tbLabel('header', trans('validation.attributes.header')) !!}
-    <div class="field-hint-block">Если заголовок не заполнен - выводиться название</div>
+    <div class="field-hint-block">Если заголовок не заполнен - выводится название</div>
     {!! Form::tbText('header') !!}
     {!! Form::tbFormGroupClose() !!}
     <hr>
