@@ -13,7 +13,7 @@
     <legend>Блок-заголовок</legend>
     {!! Form::tbFormGroupOpen('header') !!}
     {!! Form::tbLabel('header', trans('validation.attributes.header')) !!}
-    <div class="field-hint-block">Если заголовок не заполнен - выводиться название</div>
+    <div class="field-hint-block">Если заголовок не заполнен - выводится название</div>
     {!! Form::tbText('header') !!}
     {!! Form::tbFormGroupClose() !!}
     <hr>
