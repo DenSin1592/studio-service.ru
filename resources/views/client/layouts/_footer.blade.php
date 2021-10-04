@@ -28,7 +28,7 @@
 
                     <div class="footer-divider col-12 order-sm-3"></div>
 
-                    <div class="footer-logo-container col-6 col-md-4 order-sm-4">
+                    <div class="footer-logo-container col-8 col-md-4 order-sm-4">
                         <a href="{{route('home')}}" class="footer-logo-block d-flex align-items-center">
                             <div class="footer-logo-thumbnail">
                                 <img loading="lazy" src="{{asset('images/logo.svg')}}" width="70" height="65" alt=""
@@ -42,7 +42,7 @@
                     </div>
 
                     <div
-                        class="footer-social-container align-self-center align-self-md-start col-6 col-sm-4 col-md-3 col-lg-2 col-xl-3 order-sm-2 ml-auto">
+                        class="footer-social-container align-self-center align-self-md-start col-4 col-sm-4 col-md-3 col-lg-2 col-xl-3 order-sm-2 ml-auto">
                         <div class="footer-subtitle d-none d-md-block">Мессенджеры</div>
 
                         <div class="footer-social-block">
