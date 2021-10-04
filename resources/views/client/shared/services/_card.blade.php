@@ -10,26 +10,56 @@
         {{$model->name}}
     </div>
 
-    @if($model->tasks->count() > 0)
-        <div class="card-service-include-block">
-            <div class="card-service-include-title">Какие задачи решает:</div>
+    @if(isset($relations))
+        @if($relations === 'targetAudiences')
+            @if($model->targetAudiences->count() > 0)
+                <div class="card-service-include-block">
+                    <div class="card-service-include-title">Подходит для:</div>
 
-            <ul class="card-service-include-list @if($blackTaskIcon) card-service-include-pills-list @endif list-unstyled d-flex flex-wrap align-items-center">
-                @foreach($model->tasks as $elem)
-                    <li class="card-service-include-item d-flex align-items-center justify-content-center"
-                        @if($seeTaskDescriptionTooltip)
-                        data-toggle="tooltip"
-                        data-placement="bottom"
-                        title="{{$elem->text}}"
-                        @endif
-                    >
-                        <img loading="lazy"
-                             src="{{$elem->getImgPath('icon', null, 'no-image-40x40.png')}}" alt=""
-                             width="35" height="29" class="card-service-include-media">
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+                    <ul class="card-service-include-list @if($blackTaskIcon) card-service-include-pills-list @endif list-unstyled d-flex flex-wrap align-items-center">
+                        @foreach($model->targetAudiences as $elem)
+
+                            <li onclick="location.href='/offery/{{ $elem->pivot->alias }}'"  class="card-service-include-item d-flex align-items-center justify-content-center"
+                                @if($seeTaskDescriptionTooltip)
+                                data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="{{$elem->name}}"
+                                @endif
+                            >
+                                <img loading="lazy"
+                                     src="{{$elem->getImgPath('icon', null, 'no-image-40x40.png')}}" alt=""
+                                     width="35" height="29" class="card-service-include-media">
+                            </li>
+
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        @endif
+
+        @if($relations === 'tasks')
+            @if($model->tasks->count() > 0)
+                <div class="card-service-include-block">
+                    <div class="card-service-include-title">Какие задачи решает:</div>
+
+                    <ul class="card-service-include-list @if($blackTaskIcon) card-service-include-pills-list @endif list-unstyled d-flex flex-wrap align-items-center">
+                        @foreach($model->tasks as $elem)
+                            <li class="card-service-include-item d-flex align-items-center justify-content-center"
+                                @if($seeTaskDescriptionTooltip)
+                                data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="{{$elem->text}}"
+                                @endif
+                            >
+                                <img loading="lazy"
+                                     src="{{$elem->getImgPath('icon', null, 'no-image-40x40.png')}}" alt=""
+                                     width="35" height="29" class="card-service-include-media">
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        @endif
     @endif
 
     <div class="card-service-cta d-flex align-items-center justify-content-center">

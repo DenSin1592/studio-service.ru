@@ -59,7 +59,7 @@ class TargetAudience extends Model
 
     public function services()
     {
-        return $this->belongsToMany(Service::class)->withPivot('position');
+        return $this->belongsToMany(Service::class, 'offers')->withPivot('alias');
     }
 
     public function getUrlAttribute(): string
@@ -67,7 +67,6 @@ class TargetAudience extends Model
         return !empty($this->parent_id)
             ? route(\App\Http\Controllers\Client\EssenceControllers\TargetAudienceController::ROUTE_SHOW_ON_SITE, $this->alias)
             : 'javascript:void(0);';
-
     }
 
 
@@ -101,7 +100,6 @@ class TargetAudience extends Model
 
         static::deleting(function (self $model) {
             \DB::transaction(function() use ($model){
-                $model->services()->detach();
                 DeleteHelpers::removeCommunicationAll($model->children(), 'parent_id');
                 DeleteHelpers::removeCommunicationAll($model->offers(), 'target_audience_id');
             });

@@ -26,6 +26,15 @@
 <hr>
 
 
+<fieldset class="bordered-group">
+    <legend>Управление блоком ЦА</legend>
+    {!! Form::tbTextBlock('section_target_audiences_name') !!}
+    {!! Form::tbCheckboxBlock('section_target_audiences_publish') !!}
+    <hr>
+</fieldset>
+<hr>
+
+
 @include('admin.essence.services._content_blocks._content_blocks',[
     'routeCreate' => route(\App\Http\Controllers\Admin\Relations\Services\ContentBlocksController::ROUTE_CREATE),
     'relation' => \App\Http\Controllers\Admin\Relations\Services\ContentBlocksController::RELATIONS_NAME,
@@ -142,19 +151,6 @@
     <legend>Управление блоком 'Другие услуги'</legend>
     {!! Form::tbTextBlock('section_services_name') !!}
     {!! Form::tbCheckboxBlock('section_services_publish') !!}
-</fieldset>
-<hr>
-
-
-<fieldset class="bordered-group">
-    <legend>Управление блоком ЦА</legend>
-    {!! Form::tbTextBlock('section_target_audiences_name') !!}
-    {!! Form::tbCheckboxBlock('section_target_audiences_publish') !!}
-    <hr>
-    @include('admin.shared._relations._many_to_many._block', array_merge(
-    \App\Http\Controllers\Admin\Relations\Services\TargetAudiencesController::RELATION_BLOCK_VIEW_DEPENDENCIES(),
-    ['models' => $formData[\App\Http\Controllers\Admin\Relations\Services\TargetAudiencesController::RELATIONS_NAME]
-    ]))
 </fieldset>
 <hr>
 

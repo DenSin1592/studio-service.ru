@@ -8,6 +8,15 @@
 
     @include('client.catalog_essence.service._section_header')
 
+    @if($model->section_target_audiences_publish && $model->targetAudiences->count() > 0)
+        @include('client.shared._section_target_audiences',
+            [
+                'header' => $model->section_target_audiences_name,
+                'elements' => $model->targetAudiences,
+
+            ])
+    @endif
+
     @foreach($model->contentBlocks as $element)
         @if($element->image_right)
             @include('client.catalog_essence.service._content_block_image_right')
@@ -73,15 +82,6 @@
                 'header' => $model->section_services_name,
                 'visibleSeeAllLink' => false,
                 'elements' => $otherService,
-
-            ])
-    @endif
-
-    @if($model->section_target_audiences_publish && $model->targetAudiences->count() > 0)
-        @include('client.shared._section_target_audiences',
-            [
-                'header' => $model->section_target_audiences_name,
-                'elements' => $model->targetAudiences,
 
             ])
     @endif

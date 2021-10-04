@@ -6,6 +6,7 @@ use App\Models\Features\AutoPublish;
 use App\Models\Features\Glue;
 use App\Models\Helpers\AliasHelpers;
 use App\Models\Helpers\DeleteHelpers;
+use App\Services\MapBuilder\MapPart\Offers;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\BoxVersion;
 use Illuminate\Database\Eloquent\Model;
@@ -120,7 +121,7 @@ class Service extends Model
 
     public function targetAudiences()
     {
-        return $this->belongsToMany(TargetAudience::class)->withPivot('position');
+        return $this->belongsToMany(TargetAudience::class, 'offers')->withPivot('alias');
     }
 
     public function otherServices()
@@ -189,7 +190,6 @@ class Service extends Model
                 $model->reviews()->detach();
                 $model->ourWorks()->detach();
                 $model->beforeAfterImages()->detach();
-                $model->targetAudiences()->detach();
                 DeleteHelpers::deleteRelatedAll($model->tasks());
                 DeleteHelpers::deleteRelatedAll($model->contentBlocks());
                 DeleteHelpers::deleteRelatedAll($model->tabs());

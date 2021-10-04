@@ -3,8 +3,10 @@
 namespace App\Services\Repositories\Services;
 
 use App\Models\Service;
+use App\Models\TargetAudience;
 use App\Services\Repositories\BaseFeatureRepository;
 use App\Services\RepositoryFeatures\CreatorWithPosition;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class ServicesRepository extends BaseFeatureRepository
 {
@@ -14,6 +16,7 @@ class ServicesRepository extends BaseFeatureRepository
     {
         $this->model = new Service();
     }
+
 
     public function getModelsForHomePage()
     {
@@ -27,23 +30,34 @@ class ServicesRepository extends BaseFeatureRepository
             ->get();
     }
 
+
     public function getModelsForServicePage()
     {
-        return $this->getModel()
+        $collection = $this->getModel()
             ->with([
-                'tasks' => static function ($q) {$q->orderBy('position')->where('publish', true);},
+                'targetAudiences' => static function ($q) {$q->orderBy('target_audiences.position')->where('target_audiences.publish', true);},
             ])
             ->where('publish', true)
             ->orderBy('position')
             ->get();
+
+        for($i = 0; $i < $collection->count(); $i++){
+            $arrayTarget = collect($collection[$i]->targetAudiences)->duplicates('id')->toArray();
+            foreach($arrayTarget as $key => $val){
+                unset($collection[$i]->targetAudiences[$key]);
+            }
+        }
+
+        return $collection;
     }
+
 
     public function getModelforShowByAliasOrFail(string $alias)
     {
         $model = $this->getModel()
             ->with([
-                'contentBlocks' => static function ($q) {$q->where('publish', true)->orderBy('position');
-            }])
+                'contentBlocks' => static function ($q) {$q->where('publish', true)->orderBy('position');},
+            ])
             ->where('alias', $alias)
             ->where('publish', true)
             ->firstOrFail();
@@ -69,7 +83,7 @@ class ServicesRepository extends BaseFeatureRepository
         }
 
         if($model->section_target_audiences_publish){
-            $model->load(['targetAudiences' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
+            $model->load(['targetAudiences' => static function ($q) {$q->orderBy('target_audiences.position')->where('target_audiences.publish', true);}]);
         }
 
         if($model->section_reviews_publish){
@@ -80,6 +94,10 @@ class ServicesRepository extends BaseFeatureRepository
             $model->load(['ourWorks' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
         }
 
+        $arrayTarget = collect($model->targetAudiences)->duplicates('id')->toArray();
+        foreach($arrayTarget as $key => $val){
+            unset($model->targetAudiences[$key]);
+        }
 
         return $model;
     }

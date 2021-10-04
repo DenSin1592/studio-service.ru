@@ -124,7 +124,6 @@ DataProvidersServiceProvider extends ServiceProvider
                 $form->addSubForm(\App(FaqQuestions::class));
                 $form->addSubForm(\App(BeforeAfterImages::class));
                 $form->addSubForm(\App(\App\Services\DataProviders\ServiceForm\ServiceSubForm\ContentBlocks::class));
-                $form->addSubForm(\App(TargetAudiences::class));
                 $form->addSubForm(\App(Reviews::class));
                 $form->addSubForm(\App(Projects::class));
                 return $form;
