@@ -20,7 +20,6 @@
 
                         <div class="offcanvas-logo-content">
                             <div class="offcanvas-logo-title text-nowrap"><b>Студия-</b>Сервис</div>
-                            <div class="offcanvas-logo-text">Межрегиональный технический центр</div>
                         </div>
                     </a>
                 </div>

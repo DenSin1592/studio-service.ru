@@ -24,7 +24,6 @@
                         </ul>
                     </nav>
                 @endif
-
             </div>
 
             <div class="header-logo-container col-auto col-lg-4 col-xl-auto order-md-0">
@@ -35,7 +34,6 @@
 
                     <div class="header-logo-content d-none d-md-block">
                         <div class="header-logo-title text-nowrap"><b>Студия-</b>Сервис</div>
-                        <div class="header-logo-text">Межрегиональный технический центр</div>
                     </div>
                 </a>
             </div>
