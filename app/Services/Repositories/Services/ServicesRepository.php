@@ -35,7 +35,7 @@ class ServicesRepository extends BaseFeatureRepository
     {
         $collection = $this->getModel()
             ->with([
-                'targetAudiences' => static function ($q) {$q->orderBy('target_audiences.position')->where('target_audiences.publish', true);},
+                'targetAudiences' => static function ($q) {$q->orderBy('target_audiences.position')->where('target_audiences.publish', true)->where('offers.publish', true);},
             ])
             ->where('publish', true)
             ->orderBy('position')
@@ -83,7 +83,7 @@ class ServicesRepository extends BaseFeatureRepository
         }
 
         if($model->section_target_audiences_publish){
-            $model->load(['targetAudiences' => static function ($q) {$q->orderBy('target_audiences.position')->where('target_audiences.publish', true);}]);
+            $model->load(['targetAudiences' => static function ($q) {$q->orderBy('target_audiences.position')->where('target_audiences.publish', true)->where('offers.publish', true);}]);
         }
 
         if($model->section_reviews_publish){

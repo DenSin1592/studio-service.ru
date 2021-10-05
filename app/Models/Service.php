@@ -121,7 +121,7 @@ class Service extends Model
 
     public function targetAudiences()
     {
-        return $this->belongsToMany(TargetAudience::class, 'offers')->withPivot('alias');
+        return $this->belongsToMany(TargetAudience::class, 'offers')->withPivot(['alias', 'publish']);
     }
 
     public function otherServices()
