@@ -8,8 +8,6 @@
 
     @include('client.home_page._section_hero')
 
-    @include('client.home_page._section_about')
-
     @if($targetAudiences->count() > 0)
         @include('client.shared._section_target_audiences',
            [
