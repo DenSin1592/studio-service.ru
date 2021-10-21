@@ -41,12 +41,12 @@
             <div class="swiper-wrapper">
 
                 @foreach($elements as $element)
-                    <div class="swiper-slide">
-                        <div class="card-project">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xxl-10 offset-xxl-1">
-                                        <div class="row">
+                    <div class="swiper-slide d-flex flex-column">
+                        <div class="card-project d-flex flex-column flex-grow-1">
+                            <div class="container d-flex flex-column flex-grow-1">
+                                <div class="row flex-grow-1">
+                                    <div class="col-xxl-10 offset-xxl-1 d-flex flex-column flex-grow-1">
+                                        <div class="row flex-grow-1">
                                             <div class="card-project-media-container col-12 col-md-6 order-md-1">
                                                 <div class="card-project-thumnbnail">
                                                     <img
