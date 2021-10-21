@@ -20,6 +20,11 @@ class OurWorkController extends BaseEssenceController
             ->with('projects',$this->repository->getOtherModelsForModelByAlias($url));
     }
 
+    public function getModelsForProjectPage()
+    {
+        return $this->repository->getModelsForProjectPage();
+    }
+
     protected function setRepository(): void
     {
         $this->repository = \App(OurWorkRepository::class);
@@ -28,9 +33,11 @@ class OurWorkController extends BaseEssenceController
     protected function getBreadCrumbs(string $h1, Model $model)
     {
         $breadcrumbs = $this->breadcrumbs->init();
-        $breadcrumbs->add('Проекты');
+        $breadcrumbs->add('Проекты', route('our-works'));
         $breadcrumbs->add($h1);
 
         return $breadcrumbs;
     }
+
+
 }

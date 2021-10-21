@@ -16,7 +16,7 @@ class Node extends Model
     public const TYPE_TARGET_AUDIENCE_PAGE = 'target_audience_page';
     public const TYPE_SERVICE_PAGE = 'service_page';
     //public const TYPE_REVIEW_PAGE = 'review_page';
-    //public const TYPE_OUR_WORK_PAGE = 'our_work_page';
+    public const TYPE_OUR_WORK_PAGE = 'our_work_page';
     public const TYPE_COMPETENCE_PAGE = 'competence_page';
     public const TYPE_OFFER_PAGE = 'offer_page';
     public const TYPE_TEXT_PAGE = 'text_page';
@@ -70,10 +70,10 @@ class Node extends Model
         return $this->hasOne(ServicePage::class);
     }
 
-    /*public function ourWorkPage()
+    public function ourWorkPage()
     {
         return $this->hasOne(OurWorkPage::class);
-    }*/
+    }
 
    /* public function ReviewPage()
     {

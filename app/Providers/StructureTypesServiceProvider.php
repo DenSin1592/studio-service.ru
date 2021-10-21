@@ -75,13 +75,13 @@ class StructureTypesServiceProvider extends ServiceProvider
                     )
                 );
 
-                /*$typeContainer->addRepositoryAssociation(
+                $typeContainer->addRepositoryAssociation(
                     self::REPO_OUR_WORK_PAGE,
                     new RepositoryAssociation(
                         $this->app->make(OurWorkPageRepository::class),
                         fn(Node $node) => route(OurWorkPageController::ROUTE_EDIT, [$node->id])
                     )
-                );*/
+                );
 
                 /*$typeContainer->addRepositoryAssociation(
                     self::REPO_REVIEW_PAGE,
@@ -140,15 +140,15 @@ class StructureTypesServiceProvider extends ServiceProvider
                     )
                 );
 
-                /*$typeContainer->addType(
+                $typeContainer->addType(
                     Node::TYPE_OUR_WORK_PAGE,
                     new Type(
-                        'Наши работы',
+                        'Проекты',
                         true,
                         self::REPO_OUR_WORK_PAGE,
                         fn() => route('our-works')
                     )
-                );*/
+                );
 
                 /*$typeContainer->addType(
                     Node::TYPE_REVIEW_PAGE,

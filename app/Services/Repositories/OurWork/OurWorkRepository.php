@@ -18,7 +18,10 @@ class OurWorkRepository extends BaseFeatureRepository
     public function getModelsForHomePage()
     {
         return $this->getModel()
-            ->with('services')
+            ->with([
+                'services' => static function ($q) {
+                    $q->where('publish', true)->orderBy('position');
+                }])
             ->where('on_home_page', true)
             ->where('publish', true)
             ->orderBy('position')
@@ -50,6 +53,18 @@ class OurWorkRepository extends BaseFeatureRepository
                     }])->where('publish', true)->orderBy('position');
                 }])
             ->where('publish', true)
+            ->get();
+    }
+
+    public function getModelsForProjectPage()
+    {
+        return $this->getModel()
+            ->with([
+                'services' => static function ($q) {
+                    $q->where('publish', true)->orderBy('position');
+                }])
+            ->where('publish', true)
+            ->orderBy('position')
             ->get();
     }
 }
