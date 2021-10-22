@@ -17,8 +17,6 @@
 
 {!! Form::tbTextBlock('name') !!}
 
-@include('admin.shared._form_header')
-
 {!! Form::tbTextBlock('alias') !!}
 
 {!! Form::tbCheckboxBlock('publish') !!}
