@@ -25,11 +25,6 @@
 }
 
 .projects-grid {
-    margin-bottom: -30px;
-    @include media-breakpoint-up(xl) {
-        margin-bottom: -50px;
-    }
-
     .project-item {
         margin-bottom: 30px;
         @include media-breakpoint-up(xl) {
