@@ -158,6 +158,14 @@
                     margin: 0 10px 10px;
                 }
 
+                &:hover {
+                    color: $c-purple;
+                }
+
+                .card-service-include-thumbnail {
+                    position: relative;
+                }
+
                 .card-service-include-media {
                     max-width: 28px;
                     max-height: 28px;
@@ -168,41 +176,54 @@
                         max-height: 36px;
                     }
                 }
+
+                .card-service-include-content {
+                    margin-left: 10px;
+                }
+            }
+
+            &.card-service-include-vertical-list {
+
             }
 
             &.card-service-include-pills-list {
                 .card-service-include-item {
-                    width: 48px;
-                    height: 48px;
                     margin: 0 5px 10px;
-                    border: 1px solid #414342;
-                    border-radius: 8px;
-                    background-color: #2f2f2f;
 
-                    &::before,
-                    &::after {
-                        position: absolute;
-                        z-index: -1;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        border-radius: inherit;
-                        content: '';
-                    }
+                    .card-service-include-thumbnail {
+                        -ms-flex: 0 0 48px;
+                        flex: 0 0 48px;
+                        width: 48px;
+                        height: 48px;
+                        border: 1px solid #414342;
+                        border-radius: 8px;
+                        background-color: #2f2f2f;
 
-                    &::before {
-                        background: rgb(98,83,156);
-                        background: -moz-linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
-                        background: -webkit-linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
-                        background: linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
-                        border-radius: 50%;
-                        filter: blur(10px);
-                        content: '';
-                    }
-
-                    &::after {
-                        background: inherit;
+                        &::before,
+                        &::after {
+                            position: absolute;
+                            z-index: -1;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            border-radius: inherit;
+                            content: '';
+                        }
+    
+                        &::before {
+                            background: rgb(98,83,156);
+                            background: -moz-linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
+                            background: -webkit-linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
+                            background: linear-gradient(130deg, rgba(98,83,156,1) 0%, rgba(148,69,71,1) 50%, rgba(80,108,144,1) 100%);
+                            border-radius: 50%;
+                            filter: blur(10px);
+                            content: '';
+                        }
+    
+                        &::after {
+                            background: inherit;
+                        }
                     }
                 }
             }

@@ -14,21 +14,23 @@
         @if($relations === 'targetAudiences')
             @if($model->targetAudiences->count() > 0)
                 <div class="card-service-include-block">
-                    <div class="card-service-include-title">Подходит для:</div>
+                    <div class="card-service-include-title">Предлагаем для:</div>
 
-                    <ul class="card-service-include-list @if($blackTaskIcon) card-service-include-pills-list @endif list-unstyled d-flex flex-wrap align-items-center">
+                    <ul class="card-service-include-list card-service-include-vertical-list @if($blackTaskIcon) card-service-include-pills-list @endif list-unstyled d-flex flex-wrap flex-column align-items-start">
                         @foreach($model->targetAudiences as $elem)
 
-                            <li onclick="location.href='/offery/{{ $elem->pivot->alias }}'"  class="card-service-include-item d-flex align-items-center justify-content-center"
-                                @if($seeTaskDescriptionTooltip)
-                                data-toggle="tooltip"
-                                data-placement="bottom"
-                                title="{{$elem->name}}"
-                                @endif
-                            >
-                                <img loading="lazy"
-                                     src="{{$elem->getImgPath('icon', null, 'no-image-40x40.png')}}" alt=""
-                                     width="35" height="29" class="card-service-include-media">
+                            <li onclick="location.href='/offery/{{ $elem->pivot->alias }}'"  class="card-service-include-item d-flex align-items-center justify-content-center" >
+                                <div class="card-service-include d-flex align-items-center">
+                                    <div class="card-service-include-thumbnail d-flex align-items-center justify-content-center">
+                                        <img loading="lazy"
+                                            src="{{$elem->getImgPath('icon', null, 'no-image-40x40.png')}}" alt=""
+                                            width="35" height="29" class="card-service-include-media">
+                                    </div>
+
+                                    <div class="card-service-include-content">
+                                        <div class="card-service-include-value">{{$elem->name}}</div>
+                                    </div>
+                                </div>
                             </li>
 
                         @endforeach

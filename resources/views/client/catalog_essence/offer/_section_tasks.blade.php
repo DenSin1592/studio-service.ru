@@ -16,7 +16,7 @@
                     <div class="swiper-wrapper d-flex flex-nowrap">
 
                         @foreach($model->tasks as $element)
-                            <div class="swiper-slide col-auto col-md-2 d-flex">
+                            <div class="swiper-slide col-auto col-md d-flex">
                             <button type="button" class="swiper-presentation-nav-link d-flex align-items-xl-center" >
                                 <div class="form-row">
                                     <div class="swiper-presentation-nav-media-container col-12 col-xxl-auto position-static">
