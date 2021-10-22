@@ -24,6 +24,21 @@
     }
 }
 
+.projects-grid {
+    margin-bottom: -30px;
+    background: #4c408a;
+    @include media-breakpoint-up(xl) {
+        margin-bottom: -50px;
+    }
+
+    .project-item {
+        margin-bottom: 30px;
+        @include media-breakpoint-up(xl) {
+            margin-bottom: 50px;
+        }
+    }
+}
+
 .swiper-projects {
     .swiper-projects-button-prev {
         left: 15px;
