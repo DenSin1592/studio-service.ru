@@ -16,19 +16,6 @@
                     <div class="display-header">
                         <h1 class="display-title title-h1">{!! $metaData['h1'] !!}</h1>
                     </div>
-
-                    <div class="row">
-                        <div class="display-media-container col-3 col-sm-2 col-xl-1">
-                            <div class="display-thumnbail">
-                                <img src="{{asset('images/icons/general/svg/icon-services.svg')}}" alt="" width="104"
-                                     height="104" class="display-media">
-                            </div>
-                        </div>
-
-                        <div class="display-typography-container col-12 col-sm-10 col-xl-11">
-                            <div class="display-description">{!! $page->content_top !!}</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
