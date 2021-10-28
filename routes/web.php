@@ -49,16 +49,16 @@ Route::namespace('Client')->group(function () {
     Route::namespace('PageControllers')->group(function () {
         Route::get('/', 'HomePageController@show')->name('home');
         Route::get('/dlya-kogo', 'TargetAudiencePageController@show')->name('target-audiences');
-        Route::get('/kompetencii', 'CompetencePageController@show')->name('competencies');
-        Route::get('/uslugi', 'ServicePageController@show')->name('services');
+        Route::get('/catalog', 'CompetencePageController@show')->name('competencies');
+        Route::get('/resheniya', 'ServicePageController@show')->name('services');
         Route::get('/proekty', 'OurWorkPageController@show')->name('our-works');
         //Route::get('/otzyvy', 'ReviewPageController@show')->name('reviews');
     });
 
     Route::namespace('EssenceControllers')->group(function () {
         Route::get('/dlya-kogo/{url}', 'TargetAudienceController@show')->name('target-audience');
-        Route::get('/uslugi/{url}', 'ServiceController@show')->name('service');
-        Route::get('/kompetencii/{url}', 'CompetenceController@show')->name('competence');
+        Route::get('/resheniya/{url}', 'ServiceController@show')->name('service');
+        Route::get('/catalog/{url}', 'CompetenceController@show')->name('competence');
         Route::get('/proekty/{url}', 'OurWorkController@show')->name('our-work');
         Route::get('/offery/{url}', 'OfferController@show')->name('offer');
     });

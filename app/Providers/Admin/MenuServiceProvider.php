@@ -48,7 +48,7 @@ class MenuServiceProvider extends ServiceProvider
                 $menu->addMenuGroup($groupCatalogs);
                 $groupCatalogs->addMenuElement(
                     new MenuElement(
-                        'Компетенции',
+                        'Каталог',
                         'glyphicon-list-alt',
                         route(CompetenciesController::ROUTE_INDEX),
                         [CompetenciesController::class]
@@ -72,7 +72,7 @@ class MenuServiceProvider extends ServiceProvider
                 );
                 $groupCatalogs->addMenuElement(
                     new MenuElement(
-                        'Офферы',
+                        'Решения',
                         'glyphicon-usd',
                         route(OffersController::ROUTE_INDEX),
                         [OffersController::class]

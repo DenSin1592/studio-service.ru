@@ -22,7 +22,7 @@ class ServiceController extends BaseEssenceController
     protected function getBreadCrumbs(string $h1, Model $model)
     {
         $breadcrumbs = $this->breadcrumbs->init();
-        $breadcrumbs->add('Услуги', route('services'));
+        $breadcrumbs->add('Решения', route('services'));
         $breadcrumbs->add($h1);
 
         return $breadcrumbs;
