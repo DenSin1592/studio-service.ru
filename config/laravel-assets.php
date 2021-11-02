@@ -139,6 +139,7 @@ return [
                 'js/admin/admin_users.js',
                 'js/admin/modal_associations.js',
                 'js/admin/model_search.js',
+                'js/admin/copy_entity.js',
 
                 'js/common/csrf.js',
                 'js/common/inputmask.init.js',

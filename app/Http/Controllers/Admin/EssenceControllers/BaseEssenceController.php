@@ -138,7 +138,7 @@ abstract class BaseEssenceController extends Controller
         $copier = CopierStaticFactory::build($model::class);
         $copyModel = $copier->copy($model);
 
-        return \Redirect::route(static::ROUTE_EDIT, $copyModel->id);
+        return \Redirect::route(static::ROUTE_EDIT, $copyModel->id)->with('alert_success', trans('Успешно скопировано!'));
     }
 
 

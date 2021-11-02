@@ -157,3 +157,17 @@ h1 {
 .inline-block {
     display: inline-block;
 }
+
+
+
+body.loader-black {
+    color: transparent;
+    background-image: url('../../images/common/loaders/loading-black.svg');
+    background-repeat: no-repeat;
+    background-size: auto 20%;
+    background-position: center center;
+}
+
+body.loader-black * {
+    opacity: 0.8;
+}

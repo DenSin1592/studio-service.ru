@@ -31,7 +31,7 @@
             </a>
 
             @if(isset($routeCopy))
-                <a class="btn btn-warning"
+                <a class="btn btn-warning copy-entity"
                    data-method="get"
                    data-confirm="Вы уверены, что хотите копировать данную запись?"
                    href="{{ route($routeCopy, [$formData[$essenceName]->id]) }}">{{ trans('interactions.copy') }}

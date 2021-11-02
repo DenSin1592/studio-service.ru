@@ -5,6 +5,7 @@
             if (!confirm($(this).data('confirm'))) {
                 e.preventDefault();
                 e.stopImmediatePropagation();
+                document.body.classList.remove('loader-black');
             }
         });
 
