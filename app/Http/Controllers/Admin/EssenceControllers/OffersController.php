@@ -17,6 +17,7 @@ final class OffersController extends BaseEssenceController
     protected const  ROUTE_DESTROY = 'cc.offers.destroy';
     protected const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.offers.toggle-attribute';
     protected const  ROUTE_UPDATE_POSITIONS = 'cc.offers.update-positions';
+    protected const  ROUTE_COPY = 'cc.offers.copy';
 
     public const BREADCRUMBS_CREATE = 'cc.offers.create';
     public const BREADCRUMBS_EDIT = 'cc.offers.edit';
@@ -40,6 +41,4 @@ final class OffersController extends BaseEssenceController
         $this->formProcessor = \App(OfferFormProcessor::class);
         $this->urlShowONSite = OfferController::ROUTE_SHOW_ON_SITE;
     }
-
-
 }

@@ -30,6 +30,14 @@
                href="{{ route($routeDestroy, [$formData[$essenceName]->id]) }}">{{ trans('interactions.delete') }}
             </a>
 
+            @if(isset($routeCopy))
+                <a class="btn btn-warning"
+                   data-method="get"
+                   data-confirm="Вы уверены, что хотите копировать данную запись?"
+                   href="{{ route($routeCopy, [$formData[$essenceName]->id]) }}">{{ trans('interactions.copy') }}
+                </a>
+            @endif
+
             <a href="{{ route($routeIndex) }}" class="btn btn-default">{{ trans('interactions.back_to_list') }}</a>
 
             @if ($formData[$essenceName]->publish && !empty($urlShowOnSite))

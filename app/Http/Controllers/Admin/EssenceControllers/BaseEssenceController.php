@@ -7,9 +7,11 @@ use App\Http\Controllers\Admin\Features\UpdatePositions;
 use App\Http\Controllers\Controller;
 use App\Models\TargetAudience;
 use App\Services\Admin\Breadcrumbs\Breadcrumbs;
+use App\Services\Copier\Core\CopierStaticFactory;
 use App\Services\DataProviders\BaseDataProvider;
 use App\Services\FormProcessors\BaseFormProcessor;
 use App\Services\Repositories\BaseRepository;
+use Illuminate\Http\RedirectResponse;
 
 abstract class BaseEssenceController extends Controller
 {
@@ -117,6 +119,7 @@ abstract class BaseEssenceController extends Controller
         return $redirect->with('alert_success', trans(static::EDIT_MESSAGE));
     }
 
+
     public function destroy($id)
     {
         $model = $this->repository->findByIdOrFail($id);
@@ -129,9 +132,19 @@ abstract class BaseEssenceController extends Controller
     }
 
 
+    public function copy($id): RedirectResponse
+    {
+        $model = $this->repository->findByIdOrFail($id);
+        $copier = CopierStaticFactory::build($model::class);
+        $copyModel = $copier->copy($model);
+
+        return \Redirect::route(static::ROUTE_EDIT, $copyModel->id);
+    }
+
+
     protected function getRoutePaths(): array
     {
-        return[
+        $routePaths = [
             'routeIndex' => static::ROUTE_INDEX,
             'routeCreate' => static::ROUTE_CREATE,
             'routeStore' => static::ROUTE_STORE,
@@ -141,6 +154,20 @@ abstract class BaseEssenceController extends Controller
             'routeUpdatePosition' => static::ROUTE_UPDATE_POSITIONS,
             'routeToggleAttribute' => static::ROUTE_TOGGLE_ATTRIBUTE,
         ];
-    }
 
+        try {
+            $routePaths['routeCopy'] = static::ROUTE_COPY;
+        }catch (\Error $e){
+            if(stripos($e->getMessage(), 'Undefined constant') === false) {
+                throw $e;
+            }
+        }
+
+        return $routePaths;
+
+//        $oClass = (new ReflectionClass(static::class))->getConstants();
+//        $oClass = resolve(ReflectionClass::class, ['objectOrClass' => static::class])->getConstants();
+//        dd($oClass);
+//        В следующий раз буду парсить константы потомка
+    }
 }
