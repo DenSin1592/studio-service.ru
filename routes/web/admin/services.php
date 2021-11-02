@@ -4,6 +4,7 @@ Route::prefix('services')->name('services.')->group(function () {
 
     Route::put('toggle/{id}/{attribute}', 'EssenceControllers\ServicesController@toggleAttribute')->name('toggle-attribute');
     Route::put('update-positions', 'EssenceControllers\ServicesController@updatePositions')->name('update-positions');
+    Route::get('copy/{id}', 'EssenceControllers\ServicesController@copy')->name('copy');
 
     Route::namespace('Relations\Services')->group(function () {
         Route::prefix('competencies')->name('competencies.')->group(function () {

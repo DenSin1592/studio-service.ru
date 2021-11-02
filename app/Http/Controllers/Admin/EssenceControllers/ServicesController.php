@@ -17,6 +17,7 @@ final class ServicesController extends BaseEssenceController
     protected const  ROUTE_DESTROY = 'cc.services.destroy';
     protected const  ROUTE_TOGGLE_ATTRIBUTE = 'cc.services.toggle-attribute';
     protected const  ROUTE_UPDATE_POSITIONS = 'cc.services.update-positions';
+    protected const  ROUTE_COPY = 'cc.services.copy';
 
     public const BREADCRUMBS_CREATE = 'cc.services.create';
     public const BREADCRUMBS_EDIT = 'cc.services.edit';
