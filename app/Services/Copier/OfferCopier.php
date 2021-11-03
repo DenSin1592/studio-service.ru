@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Relations\Offers\ContentBlocksController;
 use App\Http\Controllers\Admin\Relations\Offers\TabsController;
 use App\Http\Controllers\Admin\Relations\Offers\TasksController;
 use App\Services\Copier\Core\Copier;
+use App\Services\Repositories\Offer\OfferRepository;
 
 class OfferCopier extends Copier
 {
@@ -54,6 +55,12 @@ class OfferCopier extends Copier
             'section_reviews_publish',
             'section_projects_publish',
         ];
+    }
+
+
+    protected function setRepository(): void
+    {
+        $this->repository = \App::make(OfferRepository::class);
     }
 
 
