@@ -25,6 +25,7 @@ Route::prefix('services')->name('services.')->group(function () {
 
         Route::prefix('tabs')->name('tabs.')->group(function () {
             Route::get('create', 'TabsController@create')->name('create');
+            Route::get('create-content', 'TabsContentBlockController@create')->name('create.content');
         });
 
         Route::prefix('faq-questions')->name('faq-questions.')->group(function () {

@@ -12,7 +12,7 @@
     }
 
     $(document).on('click', '[data-element-list="add"]', function () {
-        var toggle, loadElementUrl, containerSelector, container, maxKey, newKey;
+        var toggle, loadElementUrl, container, maxKey, newKey;
         toggle = $(this);
         if (toggle.prop('disabled')) {
             return;
@@ -20,9 +20,8 @@
             toggle.prop('disabled', true);
         }
         loadElementUrl = toggle.data('loadElementUrl');
-        containerSelector = toggle.data('elementListTarget');
-        container = $(containerSelector);
-        var containerChildList = container.find('[data-element-list="element"]');
+        container = $(toggle.data('elementListTarget'));
+        var containerChildList = container.children('[data-element-list="element"]');
         if (containerChildList.length > 0) {
             maxKey = getMaxKey(containerChildList);
         } else {
@@ -30,12 +29,14 @@
         }
         newKey = (maxKey + 1);
 
+        let parentKey = toggle.closest('li[data-element-key]').data('elementKey');
+
         $.ajax({
             cache: false,
             type: 'GET',
             dataType: 'json',
             url: loadElementUrl,
-            data: { key: newKey }
+            data: { key: newKey, parentKey: parentKey}
         }).then(function (result) {
             var jResult = $(result['element']);
             jResult.appendTo(container);
