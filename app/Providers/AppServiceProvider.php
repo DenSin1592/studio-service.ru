@@ -3,8 +3,11 @@
 namespace App\Providers;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use App\Models\OfferTab;
+use App\Models\ServiceTab;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,5 +33,10 @@ class AppServiceProvider extends ServiceProvider
 
         Paginator::defaultView('pagination::bootstrap-4');
         //Paginator::defaultSimpleView('view-name');
+
+        Relation::morphMap([
+            'service_tab' => ServiceTab::class,
+            'offer_tab' => OfferTab::class,
+        ]);
     }
 }
