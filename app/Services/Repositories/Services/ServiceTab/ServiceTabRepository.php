@@ -35,9 +35,9 @@ class ServiceTabRepository extends BaseOneToManyRepository
     }
 
 
-    private function createForUpdateBlockable(Model $test, array $data): void
+    private function createForUpdateBlockable(Model $model, array $data): void
     {
-        $currentIds = collect($test->contentBlocks)
+        $currentIds = collect($model->contentBlocks)
             ->pluck('id')
             ->all();
 
@@ -50,18 +50,27 @@ class ServiceTabRepository extends BaseOneToManyRepository
 
         $touchedIds = [];
         foreach ($data['blockable'] as $elem){
-            $id = \Arr::get($elem, 'id');
-            $model = $test->contentBlocks()->where('id', $id)->first();
 
-            if(is_null($model)){
-                $model = new TabsContentBlock();
+            if (\Arr::get($elem, 'position') === null) {
+                $maxPosition = $model->contentBlocks()->max('position');
+                if (is_null($maxPosition)) {
+                    $maxPosition = 0;
+                }
+                $elem['position'] = $maxPosition + self::POSITION_STEP;
             }
 
-            $model->blockable()->associate($test);
-            $model->fill($elem);
-            $model->save();
+            $id = \Arr::get($elem, 'id');
+            $subModel = $model->contentBlocks()->where('id', $id)->first();
 
-            $touchedIds[] = $model->id;
+            if(is_null($subModel)){
+                $subModel = new TabsContentBlock();
+            }
+
+            $subModel->blockable()->associate($model);
+            $subModel->fill($elem);
+            $subModel->save();
+
+            $touchedIds[] = $subModel->id;
         }
 
         $idsToDelete = array_diff($currentIds, $touchedIds);

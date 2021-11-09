@@ -50,14 +50,13 @@
     });
 
     $(document).on('click', '[data-element-list="element"] .toggle-full-info', function () {
-        var element = $(this).parents('[data-element-list="element"]').eq(0);
+        var element = $(this).parent('.controls').parent('[data-element-list="element"]').eq(0);
         element.addClass('show-full-info');
         element.find('[data-full-info-state]').val(1);
     });
 
     $(document).on('click', '[data-element-list="element"] .toggle-short-info', function () {
-        var element = $(this).parents('[data-element-list="element"]').eq(0);
-        element.removeClass('show-full-info');
+        var element = $(this).parent('.controls').parent('[data-element-list="element"]').eq(0);
         element.find('[data-full-info-state]').val(0);
     })
 })();
