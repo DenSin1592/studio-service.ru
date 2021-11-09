@@ -2,6 +2,7 @@
 
 namespace App\Services\Copier\Core;
 
+use App\Services\Repositories\CopierRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -9,15 +10,17 @@ abstract class Copier implements CopierInterface
 {
     protected Model $source;
     protected Model $copy;
+    protected CopierRepositoryInterface $repository;
     protected array $fieldsForCopy;
 
     abstract protected function afterSave(): void;
+    abstract protected function setRepository(): void;
     abstract protected function setFieldsForCopy(): void;
 
 
     public function copy(Model $model): Model
     {
-        $this->setDependies($model);
+        $this->setDependencies($model);
         $this->setFieldsForCopyEntity();
 
         $this->beforeSave();
@@ -31,10 +34,11 @@ abstract class Copier implements CopierInterface
     }
 
 
-    private function setDependies(Model $model): void
+    private function setDependencies(Model $model): void
     {
         $this->source = $model;
         $this->copy = \App::make($model::class);
+        $this->setRepository();
         $this->setFieldsForCopy();
     }
 
@@ -56,11 +60,14 @@ abstract class Copier implements CopierInterface
 
     protected function setName()
     {
-        $sourceName = preg_replace('@\s*\(копия\)@u', '', $this->source->name);
-        //$modelsCount = Offer::where('name', 'like', "{$sourceName}%")->count();
-        //$this->copy->name = $sourceName . ' (копия' . ($modelsCount ? ' ' . ($modelsCount) : '') . ')';
-        $this->copy->name = $sourceName . ' (копия)';
+        $sourceName = preg_replace('@\s*\(копия\s?\d*\)@u', '', $this->source->name);
 
+        for ($i = 1; true; $i++){
+            $this->copy->name = $sourceName . ' (копия ' . $i . ')';
+            $count = $this->repository->getTheCountOfEntitysWithTheSameName($this->copy->name);
+
+            if(!$count) break;
+        }
     }
 
 

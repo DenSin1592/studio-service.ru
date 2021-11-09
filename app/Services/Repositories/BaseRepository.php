@@ -4,7 +4,7 @@ namespace App\Services\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 
-abstract class BaseRepository implements CreateUpdateRepositoryInterface
+abstract class BaseRepository implements CreateUpdateRepositoryInterface, CopierRepositoryInterface
 {
     protected const POSITION_STEP = 10;
 
@@ -64,5 +64,11 @@ abstract class BaseRepository implements CreateUpdateRepositoryInterface
     public function delete($model)
     {
         return $model->delete();
+    }
+
+
+    public function getTheCountOfEntitysWithTheSameName(string $name): int
+    {
+        return $this->getModel()->where('name', $name)->count();
     }
 }

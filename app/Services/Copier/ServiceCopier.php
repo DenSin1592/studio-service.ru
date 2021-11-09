@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Relations\Services\ContentBlocksController;
 use App\Http\Controllers\Admin\Relations\Services\TabsController;
 use App\Http\Controllers\Admin\Relations\Services\TasksController;
 use App\Services\Copier\Core\Copier;
+use App\Services\Repositories\Services\ServicesRepository;
 
 class ServiceCopier extends Copier
 {
@@ -54,6 +55,12 @@ class ServiceCopier extends Copier
             'section_target_audiences_name',
             'section_target_audiences_publish',
         ];
+    }
+
+
+    protected function setRepository(): void
+    {
+        $this->repository = \App::make(ServicesRepository::class);
     }
 
 
