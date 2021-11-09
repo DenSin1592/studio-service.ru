@@ -19,10 +19,6 @@
     </div>
 
     <div class="full-info">
-        <div class="form-group">
-            {{ Form::tbLabel("{$relation}[{$key}][content]", trans('validation.attributes.content')) }}
-            {{ Form::tbTinymceTextarea("{$relation}[{$key}][content]", $element->content, ['rows' => 3]) }}
-        </div>
 
         {!! Form::tbCheckboxBlock("{$relation}[{$key}][publish]", trans('validation.attributes.publish'), $element->publish) !!}
 

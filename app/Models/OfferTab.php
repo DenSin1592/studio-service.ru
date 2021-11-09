@@ -13,7 +13,6 @@ class OfferTab extends Model
 
     protected $fillable = [
         'tab_name',
-        'content',
         'publish',
         'position',
         'service_id',
