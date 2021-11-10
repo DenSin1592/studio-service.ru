@@ -28,17 +28,23 @@
 
         <fieldset class="bordered-group">
             <legend>Контент</legend>
-            <ul class="grouped-field-list content-block-list" data-element-list="container" id="{{'blockable'}}-list{{$key}}">
 
+            <p><em> Рекомендовано добавлять блоки кратно двум или кратно трём.</em></p>
+            <p><em> Изображение первого блока - большое. Изображения 2-3 блока - маленькие</em></p>
+            <p><em> Если третье изображение не загружено - второе станет большим. </em></p>
+            <p><em>Рекомендуемый размер для больших изображений - 700х604 px.</em></p>
+            <p><em>Для маленьких - 700х302 px.</em></p>
+
+            <ul class="grouped-field-list content-block-list" data-element-list="container" id="{{'blockable'}}-list{{$key}}">
                 @foreach ($element->contentBlocks()->orderBy('position')->get() as $key_two_level => $childElement)
-                    @include(\App\Http\Controllers\Admin\Relations\Services\TabsContentBlockController::VIEW_ELEMENT_NAME, ['element' => $childElement , 'child_relation' => \App\Http\Controllers\Admin\Relations\Services\TabsContentBlockController::RELATIONS_NAME])
+                    @include(\App\Http\Controllers\Admin\Relations\Offers\TabsContentBlockController::VIEW_ELEMENT_NAME, ['element' => $childElement , 'child_relation' => \App\Http\Controllers\Admin\Relations\Offers\TabsContentBlockController::RELATIONS_NAME])
                 @endforeach
             </ul>
 
             <span class="btn btn-default btn-xs grouped-field-list-add"
                   data-element-list="add"
                   data-element-list-target="#{{'blockable' }}-list{{$key}}"
-                  data-load-element-url="{{{route(\App\Http\Controllers\Admin\Relations\Services\TabsContentBlockController::ROUTE_CREATE)}}}">Добавить</span>
+                  data-load-element-url="{{{route(\App\Http\Controllers\Admin\Relations\Offers\TabsContentBlockController::ROUTE_CREATE)}}}">Добавить</span>
         </fieldset>
     </div>
 

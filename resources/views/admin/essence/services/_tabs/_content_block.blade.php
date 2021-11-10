@@ -25,6 +25,13 @@
 
         <fieldset class="bordered-group">
             <legend>Контент</legend>
+
+            <p><em> Рекомендовано добавлять блоки кратно двум или кратно трём.</em></p>
+            <p><em> Изображение первого блока - большое. Изображения 2-3 блока - маленькие</em></p>
+            <p><em> Если третье изображение не загружено - второе станет большим. </em></p>
+            <p><em>Рекомендуемый размер для больших изображений - 700х604 px.</em></p>
+            <p><em>Для маленьких - 700х302 px.</em></p>
+
             <ul class="grouped-field-list content-block-list" data-element-list="container" id="{{'blockable'}}-list{{$key}}">
 
                 @foreach ($element->contentBlocks()->orderBy('position')->get() as $key_two_level => $childElement)
