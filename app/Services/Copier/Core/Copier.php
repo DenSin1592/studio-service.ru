@@ -6,22 +6,20 @@ use App\Services\Repositories\CopierRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+
 abstract class Copier implements CopierInterface
 {
     protected Model $source;
     protected Model $copy;
     protected CopierRepositoryInterface $repository;
-    protected array $fieldsForCopy;
 
-    abstract protected function afterSave(): void;
     abstract protected function setRepository(): void;
-    abstract protected function setFieldsForCopy(): void;
+    abstract protected function afterSave(): void;
 
 
     public function copy(Model $model): Model
     {
         $this->setDependencies($model);
-        $this->setFieldsForCopyEntity();
 
         $this->beforeSave();
 
@@ -37,23 +35,16 @@ abstract class Copier implements CopierInterface
     private function setDependencies(Model $model): void
     {
         $this->source = $model;
-        $this->copy = \App::make($model::class);
+        $this->copy =$model->replicate();
         $this->setRepository();
-        $this->setFieldsForCopy();
-    }
-
-
-    private function setFieldsForCopyEntity(): void
-    {
-        foreach ($this->fieldsForCopy as $field) {
-            $this->copy->$field = $this->source->$field;
-        }
     }
 
 
     private function beforeSave(): void
     {
         $this->setName();
+        $this->copy->alias = '';
+        $this->copy->publish = false;
         $this->copyAttachments($this->source, $this->copy);
     }
 
@@ -94,20 +85,28 @@ abstract class Copier implements CopierInterface
     }
 
 
-    protected function copyOneToMany(string $relation, array $fieldsForCopy): void
+    protected function copyOneToMany(string $relation, string $subRelation = null): void
     {
         foreach ($this->source->$relation as $sourceSubModel) {
 
-            $copySubModel = \App::make($sourceSubModel::class);
-
-            foreach($fieldsForCopy as $field){
-                $copySubModel->$field = $sourceSubModel->$field;
-            }
-
+            $copySubModel = $sourceSubModel->replicate();
             $this->copyAttachments($sourceSubModel, $copySubModel);
             $this->copy->$relation()->save($copySubModel);
+
+            if($subRelation){
+                $this->subCopyOneToMany($sourceSubModel, $copySubModel,$subRelation);
+            }
         }
     }
 
 
+    protected function subCopyOneToMany(Model $model, Model $copyModel, string $relation): void
+    {
+        foreach ($model->$relation as $sourceSubModel) {
+
+            $copySubModel = $sourceSubModel->replicate();
+            $this->copyAttachments($sourceSubModel, $copySubModel);
+            $copyModel->$relation()->save($copySubModel);
+        }
+    }
 }
