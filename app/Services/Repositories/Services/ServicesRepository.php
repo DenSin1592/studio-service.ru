@@ -67,7 +67,9 @@ class ServicesRepository extends BaseFeatureRepository
         }
 
         if($model->section_tabs_publish){
-            $model->load(['tabs' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);
+            $model->load(['tabs' => static function ($q) {$q->with(['contentBlocks' => static function($q){
+                $q->orderBy('position')->where('publish', true);
+            }])->orderBy('position')->where('publish', true);}]);
         }
 
         if($model->section_faq_publish){
