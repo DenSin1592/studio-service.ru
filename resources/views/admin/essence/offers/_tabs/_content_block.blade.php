@@ -24,6 +24,22 @@
 
         {{ Form::tbLabel("{$relation}[{$key}][position]", trans('validation.attributes.position')) }}
         {{ Form::tbText("{$relation}[{$key}][position]", $element->position) }}
+
+
+        <fieldset class="bordered-group">
+            <legend>Контент</legend>
+            <ul class="grouped-field-list content-block-list" data-element-list="container" id="{{'blockable'}}-list{{$key}}">
+
+                @foreach ($element->contentBlocks()->orderBy('position')->get() as $key_two_level => $childElement)
+                    @include(\App\Http\Controllers\Admin\Relations\Services\TabsContentBlockController::VIEW_ELEMENT_NAME, ['element' => $childElement , 'child_relation' => \App\Http\Controllers\Admin\Relations\Services\TabsContentBlockController::RELATIONS_NAME])
+                @endforeach
+            </ul>
+
+            <span class="btn btn-default btn-xs grouped-field-list-add"
+                  data-element-list="add"
+                  data-element-list-target="#{{'blockable' }}-list{{$key}}"
+                  data-load-element-url="{{{route(\App\Http\Controllers\Admin\Relations\Services\TabsContentBlockController::ROUTE_CREATE)}}}">Добавить</span>
+        </fieldset>
     </div>
 
 </li>
