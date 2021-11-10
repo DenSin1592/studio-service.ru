@@ -27,6 +27,7 @@ class TabsContentBlock extends Model
         'link',
         'blockable_id',
         'blockable_type',
+        'white_text',
     ];
 
 

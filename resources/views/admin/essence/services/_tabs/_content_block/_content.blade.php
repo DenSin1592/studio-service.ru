@@ -12,6 +12,7 @@
         {!! Form::tbTextareaBlock("{$relation}[{$key}][{$child_relation}][{$key_two_level}][description]", trans('validation.attributes.description'), $element->description) !!}
 
         {!! Form::tbCheckboxBlock("{$relation}[{$key}][{$child_relation}][{$key_two_level}][publish]", trans('validation.attributes.publish'), $element->publish) !!}
+        {!! Form::tbCheckboxBlock("{$relation}[{$key}][{$child_relation}][{$key_two_level}][white_text]", trans('validation.attributes.white_text'), $element->white_text) !!}
 
         {!! Form::tbTextBlock("{$relation}[{$key}][{$child_relation}][{$key_two_level}][position]", trans('validation.attributes.position'), $element->position) !!}
         {!! Form::tbTextBlock("{$relation}[{$key}][{$child_relation}][{$key_two_level}][link]", trans('validation.attributes.url'), $element->link) !!}
