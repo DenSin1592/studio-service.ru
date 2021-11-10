@@ -34,18 +34,19 @@
                                             <div class="includes-grid">
                                                 <div class="row no-gutters">
                                                     <div class="include-column col-md-6 d-flex">
-                                                        <a href="{{$subElement->link}}" class="card-include d-flex flex-column align-items-start flex-grow-1" style="background-image: url('{{$subElement->getImgPath('image', 'main', 'no-image-500x500.png')}}');"> <span class="card-include-title d-block">{{$subElement->name}}</span> <span class="card-include-description d-block">{{$subElement->description}}</span> <span class="card-include-cta btn btn-outline-dark">Подробнее</span></span> </a>
+
+                                                        <a href="{{$subElement->link ?? 'javascript:void(0)'}}" class="card-include d-flex flex-column align-items-start flex-grow-1" style="background-image: url('{{$subElement->getImgPath('image', 'main', 'no-image-500x500.png')}}');"> <span class="card-include-title d-block">{{$subElement->name}}</span> <span class="card-include-description d-block">{{$subElement->description}}</span> <span class="card-include-cta btn btn-outline-dark">Подробнее</span></span> </a>
                                                     </div>
                                                     <div class="include-column col-md-6 d-flex flex-column">
                                                     @endif
 
 
                                                         @if($loop->iteration % 3 === 2)
-                                                            <a href="{{$subElement->link}}" class="card-include card-include-sm d-flex flex-column align-items-start flex-grow-1" style="background-image: url('{{$subElement->getImgPath('image', 'main', 'no-image-500x500.png')}}');"> <span class="card-include-title d-block">{{$subElement->name}}</span> <span class="card-include-description d-none d-lg-block">{{$subElement->description}}</span> <span class="card-include-cta btn btn-outline-dark">Подробнее</span> </a>
+                                                            <a href="{{$subElement->link ?? 'javascript:void(0)'}}" class="card-include card-include-sm d-flex flex-column align-items-start flex-grow-1" style="background-image: url('{{$subElement->getImgPath('image', 'main', 'no-image-500x500.png')}}');"> <span class="card-include-title d-block">{{$subElement->name}}</span> <span class="card-include-description d-none d-lg-block">{{$subElement->description}}</span> <span class="card-include-cta btn btn-outline-dark">Подробнее</span> </a>
                                                         @endif
 
                                                         @if($loop->iteration % 3 === 0)
-                                                            <a href="{{$subElement->link}}" class="card-include card-include-sm card-include-dark d-flex flex-column align-items-start flex-grow-1" style="background-image: url('{{$subElement->getImgPath('image', 'main', 'no-image-500x500.png')}}');"> <span class="card-include-title d-block">{{$subElement->name}}</span> <span class="card-include-description d-none d-lg-block">{{$subElement->description}}</span> <span class="card-include-cta btn btn-outline-dark">Подробнее</span> </a>
+                                                            <a href="{{$subElement->link ?? 'javascript:void(0)'}}" class="card-include card-include-sm card-include-dark d-flex flex-column align-items-start flex-grow-1" style="background-image: url('{{$subElement->getImgPath('image', 'main', 'no-image-500x500.png')}}');"> <span class="card-include-title d-block">{{$subElement->name}}</span> <span class="card-include-description d-none d-lg-block">{{$subElement->description}}</span> <span class="card-include-cta btn btn-outline-dark">Подробнее</span> </a>
                                                         @endif
 
 
