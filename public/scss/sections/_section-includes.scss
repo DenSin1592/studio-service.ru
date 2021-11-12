@@ -70,6 +70,8 @@
 
 .includes-grid {
     position: relative;
+    background-color: $c-white;
+    
     &::before {
         position: absolute;
         z-index: -1;
