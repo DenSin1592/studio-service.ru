@@ -8,7 +8,7 @@
                         <div class="row">
                             <div class="col-10 col-sm-8 col-md-12">
                                 <h1 class="hero-title">{!! $metaData['h1'] !!}</h1>
-                                <div class="hero-description">{{$page->description_after_header}}</div>
+                                <div class="hero-description">{!! $page->description_after_header !!}</div>
                             </div>
                         </div>
                         <div class="hero-actions-block">
