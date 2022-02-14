@@ -19,6 +19,22 @@
                                 <li class="header-nav-item {{ $menuElement['active']  ? 'active' : '' }}">
                                     <a href="{{ $menuElement['url'] }}"
                                        class="header-nav-link">{!! $menuElement['name'] !!}</a>
+
+                                    {{-- todo: запрограммировать выпадающий список --}}
+                                    <ul class="header-subnav-list list-unstyled">
+                                        {{-- todo: для активной подкатегории проставлять класс active --}}
+                                        <li class="header-subnav-item active">
+                                            <a href="#link" class="header-subnav-link">Подкатегория 1</a>
+                                        </li>
+
+                                        <li class="header-subnav-item">
+                                            <a href="#link" class="header-subnav-link">Подкатегория 2</a>
+                                        </li>
+
+                                        <li class="header-subnav-item">
+                                            <a href="#link" class="header-subnav-link">Подкатегория 3</a>
+                                        </li>
+                                    </ul>
                                 </li>
                             @endforeach
                         </ul>
