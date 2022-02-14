@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class AliasHelpers
 {
+    private const MAX_COUNT_SYMBOLS = 50;
+
     /**
      * @var \Transliterator|null
      */
@@ -53,6 +55,11 @@ class AliasHelpers
         if (is_null(self::$transliterator)) {
             self::$transliterator = \Transliterator::create('Russian-Latin/BGN');
         }
+
+        if(strlen($str) > self::MAX_COUNT_SYMBOLS){
+            $str = self::cutString($str);
+        }
+
         $str = self::$transliterator->transliterate($str);
         $str = mb_strtolower($str);
         $str = preg_replace('/[()]/', '', $str);
@@ -61,5 +68,14 @@ class AliasHelpers
         $str = preg_replace('/(^-|-$)/', '', $str);
 
         return $str;
+    }
+
+
+    private static function cutString($str): string
+    {
+        $str = strip_tags($str);
+            $wrap = wordwrap($str, self::MAX_COUNT_SYMBOLS, '~');
+            $str_cut = mb_substr($wrap, 0, mb_strpos($wrap, '~', 0, 'UTF-8'), 'UTF-8');
+            return $str_cut;
     }
 }

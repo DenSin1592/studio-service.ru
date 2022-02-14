@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Features\AutoPublish;
 use App\Models\Features\TreeParentPath;
+use App\Models\Helpers\AliasHelpers;
 use App\Models\Helpers\DeleteHelpers;
 use Illuminate\Database\Eloquent\Model;
 
@@ -101,10 +102,18 @@ class Node extends Model
                 DeleteHelpers::deleteRelatedFirst($model->targetAudiencePage());
                 DeleteHelpers::deleteRelatedFirst($model->servicePage());
                 //DeleteHelpers::deleteRelatedFirst($model->reviewPage());
-                //DeleteHelpers::deleteRelatedFirst($model->ourWorkPage());
+                DeleteHelpers::deleteRelatedFirst($model->ourWorkPage());
                 DeleteHelpers::deleteRelatedFirst($model->competencePage());
                 DeleteHelpers::deleteRelatedFirst($model->textPage());
             });
+        });
+
+        self::saving(static function (self $model) {
+            AliasHelpers::setAlias($model);
+            $typeObject = \TypeContainer::getTypeList()[$model->type];
+            if ($typeObject->getUnique()) {
+                $model->alias = null;
+            }
         });
     }
 }

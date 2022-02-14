@@ -51,13 +51,13 @@ class StructureTypesServiceProvider extends ServiceProvider
                     )
                 );
 
-                $typeContainer->addRepositoryAssociation(
+                /*$typeContainer->addRepositoryAssociation(
                     self::REPO_TARGET_AUDIENCE_PAGE,
                     new RepositoryAssociation(
                         $this->app->make(TargetAudiencePageRepository::class),
                         fn(Node $node) => route(TargetAudiencePageController::ROUTE_EDIT, [$node->id])
                     )
-                );
+                );*/
 
                 $typeContainer->addRepositoryAssociation(
                     self::REPO_SERVICE_PAGE,
@@ -110,7 +110,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                     )
                 );
 
-                $typeContainer->addType(
+                /*$typeContainer->addType(
                     Node::TYPE_TARGET_AUDIENCE_PAGE,
                     new Type(
                         'Целевая аудитория',
@@ -118,7 +118,7 @@ class StructureTypesServiceProvider extends ServiceProvider
                         self::REPO_TARGET_AUDIENCE_PAGE,
                         fn() => route('target-audiences')
                     )
-                );
+                );*/
 
                 $typeContainer->addType(
                     Node::TYPE_COMPETENCE_PAGE,
