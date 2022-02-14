@@ -22,6 +22,8 @@ class Node extends Model
     public const TYPE_OFFER_PAGE = 'offer_page';
     public const TYPE_TEXT_PAGE = 'text_page';
 
+    public const HOME_PAGE_ID = 1;
+
     protected $fillable = [
         'parent_id',
         'alias',
