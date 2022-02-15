@@ -4,20 +4,15 @@ namespace App\Providers\Admin;
 
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
-use App\Http\Controllers\Admin\EssenceControllers\BaseEssenceController;
 use App\Http\Controllers\Admin\EssenceControllers\BeforeAfterImagesController;
 use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
 use App\Http\Controllers\Admin\EssenceControllers\FeedbackController;
 use App\Http\Controllers\Admin\EssenceControllers\OffersController;
 use App\Http\Controllers\Admin\EssenceControllers\OurWorksController;
-use App\Http\Controllers\Admin\EssenceControllers\StructureController;
 use App\Http\Controllers\Admin\EssenceControllers\TargetAudiencesController;
-use App\Http\Controllers\Admin\PageControllers\HomePageController;
 use App\Http\Controllers\Admin\EssenceControllers\ReviewsController;
 use App\Http\Controllers\Admin\EssenceControllers\ServicesController;
-use App\Http\Controllers\Admin\PageControllers\TextPageController;
 use App\Http\Controllers\Admin\SettingsController;
-use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
 use App\Services\Admin\Menu\Menu;
 use App\Services\Admin\Menu\MenuElement;
 use App\Services\Admin\Menu\MenuGroup;
@@ -38,15 +33,15 @@ class MenuServiceProvider extends ServiceProvider
                         'glyphicon-th-list',
                         route('cc.structure.index'),
                         [
-                            CompetenciesController::class,
-                            HomePageController::class,
-                            OurWorksController::class,
-                            ReviewsController::class,
-                            ServicesController::class,
-                            TargetAudiencePageController::class,
-                            TextPageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\CompetencePageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\HomePageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\OurWorkPageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\ReviewPageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\ServicePageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\TextPageController::class,
 
-                            StructureController::class,
+                            \App\Http\Controllers\Admin\EssenceControllers\StructureController::class,
                         ]
                     )
                 );
