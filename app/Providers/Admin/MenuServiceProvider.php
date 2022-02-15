@@ -4,6 +4,7 @@ namespace App\Providers\Admin;
 
 use App\Http\Controllers\Admin\AdminRolesController;
 use App\Http\Controllers\Admin\AdminUsersController;
+use App\Http\Controllers\Admin\EssenceControllers\BaseEssenceController;
 use App\Http\Controllers\Admin\EssenceControllers\BeforeAfterImagesController;
 use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
 use App\Http\Controllers\Admin\EssenceControllers\FeedbackController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\Admin\EssenceControllers\TargetAudiencesController;
 use App\Http\Controllers\Admin\PageControllers\HomePageController;
 use App\Http\Controllers\Admin\EssenceControllers\ReviewsController;
 use App\Http\Controllers\Admin\EssenceControllers\ServicesController;
+use App\Http\Controllers\Admin\PageControllers\TextPageController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
 use App\Services\Admin\Menu\Menu;
@@ -36,9 +38,15 @@ class MenuServiceProvider extends ServiceProvider
                         'glyphicon-th-list',
                         route('cc.structure.index'),
                         [
-                            StructureController::class,
+                            CompetenciesController::class,
                             HomePageController::class,
+                            OurWorksController::class,
+                            ReviewsController::class,
+                            ServicesController::class,
                             TargetAudiencePageController::class,
+                            TextPageController::class,
+
+                            StructureController::class,
                         ]
                     )
                 );
