@@ -52,7 +52,7 @@ class ServicesRepository extends BaseFeatureRepository
     }
 
 
-    public function getModelforShowByAliasOrFail(string $alias)
+    public function getModelForShowByAlias(string $alias): Service
     {
         $model = $this->getModel()
             ->with([
@@ -60,7 +60,7 @@ class ServicesRepository extends BaseFeatureRepository
             ])
             ->where('alias', $alias)
             ->where('publish', true)
-            ->firstOrFail();
+            ->first() ?? $this->getModel();
 
         if($model->section_tasks_publish){
             $model->load(['tasks' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);

@@ -31,7 +31,7 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
     }
 
 
-    public function getModelforShowByAliasOrFail(string $alias)
+    public function getModelForShowByAlias(string $alias): TargetAudience
     {
         return $this->getModel()
             ->with([
@@ -44,7 +44,7 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
             ])
             ->where('alias', $alias)
             ->where('publish', true)
-            ->firstOrFail();
+            ->first() ?? $this->getModel();
     }
 
 

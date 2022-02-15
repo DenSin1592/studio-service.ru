@@ -17,7 +17,9 @@
 
 {!! Form::tbTextBlock('name') !!}
 
-{!! Form::tbTextBlock('alias') !!}
+@if(!TypeContainer::getTypeList()[$formData[$essenceName]->type]->getUnique())
+    {!! Form::tbTextBlock('alias') !!}
+@endif
 
 {!! Form::tbCheckboxBlock('publish') !!}
 {!! Form::tbCheckboxBlock('menu_top') !!}
