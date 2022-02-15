@@ -21,7 +21,7 @@
     <div class="gallery-description">'. $formData[$essenceName]->description .'</div>
 </div>
 
-<div class="twentytwenty-cover">
+<div class="twentytwenty-cover" margin-bottom: 25px;>
     <div class="twentytwenty-block">
         <img src="'.$formData[$essenceName]->getImgPath('image_before', 'main').'" class="twentytwenty-media" alt="">
         <img src="'.$formData[$essenceName]->getImgPath('image_after', 'main').'" class="twentytwenty-media" alt="">
