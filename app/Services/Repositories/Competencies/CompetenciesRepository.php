@@ -23,7 +23,7 @@ class CompetenciesRepository extends BaseFeatureRepository
             ->get();
     }
 
-    public function getModelforShowByAliasOrFail(string $alias)
+    public function getModelForShowByAlias(string $alias): Competence
     {
         return $this->getModel()
             ->with([
@@ -37,6 +37,6 @@ class CompetenciesRepository extends BaseFeatureRepository
                 }])
             ->where('alias', $alias)
             ->where('publish', true)
-            ->firstOrFail();
+            ->first() ?? $this->getModel();
     }
 }

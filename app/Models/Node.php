@@ -22,6 +22,8 @@ class Node extends Model
     public const TYPE_OFFER_PAGE = 'offer_page';
     public const TYPE_TEXT_PAGE = 'text_page';
 
+    public const HOME_PAGE_ID = 1;
+
     protected $fillable = [
         'parent_id',
         'alias',
@@ -43,7 +45,12 @@ class Node extends Model
     public function getAliasPath(): array
     {
         $parentPath = $this->extractPath();
-        return array_map(static fn (self $node) =>  $node->alias, $parentPath);
+        return array_map(static function (self $node) {
+            if (\TypeContainer::getTypeList()[$node->type]->getUnique()) {
+                return \TypeContainer::getClientUrl($node, false);
+            }
+            return  $node->alias;
+        }, $parentPath);
     }
 
     public function parent()
@@ -110,9 +117,8 @@ class Node extends Model
 
         self::saving(static function (self $model) {
             AliasHelpers::setAlias($model);
-            $typeObject = \TypeContainer::getTypeList()[$model->type];
-            if ($typeObject->getUnique()) {
-                $model->alias = null;
+            if (\TypeContainer::getTypeList()[$model->type]->getUnique()) {
+                $model->alias = trim(\TypeContainer::getClientUrl($model, false), '/');
             }
         });
     }

@@ -16,19 +16,6 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
         $this->model = new TargetAudience();
     }
 
-    public function getParentVariants(Model $model = null, $rootName = null)
-    {
-        return $this->treeBuilder->getTreeVariants(
-            $this->getModel(),
-            is_null($model) ? null : $model->id,
-            $rootName,
-            null,
-            null,
-            0,
-            '',
-            0);
-    }
-
 
     public function getModelsForTargetAudiencePage()
     {
@@ -44,7 +31,7 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
     }
 
 
-    public function getModelforShowByAliasOrFail(string $alias)
+    public function getModelForShowByAlias(string $alias): TargetAudience
     {
         return $this->getModel()
             ->with([
@@ -57,7 +44,7 @@ class TargetAudienceRepository extends BaseTreeFeatureRepository
             ])
             ->where('alias', $alias)
             ->where('publish', true)
-            ->firstOrFail();
+            ->first() ?? $this->getModel();
     }
 
 

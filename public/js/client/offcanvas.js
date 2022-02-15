@@ -20,5 +20,14 @@
         
         $(offcanvasOpenButton).on('click', openOffcanvas);
         $(offcanvasCloseButton).on('click', closeOffcanvas);
+
+
+        /* offcanvas subcategory */
+        $('.offcanvas-subnav-toggle').on('click', function(e) {
+            let target = e.currentTarget;
+
+            $(target).toggleClass('active');
+            $(target).next().slideToggle();
+        })
     });
 })();

@@ -29,10 +29,15 @@ abstract class BaseEssenceController
 
     public function show(string $url)
     {
-        $model = $this->repository->getModelforShowByAliasOrFail($url);
+        $model = $this->repository->getModelForShowByAlias($url);
 
-        if($model instanceof TargetAudience && $model->parent_id === null)
+        if(!$model->exists){
+            return \App::make(DynamicPagesController::class)->show($_SERVER['REQUEST_URI']);
+        }
+
+        if ($model instanceof TargetAudience && $model->parent_id === null) {
             \Abort(404);
+        }
 
         $metaData = $this->metaHelper->getRule()->metaForObject($model);
 

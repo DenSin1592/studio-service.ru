@@ -16,7 +16,7 @@ class OfferRepository extends BaseFeatureRepository
     }
 
 
-    public function getModelforShowByAliasOrFail(string $alias)
+    public function getModelForShowByAlias(string $alias): Offer
     {
         $model = $this->getModel()
          ->whereHas('service', static function ($q) { $q->where('publish', true); })
@@ -26,7 +26,7 @@ class OfferRepository extends BaseFeatureRepository
                 }])
             ->where('alias', $alias)
             ->where('publish', true)
-            ->firstOrFail();
+            ->first() ?? $this->getModel();
 
         if($model->section_tasks_publish){
             $model->load(['tasks' => static function ($q) {$q->orderBy('position')->where('publish', true);}]);

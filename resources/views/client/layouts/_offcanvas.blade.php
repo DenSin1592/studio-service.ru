@@ -6,7 +6,7 @@
             <div class="row align-items-center justify-content-between">
                 <div class="offcanvas-close-container col-auto">
                     <button type="button" class="offcanvas-close d-flex align-items-center justify-content-center" >
-                        <svg aria-hidden="true" class="modal-close-media" width="20" height="20">
+                        <svg aria-hidden="true" class="offcanvas-close-media" width="20" height="20">
                             <use xlink:href="{{asset('images/icons/sprite.svg#icon-close')}}"></use>
                         </svg>
                     </button>
@@ -64,9 +64,28 @@
                 <nav class="offcanvas-nav-block">
                     <ul class="offcanvas-nav-list d-flex flex-column list-unstyled text-center">
                 @foreach($topMenu as $menuElement)
-                    <li class="offcanvas-nav-item {{ $menuElement['active']  ? 'active' : '' }}">
+                    <li class="offcanvas-nav-item d-flex flex-wrap justify-content-between {{ $menuElement['active']  ? 'active' : '' }}">
                         <a href="{{ $menuElement['url'] }}"
                            class="offcanvas-nav-link">{!! $menuElement['name'] !!}</a>
+
+                        @if(count($menuElement['children']) > 0)
+
+                            <button type="button" class="offcanvas-subnav-toggle d-flex align-items-center justify-content-center" >
+                                <svg class="offcanvas-subnav-media" width="14" height="14">
+                                    <use xlink:href="{{asset('/images/icons/sprite.svg#icon-angle-right')}}"></use>
+                                </svg>
+                            </button>
+
+                            <ul class="offcanvas-subnav-list list-unstyled">
+
+                                @foreach($menuElement['children'] as $childMenuElement)
+                                <li class="offcanvas-subnav-item {{ $childMenuElement['active']  ? 'active' : '' }}">
+                                    <a href="{{$childMenuElement['url']}}" class="offcanvas-subnav-link">{{$childMenuElement['name']}}</a>
+                                </li>
+                                @endforeach
+
+                            </ul>
+                        @endif
                     </li>
                 @endforeach
                     </ul>

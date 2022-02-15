@@ -25,12 +25,12 @@ abstract class BaseFeatureRepository extends BaseRepository
     }
 
 
-    public function getModelforShowByAliasOrFail(string $alias)
+    public function getModelForShowByAlias(string $alias)
     {
         return $this->getModel()
             ->where('alias', $alias)
             ->where('publish', true)
-            ->firstOrFail();
+            ->first() ?? $this->getModel();;
     }
 
 

@@ -26,7 +26,11 @@ abstract class BaseTreeFeatureRepository extends BaseFeatureRepository
 
     public function getParentVariants(Model $model = null, $rootName = null)
     {
-        return $this->treeBuilder->getTreeVariants($this->getModel(), is_null($model) ? null : $model->id, $rootName);
+        return $this->treeBuilder->getTreeVariants(
+            $this->getModel(),
+            is_null($model) ? null : $model->id,
+            $rootName,
+            maxLvl: 0);
     }
 
 

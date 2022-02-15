@@ -1,8 +1,15 @@
 {{-- Form fields for node --}}
 
+
 {!! Form::tbFormGroupOpen('parent_id') !!}
     {!! Form::tbLabel('parent_id', trans('validation.attributes.parent_id')) !!}
+
+@if($formData[$essenceName]->children->count() > 0)
+    {!! Form::tbSelect('parent_id', $formData['parent_variants'], null, ['disabled' => 'disabled']) !!}
+    <p><em>Вы не можете изменить родителя, так как у этой страницы есть дочерние страницы. </em></p>
+@else
     {!! Form::tbSelect('parent_id', $formData['parent_variants']) !!}
+@endif
 {!! Form::tbFormGroupClose() !!}
 
 
@@ -17,7 +24,9 @@
 
 {!! Form::tbTextBlock('name') !!}
 
-{!! Form::tbTextBlock('alias') !!}
+@if($formData[$essenceName]->exists && !TypeContainer::getTypeList()[$formData[$essenceName]->type]->getUnique())
+    {!! Form::tbTextBlock('alias') !!}
+@endif
 
 {!! Form::tbCheckboxBlock('publish') !!}
 {!! Form::tbCheckboxBlock('menu_top') !!}

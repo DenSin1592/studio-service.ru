@@ -19,6 +19,18 @@
                                 <li class="header-nav-item {{ $menuElement['active']  ? 'active' : '' }}">
                                     <a href="{{ $menuElement['url'] }}"
                                        class="header-nav-link">{!! $menuElement['name'] !!}</a>
+
+                                    @if(count($menuElement['children']) > 0)
+                                        <ul class="header-subnav-list list-unstyled">
+
+                                           @foreach($menuElement['children'] as $childMenuElement)
+                                                <li class="header-subnav-item {{ $childMenuElement['active']  ? 'active' : '' }}">
+                                                    <a href="{{$childMenuElement['url']}}" class="header-subnav-link">{{$childMenuElement['name']}}</a>
+                                                </li>
+                                           @endforeach
+
+                                        </ul>
+                                    @endif
                                 </li>
                             @endforeach
                         </ul>

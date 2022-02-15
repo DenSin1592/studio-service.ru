@@ -9,13 +9,10 @@ use App\Http\Controllers\Admin\EssenceControllers\CompetenciesController;
 use App\Http\Controllers\Admin\EssenceControllers\FeedbackController;
 use App\Http\Controllers\Admin\EssenceControllers\OffersController;
 use App\Http\Controllers\Admin\EssenceControllers\OurWorksController;
-use App\Http\Controllers\Admin\EssenceControllers\StructureController;
 use App\Http\Controllers\Admin\EssenceControllers\TargetAudiencesController;
-use App\Http\Controllers\Admin\PageControllers\HomePageController;
 use App\Http\Controllers\Admin\EssenceControllers\ReviewsController;
 use App\Http\Controllers\Admin\EssenceControllers\ServicesController;
 use App\Http\Controllers\Admin\SettingsController;
-use App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController;
 use App\Services\Admin\Menu\Menu;
 use App\Services\Admin\Menu\MenuElement;
 use App\Services\Admin\Menu\MenuGroup;
@@ -36,9 +33,15 @@ class MenuServiceProvider extends ServiceProvider
                         'glyphicon-th-list',
                         route('cc.structure.index'),
                         [
-                            StructureController::class,
-                            HomePageController::class,
-                            TargetAudiencePageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\CompetencePageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\HomePageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\OurWorkPageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\ReviewPageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\ServicePageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\TargetAudiencePageController::class,
+                            \App\Http\Controllers\Admin\PageControllers\TextPageController::class,
+
+                            \App\Http\Controllers\Admin\EssenceControllers\StructureController::class,
                         ]
                     )
                 );

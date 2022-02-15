@@ -52,43 +52,43 @@
             text-decoration: none;
         }
     }
+}
 
-    .offcanvas-close {
-        cursor: pointer;
-        position: relative;
-        margin: 0;
-        padding: 0;
-        width: 20px;
-        height: 20px;
-        border: none;
-        border-radius: 0;
-        background: none;
-        font-weight: 700;
+.offcanvas-close {
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 0;
+    background: none;
+    font-weight: 700;
+    color: currentColor;
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 42px;
+        height: 42px;
+        transform: translate(-50%, -50%);
+        content: '';
+    }
+
+    .offcanvas-close-media {
+        fill: currentColor;
         color: currentColor;
-        &::before {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 42px;
-            height: 42px;
-            transform: translate(-50%, -50%);
-            content: '';
-        }
-
-        .modal-close-media {
-            fill: currentColor;
-            color: currentColor;
-        }
     }
+}
 
-    .offcanvas-header {
-        padding-top: 8px;
-        padding-bottom: 8px;
-    }
+.offcanvas-header {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
 
-    .offcanvas-statusbar {
-        padding-top: 18px;
-        padding-bottom: 18px;
-        background: $c-secondary;
-    }
+.offcanvas-statusbar {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    background: $c-secondary;
 }

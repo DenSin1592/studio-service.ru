@@ -37,6 +37,10 @@ class NodeRepository extends BaseTreeFeatureRepository
     {
         return $this->getModel()
             ->where('menu_top', true)
+            ->where('parent_id', null)
+            ->with(['children' => function($q){
+                $q->where('menu_top', true);
+            }])
             ->orderBy('position')
             ->where('publish', true)
             ->get();

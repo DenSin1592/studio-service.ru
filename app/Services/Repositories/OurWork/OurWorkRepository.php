@@ -28,7 +28,7 @@ class OurWorkRepository extends BaseFeatureRepository
             ->get();
     }
 
-    public function getModelforShowByAliasOrFail(string $alias)
+    public function getModelForShowByAlias(string $alias): OurWork
     {
         return $this->getModel()
             ->with([
@@ -39,7 +39,7 @@ class OurWorkRepository extends BaseFeatureRepository
                 }])
             ->where('alias', $alias)
             ->where('publish', true)
-            ->firstOrFail();
+            ->first() ?? $this->getModel();
     }
 
     public function getOtherModelsForModelByAlias(string $alias)
