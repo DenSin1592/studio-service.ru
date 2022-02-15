@@ -12,10 +12,11 @@ class StringHelper
      * @param string $url
      * @return bool
      */
-    public function checkUrlIncludes(string $currentUrl, string $url): bool
+    private function checkUrlIncludes(string $currentUrl, string $url): bool
     {
         $currentUrlCheck = parse_url(rtrim($currentUrl, '/'), PHP_URL_PATH) . '/';
         $urlCheck = parse_url(rtrim($url, '/'), PHP_URL_PATH) . '/';
+
         if ($urlCheck === '/') {
             $active = $currentUrlCheck === $urlCheck;
         } else {

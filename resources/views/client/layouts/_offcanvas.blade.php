@@ -68,27 +68,24 @@
                         <a href="{{ $menuElement['url'] }}"
                            class="offcanvas-nav-link">{!! $menuElement['name'] !!}</a>
 
-                        {{-- todo: запрограммировать выпадающий список --}}
-                        <button type="button" class="offcanvas-subnav-toggle d-flex align-items-center justify-content-center" >
-                            <svg class="offcanvas-subnav-media" width="14" height="14">
-                                <use xlink:href="{{asset('/images/icons/sprite.svg#icon-angle-right')}}"></use>
-                            </svg>
-                        </button>
+                        @if(count($menuElement['children']) > 0)
 
-                        <ul class="offcanvas-subnav-list list-unstyled">
-                            {{-- todo: для активной подкатегории проставлять класс active --}}
-                            <li class="offcanvas-subnav-item active">
-                                <a href="#link" class="offcanvas-subnav-link">Подкатегория 1</a>
-                            </li>
+                            <button type="button" class="offcanvas-subnav-toggle d-flex align-items-center justify-content-center" >
+                                <svg class="offcanvas-subnav-media" width="14" height="14">
+                                    <use xlink:href="{{asset('/images/icons/sprite.svg#icon-angle-right')}}"></use>
+                                </svg>
+                            </button>
 
-                            <li class="offcanvas-subnav-item">
-                                <a href="#link" class="offcanvas-subnav-link">Подкатегория 2</a>
-                            </li>
+                            <ul class="offcanvas-subnav-list list-unstyled">
 
-                            <li class="offcanvas-subnav-item">
-                                <a href="#link" class="offcanvas-subnav-link">Подкатегория 3</a>
-                            </li>
-                        </ul>
+                                @foreach($menuElement['children'] as $childMenuElement)
+                                <li class="offcanvas-subnav-item {{ $childMenuElement['active']  ? 'active' : '' }}">
+                                    <a href="{{$childMenuElement['url']}}" class="offcanvas-subnav-link">{{$childMenuElement['name']}}</a>
+                                </li>
+                                @endforeach
+
+                            </ul>
+                        @endif
                     </li>
                 @endforeach
                     </ul>

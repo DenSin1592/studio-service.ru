@@ -20,21 +20,17 @@
                                     <a href="{{ $menuElement['url'] }}"
                                        class="header-nav-link">{!! $menuElement['name'] !!}</a>
 
-                                    {{-- todo: запрограммировать выпадающий список --}}
-                                    <ul class="header-subnav-list list-unstyled">
-                                        {{-- todo: для активной подкатегории проставлять класс active --}}
-                                        <li class="header-subnav-item active">
-                                            <a href="#link" class="header-subnav-link">Подкатегория 1</a>
-                                        </li>
+                                    @if(count($menuElement['children']) > 0)
+                                        <ul class="header-subnav-list list-unstyled">
 
-                                        <li class="header-subnav-item">
-                                            <a href="#link" class="header-subnav-link">Подкатегория 2</a>
-                                        </li>
+                                           @foreach($menuElement['children'] as $childMenuElement)
+                                                <li class="header-subnav-item {{ $childMenuElement['active']  ? 'active' : '' }}">
+                                                    <a href="{{$childMenuElement['url']}}" class="header-subnav-link">{{$childMenuElement['name']}}</a>
+                                                </li>
+                                           @endforeach
 
-                                        <li class="header-subnav-item">
-                                            <a href="#link" class="header-subnav-link">Подкатегория 3</a>
-                                        </li>
-                                    </ul>
+                                        </ul>
+                                    @endif
                                 </li>
                             @endforeach
                         </ul>
