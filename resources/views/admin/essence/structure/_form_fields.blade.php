@@ -1,5 +1,6 @@
 {{-- Form fields for node --}}
 
+
 {!! Form::tbFormGroupOpen('parent_id') !!}
     {!! Form::tbLabel('parent_id', trans('validation.attributes.parent_id')) !!}
 
@@ -23,7 +24,7 @@
 
 {!! Form::tbTextBlock('name') !!}
 
-@if(!TypeContainer::getTypeList()[$formData[$essenceName]->type]->getUnique())
+@if($formData[$essenceName]->exists && !TypeContainer::getTypeList()[$formData[$essenceName]->type]->getUnique())
     {!! Form::tbTextBlock('alias') !!}
 @endif
 
