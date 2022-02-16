@@ -22,7 +22,7 @@ class TargetAudienceController extends BaseEssenceController
     protected function getBreadCrumbs(string $h1, Model $model)
     {
         $breadcrumbs = $this->breadcrumbs->init();
-        $breadcrumbs->add('Для кого', route('target-audiences'));
+        $breadcrumbs->add('Для кого');
         $breadcrumbs->add($h1);
 
         return $breadcrumbs;
