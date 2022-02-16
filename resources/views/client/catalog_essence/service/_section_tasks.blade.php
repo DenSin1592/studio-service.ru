@@ -43,9 +43,9 @@
                 <div class="swiper-wrapper d-flex flex-nowrap no-gutters">
 
                     @foreach($model->tasks as $element)
-                        <div class="swiper-slide col-12">
-                        <div class="container">
-                            <div class="form-row">
+                        <div class="swiper-slide col-12 d-flex">
+                        <div class="container d-flex flex-column">
+                            <div class="form-row flex-grow-1">
                                 <div class="swiper-presentation-typography-container col-12 col-md-6">
                                     <div class="form-row">
                                         <div class="swiper-presentation-counter-container col-2 col-md-3 col-xl-4">
@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
 
-                                <div class="swiper-presentation-media-container col-10 col-md-5 offset-2 offset-md-1 offset-xxl-0">
+                                <div class="swiper-presentation-media-container col-10 col-md-5 offset-2 offset-md-1 offset-xxl-0 align-self-end align-self-md-start">
                                     <figure class="swiper-presentation-figure">
                                         <img loading="lazy" src="{{$element->getImgPath('image', 'main', 'no-image-500x500.png')}}" width="1012" height="667" alt="" class="swiper-presentation-media">
                                     </figure>

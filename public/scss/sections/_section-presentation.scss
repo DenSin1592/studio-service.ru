@@ -96,9 +96,7 @@
                     }
 
                     .swiper-presentation-nav-thumbnail {
-                        @include media-breakpoint-down(lg) {
-                            background-color: $c-white;
-                        }
+                        background-color: $c-white;
                     }
                 }
             }
@@ -369,6 +367,12 @@
     .swiper-presentation-description {
         margin: 0 0 70px;
         @include media-breakpoint-up(sm) {
+            margin-bottom: 80px;
+        }
+        @include media-breakpoint-up(xl) {
+            margin-bottom: 110px;
+        }
+        @include media-breakpoint-up(xxl) {
             margin-bottom: 80px;
         }
     }
