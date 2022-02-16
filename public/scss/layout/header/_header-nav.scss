@@ -50,11 +50,15 @@
     position: absolute;
     top: 100%;
     left: 0;
+    min-width: 250px;
     margin: 0;
     padding: 0;
     background: $c-purple-dark;
     transform: translateY(20px);
     transition: opacity 100ms ease, transform 100ms ease;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
 }
 
 .header-subnav-item {
@@ -72,11 +76,8 @@
 .header-subnav-link {
     display: block;
     padding: 8px 15px;
-    font-size: 14px;
-    font-weight: 600;
     color: $c-secondary;
     text-decoration: none;
-    white-space: nowrap;
     transition: color 300ms ease;
 
     &:hover {

@@ -7,11 +7,7 @@
 
                         @include('client.shared.breadcrumbs._breadcrumbs')
 
-                        <div class="row">
-                            <div class="col-10 col-sm-8 col-md-12">
-                                <h1 class="service-title title-h1">{!! $metaData['h1'] !!}</h1>
-                            </div>
-                        </div>
+                        <h1 class="service-title title-h1">{!! $metaData['h1'] !!}</h1>
 
                         {!! $model->achievements_block !!}
 
@@ -49,7 +45,7 @@
                         </div>
                     </div>
 
-                    <div class="service-media-container col-12 col-md-5 col-xl-5 col-xxl-5 offset-8 offset-sm-5 offset-md-7 offset-xxl-8 d-flex align-items-start justify-content-center">
+                    <div class="service-media-container col-md-5 offset-md-7 offset-xxl-8 d-none d-md-flex align-items-md-start justify-content-md-center">
                         <figure class="service-media-figure" >
                             <img loading="lazy" src="{{$model->getImgPath('image_right_from_header', 'main')}}" width="664" height="558" alt="" class="service-media">
                         </figure>
