@@ -22,7 +22,7 @@
                                     <div class="row">
                                         <div class="card-accordion-media-container col-md-4 col-xl-4 col-xxl-5 order-md-1">
                                             <div class="card-accordion-thumbnail">
-                                                <img loading="lazy" src="{{$element->getImgPath('image', 'main')}}"  width="474" height="362" alt="" class="card-accordion-media">
+                                                <img loading="lazy" src="{{$element->getImgPath('image', 'main', 'no-image-200x200.png')}}"  width="474" height="362" alt="" class="card-accordion-media">
                                             </div>
                                         </div>
 
