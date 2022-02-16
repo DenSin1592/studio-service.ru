@@ -16,6 +16,7 @@
 @if($formData[$essenceName]->exists)
     <div class="form-group">
         <label for="" class="control-label">Код</label>
+        <div class="field-hint-block">Для отображения данного блока «До/После» на текстовых страницах Вам необходимо скопировать данный код отсюда и вставить на необходимую страницу в контент.</div>
         <textarea class="form-control" cols="50" rows="10" disabled>{!!
 '<div class="gallery-header-container d-flex flex-column justify-content-center">
     <div class="gallery-description">'. $formData[$essenceName]->description .'</div>
