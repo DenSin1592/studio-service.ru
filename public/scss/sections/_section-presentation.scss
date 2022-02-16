@@ -96,9 +96,7 @@
                     }
 
                     .swiper-presentation-nav-thumbnail {
-                        @include media-breakpoint-down(lg) {
-                            background-color: $c-white;
-                        }
+                        background-color: $c-white;
                     }
                 }
             }
