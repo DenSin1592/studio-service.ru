@@ -20,11 +20,13 @@
                             <div id="faq-collapse-{{$element->id}}" class="card-accordion-collapse collapse" aria-labelledby="faq-heading-{{$element->id}}">
                                 <div class="card-accordion-content">
                                     <div class="row">
+                                        @if(($imagePath = $element->getImgPath('image', 'main')) !== '')
                                         <div class="card-accordion-media-container col-md-4 col-xl-4 col-xxl-5 order-md-1">
                                             <div class="card-accordion-thumbnail">
-                                                <img loading="lazy" src="{{$element->getImgPath('image', 'main', 'no-image-200x200.png')}}"  width="474" height="362" alt="" class="card-accordion-media">
+                                                <img loading="lazy" src="{{$imagePath}}"  width="474" height="362" alt="{{$element->name}}" class="card-accordion-media">
                                             </div>
                                         </div>
+                                        @endif
 
                                         <div class="card-accordion-typogrpahy-container col-md-8 col-xl-8 col-xxl-7 order-md-0">
                                             {!! $element->content !!}
