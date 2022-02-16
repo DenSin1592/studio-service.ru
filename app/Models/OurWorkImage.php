@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Features\Glue;
 use Diol\Fileclip\UploaderIntegrator;
 use Diol\Fileclip\Version\OutBoundVersion;
-use Diol\FileclipExif\Glue;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -29,14 +29,6 @@ class OurWorkImage extends Model
     public function ourWork()
     {
         return $this->belongsTo(OurWork::class);
-    }
-
-
-    public function getImgPath(string $field, ?string $version, string $noImageVersion)
-    {
-        if($this->getAttachment($field)?->exists($version))
-            return asset($this->getAttachment($field)->getUrl($version));
-        return asset('/images/common/no-image/' . $noImageVersion);
     }
 
 
