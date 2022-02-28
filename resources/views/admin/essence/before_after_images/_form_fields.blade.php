@@ -1,7 +1,7 @@
 {!! Form::tbTextBlock('name') !!}
 {!! Form::tbCheckboxBlock('publish') !!}
 {!! Form::tbCheckboxBlock('on_home_page') !!}
-{!! Form::tbTinymceTextareaBlock('description') !!}
+{!! Form::tbTextareaBlock('description') !!}
 
 <hr>
 
