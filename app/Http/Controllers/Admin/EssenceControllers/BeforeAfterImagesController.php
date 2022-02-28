@@ -24,7 +24,7 @@ final class BeforeAfterImagesController extends BaseEssenceController
     protected const VIEW_LIST = 'admin.essence.before_after_images._list';
     protected const VIEW_FORM_FIELDS = 'admin.essence.before_after_images._form_fields';
 
-    public const INDEX_TITLE = 'Изображение "До/После"';
+    public const INDEX_TITLE = 'Изображения "До/После"';
 
     protected const CREATE_MESSAGE = 'Группа изображений создана';
     protected const EDIT_MESSAGE = 'Группа изображений обновлена';
